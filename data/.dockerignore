@@ -1,0 +1,5 @@
+raw/
+corpus/
+**/__pycache__/
+Makefile
+README.md
