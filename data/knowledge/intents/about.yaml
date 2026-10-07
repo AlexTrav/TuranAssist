@@ -1,0 +1,123 @@
+# об университете: общие сведения, факультеты, контакты, адреса, международные экзамены
+group: about
+intents:
+  - id: about_university
+    title: {ru: Об университете, kk: Университет туралы, en: About the university}
+    sources: [about, accreditation]
+    answer:
+      ru: |
+        Университет «Туран» основан в 1992 году в Алматы и является ядром образовательной корпорации «Туран» (колледжи, лицей, «Туран-Астана»).
+        Уровни обучения: бакалавриат, магистратура, докторантура PhD, MBA и DBA. Работают диссертационные советы по защите PhD.
+        Университет прошёл международную институциональную аккредитацию агентств ACQUIN и НААР, система менеджмента качества соответствует ISO 9001:2015.
+        Студенты учатся по государственным грантам и грантам университета.
+      kk: |
+        «Тұран» университеті 1992 жылы Алматыда құрылған және «Тұран» білім беру корпорациясының (колледждер, лицей, «Тұран-Астана») өзегі болып табылады.
+        Оқу деңгейлері: бакалавриат, магистратура, PhD докторантурасы, MBA және DBA. PhD қорғау жөніндегі диссертациялық кеңестер жұмыс істейді.
+        Университет ACQUIN және ТАРА агенттіктерінің халықаралық институционалдық аккредиттеуінен өтті, сапа менеджменті жүйесі ISO 9001:2015 талаптарына сәйкес келеді.
+        Студенттер мемлекеттік гранттар мен университет гранттары бойынша оқиды.
+      en: |
+        Turan University was founded in 1992 in Almaty and is the core of the Turan educational corporation (colleges, a lyceum, Turan-Astana).
+        Levels of study: bachelor's, master's, PhD, MBA and DBA. The university has dissertation councils for PhD defenses.
+        It holds international institutional accreditation from ACQUIN and IAAR, and its quality management system complies with ISO 9001:2015.
+        Students study on state grants and university grants.
+
+  - id: faculties
+    title: {ru: Факультеты, kk: Факультеттер, en: Faculties}
+    sources: [faculty-humanities-law, faculty-economics, faculty-digital-arts, faculty-business]
+    answer:
+      ru: |
+        Факультеты университета:
+        - гуманитарно-юридический – право, социальные науки, журналистика, переводческое дело, сфера обслуживания (деканат – каб. 613);
+        - экономический – бизнес и управление, логистика, часть ИКТ-программ (деканат – каб. 311);
+        - «Цифровые технологии и искусство» – ИКТ, телекоммуникации, кино и театральное искусство (пр. Достык, 108/110);
+        - делового администрирования – MBA, Executive MBA и DBA.
+        Также работает центр довузовской подготовки Foundation.
+      kk: |
+        Университет факультеттері:
+        - гуманитарлық-заң – құқық, әлеуметтік ғылымдар, журналистика, аударма ісі, қызмет көрсету саласы (деканат – 613 каб.);
+        - экономикалық – бизнес және басқару, логистика, АКТ бағдарламаларының бір бөлігі (деканат – 311 каб.);
+        - «Сандық технологиялар және өнер» – АКТ, телекоммуникациялар, кино және театр өнері (Достық даңғылы, 108/110);
+        - іскерлік әкімшілік – MBA, Executive MBA және DBA.
+        Сондай-ақ Foundation жоғары оқу орнына дейінгі дайындық орталығы жұмыс істейді.
+      en: |
+        University faculties:
+        - Humanities and Law – law, social sciences, journalism, translation studies, services (dean's office – room 613);
+        - Economics – business and management, logistics and some ICT programs (dean's office – room 311);
+        - Digital Technologies and Arts – ICT, telecommunications, film and theater arts (108/110 Dostyk Ave.);
+        - Business Administration – MBA, Executive MBA and DBA.
+        There is also the Foundation pre-university training center.
+
+  - id: contacts
+    title: {ru: Контакты, kk: Байланыстар, en: Contacts}
+    sources: [contacts, student-support-center]
+    answer:
+      ru: |
+        Главный корпус: г. Алматы, ул. Сатпаева, 16а, reception@turan-edu.kz
+        - приёмная комиссия: +7 (727) 260 40 00;
+        - Центр обслуживания студентов: +7 (727) 260 40 19, student_support@turan-edu.kz (пн–пт, 9:00–18:00);
+        - бухгалтерия: +7 (727) 260 40 11;
+        - приёмная ректора: +7 (727) 260 70 00;
+        - WhatsApp: +7 771 260 40 40.
+        Факультет «Цифровые технологии и искусство» (пр. Достык, 108/110): приёмная комиссия +7 (727) 264 48 72.
+        Отдел международного сотрудничества: +7 (727) 260 40 23, international@turan-edu.kz.
+      kk: |
+        Бас корпус: Алматы қ., Сәтбаев к-сі, 16а, reception@turan-edu.kz
+        - қабылдау комиссиясы: +7 (727) 260 40 00;
+        - Студенттерге қызмет көрсету орталығы: +7 (727) 260 40 19, student_support@turan-edu.kz (дс–жм, 9:00–18:00);
+        - бухгалтерия: +7 (727) 260 40 11;
+        - ректордың қабылдау бөлмесі: +7 (727) 260 70 00;
+        - WhatsApp: +7 771 260 40 40.
+        «Сандық технологиялар және өнер» факультеті (Достық даңғылы, 108/110): қабылдау комиссиясы +7 (727) 264 48 72.
+        Халықаралық ынтымақтастық бөлімі: +7 (727) 260 40 23, international@turan-edu.kz.
+      en: |
+        Main building: 16a Satpayev St., Almaty, reception@turan-edu.kz
+        - admissions office: +7 (727) 260 40 00;
+        - Student Service Center: +7 (727) 260 40 19, student_support@turan-edu.kz (Mon–Fri, 9:00–18:00);
+        - accounting office: +7 (727) 260 40 11;
+        - rector's office: +7 (727) 260 70 00;
+        - WhatsApp: +7 771 260 40 40.
+        Faculty of Digital Technologies and Arts (108/110 Dostyk Ave.): admissions +7 (727) 264 48 72.
+        International Cooperation Office: +7 (727) 260 40 23, international@turan-edu.kz.
+
+  - id: location
+    title: {ru: Адрес и как добраться, kk: Мекенжай, en: Address and location}
+    sources: [contacts, dormitory]
+    answer:
+      ru: |
+        Главный корпус – г. Алматы, ул. Сатпаева, 16а (индекс 050013).
+        Факультет «Цифровые технологии и искусство» – г. Алматы, пр. Достык, 108/110 (индекс 050010).
+        Карта есть на странице «Контакты», а посмотреть университет и Дом студентов можно в виртуальном 3D-туре: https://turan.edu.kz/ru/3dtour/
+      kk: |
+        Бас корпус – Алматы қ., Сәтбаев к-сі, 16а (индекс 050013).
+        «Сандық технологиялар және өнер» факультеті – Алматы қ., Достық даңғылы, 108/110 (индекс 050010).
+        Карта «Байланыстар» бетінде, ал университет пен Студенттер үйін виртуалды 3D-турда көруге болады: https://turan.edu.kz/ru/3dtour/
+      en: |
+        Main building – 16a Satpayev St., Almaty (postcode 050013).
+        Faculty of Digital Technologies and Arts – 108/110 Dostyk Ave., Almaty (postcode 050010).
+        A map is on the Contacts page, and you can see the university and the Student House in a virtual 3D tour: https://turan.edu.kz/ru/3dtour/
+
+  - id: international_exams
+    title: {ru: IELTS, TOEFL и SAT в университете, kk: Университеттегі IELTS, TOEFL және SAT, en: IELTS, TOEFL and SAT at the university}
+    sources: [international-exams]
+    answer:
+      ru: |
+        Университет «Туран» – официальный центр сразу трёх международных экзаменов: IELTS (авторизованный регистрационный центр British Council), TOEFL iBT и SAT.
+        Регистрация – на сайтах организаторов:
+        - SAT: https://collegereadiness.collegeboard.org/sat/register
+        - TOEFL iBT: https://www.ets.org/toefl/test-takers/ibt/take/register/
+        - IELTS – через British Council.
+        По вопросам экзаменов обращайтесь к координатору тестового центра – контакты на странице «Международные экзамены».
+      kk: |
+        «Тұран» университеті бірден үш халықаралық емтиханның ресми орталығы: IELTS (British Council авторландырылған тіркеу орталығы), TOEFL iBT және SAT.
+        Тіркелу – ұйымдастырушылардың сайттарында:
+        - SAT: https://collegereadiness.collegeboard.org/sat/register
+        - TOEFL iBT: https://www.ets.org/toefl/test-takers/ibt/take/register/
+        - IELTS – British Council арқылы.
+        Емтихандар бойынша тестілеу орталығының үйлестірушісіне жүгініңіз – байланыстар «Халықаралық емтихандар» бетінде.
+      en: |
+        Turan University is an official center for three international exams: IELTS (an authorized British Council registration center), TOEFL iBT and SAT.
+        Register on the organizers' websites:
+        - SAT: https://collegereadiness.collegeboard.org/sat/register
+        - TOEFL iBT: https://www.ets.org/toefl/test-takers/ibt/take/register/
+        - IELTS – via the British Council.
+        For exam questions, contact the test center coordinator – details are on the International exams page.

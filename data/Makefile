@@ -1,4 +1,4 @@
-.PHONY: build collect collect-pages collect-docs clean
+.PHONY: build collect collect-pages collect-docs check clean
 
 IMAGE := turanassist-data
 
@@ -23,6 +23,11 @@ collect-pages: build
 # собрать только нормативные документы (PDF)
 collect-docs: build
 	$(RUN) --only docs
+
+# проверить базу ответов: переводы на ru/kk/en, источники в корпусе, отсутствие длинных тире
+check: build
+	docker run --rm -v "$(CURDIR)/corpus:/data/corpus:ro" -v "$(CURDIR)/knowledge:/data/knowledge:ro" \
+		--entrypoint python $(IMAGE) -m collect.check_knowledge
 
 # удалить сырые данные и образ (корпус в corpus/ остаётся)
 clean:

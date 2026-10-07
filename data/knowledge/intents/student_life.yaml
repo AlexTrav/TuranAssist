@@ -1,0 +1,148 @@
+# студенческая жизнь: общежитие, медцентр, библиотека, клубы, карьера, инклюзия, военная кафедра
+group: student_life
+intents:
+  - id: dormitory
+    title: {ru: Общежитие, kk: Жатақхана, en: Dormitory}
+    sources: [dormitory, student-support-center]
+    answer:
+      ru: |
+        Места в Доме студентов выделяются нуждающимся в жилье: приехавшим из отдалённых регионов Казахстана и иностранным гражданам (кроме обладателей внутренних грантов университета на весь срок). Студентам 1–2 курсов место даётся на учебный период без каникул.
+        Места распределяет конкурсная комиссия в порядке приоритета: сироты; лица с инвалидностью I и II групп; студенты на государственном гранте; студенты из многодетных семей; участники академической мобильности; студенты с хорошей успеваемостью и активной общественной жизнью.
+        Заявка подаётся онлайн: asu.turan-edu.kz. Правила проживания: https://e-lib.turan-edu.kz/book/89670/read
+        По данным сайта на июль 2026 года свободных мест не было – уточняйте наличие в Центре обслуживания студентов: +7 (727) 260-40-19.
+      kk: |
+        Студенттер үйіндегі орындар тұрғын үйге мұқтаж адамдарға беріледі: Қазақстанның шалғай өңірлерінен келгендерге және шетел азаматтарына (университеттің бүкіл мерзімге арналған ішкі гранттарының иегерлерінен басқа). 1–2 курс студенттеріне орын демалыссыз оқу кезеңіне беріледі.
+        Орындарды конкурстық комиссия басымдық тәртібімен бөледі: жетімдер; I және II топтағы мүгедектігі бар адамдар; мемлекеттік грант бойынша оқитын студенттер; көп балалы отбасылардың студенттері; академиялық ұтқырлыққа қатысушылар; жақсы оқитын және қоғамдық өмірге белсенді қатысатын студенттер.
+        Өтінім онлайн беріледі: asu.turan-edu.kz. Тұру ережелері: https://e-lib.turan-edu.kz/book/89670/read
+        Сайттағы деректер бойынша 2026 жылғы шілдеде бос орын болмаған – бос орындарды Студенттерге қызмет көрсету орталығынан нақтылаңыз: +7 (727) 260-40-19.
+      en: |
+        Places in the Student House are given to those who need housing: students from remote regions of Kazakhstan and international students (except holders of internal university grants for the full period). 1st and 2nd year students get a place for the study period, excluding breaks.
+        Places are allocated by a committee in order of priority: orphans; people with disability groups I and II; state grant students; students from large families; academic mobility participants; students with good grades and an active social life.
+        Apply online: asu.turan-edu.kz. Residence rules: https://e-lib.turan-edu.kz/book/89670/read
+        According to the website, there were no vacancies as of July 2026 – check availability with the Student Service Center: +7 (727) 260-40-19.
+
+  - id: medical_center
+    title: {ru: Медицинский центр, kk: Медициналық орталық, en: Medical center}
+    sources: [medical-center]
+    answer:
+      ru: |
+        Медико-оздоровительный центр находится на цокольном этаже, кабинет 108: осмотр врача и помощь медсестры прямо в университете.
+        Первокурсники при сдаче документов приносят справку 075/у (терапевт, окулист, ЛОР, хирург, невролог, флюорография и анализы). Для неё нужны справки из наркологической и психоневрологической организаций (через eGov) и копия формы 065/у с прививками.
+        Иностранные студенты предоставляют копию прививочной карты и проходят медосмотр 075/у и флюорографию по прибытии в Алматы.
+        Все студенты ежегодно сдают в медцентр снимок флюорографии с описанием.
+      kk: |
+        Медициналық-сауықтыру орталығы цоколь қабатта, 108 кабинетте орналасқан: дәрігердің қарауы және медбикенің көмегі университеттің өзінде.
+        Бірінші курс студенттері құжат тапсырғанда 075/у анықтамасын әкеледі (терапевт, окулист, ЛОР, хирург, невролог, флюорография және талдаулар). Ол үшін наркологиялық және психоневрологиялық ұйымдардан анықтамалар (eGov арқылы) және екпелері бар 065/у нысанының көшірмесі қажет.
+        Шетелдік студенттер екпе картасының көшірмесін ұсынады және Алматыға келгенде 075/у медициналық тексеруден және флюорографиядан өтеді.
+        Барлық студенттер жыл сайын медициналық орталыққа сипаттамасы бар флюорография суретін тапсырады.
+      en: |
+        The medical and health center is on the ground floor, room 108: doctor's checkups and nurse care right at the university.
+        First-year students submit a 075/u medical certificate with their documents (general practitioner, ophthalmologist, ENT, surgeon, neurologist, chest X-ray and tests). For it you need certificates from the narcological and psychoneurological organizations (via eGov) and a copy of form 065/u with your vaccinations.
+        International students provide a copy of their vaccination card and take the 075/u checkup and chest X-ray after arriving in Almaty.
+        All students submit a chest X-ray with a description to the medical center every year.
+
+  - id: library
+    title: {ru: Библиотека, kk: Кітапхана, en: Library}
+    sources: [library, library-rules, library-resources]
+    answer:
+      ru: |
+        Turan Library – университетская библиотека с читальным залом, абонементом и электронной библиотекой.
+        - Вход в электронную библиотеку – через АСУ «Туран» с любого устройства с интернетом.
+        - Книги выдаются по удостоверению личности; в читальном зале издания без права выноса, на дом – через абонемент (последний экземпляр на дом не выдаётся).
+        - Доступны подписки на электронные ресурсы (например, IPR SMART).
+        В библиотеку нельзя входить в верхней одежде и с едой. Полные правила – на странице «Правила пользования библиотекой».
+      kk: |
+        Turan Library – оқу залы, абонементі және электронды кітапханасы бар университет кітапханасы.
+        - Электронды кітапханаға «Тұран» АБЖ арқылы интернеті бар кез келген құрылғыдан кіруге болады.
+        - Кітаптар жеке куәлік бойынша беріледі; оқу залында басылымдар сыртқа шығарусыз, үйге – абонемент арқылы (соңғы данасы үйге берілмейді).
+        - Электронды ресурстарға жазылымдар қолжетімді (мысалы, IPR SMART).
+        Кітапханаға сырт киіммен және тамақпен кіруге болмайды. Толық ережелер – «Кітапхананы пайдалану ережесі» бетінде.
+      en: |
+        Turan Library is the university library with a reading room, a lending desk and an e-library.
+        - Access the e-library through Turan ASU from any device with internet.
+        - Books are issued on your ID; reading room materials cannot be taken out, home loans go through the lending desk (the last copy is not lent).
+        - Subscriptions to e-resources are available (for example, IPR SMART).
+        No outerwear or food in the library. Full rules are on the Library rules page.
+
+  - id: student_clubs
+    title: {ru: Студенческие клубы, kk: Студенттік клубтар, en: Student clubs}
+    sources: [student-life]
+    answer:
+      ru: |
+        В университете работает Студенческий совет – в него может войти любой студент, соответствующий критериям.
+        Студенческие организации: TSG, интеллектуально-дебатный клуб «Sirius», Enactus Turan, Turan's Trumps, AgitkaTeam, MusLab, театральный кружок TeArt, SanalyUrpaq, студенческий комитет по правам, «Жайдарман», Shisai, WakeUp Turan, TUNS, Life Turan, творческое объединение 711, киберспортивная организация CyberUnit, ивент-клуб UniBeat.
+        Новости студенческой жизни – на странице «Студенческая жизнь».
+      kk: |
+        Университетте Студенттік кеңес жұмыс істейді – оған өлшемдерге сай кез келген студент кіре алады.
+        Студенттік ұйымдар: TSG, «Sirius» зияткерлік-пікірсайыс клубы, Enactus Turan, Turan's Trumps, AgitkaTeam, MusLab, TeArt театр үйірмесі, SanalyUrpaq, студенттік құқық комитеті, «Жайдарман», Shisai, WakeUp Turan, TUNS, Life Turan, 711 шығармашылық бірлестігі, CyberUnit киберспорт ұйымы, UniBeat ивент-клубы.
+        Студенттік өмір жаңалықтары – «Студенттік өмір» бетінде.
+      en: |
+        The university has a Student Council – any student who meets the criteria can join.
+        Student organizations: TSG, Sirius debate club, Enactus Turan, Turan's Trumps, AgitkaTeam, MusLab, TeArt theater club, SanalyUrpaq, the student rights committee, Zhaidarman, Shisai, WakeUp Turan, TUNS, Life Turan, the 711 creative association, the CyberUnit esports organization and the UniBeat event club.
+        Student life news is on the Student life page.
+
+  - id: career_center
+    title: {ru: Центр карьеры, kk: Мансап орталығы, en: Career center}
+    sources: [career-center, contacts]
+    answer:
+      ru: |
+        Центр карьеры и лидерства помогает с трудоустройством, практикой и стажировками.
+        Проекты: Карьерная ярмарка (встречи с работодателями), Skill up (мастер-классы специалистов компаний), Case4Success (кейс-чемпионат от компаний-партнёров).
+        Офис: ул. Сатпаева, 16А, кабинет 709. Телефон: +7 (727) 260 40 00 (внутр. 1210), почта: career.leadership@turan-edu.kz, Instagram: @turan_career_center.
+        Вакансии также ищите на hh.kz и beam.kz.
+      kk: |
+        Мансап және көшбасшылық орталығы жұмысқа орналасуға, практикаға және тағылымдамаға көмектеседі.
+        Жобалар: Мансап жәрмеңкесі (жұмыс берушілермен кездесулер), Skill up (компания мамандарының шеберлік сабақтары), Case4Success (серіктес компаниялардың кейс-чемпионаты).
+        Кеңсе: Сәтбаев к-сі, 16А, 709 кабинет. Телефон: +7 (727) 260 40 00 (ішкі 1210), пошта: career.leadership@turan-edu.kz, Instagram: @turan_career_center.
+        Бос жұмыс орындарын hh.kz және beam.kz сайттарынан да іздеңіз.
+      en: |
+        The Career and Leadership Center helps with employment, practice and internships.
+        Projects: the Career Fair (meetings with employers), Skill up (master classes by company experts) and Case4Success (a case championship with partner companies).
+        Office: 16A Satpayev St., room 709. Phone: +7 (727) 260 40 00 (ext. 1210), email: career.leadership@turan-edu.kz, Instagram: @turan_career_center.
+        You can also look for jobs on hh.kz and beam.kz.
+
+  - id: inclusive_education
+    title: {ru: Инклюзивное образование, kk: Инклюзивті білім беру, en: Inclusive education}
+    sources: [inclusive-education]
+    answer:
+      ru: |
+        Студенты с особыми образовательными потребностями обращаются в деканат своего факультета:
+        - гуманитарно-юридический – кабинет 613, тел. 260-40-08 (внутр. 1081);
+        - экономический – кабинет 311, тел. 260-40-26 (внутр. 1091);
+        - «Цифровые технологии и искусство» – пр. Достык, 110, тел. 264-48-72.
+        Университет учитывает потребности в расписании (занятия на первом этаже), составляет индивидуальную траекторию и график, даёт доступ к ЭБС IPR BOOKS и помощь волонтёров. Лицам с инвалидностью I–III группы – скидка 5–15%.
+        Есть пандусы, тактильная плитка, лифт, отведённая парковка, информационные табло для людей с нарушением слуха и Центр поддержки обучающихся с ООП в библиотеке.
+      kk: |
+        Ерекше білім беру қажеттіліктері бар студенттер өз факультетінің деканатына жүгінеді:
+        - гуманитарлық-заң – 613 кабинет, тел. 260-40-08 (ішкі 1081);
+        - экономикалық – 311 кабинет, тел. 260-40-26 (ішкі 1091);
+        - «Сандық технологиялар және өнер» – Достық даңғылы, 110, тел. 264-48-72.
+        Университет кестеде қажеттіліктерді ескереді (сабақтар бірінші қабатта), жеке білім беру траекториясы мен кестесін жасайды, IPR BOOKS ЭКЖ-ға қолжетімділік және еріктілер көмегін береді. I–III топтағы мүгедектігі бар адамдарға – 5–15% жеңілдік.
+        Пандустар, тактильді плиталар, лифт, бөлінген автотұрақ, есту қабілеті бұзылған адамдарға арналған ақпараттық таблолар және кітапханада ЕБҚ бар білім алушыларды қолдау орталығы бар.
+      en: |
+        Students with special educational needs should contact their faculty dean's office:
+        - Humanities and Law – room 613, tel. 260-40-08 (ext. 1081);
+        - Economics – room 311, tel. 260-40-26 (ext. 1091);
+        - Digital Technologies and Arts – 110 Dostyk Ave., tel. 264-48-72.
+        The university adapts the schedule (classes on the ground floor), builds an individual study path and timetable, provides access to the IPR BOOKS e-library and volunteer help. People with disability groups I–III get a 5–15% discount.
+        There are ramps, tactile paving, an elevator, reserved parking, information displays for people with hearing impairments and a Support Center for students with special needs in the library.
+
+  - id: military
+    title: {ru: Военная кафедра и отсрочка, kk: Әскери кафедра және кейінге қалдыру, en: Military department and deferment}
+    sources: [how-to-enroll, student-support-center, academic-leave-regulation]
+    answer:
+      ru: |
+        В университете есть военная кафедра для студентов очного отделения (для сокращённых программ после колледжа на 2 года – обучение на военной кафедре 1,5 года).
+        Центр обслуживания студентов ставит на воинский учёт, оформляет отсрочку от призыва, направляет на обучение на военную кафедру и консультирует по военному законодательству.
+        При призыве на воинскую службу можно оформить академический отпуск.
+        Контакты ЦОС: +7 (727) 260-40-19, student_support@turan-edu.kz.
+      kk: |
+        Университетте күндізгі бөлім студенттеріне арналған әскери кафедра бар (колледжден кейінгі 2 жылдық қысқартылған бағдарламалар үшін әскери кафедрада оқу 1,5 жыл).
+        Студенттерге қызмет көрсету орталығы әскери есепке қояды, әскерге шақырудан кейінге қалдыруды рәсімдейді, әскери кафедрада оқуға жібереді және әскери заңнама бойынша кеңес береді.
+        Әскери қызметке шақырылғанда академиялық демалыс рәсімдеуге болады.
+        СҚКО байланыстары: +7 (727) 260-40-19, student_support@turan-edu.kz.
+      en: |
+        The university has a military department for full-time students (for 2-year shortened programs after college, military training lasts 1.5 years).
+        The Student Service Center handles military registration, draft deferment, referrals to the military department and advice on military law.
+        If you are called up for military service, you can take academic leave.
+        Student Service Center: +7 (727) 260-40-19, student_support@turan-edu.kz.

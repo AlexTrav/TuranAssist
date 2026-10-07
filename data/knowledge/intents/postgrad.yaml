@@ -1,0 +1,80 @@
+# магистратура и докторантура: поступление, программы и сроки обучения
+group: postgrad
+intents:
+  - id: master_admission
+    title: {ru: Поступление в магистратуру, kk: Магистратураға түсу, en: Master's admission}
+    sources: [master, admission-rules-2026-2027]
+    answer:
+      ru: |
+        Поступление в магистратуру проходит через комплексное тестирование (КТ) Национального центра тестирования:
+        1. Заявка на КТ на app.testcenter.kz – с 1 июня по 8 июля.
+        2. КТ – с 20 июля по 10 августа: тест по иностранному языку, тест на готовность к обучению и тест по профилю программы. Зачисление – до 28 августа.
+        Есть зимний приём: КТ с 19 ноября по 11 декабря, зачисление с 26 декабря по 10 января.
+        Проходной балл: научно-педагогическая магистратура – не менее 75 из 150, профильная – не менее 30 из 75, по каждой дисциплине не менее 7.
+        Сертификат IELTS от 6.0 или TOEFL iBT от 60 (а также TOEFL ITP от 543, PBT от 498 и сертификаты по немецкому и французскому) освобождает от теста по иностранному языку.
+        Документы: заявление на имя ректора, оригинал диплома с приложением, копия удостоверения личности, 6 фото 3×4, справка 075-у, при наличии стажа – личный листок по учёту кадров.
+      kk: |
+        Магистратураға түсу Ұлттық тестілеу орталығының кешенді тестілеуі (КТ) арқылы өтеді:
+        1. app.testcenter.kz сайтында КТ-ға өтінім – 1 маусым мен 8 шілде аралығында.
+        2. КТ – 20 шілде мен 10 тамыз аралығында: шет тілі бойынша тест, оқуға дайындықты анықтау тесті және бағдарлама бейіні бойынша тест. Оқуға қабылдау – 28 тамызға дейін.
+        Қысқы қабылдау бар: КТ 19 қараша мен 11 желтоқсан аралығында, оқуға қабылдау 26 желтоқсан мен 10 қаңтар аралығында.
+        Шекті балл: ғылыми-педагогикалық магистратура – 150-ден кемінде 75, бейіндік – 75-тен кемінде 30, әр пән бойынша кемінде 7.
+        IELTS 6.0-ден немесе TOEFL iBT 60-тан жоғары сертификат (сондай-ақ TOEFL ITP 543-тен, PBT 498-ден және неміс пен француз тілдерінің сертификаттары) шет тілі тестінен босатады.
+        Құжаттар: ректордың атына өтініш, қосымшасы бар дипломның түпнұсқасы, жеке куәліктің көшірмесі, 3×4 өлшемді 6 фото, 075-у анықтамасы, еңбек өтілі болса – кадрларды есепке алу жөніндегі жеке парақ.
+      en: |
+        Master's admission is based on the Comprehensive Test (CT) of the National Testing Center:
+        1. Register for the CT at app.testcenter.kz from June 1 to July 8.
+        2. The CT takes place from July 20 to August 10: a foreign language test, a test of readiness to study and a test on the program profile. Enrollment is by August 28.
+        There is also a winter intake: CT from November 19 to December 11, enrollment from December 26 to January 10.
+        Passing score: research and teaching master's – at least 75 out of 150, professional master's – at least 30 out of 75, at least 7 per subject.
+        IELTS 6.0+ or TOEFL iBT 60+ (as well as TOEFL ITP 543+, PBT 498+ and German or French certificates) exempts you from the foreign language test.
+        Documents: an application to the rector, the original diploma with transcript, a copy of your ID, 6 photos 3×4 cm, medical certificate 075-u, and a personnel record sheet if you have work experience.
+
+  - id: master_programs
+    title: {ru: Программы магистратуры и MBA, kk: Магистратура және MBA бағдарламалары, en: Master's and MBA programs}
+    sources: [master, tuition-fee]
+    answer:
+      ru: |
+        Магистратура бывает двух видов:
+        - научно-педагогическая – 2 года, степень «магистр наук» (MSc);
+        - профильная – 1 год, степень «магистр» по специальности.
+        Форма обучения – очная, языки – казахский и русский.
+        Программы: экономика, финансы, учёт и аудит, менеджмент, маркетинг, психология, клиническая психология, международные отношения, режиссура, операторское искусство, режиссура драматического театра, информационные системы, вычислительная техника и ПО, управление ИТ-услугами, юриспруденция, туризм, журналистика.
+        Также есть MBA (2 года), Executive MBA (1 год) и DBA.
+      kk: |
+        Магистратураның екі түрі бар:
+        - ғылыми-педагогикалық – 2 жыл, «ғылым магистрі» (MSc) дәрежесі;
+        - бейіндік – 1 жыл, мамандық бойынша «магистр» дәрежесі.
+        Оқу нысаны – күндізгі, тілдері – қазақ және орыс.
+        Бағдарламалар: экономика, қаржы, есеп және аудит, менеджмент, маркетинг, психология, клиникалық психология, халықаралық қатынастар, режиссура, операторлық өнер, драма театрының режиссурасы, ақпараттық жүйелер, есептеуіш техника және БҚ, АТ қызметтерін басқару, құқықтану, туризм, журналистика.
+        Сондай-ақ MBA (2 жыл), Executive MBA (1 жыл) және DBA бар.
+      en: |
+        There are two types of master's programs:
+        - research and teaching – 2 years, Master of Science (MSc);
+        - professional – 1 year, Master's degree in the field.
+        Study mode is full-time, languages are Kazakh and Russian.
+        Programs: economics, finance, accounting and audit, management, marketing, psychology, clinical psychology, international relations, directing, cinematography, drama theater directing, information systems, computer engineering and software, IT service management, law, tourism, journalism.
+        There are also MBA (2 years), Executive MBA (1 year) and DBA programs.
+
+  - id: phd_admission
+    title: {ru: Поступление в докторантуру, kk: Докторантураға түсу, en: PhD admission}
+    sources: [phd, admission-rules-2026-2027]
+    answer:
+      ru: |
+        Докторантура PhD: экономика, менеджмент, финансы, маркетинг, психология, юриспруденция.
+        Требования: степень магистра и стаж работы не менее 9 месяцев, международный языковой сертификат (например, IELTS Academic от 5.0, TOEFL iBT от 35, Duolingo от 80) и сертификат КАЗТЕСТ.
+        Сроки: документы – с 3 июля по 3 августа или с 25 октября по 10 ноября; экзамены – с 4 по 20 августа или с 19 ноября по 11 декабря; зачисление – с 15 по 28 августа или с 26 декабря по 10 января.
+        Вступительный экзамен: собеседование (30 баллов), эссе (20) и экзамен по профилю (50). Проходной балл – 75 из 100.
+        Регистрация – через app.testcenter.kz. Стоимость – 2 200 000 тенге в год.
+      kk: |
+        PhD докторантурасы: экономика, менеджмент, қаржы, маркетинг, психология, құқықтану.
+        Талаптар: магистр дәрежесі және кемінде 9 ай еңбек өтілі, халықаралық тіл сертификаты (мысалы, IELTS Academic 5.0-ден, TOEFL iBT 35-тен, Duolingo 80-нен) және ҚАЗТЕСТ сертификаты.
+        Мерзімдер: құжаттар – 3 шілде мен 3 тамыз немесе 25 қазан мен 10 қараша аралығында; емтихандар – 4 пен 20 тамыз немесе 19 қараша мен 11 желтоқсан аралығында; оқуға қабылдау – 15 пен 28 тамыз немесе 26 желтоқсан мен 10 қаңтар аралығында.
+        Түсу емтиханы: әңгімелесу (30 балл), эссе (20) және бейін бойынша емтихан (50). Шекті балл – 100-ден 75.
+        Тіркелу – app.testcenter.kz арқылы. Оқу ақысы – жылына 2 200 000 теңге.
+      en: |
+        PhD programs: economics, management, finance, marketing, psychology, law.
+        Requirements: a master's degree and at least 9 months of work experience, an international language certificate (for example IELTS Academic 5.0+, TOEFL iBT 35+, Duolingo 80+) and a KAZTEST certificate.
+        Deadlines: documents – July 3 to August 3 or October 25 to November 10; exams – August 4 to 20 or November 19 to December 11; enrollment – August 15 to 28 or December 26 to January 10.
+        Entrance exam: interview (30 points), essay (20) and profile exam (50). The passing score is 75 out of 100.
+        Registration is via app.testcenter.kz. Tuition is 2,200,000 tenge per year.

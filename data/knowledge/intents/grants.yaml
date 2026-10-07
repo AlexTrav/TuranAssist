@@ -1,0 +1,190 @@
+# гранты, скидки и стипендии; скидки университета не суммируются – применяется максимальная
+group: grants
+intents:
+  - id: state_grant
+    title: {ru: Государственный грант, kk: Мемлекеттік грант, en: State grant}
+    sources: [grants-discounts, how-to-enroll]
+    answer:
+      ru: |
+        Государственные гранты распределяются по результатам ЕНТ на конкурсе по всему Казахстану.
+        Чтобы участвовать в конкурсе, нужно набрать:
+        - не менее 75 баллов по группе программ «Право»;
+        - не менее 50 баллов по остальным программам (не менее 5 по истории Казахстана и профильным предметам, не менее 3 по грамотности чтения);
+        - не менее 25 баллов при поступлении на сокращённую форму после колледжа (не менее 5 по каждому предмету).
+        Заявка подаётся электронно через testcenter.kz со сканами документов, либо можно прийти в приёмную комиссию – там помогут зарегистрироваться. Результаты обычно выходят в начале августа.
+      kk: |
+        Мемлекеттік гранттар бүкіл Қазақстан бойынша конкурста ҰБТ нәтижелері бойынша бөлінеді.
+        Конкурсқа қатысу үшін:
+        - «Құқық» бағдарламалар тобы бойынша кемінде 75 балл;
+        - басқа бағдарламалар бойынша кемінде 50 балл (Қазақстан тарихы мен бейіндік пәндерден кемінде 5, оқу сауаттылығынан кемінде 3);
+        - колледжден кейін қысқартылған нысанға түскенде кемінде 25 балл (әр пәннен кемінде 5) жинау қажет.
+        Өтінім құжаттардың сканерленген көшірмелерімен testcenter.kz арқылы электронды түрде беріледі, немесе қабылдау комиссиясына келуге болады – тіркелуге көмектеседі. Нәтижелер әдетте тамыздың басында шығады.
+      en: |
+        State grants are awarded nationwide in a competition based on UNT results.
+        To take part in the competition you need:
+        - at least 75 points for the "Law" group of programs;
+        - at least 50 points for other programs (at least 5 in the history of Kazakhstan and profile subjects, at least 3 in reading literacy);
+        - at least 25 points for the shortened program after college (at least 5 per subject).
+        Apply online via testcenter.kz with scanned documents, or come to the admissions office for help with registration. Results usually come out in early August.
+
+  - id: ent_discounts
+    title: {ru: Скидки по баллам ЕНТ, kk: ҰБТ балы бойынша жеңілдіктер, en: Discounts for UNT scores}
+    sources: [grants-discounts]
+    answer:
+      ru: |
+        Гранты и скидки университета по итогам ЕНТ (очная форма):
+        - 130 баллов и выше – грант «Турана» на 4 года; 125–129 – на 2 года; 120–124 – на 1 год;
+        - 110–119 – скидка 50% на первый год; 100–109 – 30%; 90–99 – 20%; 80–89 – 10%.
+        Не распространяется на режиссуру, операторское и актёрское искусство, продюсирование, ВТиПО, РЭТ, программную инженерию, журналистику и связь с общественностью (у двух последних своя шкала: от 125 баллов – грант, от 95 – скидка 10%) и программы двойного диплома.
+        «Алтын белгі»: от 100 баллов – грант на весь срок, 90–99 – на 2 года, 80–89 – на 1 год.
+        Призёрам республиканской олимпиады (за последние 3 года): 1 место – грант на весь срок, 2 – на 2 года, 3 – на 1 год.
+        Скидки не суммируются – предоставляется максимальная.
+      kk: |
+        ҰБТ нәтижелері бойынша университет гранттары мен жеңілдіктері (күндізгі нысан):
+        - 130 және одан жоғары балл – 4 жылға «Тұран» гранты; 125–129 – 2 жылға; 120–124 – 1 жылға;
+        - 110–119 – бірінші жылға 50% жеңілдік; 100–109 – 30%; 90–99 – 20%; 80–89 – 10%.
+        Режиссура, операторлық және актерлік өнер, продюсерлік, ЕТжБҚ, РЭТ, бағдарламалық инженерия, журналистика және қоғаммен байланыс (соңғы екеуінің өз шкаласы бар: 125 балдан – грант, 95-тен – 10% жеңілдік) және қос диплом бағдарламаларына қолданылмайды.
+        «Алтын белгі»: 100 балдан – бүкіл мерзімге грант, 90–99 – 2 жылға, 80–89 – 1 жылға.
+        Республикалық олимпиада жүлдегерлеріне (соңғы 3 жыл): 1 орын – бүкіл мерзімге грант, 2 – 2 жылға, 3 – 1 жылға.
+        Жеңілдіктер қосылмайды – ең жоғарысы беріледі.
+      en: |
+        University grants and discounts based on UNT results (full-time study):
+        - 130 points and above – a Turan grant for 4 years; 125–129 – for 2 years; 120–124 – for 1 year;
+        - 110–119 – 50% off the first year; 100–109 – 30%; 90–99 – 20%; 80–89 – 10%.
+        This does not apply to directing, cinematography, acting, film production, computer engineering and software, radio engineering, software engineering, journalism and public relations (the last two have their own scale: a grant from 125 points, 10% off from 95) or double degree programs.
+        Altyn Belgi holders: 100+ points – a grant for the whole period, 90–99 – for 2 years, 80–89 – for 1 year.
+        National olympiad winners (within the last 3 years): 1st place – a grant for the whole period, 2nd – for 2 years, 3rd – for 1 year.
+        Discounts do not add up – you get the largest one.
+
+  - id: turan_umiti_grant
+    title: {ru: Грант «Тұран Үміті», kk: «Тұран Үміті» гранты, en: Turan Umiti grant}
+    sources: [grants-discounts]
+    answer:
+      ru: |
+        «Тұран Үміті» – внутренний грант университета, присуждается ежегодно по конкурсу: 1 место – 4 года бесплатного обучения, 2 место – 2 года, 3 место – 1 год.
+        Допускаются абитуриенты с ЕНТ от 80 баллов (из 140), а также выпускники колледжей по родственной специальности с 40 баллами и выше (из 70) или на внутреннем экзамене.
+        Учитываются «Алтын белгі», баллы ЕНТ, средний балл аттестата или диплома, олимпиады и конкурсы, сертификаты IELTS или TOEFL iBT не старше двух лет.
+        Для магистратуры грант доступен при КТ от 75 баллов.
+        Ещё есть конкурс Grant Project: сочинение «Каким я вижу будущее страны и что я могу сделать для этого» на grant@turan-edu.kz, онлайн-тест на логику и собеседование.
+        Сроки регистрации уточняйте в приёмной комиссии.
+      kk: |
+        «Тұран Үміті» – университеттің ішкі гранты, жыл сайын конкурс бойынша беріледі: 1 орын – 4 жыл тегін оқу, 2 орын – 2 жыл, 3 орын – 1 жыл.
+        ҰБТ-дан 80 және одан жоғары балл (140-тан) жинаған талапкерлер, сондай-ақ туыстас мамандық бойынша 40 және одан жоғары балл (70-тен) немесе ішкі емтиханда осындай балл жинаған колледж түлектері қатыса алады.
+        «Алтын белгі», ҰБТ балдары, аттестат немесе диплом бойынша орташа балл, олимпиадалар мен конкурстар, екі жылдан аспаған IELTS немесе TOEFL iBT сертификаттары ескеріледі.
+        Магистратура үшін грант КТ-дан 75 балдан бастап қолжетімді.
+        Сондай-ақ Grant Project конкурсы бар: «Елдің болашағын қалай көремін және ол үшін не істей аламын» тақырыбындағы шығарма grant@turan-edu.kz поштасына, логикаға онлайн-тест және әңгімелесу.
+        Тіркелу мерзімдерін қабылдау комиссиясынан нақтылаңыз.
+      en: |
+        Turan Umiti is the university's internal grant awarded every year through a competition: 1st place – 4 years of free study, 2nd place – 2 years, 3rd place – 1 year.
+        Applicants with a UNT score of 80+ (out of 140) can take part, as well as college graduates in a related field with 40+ points (out of 70) or on the internal exam.
+        The jury considers Altyn Belgi, UNT scores, the average grade of your certificate or diploma, olympiads and contests, and IELTS or TOEFL iBT certificates no older than two years.
+        For master's programs the grant is available with a CT score of 75+.
+        There is also the Grant Project competition: an essay "How I see the future of the country and what I can do for it" sent to grant@turan-edu.kz, an online logic test and an interview.
+        Check registration dates with the admissions office.
+
+  - id: other_discounts
+    title: {ru: Льготы и другие скидки, kk: Басқа жеңілдіктер, en: Other discounts}
+    sources: [grants-discounts]
+    answer:
+      ru: |
+        Другие скидки университета:
+        - братьям, сёстрам и родителям студентов – 10%;
+        - сиротам и детям, оставшимся без попечения родителей, – 15%;
+        - лицам с инвалидностью I–III группы – 5–15%;
+        - студентам из многодетных семей – 10% (если мать награждена «Алтын алқа» или «Күміс алқа» – 15%);
+        - мастерам спорта и мастерам спорта международного класса – 100%, кандидатам в мастера спорта – 80% (по видам спорта Универсиады РК);
+        - выпускникам колледжей с дипломом с отличием – 50% на первый год; выпускникам колледжей «Туран», «Туран-Астана» и МКБК – от 10 до 30%;
+        - отличникам по итогам учебного года: GPA 4.0 – 20%, GPA от 3.67 – 10%.
+        Скидки не суммируются – предоставляется максимальная. Подтверждающие документы обновляются ежегодно.
+      kk: |
+        Университеттің басқа жеңілдіктері:
+        - студенттердің аға-інілері, апа-сіңлілері және ата-аналарына – 10%;
+        - жетімдерге және ата-ана қамқорлығынсыз қалған балаларға – 15%;
+        - I–III топтағы мүгедектігі бар адамдарға – 5–15%;
+        - көп балалы отбасылардың студенттеріне – 10% (анасы «Алтын алқа» немесе «Күміс алқа» иегері болса – 15%);
+        - спорт шеберлері мен халықаралық дәрежедегі спорт шеберлеріне – 100%, спорт шеберлігіне кандидаттарға – 80% (ҚР Универсиадасының спорт түрлері бойынша);
+        - үздік дипломы бар колледж түлектеріне – бірінші жылға 50%; «Тұран», «Тұран-Астана» және ХБКК колледждерінің түлектеріне – 10%-дан 30%-ға дейін;
+        - оқу жылының қорытындысы бойынша үздік оқитындарға: GPA 4.0 – 20%, GPA 3.67-ден – 10%.
+        Жеңілдіктер қосылмайды – ең жоғарысы беріледі. Растайтын құжаттар жыл сайын жаңартылады.
+      en: |
+        Other university discounts:
+        - siblings and parents of students – 10%;
+        - orphans and children without parental care – 15%;
+        - people with disability groups I–III – 5–15%;
+        - students from large families – 10% (15% if the mother holds the Altyn Alqa or Kumis Alqa award);
+        - masters of sport and international masters of sport – 100%, candidates for master of sport – 80% (for sports of the Kazakhstan Universiade);
+        - college graduates with an honors diploma – 50% for the first year; graduates of Turan, Turan-Astana and IBCC colleges – 10% to 30%;
+        - top students based on the academic year results: GPA 4.0 – 20%, GPA 3.67+ – 10%.
+        Discounts do not add up – you get the largest one. Supporting documents are renewed every year.
+
+  - id: language_cert_discounts
+    title: {ru: Скидки по IELTS и TOEFL, kk: IELTS және TOEFL бойынша жеңілдіктер, en: IELTS and TOEFL discounts}
+    sources: [grants-discounts]
+    answer:
+      ru: |
+        Скидки по международным языковым сертификатам – для обучения на английском отделении, на весь срок обучения (также при переводе из других вузов):
+        - IELTS 6.0 или TOEFL iBT 60–78 – 10%;
+        - IELTS 6.5 или TOEFL iBT 79–93 – 30%;
+        - IELTS 7.0 или TOEFL iBT 94–101 – 50%;
+        - IELTS 7.5 или TOEFL iBT 102–109 – 70%;
+        - IELTS 8.0 и выше или TOEFL iBT 110 и выше – 100%.
+        Сертификат должен быть не старше двух лет на момент подачи документов.
+      kk: |
+        Халықаралық тіл сертификаттары бойынша жеңілдіктер – ағылшын бөлімінде оқу үшін, бүкіл оқу мерзіміне (басқа ЖОО-дан ауысқанда да):
+        - IELTS 6.0 немесе TOEFL iBT 60–78 – 10%;
+        - IELTS 6.5 немесе TOEFL iBT 79–93 – 30%;
+        - IELTS 7.0 немесе TOEFL iBT 94–101 – 50%;
+        - IELTS 7.5 немесе TOEFL iBT 102–109 – 70%;
+        - IELTS 8.0 және одан жоғары немесе TOEFL iBT 110 және одан жоғары – 100%.
+        Құжат тапсыру сәтінде сертификат екі жылдан аспауы керек.
+      en: |
+        Discounts for international language certificates apply to the English department for the whole period of study (also when transferring from another university):
+        - IELTS 6.0 or TOEFL iBT 60–78 – 10%;
+        - IELTS 6.5 or TOEFL iBT 79–93 – 30%;
+        - IELTS 7.0 or TOEFL iBT 94–101 – 50%;
+        - IELTS 7.5 or TOEFL iBT 102–109 – 70%;
+        - IELTS 8.0+ or TOEFL iBT 110+ – 100%.
+        The certificate must be no older than two years when you apply.
+
+  - id: vacant_grant
+    title: {ru: Вакантный грант, kk: Бос грант, en: Vacant grant}
+    sources: [grant-application, transfer-regulation, student-support-center]
+    answer:
+      ru: |
+        Студенты, которые учатся платно, могут претендовать на вакантный государственный грант, освободившийся в процессе обучения.
+        Конкурс проходит в летние и зимние каникулы:
+        1. Вы подаёте заявление на имя ректора (документы принимает Центр обслуживания студентов).
+        2. Заявления рассматривают Учёный и Попечительский советы, отбор идёт на конкурсной основе по успеваемости (GPA).
+        3. До 5 августа или 15 января университет направляет документы в Министерство, которое принимает решение и издаёт приказ.
+        Если претендентов на программу нет, грант передаётся внутри направления подготовки. Списки и результаты публикуются на странице «Заявка на обучение по гранту».
+      kk: |
+        Ақылы негізде оқитын студенттер оқу барысында босаған мемлекеттік грантқа үміткер бола алады.
+        Конкурс жазғы және қысқы демалыс кезінде өтеді:
+        1. Ректордың атына өтініш бересіз (құжаттарды Студенттерге қызмет көрсету орталығы қабылдайды).
+        2. Өтініштерді Ғылыми кеңес пен Қамқоршылық кеңес қарайды, іріктеу үлгерім (GPA) бойынша конкурстық негізде жүргізіледі.
+        3. 5 тамызға немесе 15 қаңтарға дейін университет құжаттарды Министрлікке жібереді, ол шешім қабылдап, бұйрық шығарады.
+        Бағдарлама бойынша үміткерлер болмаса, грант даярлау бағыты ішінде беріледі. Тізімдер мен нәтижелер «Грант бойынша оқуға өтінімдер» бетінде жарияланады.
+      en: |
+        Students who pay tuition can apply for a state grant that became vacant during the course of study.
+        The competition takes place during the summer and winter breaks:
+        1. You submit an application to the rector (the Student Service Center accepts documents).
+        2. The Academic Council and the Board of Trustees review the applications; selection is competitive based on academic performance (GPA).
+        3. By August 5 or January 15 the university sends the documents to the Ministry, which makes the decision and issues an order.
+        If there are no candidates for a program, the grant is passed on within the field of study. Lists and results are published on the Grant education application page.
+
+  - id: stipend
+    title: {ru: Стипендия, kk: Стипендия, en: Scholarship}
+    sources: [academic-policy-2025-2026, student-support-center, grants-discounts]
+    answer:
+      ru: |
+        Государственная стипендия назначается студентам, магистрантам и докторантам, обучающимся по государственному гранту, если по итогам сессии у них оценки «хорошо» и «отлично».
+        Документы на президентскую стипендию принимает Центр обслуживания студентов.
+        Для студентов на платной основе вместо стипендии действуют скидки по итогам учебного года: GPA 4.0 – 20%, GPA от 3.67 – 10%.
+      kk: |
+        Мемлекеттік стипендия мемлекеттік грант бойынша оқитын студенттерге, магистранттарға және докторанттарға сессия қорытындысы бойынша «жақсы» және «өте жақсы» бағалары болса тағайындалады.
+        Президенттік стипендияға құжаттарды Студенттерге қызмет көрсету орталығы қабылдайды.
+        Ақылы негізде оқитын студенттерге стипендияның орнына оқу жылының қорытындысы бойынша жеңілдіктер бар: GPA 4.0 – 20%, GPA 3.67-ден – 10%.
+      en: |
+        The state scholarship is paid to bachelor's, master's and PhD students who study on a state grant and get "good" and "excellent" grades in the exam session.
+        Applications for the presidential scholarship are accepted by the Student Service Center.
+        Students who pay tuition get discounts based on the academic year results instead: GPA 4.0 – 20%, GPA 3.67+ – 10%.

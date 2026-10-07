@@ -1,0 +1,18 @@
+# группы интентов – порядок и названия для интерфейса (подсказки, страница «О проекте»)
+groups:
+  - id: service
+    title: {ru: Общение, kk: Сөйлесу, en: Small talk}
+  - id: admission
+    title: {ru: Поступление, kk: Түсу, en: Admission}
+  - id: postgrad
+    title: {ru: Магистратура и докторантура, kk: Магистратура және докторантура, en: Master's and PhD}
+  - id: payment
+    title: {ru: Стоимость и оплата, kk: Оқу ақысы және төлем, en: Tuition and payment}
+  - id: grants
+    title: {ru: Гранты и скидки, kk: Гранттар мен жеңілдіктер, en: Grants and discounts}
+  - id: study
+    title: {ru: Учебный процесс, kk: Оқу процесі, en: Studies}
+  - id: student_life
+    title: {ru: Студенческая жизнь, kk: Студенттік өмір, en: Student life}
+  - id: about
+    title: {ru: Об университете, kk: Университет туралы, en: About the university}

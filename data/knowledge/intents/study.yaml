@@ -1,0 +1,287 @@
+# учебный процесс: календарь, расписание, оценки, пересдачи, апелляция, академический отпуск,
+# перевод, практика, порталы, справки, мобильность, академическая честность
+group: study
+intents:
+  - id: academic_calendar
+    title: {ru: Академический календарь, kk: Академиялық күнтізбе, en: Academic calendar}
+    sources: [academic-calendar-bachelor-2026-2027, academic-calendar-master-research-2026-2027, calendar-bachelor]
+    answer:
+      ru: |
+        Академический календарь бакалавриата на 2026–2027 учебный год (1 курс):
+        - адаптационная неделя и запись на курсы – 31 августа – 4 сентября, начало занятий – 1 сентября;
+        - зимняя сессия – 14–26 декабря, пересдача FX – 5–9 января, зимние каникулы – 28 декабря – 18 января;
+        - второй семестр – с 18 января 2027 года;
+        - весенняя сессия – 3–15 мая, пересдача FX – 17–22 мая, учебная практика – 24–29 мая;
+        - летний семестр – 31 мая – 24 июля, летние каникулы – 31 мая – 28 августа.
+        У магистратуры даты сессий те же, зимние каникулы – до 16 января. Календари для всех курсов – на странице «Академический календарь».
+      kk: |
+        2026–2027 оқу жылына бакалавриаттың академиялық күнтізбесі (1 курс):
+        - бейімделу аптасы және курстарға жазылу – 31 тамыз – 4 қыркүйек, сабақтың басталуы – 1 қыркүйек;
+        - қысқы сессия – 14–26 желтоқсан, FX қайта тапсыру – 5–9 қаңтар, қысқы демалыс – 28 желтоқсан – 18 қаңтар;
+        - екінші семестр – 2027 жылғы 18 қаңтардан;
+        - көктемгі сессия – 3–15 мамыр, FX қайта тапсыру – 17–22 мамыр, оқу практикасы – 24–29 мамыр;
+        - жазғы семестр – 31 мамыр – 24 шілде, жазғы демалыс – 31 мамыр – 28 тамыз.
+        Магистратурада сессия күндері сондай, қысқы демалыс – 16 қаңтарға дейін. Барлық курстардың күнтізбелері «Академиялық күнтізбе» бетінде.
+      en: |
+        Bachelor's academic calendar for 2026–2027 (1st year):
+        - orientation week and course registration – August 31 to September 4, classes start on September 1;
+        - winter exam session – December 14–26, FX retakes – January 5–9, winter break – December 28 to January 18;
+        - second semester – from January 18, 2027;
+        - spring exam session – May 3–15, FX retakes – May 17–22, training practice – May 24–29;
+        - summer semester – May 31 to July 24, summer break – May 31 to August 28.
+        Master's students have the same exam dates, with the winter break until January 16. Calendars for all years are on the Academic calendar page.
+
+  - id: schedule
+    title: {ru: Расписание занятий, kk: Сабақ кестесі, en: Class schedule}
+    sources: [schedule-bachelor, schedule-master]
+    answer:
+      ru: |
+        Расписание занятий публикуется файлами на сайте:
+        - бакалавриат – страница «Расписание» (осенний семестр 2026–2027 отдельно для 4, 3 и 2 лет обучения, а также расписания экзаменов и летнего семестра);
+        - магистратура – отдельная страница расписания магистратуры.
+        Расписание меняется каждый семестр, поэтому смотрите актуальный файл по ссылке. Курсы и задания – в Canvas: canvas.turan-edu.kz.
+      kk: |
+        Сабақ кестесі сайтта файл түрінде жарияланады:
+        - бакалавриат – «Кесте» беті (2026–2027 күзгі семестрі 4, 3 және 2 жылдық оқу үшін бөлек, сондай-ақ емтихандар мен жазғы семестр кестелері);
+        - магистратура – магистратура кестесінің жеке беті.
+        Кесте әр семестрде өзгереді, сондықтан өзекті файлды сілтеме бойынша қараңыз. Курстар мен тапсырмалар – Canvas жүйесінде: canvas.turan-edu.kz.
+      en: |
+        Class schedules are published as files on the website:
+        - bachelor's – the Schedule page (fall semester 2026–2027 separately for 4-, 3- and 2-year programs, plus exam and summer semester schedules);
+        - master's – a separate master's schedule page.
+        Schedules change every semester, so check the current file via the link. Courses and assignments are in Canvas: canvas.turan-edu.kz.
+
+  - id: grading_gpa
+    title: {ru: Оценки и GPA, kk: Бағалар және GPA, en: Grades and GPA}
+    sources: [academic-policy-2025-2026, assessment-regulation]
+    answer:
+      ru: |
+        Оценки ставятся по 100-балльной шкале с буквенным эквивалентом и баллом GPA:
+        A 95–100 (4.0), A- 90–94 (3.67), B+ 85–89 (3.33), B 80–84 (3.0), B- 75–79 (2.67), C+ 70–74 (2.33), C 65–69 (2.0), C- 60–64 (1.67), D+ 55–59 (1.33), D 50–54 (1.0), FX 25–49 (0.5), F 0–24 (0).
+        Итоговая оценка по дисциплине = 0,6 × среднее двух рубежных контролей + 0,4 × экзамен.
+        Рубежные контроли проходят на 8-й и 15-й неделе (для дисциплин от 3 кредитов). К экзамену допускаются студенты со средним баллом за рубежные контроли не менее 50.
+      kk: |
+        Бағалар әріптік баламасы және GPA балы бар 100 балдық шкала бойынша қойылады:
+        A 95–100 (4.0), A- 90–94 (3.67), B+ 85–89 (3.33), B 80–84 (3.0), B- 75–79 (2.67), C+ 70–74 (2.33), C 65–69 (2.0), C- 60–64 (1.67), D+ 55–59 (1.33), D 50–54 (1.0), FX 25–49 (0.5), F 0–24 (0).
+        Пән бойынша қорытынды баға = 0,6 × екі аралық бақылаудың орташасы + 0,4 × емтихан.
+        Аралық бақылаулар 8-ші және 15-ші аптада өтеді (3 және одан көп кредиттік пәндер үшін). Аралық бақылаулар бойынша орташа балы кемінде 50 студенттер емтиханға жіберіледі.
+      en: |
+        Grades use a 100-point scale with a letter grade and a GPA point:
+        A 95–100 (4.0), A- 90–94 (3.67), B+ 85–89 (3.33), B 80–84 (3.0), B- 75–79 (2.67), C+ 70–74 (2.33), C 65–69 (2.0), C- 60–64 (1.67), D+ 55–59 (1.33), D 50–54 (1.0), FX 25–49 (0.5), F 0–24 (0).
+        Final course grade = 0.6 × average of two midterms + 0.4 × exam.
+        Midterms take place in weeks 8 and 15 (for courses of 3+ credits). Students with a midterm average of at least 50 are admitted to the exam.
+
+  - id: retake_fx
+    title: {ru: Пересдача FX и Retake, kk: FX қайта тапсыру және Retake, en: FX retake and course retake}
+    sources: [academic-policy-2025-2026, academic-calendar-bachelor-2026-2027]
+    answer:
+      ru: |
+        - FX (25–49 баллов) – можно платно пересдать экзамен без повторного изучения дисциплины. Пересдачи по календарю: 5–9 января и 17–22 мая.
+        - F (0–24 балла) – нужно повторно записаться на дисциплину (Retake), посещать все занятия и снова сдать экзамен. Retake только платный; через 3 недели после начала занятий отказаться от него нельзя, иначе ставится F, а оплата не возвращается.
+        Повторно пройти дисциплину можно в летнем семестре (31 мая – 24 июля). Неудовлетворительную оценку по элективу можно заменить другой дисциплиной из того же блока по согласованию с эдвайзером и офисом Регистратора.
+      kk: |
+        - FX (25–49 балл) – пәнді қайта оқымай-ақ емтиханды ақылы түрде қайта тапсыруға болады. Күнтізбе бойынша қайта тапсыру: 5–9 қаңтар және 17–22 мамыр.
+        - F (0–24 балл) – пәнге қайта жазылу (Retake), барлық сабаққа қатысу және емтиханды қайта тапсыру қажет. Retake тек ақылы; сабақ басталғаннан кейін 3 аптадан соң одан бас тартуға болмайды, әйтпесе F қойылады, ал төлем қайтарылмайды.
+        Пәнді жазғы семестрде (31 мамыр – 24 шілде) қайта өтуге болады. Элективтік пән бойынша қанағаттанарлықсыз бағаны эдвайзер және Тіркеуші кеңсесімен келісе отырып, сол блоктағы басқа пәнмен ауыстыруға болады.
+      en: |
+        - FX (25–49 points) – you can retake the exam for a fee without studying the course again. Retakes are scheduled for January 5–9 and May 17–22.
+        - F (0–24 points) – you must re-register for the course (Retake), attend all classes and take the exam again. A Retake is paid only; after 3 weeks of classes you cannot drop it, otherwise you get an F and the payment is not refunded.
+        Courses can be retaken in the summer semester (May 31 to July 24). A failing grade in an elective can be replaced with another course from the same block, agreed with your advisor and the Registrar's office.
+
+  - id: appeal
+    title: {ru: Апелляция, kk: Апелляция, en: Grade appeal}
+    sources: [academic-policy-2025-2026]
+    answer:
+      ru: |
+        Если вы не согласны с результатом экзамена, подайте апелляцию не позднее следующего рабочего дня после экзамена.
+        Апелляция рассматривается, только если в заявлении указано, что вопрос некорректен или не соответствует программе дисциплины.
+        Её рассматривает апелляционная комиссия, назначенная приказом ректора на период сессии. Учтите: если по итогам апелляции оценка окажется ниже, в транскрипт и GPA идёт новая оценка.
+      kk: |
+        Емтихан нәтижесімен келіспесеңіз, емтиханнан кейінгі келесі жұмыс күнінен кешіктірмей апелляция беріңіз.
+        Апелляция өтініште сұрақтың дұрыс еместігі немесе пән бағдарламасына сәйкес келмейтіні көрсетілсе ғана қаралады.
+        Оны сессия кезеңіне ректордың бұйрығымен тағайындалған апелляциялық комиссия қарайды. Ескеріңіз: апелляция қорытындысы бойынша баға төмен болса, транскрипт пен GPA-ға жаңа баға жазылады.
+      en: |
+        If you disagree with your exam result, file an appeal no later than the next working day after the exam.
+        An appeal is considered only if your application states that a question was incorrect or did not match the course syllabus.
+        It is reviewed by an appeals committee appointed by the rector for the exam session. Note: if the appeal results in a lower grade, the new grade goes into your transcript and GPA.
+
+  - id: missed_exam
+    title: {ru: Пропуск экзамена по уважительной причине, kk: Емтиханды дәлелді себеппен босату, en: Missed exam for a valid reason}
+    sources: [academic-policy-2025-2026]
+    answer:
+      ru: |
+        Если вы пропустили экзамен по уважительной причине (например, болезнь), не позднее 2 рабочих дней со дня экзамена подайте заявление на имя проректора по академической деятельности с визами декана и директора департамента по академическим вопросам и приложите оригиналы подтверждающих документов.
+        Медицинскую справку должен подтвердить заведующий медико-оздоровительным центром университета.
+        Если причину признают уважительной, вам назначат индивидуальный график сдачи экзамена.
+      kk: |
+        Егер емтиханды дәлелді себеппен (мысалы, ауырып қалсаңыз) өткізіп алсаңыз, емтихан күнінен бастап 2 жұмыс күнінен кешіктірмей декан мен академиялық мәселелер департаменті директорының бұрыштамасы бар академиялық қызмет жөніндегі проректордың атына өтініш беріп, растайтын құжаттардың түпнұсқаларын қоса беріңіз.
+        Медициналық анықтаманы университеттің медициналық-сауықтыру орталығының меңгерушісі растауы тиіс.
+        Себеп дәлелді деп танылса, сізге емтихан тапсырудың жеке кестесі белгіленеді.
+      en: |
+        If you missed an exam for a valid reason (for example, illness), within 2 working days of the exam submit an application to the vice-rector for academic affairs, endorsed by your dean and the director of the academic affairs department, with the original supporting documents.
+        A medical certificate must be confirmed by the head of the university's medical center.
+        If the reason is accepted, you will get an individual exam schedule.
+
+  - id: academic_leave
+    title: {ru: Академический отпуск, kk: Академиялық демалыс, en: Academic leave}
+    sources: [academic-leave-regulation, student-support-center]
+    answer:
+      ru: |
+        Академический отпуск предоставляется:
+        - по болезни – по заключению врачебно-консультативной комиссии (ВКК) на срок от 6 до 12 месяцев, при туберкулёзе – до 36 месяцев;
+        - при призыве на воинскую службу;
+        - в связи с рождением или усыновлением ребёнка – до достижения им трёх лет.
+        Подайте заявление на имя ректора с подтверждающими документами (обращения принимает Центр обслуживания студентов). Приказ издаётся в течение 3 рабочих дней.
+        На время отпуска оплата за обучение приостанавливается, а обладатели гранта сохраняют право на грант.
+        После отпуска не позднее 5 рабочих дней подайте заявление о выходе (после болезни – со справкой ВКК); деканат определит разницу в дисциплинах.
+      kk: |
+        Академиялық демалыс беріледі:
+        - ауруына байланысты – дәрігерлік-консультациялық комиссияның (ДКК) қорытындысы бойынша 6-дан 12 айға дейін, туберкулез кезінде – 36 айға дейін;
+        - әскери қызметке шақырылғанда;
+        - баланың тууына немесе асырап алуына байланысты – бала үш жасқа толғанға дейін.
+        Растайтын құжаттарымен ректордың атына өтініш беріңіз (өтініштерді Студенттерге қызмет көрсету орталығы қабылдайды). Бұйрық 3 жұмыс күні ішінде шығарылады.
+        Демалыс кезінде оқу ақысын төлеу тоқтатылады, ал грант иегерлері грантқа құқығын сақтайды.
+        Демалыстан кейін 5 жұмыс күнінен кешіктірмей шығу туралы өтініш беріңіз (ауырғаннан кейін – ДКК анықтамасымен); деканат пәндер айырмасын анықтайды.
+      en: |
+        Academic leave is granted:
+        - for illness – based on a medical advisory commission (VKK) conclusion, for 6 to 12 months, or up to 36 months for tuberculosis;
+        - when called up for military service;
+        - for the birth or adoption of a child – until the child is three years old.
+        Submit an application to the rector with supporting documents (the Student Service Center accepts requests). The order is issued within 3 working days.
+        Tuition payments are suspended during the leave, and grant holders keep their grant.
+        After the leave, apply to return within 5 working days (after illness – with a VKK certificate); the dean's office will determine any curriculum differences.
+
+  - id: transfer_restore
+    title: {ru: Перевод и восстановление, kk: Ауысу және қайта қабылдану, en: Transfer and reinstatement}
+    sources: [transfer-regulation, transfers-leave, student-support-center]
+    answer:
+      ru: |
+        Перевод из другого вуза, а также смена программы, формы обучения или перевод с платного на грант внутри университета проводятся в летние и зимние каникулы. Заявления рассматриваются за 5 рабочих дней до начала академического периода.
+        Перевод из другого вуза:
+        1. Получите письменное согласие своего вуза на перевод.
+        2. Подайте заявление на имя ректора «Турана» с транскриптом и сертификатом ЕНТ или КТ.
+        3. Декан проведёт перезачёт кредитов и определит академическую разницу, которую нужно будет сдать.
+        Восстановление проводится только на платной основе: заявление на имя ректора с транскриптом. Обращения принимает Центр обслуживания студентов.
+      kk: |
+        Басқа ЖОО-дан ауысу, сондай-ақ университет ішінде бағдарламаны, оқу нысанын ауыстыру немесе ақылыдан грантқа ауысу жазғы және қысқы демалыс кезінде жүргізіледі. Өтініштер академиялық кезең басталғанға дейін 5 жұмыс күні ішінде қаралады.
+        Басқа ЖОО-дан ауысу:
+        1. Өз ЖОО-ңыздан ауысуға жазбаша келісім алыңыз.
+        2. «Тұран» ректорының атына транскрипт және ҰБТ немесе КТ сертификатымен өтініш беріңіз.
+        3. Декан кредиттерді қайта есептеп, тапсыру қажет академиялық айырманы анықтайды.
+        Қайта қабылдану тек ақылы негізде жүргізіледі: транскриптпен ректордың атына өтініш. Өтініштерді Студенттерге қызмет көрсету орталығы қабылдайды.
+      en: |
+        Transfers from other universities, as well as changing program, study mode or moving from paid study to a grant within the university, take place during the summer and winter breaks. Applications are reviewed within 5 working days before the academic period starts.
+        Transferring from another university:
+        1. Get written consent for the transfer from your current university.
+        2. Submit an application to the rector of Turan with your transcript and UNT or CT certificate.
+        3. The dean will recognize your credits and determine the academic difference you need to make up.
+        Reinstatement is possible on a paid basis only: an application to the rector with a transcript. The Student Service Center accepts requests.
+
+  - id: practice
+    title: {ru: Практика, kk: Практика, en: Internships and practice}
+    sources: [practice-bachelor, practice-master, educational-process]
+    answer:
+      ru: |
+        Виды практики:
+        - бакалавриат – учебная, производственная и преддипломная;
+        - магистратура – производственная, педагогическая и исследовательская;
+        - докторантура – педагогическая и исследовательская.
+        Учебная практика для всех программ бакалавриата в 2027 году – 24–29 мая. Графики прохождения практики по факультетам опубликованы на странице «Практика». С поиском места помогает Центр карьеры и лидерства.
+      kk: |
+        Практика түрлері:
+        - бакалавриат – оқу, өндірістік және диплом алдындағы;
+        - магистратура – өндірістік, педагогикалық және зерттеу;
+        - докторантура – педагогикалық және зерттеу.
+        2027 жылы бакалавриаттың барлық бағдарламалары үшін оқу практикасы – 24–29 мамыр. Факультеттер бойынша практикадан өту кестелері «Практика» бетінде жарияланған. Орын іздеуге Мансап және көшбасшылық орталығы көмектеседі.
+      en: |
+        Types of practice:
+        - bachelor's – training, industrial and pre-graduation practice;
+        - master's – industrial, teaching and research practice;
+        - PhD – teaching and research practice.
+        In 2027 training practice for all bachelor's programs is on May 24–29. Faculty practice schedules are published on the Practice page. The Career and Leadership Center helps you find a placement.
+
+  - id: portals
+    title: {ru: Canvas и портал ЦОС, kk: Canvas және СҚКО порталы, en: Canvas and student portal}
+    sources: [educational-process, user-instructions, student-support-center, academic-policy-2025-2026]
+    answer:
+      ru: |
+        Основные онлайн-системы:
+        - Canvas (canvas.turan-edu.kz) – курсы, задания и тестирование;
+        - АСУ «Туран» / портал ЦОС (asu.turan-edu.kz) – образовательный портал, онлайн-запросы в Центр обслуживания студентов, вход в электронную библиотеку.
+        Онлайн-экзамены проходят в Canvas с автопрокторингом OES: нужны удостоверение личности, компьютер с камерой и микрофоном и стабильный интернет. Если техники нет, напишите эдвайзеру или в ЦОС – экзамен назначат в кампусе.
+        Инструкции по Canvas и прокторингу – на странице «Инструкции для пользователя». С доступом поможет ЦОС.
+      kk: |
+        Негізгі онлайн-жүйелер:
+        - Canvas (canvas.turan-edu.kz) – курстар, тапсырмалар және тестілеу;
+        - «Тұран» АБЖ / СҚКО порталы (asu.turan-edu.kz) – білім беру порталы, Студенттерге қызмет көрсету орталығына онлайн-сұраулар, электронды кітапханаға кіру.
+        Онлайн-емтихандар Canvas-та OES автопрокторингімен өтеді: жеке куәлік, камерасы мен микрофоны бар компьютер және тұрақты интернет қажет. Техника болмаса, эдвайзерге немесе СҚКО-ға жазыңыз – емтихан кампуста тағайындалады.
+        Canvas пен прокторинг бойынша нұсқаулықтар «Пайдаланушыға арналған нұсқаулық» бетінде. Қолжетімділікке СҚКО көмектеседі.
+      en: |
+        Main online systems:
+        - Canvas (canvas.turan-edu.kz) – courses, assignments and tests;
+        - Turan ASU / Student Service Center portal (asu.turan-edu.kz) – the education portal, online requests to the Student Service Center and access to the e-library.
+        Online exams run in Canvas with OES automated proctoring: you need your ID, a computer with a camera and microphone, and a stable internet connection. If you lack equipment, write to your advisor or the Student Service Center – the exam will be scheduled on campus.
+        Canvas and proctoring guides are on the User instructions page. The Student Service Center helps with access.
+
+  - id: certificates
+    title: {ru: Справки и транскрипт, kk: Анықтамалар және транскрипт, en: Certificates and transcript}
+    sources: [student-support-center, international-faq]
+    answer:
+      ru: |
+        Справку с места учёбы и транскрипт выдаёт Центр обслуживания студентов (ЦОС). Запрос можно подать онлайн: asu.turan-edu.kz.
+        Также ЦОС принимает обращения по академическому отпуску, отчислению, переводу, регистрации на дисциплины, общежитию, воинскому учёту и отсрочке.
+        Время работы: пн–пт, 9:00–18:00 без перерыва. Телефоны: +7 (727) 260-40-19, +7 (727) 264-55-97. Почта: student_support@turan-edu.kz.
+        Справку Enrollment certificate для программ обмена можно получить в кабинете 305.
+      kk: |
+        Оқу орнынан анықтаманы және транскриптті Студенттерге қызмет көрсету орталығы (СҚКО) береді. Сұрауды онлайн беруге болады: asu.turan-edu.kz.
+        Сондай-ақ СҚКО академиялық демалыс, оқудан шығару, ауысу, пәндерге тіркелу, жатақхана, әскери есеп және кейінге қалдыру бойынша өтініштерді қабылдайды.
+        Жұмыс уақыты: дс–жм, 9:00–18:00 үзіліссіз. Телефондар: +7 (727) 260-40-19, +7 (727) 264-55-97. Пошта: student_support@turan-edu.kz.
+        Алмасу бағдарламаларына арналған Enrollment certificate анықтамасын 305 кабинеттен алуға болады.
+      en: |
+        Certificates of enrollment and transcripts are issued by the Student Service Center. You can submit a request online: asu.turan-edu.kz.
+        The center also handles requests on academic leave, expulsion, transfers, course registration, the dormitory, military registration and deferment.
+        Opening hours: Mon–Fri, 9:00–18:00 without a break. Phones: +7 (727) 260-40-19, +7 (727) 264-55-97. Email: student_support@turan-edu.kz.
+        An Enrollment certificate for exchange programs is available in room 305.
+
+  - id: academic_mobility
+    title: {ru: Академическая мобильность, kk: Академиялық ұтқырлық, en: Academic mobility}
+    sources: [international-faq, academic-mobility, erasmus, scholarships]
+    answer:
+      ru: |
+        Программы обмена:
+        - ZeroGrant – бесплатное обучение в вузах-партнёрах; нужны GPA не ниже 2,7 и английский не ниже B2;
+        - Erasmus+ – обучение, стажировки и проекты в Европе;
+        - гранты Министерства науки и высшего образования РК.
+        Для заявки: заявление (или заявление ZeroGrant), транскрипт с GPA, языковой сертификат (IELTS от 5.5 или TOEFL от 46), мотивационное письмо, рекомендации преподавателей, Enrollment certificate (кабинет 305).
+        Обмен длится от семестра до учебного года. Отказаться можно на любом этапе, предупредив кафедру. Есть и внешние стипендии: «Болашак», DAAD, «Мевлана».
+      kk: |
+        Алмасу бағдарламалары:
+        - ZeroGrant – серіктес ЖОО-ларда тегін оқу; GPA кемінде 2,7 және ағылшын тілі кемінде B2 қажет;
+        - Erasmus+ – Еуропада оқу, тағылымдама және жобалар;
+        - ҚР Ғылым және жоғары білім министрлігінің гранттары.
+        Өтінім үшін: өтініш (немесе ZeroGrant өтініші), GPA көрсетілген транскрипт, тіл сертификаты (IELTS 5.5-тен немесе TOEFL 46-дан), уәждеме хат, оқытушылардың ұсынымдары, Enrollment certificate (305 кабинет).
+        Алмасу бір семестрден бір оқу жылына дейін созылады. Кафедраны ескерте отырып, кез келген кезеңде бас тартуға болады. Сыртқы стипендиялар да бар: «Болашақ», DAAD, «Мевлана».
+      en: |
+        Exchange programs:
+        - ZeroGrant – free study at partner universities; you need a GPA of at least 2.7 and English at B2 or higher;
+        - Erasmus+ – study, internships and projects in Europe;
+        - grants of the Ministry of Science and Higher Education of Kazakhstan.
+        To apply: an application form (or the ZeroGrant form), a transcript with your GPA, a language certificate (IELTS 5.5+ or TOEFL 46+), a motivation letter, recommendation letters from teachers, and an Enrollment certificate (room 305).
+        An exchange lasts from one semester to one academic year. You can withdraw at any stage by informing your department. External scholarships are also available: Bolashak, DAAD, Mevlana.
+
+  - id: academic_integrity
+    title: {ru: Академическая честность и ИИ, kk: Академиялық адалдық және ЖИ, en: Academic integrity and AI}
+    sources: [academic-policy-2025-2026, student-code, reference-documents]
+    answer:
+      ru: |
+        В университете недопустимы списывание и запрещённые материалы на экзамене, плагиат (копирование без ссылок на источник, выдача чужой работы за свою), передача логина и пароля и выполнение работ за других.
+        Инструменты искусственного интеллекта нельзя использовать для генерации готового текста работы или подмены авторского вклада: ключевые выводы, анализ и данные должны быть результатом вашей самостоятельной работы. Подробности – в «Политике использования ИИ» на странице нормативных документов.
+        Непреднамеренный однократный плагиат преподаватель может наказать учебной мерой (переписать задание и т.п.); умышленный или повторный рассматривает декан. Дипломные работы проверяются на плагиат.
+      kk: |
+        Университетте емтиханда көшіру және тыйым салынған материалдарды пайдалану, плагиат (дереккөзге сілтемесіз көшіру, біреудің жұмысын өзінікі ретінде ұсыну), логин мен құпиясөзді беру және басқалар үшін жұмыс орындау жол берілмейді.
+        Жасанды интеллект құралдарын жұмыстың дайын мәтінін жасау немесе авторлық үлесті алмастыру үшін пайдалануға болмайды: негізгі қорытындылар, талдау және деректер өзіңіздің дербес жұмысыңыздың нәтижесі болуы тиіс. Толығырақ – нормативтік құжаттар бетіндегі «Жасанды интеллектіні қолдану саясатында».
+        Абайсызда бір рет жасалған плагиат үшін оқытушы оқу шарасын қолдана алады (тапсырманы қайта жазу және т.б.); қасақана немесе қайталанған жағдайды декан қарайды. Дипломдық жұмыстар плагиатқа тексеріледі.
+      en: |
+        The university does not tolerate cheating or prohibited materials in exams, plagiarism (copying without citing sources or presenting someone else's work as your own), sharing your login and password, or doing assignments for others.
+        AI tools may not be used to generate the finished text of a work or to replace your own contribution: key conclusions, analysis and data must be your own work. Details are in the AI Acceptable Use Policy on the Regulatory documents page.
+        A one-time unintentional case of plagiarism may lead to an educational measure by the teacher (rewriting the assignment, etc.); intentional or repeated cases are handled by the dean. Theses are checked for plagiarism.

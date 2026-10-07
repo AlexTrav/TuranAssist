@@ -1,0 +1,58 @@
+# служебные интенты: приветствие, прощание, благодарность, «что ты умеешь»
+group: service
+intents:
+  - id: greeting
+    title: {ru: Приветствие, kk: Сәлемдесу, en: Greeting}
+    sources: []
+    answer:
+      ru: |
+        Здравствуйте! Я TuranAssist – помощник абитуриентов и студентов Университета «Туран».
+        Спросите меня о поступлении, стоимости обучения, грантах и скидках, учебном процессе, общежитии или контактах.
+      kk: |
+        Сәлеметсіз бе! Мен TuranAssist – «Тұран» университетінің талапкерлері мен студенттеріне арналған көмекшімін.
+        Түсу, оқу ақысы, гранттар мен жеңілдіктер, оқу процесі, жатақхана немесе байланыстар туралы сұраңыз.
+      en: |
+        Hello! I am TuranAssist, an assistant for applicants and students of Turan University.
+        Ask me about admission, tuition fees, grants and discounts, studies, the dormitory or contacts.
+
+  - id: goodbye
+    title: {ru: Прощание, kk: Қоштасу, en: Goodbye}
+    sources: []
+    answer:
+      ru: До свидания! Если появятся вопросы об университете – пишите, я на связи.
+      kk: Сау болыңыз! Университет туралы сұрақтарыңыз болса – жазыңыз, мен әрқашан байланыстамын.
+      en: Goodbye! If you have more questions about the university, just write – I am here.
+
+  - id: thanks
+    title: {ru: Благодарность, kk: Алғыс, en: Thanks}
+    sources: []
+    answer:
+      ru: Пожалуйста! Рад помочь. Спрашивайте, если нужно что-то ещё.
+      kk: Оқасы жоқ! Көмектескеніме қуаныштымын. Тағы сұрағыңыз болса, жазыңыз.
+      en: You are welcome! Glad to help. Ask if you need anything else.
+
+  - id: capabilities
+    title: {ru: Что умеет бот, kk: Бот не істей алады, en: What the bot can do}
+    sources: []
+    answer:
+      ru: |
+        Я отвечаю на вопросы об Университете «Туран» по данным официального сайта turan.edu.kz и нормативных документов:
+        - поступление в бакалавриат, магистратуру и докторантуру, ЕНТ и КТ, сроки и документы;
+        - стоимость обучения, реквизиты, гранты и скидки;
+        - учебный процесс: календарь, оценки и GPA, пересдачи, академический отпуск, перевод;
+        - общежитие, медцентр, библиотека, студенческие клубы, контакты.
+        Если я не уверен в ответе, честно скажу об этом и предложу похожие темы. Окончательные решения принимает университет – уточняйте в приёмной комиссии или Центре обслуживания студентов.
+      kk: |
+        Мен turan.edu.kz ресми сайты мен нормативтік құжаттар негізінде «Тұран» университеті туралы сұрақтарға жауап беремін:
+        - бакалавриатқа, магистратураға және докторантураға түсу, ҰБТ мен КТ, мерзімдер мен құжаттар;
+        - оқу ақысы, деректемелер, гранттар мен жеңілдіктер;
+        - оқу процесі: күнтізбе, бағалар мен GPA, қайта тапсыру, академиялық демалыс, ауысу;
+        - жатақхана, медициналық орталық, кітапхана, студенттік клубтар, байланыстар.
+        Жауабыма сенімді болмасам, мұны ашық айтып, ұқсас тақырыптарды ұсынамын. Түпкілікті шешімді университет қабылдайды – қабылдау комиссиясынан немесе Студенттерге қызмет көрсету орталығынан нақтылаңыз.
+      en: |
+        I answer questions about Turan University based on the official website turan.edu.kz and university regulations:
+        - admission to bachelor's, master's and PhD programs, UNT and CT, deadlines and documents;
+        - tuition fees, payment details, grants and discounts;
+        - studies: academic calendar, grades and GPA, retakes, academic leave, transfers;
+        - dormitory, medical center, library, student clubs, contacts.
+        If I am not sure, I will say so honestly and suggest related topics. Final decisions are made by the university – please confirm with the admissions office or the Student Service Center.

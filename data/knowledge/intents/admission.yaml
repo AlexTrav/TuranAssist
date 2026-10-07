@@ -1,0 +1,325 @@
+# поступление в бакалавриат: шаги, ЕНТ, проходные баллы, документы, сроки, творческие экзамены,
+# поступление после колледжа, специальности, формы обучения, иностранцы, Foundation
+group: admission
+intents:
+  - id: admission_steps
+    title: {ru: Как поступить, kk: Қалай түсуге болады, en: How to apply}
+    sources: [how-to-enroll, admission-rules-2026-2027]
+    answer:
+      ru: |
+        Поступление в бакалавриат после школы:
+        1. Выберите образовательную программу.
+        2. Подайте заявку на ЕНТ в Национальный центр тестирования: app.testcenter.kz (ЕНТ проводится несколько раз в год: в январе, марте, июне и августе).
+        3. Сдайте ЕНТ: 5 предметов – три обязательных и два профильных, на основном ЕНТ даётся 2 попытки.
+        4. Подайте заявление в Туран и сдайте оригиналы документов – с 20 июня по 25 августа.
+        В приёмной комиссии помогут с регистрацией: +7 (727) 260 40 00.
+      kk: |
+        Мектептен кейін бакалавриатқа түсу:
+        1. Білім беру бағдарламасын таңдаңыз.
+        2. Ұлттық тестілеу орталығына ҰБТ-ға өтінім беріңіз: app.testcenter.kz (ҰБТ жылына бірнеше рет өтеді: қаңтар, наурыз, маусым және тамыз айларында).
+        3. ҰБТ тапсырыңыз: 5 пән – үш міндетті және екі бейіндік, негізгі ҰБТ-да 2 мүмкіндік беріледі.
+        4. «Тұранға» өтініш беріп, құжаттардың түпнұсқаларын тапсырыңыз – 20 маусым мен 25 тамыз аралығында.
+        Қабылдау комиссиясы тіркелуге көмектеседі: +7 (727) 260 40 00.
+      en: |
+        Applying for a bachelor's program after school:
+        1. Choose an educational program.
+        2. Register for the UNT with the National Testing Center: app.testcenter.kz (the UNT is held several times a year: in January, March, June and August).
+        3. Take the UNT: 5 subjects – three compulsory and two profile subjects; the main UNT gives you 2 attempts.
+        4. Apply to Turan and submit the original documents between June 20 and August 25.
+        The admissions office will help you register: +7 (727) 260 40 00.
+
+  - id: ent_subjects
+    title: {ru: Предметы ЕНТ, kk: ҰБТ пәндері, en: UNT subjects}
+    sources: [how-to-enroll]
+    answer:
+      ru: |
+        Обязательные предметы ЕНТ: математическая грамотность, грамотность чтения, история Казахстана.
+        Профильные предметы:
+        - ИТ (информационные системы, ВТиПО, программная инженерия, интеллектуальная робототехника) – математика и информатика;
+        - радиотехника, электроника и телекоммуникации – математика и физика;
+        - экономика, финансы, менеджмент, учёт и аудит, маркетинг, государственное управление, мировая экономика, логистика – математика и география;
+        - юриспруденция, международное право, правовое сопровождение бизнеса – всемирная история и основы права;
+        - международные отношения, переводческое дело, регионоведение – иностранный язык и всемирная история;
+        - психология – биология и география;
+        - туризм, ресторанное дело и гостиничный бизнес – география и иностранный язык;
+        - журналистика, связь с общественностью, режиссура, операторское, актёрское искусство, продюсирование – два творческих экзамена.
+      kk: |
+        ҰБТ-ның міндетті пәндері: математикалық сауаттылық, оқу сауаттылығы, Қазақстан тарихы.
+        Бейіндік пәндер:
+        - АТ (ақпараттық жүйелер, есептеуіш техника және бағдарламалық қамтамасыз ету, бағдарламалық инженерия, интеллектуалды робототехника) – математика және информатика;
+        - радиотехника, электроника және телекоммуникациялар – математика және физика;
+        - экономика, қаржы, менеджмент, есеп және аудит, маркетинг, мемлекеттік басқару, әлемдік экономика, логистика – математика және география;
+        - құқықтану, халықаралық құқық, бизнесті құқықтық сүйемелдеу – дүниежүзі тарихы және құқық негіздері;
+        - халықаралық қатынастар, аударма ісі, аймақтану – шет тілі және дүниежүзі тарихы;
+        - психология – биология және география;
+        - туризм, мейрамхана ісі және қонақ үй бизнесі – география және шет тілі;
+        - журналистика, қоғаммен байланыс, режиссура, операторлық, актерлік өнер, продюсерлік – екі шығармашылық емтихан.
+      en: |
+        Compulsory UNT subjects: mathematical literacy, reading literacy, history of Kazakhstan.
+        Profile subjects:
+        - IT (information systems, computer engineering and software, software engineering, intelligent robotics) – mathematics and computer science;
+        - radio engineering, electronics and telecommunications – mathematics and physics;
+        - economics, finance, management, accounting and audit, marketing, public administration, world economy, logistics – mathematics and geography;
+        - law, international law, legal support of business – world history and fundamentals of law;
+        - international relations, translation studies, regional studies – foreign language and world history;
+        - psychology – biology and geography;
+        - tourism, restaurant and hotel business – geography and foreign language;
+        - journalism, public relations, directing, cinematography, acting, film and TV production – two creative exams.
+
+  - id: passing_score
+    title: {ru: Проходной балл, kk: Шекті балл, en: Passing score}
+    sources: [how-to-enroll, grants-discounts]
+    answer:
+      ru: |
+        Проходной балл ЕНТ для поступления:
+        - не менее 75 баллов – по группе программ «Право»;
+        - не менее 50 баллов – по остальным программам.
+        По истории Казахстана и профильным предметам нужно не менее 5 баллов, по грамотности чтения – не менее 3.
+        Для творческих программ максимум – 130 баллов (2 предмета ЕНТ и 2 творческих экзамена), проходной – не менее 50.
+        Выпускникам колледжа при поступлении на грант по родственной специальности – не менее 25 баллов и не менее 5 по каждому предмету.
+      kk: |
+        Түсуге арналған ҰБТ шекті балы:
+        - «Құқық» бағдарламалар тобы бойынша – кемінде 75 балл;
+        - басқа бағдарламалар бойынша – кемінде 50 балл.
+        Қазақстан тарихы мен бейіндік пәндерден кемінде 5 балл, оқу сауаттылығынан кемінде 3 балл қажет.
+        Шығармашылық бағдарламалар үшін ең жоғары балл – 130 (ҰБТ-ның 2 пәні және 2 шығармашылық емтихан), шекті балл – кемінде 50.
+        Колледж түлектері туыстас мамандыққа грантпен түскенде – кемінде 25 балл және әр пәннен кемінде 5 балл.
+      en: |
+        UNT passing score for admission:
+        - at least 75 points for the "Law" group of programs;
+        - at least 50 points for all other programs.
+        You need at least 5 points in the history of Kazakhstan and each profile subject, and at least 3 in reading literacy.
+        For creative programs the maximum is 130 points (2 UNT subjects and 2 creative exams), the passing score is at least 50.
+        College graduates applying for a state grant in a related field need at least 25 points and at least 5 per subject.
+
+  - id: admission_documents
+    title: {ru: Документы для поступления, kk: Түсуге қажетті құжаттар, en: Admission documents}
+    sources: [how-to-enroll, admission-rules-2026-2027]
+    answer:
+      ru: |
+        Документы для поступления в бакалавриат:
+        - документ о среднем или высшем образовании с приложением (оригинал и копия);
+        - сертификат ЕНТ;
+        - копия удостоверения личности;
+        - медицинская справка формы 075-у и снимок флюорографии;
+        - медицинская справка формы 063 (паспорт здоровья);
+        - 6 фотографий 3×4.
+        Оригиналы принимаются с 20 июня по 25 августа.
+      kk: |
+        Бакалавриатқа түсуге қажетті құжаттар:
+        - қосымшасы бар орта немесе жоғары білім туралы құжат (түпнұсқа және көшірме);
+        - ҰБТ сертификаты;
+        - жеке куәліктің көшірмесі;
+        - 075-у нысанындағы медициналық анықтама және флюорография суреті;
+        - 063 нысанындағы медициналық анықтама (денсаулық паспорты);
+        - 3×4 өлшемді 6 фотосурет.
+        Түпнұсқалар 20 маусым мен 25 тамыз аралығында қабылданады.
+      en: |
+        Documents for bachelor's admission:
+        - school or higher education certificate with transcript (original and copy);
+        - UNT certificate;
+        - copy of your ID;
+        - medical certificate form 075-u and a chest X-ray (fluorography);
+        - medical certificate form 063 (health passport);
+        - 6 photos 3×4 cm.
+        Originals are accepted from June 20 to August 25.
+
+  - id: admission_deadlines
+    title: {ru: Сроки приёма, kk: Қабылдау мерзімдері, en: Admission deadlines}
+    sources: [admission-rules-2026-2027, master, phd, foreign-citizens]
+    answer:
+      ru: |
+        Сроки приёма в 2026 году:
+        - бакалавриат: оригиналы документов – с 20 июня по 25 августа;
+        - творческие программы: заявления – с 20 июня по 10 августа, творческие экзамены – с 7 июля по 15 августа;
+        - магистратура: заявка на КТ – с 1 июня по 8 июля, экзамены – с 20 июля по 10 августа, зачисление – до 28 августа; зимний приём: КТ – с 19 ноября по 11 декабря, зачисление – с 26 декабря по 10 января;
+        - докторантура: документы – с 3 июля по 3 августа и с 25 октября по 10 ноября;
+        - иностранные граждане: документы – с 1 июня по 25 августа.
+      kk: |
+        2026 жылғы қабылдау мерзімдері:
+        - бакалавриат: құжаттардың түпнұсқалары – 20 маусым мен 25 тамыз аралығында;
+        - шығармашылық бағдарламалар: өтініштер – 20 маусым мен 10 тамыз аралығында, шығармашылық емтихандар – 7 шілде мен 15 тамыз аралығында;
+        - магистратура: КТ-ға өтінім – 1 маусым мен 8 шілде аралығында, емтихандар – 20 шілде мен 10 тамыз аралығында, оқуға қабылдау – 28 тамызға дейін; қысқы қабылдау: КТ – 19 қараша мен 11 желтоқсан аралығында, оқуға қабылдау – 26 желтоқсан мен 10 қаңтар аралығында;
+        - докторантура: құжаттар – 3 шілде мен 3 тамыз, 25 қазан мен 10 қараша аралығында;
+        - шетел азаматтары: құжаттар – 1 маусым мен 25 тамыз аралығында.
+      en: |
+        Admission deadlines in 2026:
+        - bachelor's: original documents – June 20 to August 25;
+        - creative programs: applications – June 20 to August 10, creative exams – July 7 to August 15;
+        - master's: CT registration – June 1 to July 8, exams – July 20 to August 10, enrollment – by August 28; winter intake: CT – November 19 to December 11, enrollment – December 26 to January 10;
+        - PhD: documents – July 3 to August 3 and October 25 to November 10;
+        - international applicants: documents – June 1 to August 25.
+
+  - id: creative_exam
+    title: {ru: Творческий экзамен, kk: Шығармашылық емтихан, en: Creative exam}
+    sources: [how-to-enroll, admission-rules-2026-2027]
+    answer:
+      ru: |
+        Творческие программы: журналистика, связь с общественностью, режиссура, операторское искусство, актёрское искусство, продюсирование кино и ТВ.
+        Нужно сдать 2 предмета ЕНТ (история Казахстана и грамотность чтения) и 2 творческих экзамена в университете. Максимум – 130 баллов, проходной – не менее 50 и на платное, и на грант.
+        Форматы экзаменов:
+        - журналистика и связь с общественностью – сочинение и собеседование;
+        - актёрское искусство – прослушивание (басня, стихотворение, проза) и устный коллоквиум;
+        - операторское искусство – письменный анализ медиаработы, фотосъёмка и коллоквиум;
+        - режиссура – сочинение или изложение и коллоквиум по кинематографу;
+        - продюсирование – презентация проекта и коллоквиум.
+        Заявления – с 20 июня по 10 августа, экзамены – с 7 июля по 15 августа. Перед экзаменом проводится консультация.
+      kk: |
+        Шығармашылық бағдарламалар: журналистика, қоғаммен байланыс, режиссура, операторлық өнер, актерлік өнер, кино және ТВ продюсерлігі.
+        ҰБТ-ның 2 пәнін (Қазақстан тарихы және оқу сауаттылығы) және университетте 2 шығармашылық емтиханды тапсыру қажет. Ең жоғары балл – 130, шекті балл ақылы оқуға да, грантқа да кемінде 50.
+        Емтихан түрлері:
+        - журналистика және қоғаммен байланыс – шығарма және әңгімелесу;
+        - актерлік өнер – тыңдалым (мысал, өлең, проза) және ауызша коллоквиум;
+        - операторлық өнер – медиа жұмысты жазбаша талдау, фотосурет түсіру және коллоквиум;
+        - режиссура – шығарма немесе мазмұндама және кинематография бойынша коллоквиум;
+        - продюсерлік – жобаның презентациясы және коллоквиум.
+        Өтініштер – 20 маусым мен 10 тамыз аралығында, емтихандар – 7 шілде мен 15 тамыз аралығында. Емтихан алдында кеңес беріледі.
+      en: |
+        Creative programs: journalism, public relations, directing, cinematography, acting, film and TV production.
+        You take 2 UNT subjects (history of Kazakhstan and reading literacy) and 2 creative exams at the university. The maximum is 130 points; the passing score is at least 50 for both paid places and grants.
+        Exam formats:
+        - journalism and public relations – an essay and an interview;
+        - acting – an audition (fable, poem, prose) and an oral colloquium;
+        - cinematography – a written analysis of a media work, a photo shoot and a colloquium;
+        - directing – an essay or summary and a colloquium on cinema;
+        - production – a project presentation and a colloquium.
+        Applications: June 20 to August 10, exams: July 7 to August 15. A consultation is held before the exams.
+
+  - id: college_graduates
+    title: {ru: Поступление после колледжа, kk: Колледжден кейін түсу, en: Admission after college}
+    sources: [how-to-enroll, tuition-fee]
+    answer:
+      ru: |
+        Выпускники колледжей:
+        - по родственной специальности ЕНТ сдавать не нужно – пишется вступительное эссе; обучение по сокращённой программе 2 или 3 года (очно или очно с дистанционными технологиями);
+        - на неродственную программу – ЕНТ по 5 предметам (не менее 75 баллов для «Права», не менее 50 для остальных), срок обучения 4 года;
+        - на государственный грант по родственной специальности – ЕНТ в сокращённом формате по 2 профильным предметам, не менее 25 баллов и не менее 5 по каждому предмету.
+        На очном отделении есть военная кафедра. Для выпускников колледжей с дипломом с отличием – скидка 50% на первый год.
+      kk: |
+        Колледж түлектері:
+        - туыстас мамандыққа ҰБТ тапсыру қажет емес – түсу эссесі жазылады; қысқартылған бағдарлама бойынша 2 немесе 3 жыл оқу (күндізгі немесе қашықтан оқыту технологияларымен күндізгі);
+        - туыстас емес бағдарламаға – 5 пән бойынша ҰБТ («Құқық» үшін кемінде 75, басқалары үшін кемінде 50 балл), оқу мерзімі 4 жыл;
+        - туыстас мамандық бойынша мемлекеттік грантқа – 2 бейіндік пән бойынша қысқартылған ҰБТ, кемінде 25 балл және әр пәннен кемінде 5 балл.
+        Күндізгі бөлімде әскери кафедра бар. Үздік дипломы бар колледж түлектеріне бірінші жылға 50% жеңілдік беріледі.
+      en: |
+        College graduates:
+        - in a related field you do not need the UNT – you write an entrance essay and study under a shortened 2- or 3-year program (full-time or full-time with distance technologies);
+        - for an unrelated program – the UNT in 5 subjects (at least 75 points for Law, at least 50 for others), 4 years of study;
+        - for a state grant in a related field – a shortened UNT in 2 profile subjects, at least 25 points and at least 5 per subject.
+        Full-time students have access to the military department. College graduates with an honors diploma get a 50% discount for the first year.
+
+  - id: programs_list
+    title: {ru: Специальности, kk: Мамандықтар, en: Programs}
+    sources: [bachelor, master]
+    answer:
+      ru: |
+        Программы бакалавриата:
+        - право: юриспруденция, международное право, правовое сопровождение бизнеса;
+        - социальные науки: психология, международные отношения, регионоведение;
+        - бизнес и управление: экономика, мировая экономика, менеджмент, государственное и местное управление, финансы, учёт и аудит, маркетинг;
+        - журналистика и связь с общественностью; переводческое дело; логистика;
+        - ИКТ: интеллектуальная робототехника, информационные системы, вычислительная техника и ПО, программная инженерия; радиотехника, электроника и телекоммуникации;
+        - сфера обслуживания: туризм, ресторанное дело и гостиничный бизнес, менеджмент инноваций туризма и гостеприимства;
+        - искусство: актёрское и операторское искусство, продюсирование кино и ТВ, режиссура.
+        Есть также магистратура, докторантура PhD, MBA и DBA.
+      kk: |
+        Бакалавриат бағдарламалары:
+        - құқық: құқықтану, халықаралық құқық, бизнесті құқықтық сүйемелдеу;
+        - әлеуметтік ғылымдар: психология, халықаралық қатынастар, аймақтану;
+        - бизнес және басқару: экономика, әлемдік экономика, менеджмент, мемлекеттік және жергілікті басқару, қаржы, есеп және аудит, маркетинг;
+        - журналистика және қоғаммен байланыс; аударма ісі; логистика;
+        - АКТ: интеллектуалды робототехника, ақпараттық жүйелер, есептеуіш техника және БҚ, бағдарламалық инженерия; радиотехника, электроника және телекоммуникациялар;
+        - қызмет көрсету саласы: туризм, мейрамхана ісі және қонақ үй бизнесі, туризм және қонақжайлылық инновацияларының менеджменті;
+        - өнер: актерлік және операторлық өнер, кино және ТВ продюсерлігі, режиссура.
+        Сондай-ақ магистратура, PhD докторантурасы, MBA және DBA бар.
+      en: |
+        Bachelor's programs:
+        - law: jurisprudence, international law, legal support of business;
+        - social sciences: psychology, international relations, regional studies;
+        - business and management: economics, world economy, management, public and local administration, finance, accounting and audit, marketing;
+        - journalism and public relations; translation studies; logistics;
+        - ICT: intelligent robotics, information systems, computer engineering and software, software engineering; radio engineering, electronics and telecommunications;
+        - services: tourism, restaurant and hotel business, innovation management in tourism and hospitality;
+        - arts: acting, cinematography, film and TV production, directing.
+        There are also master's, PhD, MBA and DBA programs.
+
+  - id: study_forms
+    title: {ru: Формы и языки обучения, kk: Оқу нысандары мен тілдері, en: Study modes and languages}
+    sources: [tuition-fee, how-to-enroll, master]
+    answer:
+      ru: |
+        Формы обучения в бакалавриате:
+        - очная, 4 года;
+        - очная после школы, 3 года;
+        - очная сокращённая после колледжа, 2 или 3 года;
+        - очная сокращённая с применением дистанционных технологий – после колледжа (2 или 3 года) и после вуза (второе высшее, 2 или 3 года).
+        Языки обучения – казахский и русский; по ряду программ есть английское отделение.
+        Магистратура – очная, на казахском и русском языках.
+      kk: |
+        Бакалавриаттағы оқу нысандары:
+        - күндізгі, 4 жыл;
+        - мектептен кейін күндізгі, 3 жыл;
+        - колледжден кейін қысқартылған күндізгі, 2 немесе 3 жыл;
+        - қашықтан оқыту технологияларын қолданатын қысқартылған күндізгі – колледжден кейін (2 немесе 3 жыл) және ЖОО-дан кейін (екінші жоғары білім, 2 немесе 3 жыл).
+        Оқыту тілдері – қазақ және орыс; бірқатар бағдарламаларда ағылшын бөлімі бар.
+        Магистратура – күндізгі, қазақ және орыс тілдерінде.
+      en: |
+        Bachelor's study modes:
+        - full-time, 4 years;
+        - full-time after school, 3 years;
+        - full-time shortened after college, 2 or 3 years;
+        - full-time shortened with distance technologies – after college (2 or 3 years) and after a university degree (second degree, 2 or 3 years).
+        Languages of instruction are Kazakh and Russian; several programs have an English-taught department.
+        Master's programs are full-time, in Kazakh and Russian.
+
+  - id: foreign_applicants
+    title: {ru: Поступление иностранцев, kk: Шетел азаматтарының түсуі, en: International applicants}
+    sources: [foreign-citizens, grants-discounts]
+    answer:
+      ru: |
+        Иностранные граждане поступают по собеседованию в приёмной комиссии; если вы окончили школу в Казахстане – по ЕНТ.
+        Документы принимаются с 1 июня по 25 августа:
+        - заявление-анкета на русском языке с фотографией;
+        - нотариально заверенные копии документа об образовании и удостоверения личности с переводом на казахский или русский;
+        - копия лицензии или свидетельства об аккредитации учебного заведения;
+        - свидетельство о признании и нострификации документа об образовании (оформляется через ЦОН);
+        - справка 075 (делается в Казахстане), апостиль диплома колледжа, 6 фото 3×4.
+        Выпускникам из стран СНГ с аттестатом или дипломом колледжа с отличием – скидка 50% на первый год.
+      kk: |
+        Шетел азаматтары қабылдау комиссиясындағы әңгімелесу негізінде түседі; егер мектепті Қазақстанда бітірсеңіз – ҰБТ бойынша.
+        Құжаттар 1 маусым мен 25 тамыз аралығында қабылданады:
+        - фотосуреті бар орыс тіліндегі өтініш-сауалнама;
+        - білім туралы құжат пен жеке куәліктің қазақ немесе орыс тіліне аударылған нотариалды куәландырылған көшірмелері;
+        - оқу орнының лицензиясының немесе аккредиттеу куәлігінің көшірмесі;
+        - білім туралы құжатты тану және нострификациялау туралы куәлік (ХҚКО арқылы рәсімделеді);
+        - 075 анықтамасы (Қазақстанда жасалады), колледж дипломының апостилі, 3×4 өлшемді 6 фото.
+        Аттестаты немесе колледж дипломы үздік ТМД елдерінің түлектеріне бірінші жылға 50% жеңілдік беріледі.
+      en: |
+        International applicants are admitted based on an interview with the admissions office; if you finished school in Kazakhstan, admission is based on the UNT.
+        Documents are accepted from June 1 to August 25:
+        - an application form in Russian with a photo;
+        - notarized copies of your education certificate and ID translated into Kazakh or Russian;
+        - a copy of the license or accreditation certificate of your school;
+        - a certificate of recognition and nostrification of your education document (issued via a Public Service Center);
+        - medical certificate 075 (done in Kazakhstan), an apostille on a college diploma, 6 photos 3×4 cm.
+        Applicants from CIS countries with an honors school or college certificate get a 50% discount for the first year.
+
+  - id: foundation
+    title: {ru: Подготовительные курсы Foundation, kk: Foundation дайындық курстары, en: Foundation courses}
+    sources: [foundation]
+    answer:
+      ru: |
+        Turan Foundation – центр довузовской подготовки университета. Программы:
+        - курсы подготовки к комплексному тестированию (КТ) для поступающих в магистратуру;
+        - курсы подготовки к КАЗТЕСТ – для поступающих в докторантуру и для получения ВНЖ;
+        - международная программа для иностранцев (изучение языка по уровням A1, A2 и выше).
+      kk: |
+        Turan Foundation – университеттің жоғары оқу орнына дейінгі дайындық орталығы. Бағдарламалар:
+        - магистратураға түсушілерге кешенді тестілеуге (КТ) дайындық курстары;
+        - докторантураға түсушілерге және ЫХТ алуға арналған ҚАЗТЕСТ-ке дайындық курстары;
+        - шетелдіктерге арналған халықаралық бағдарлама (A1, A2 және одан жоғары деңгейлер бойынша тіл үйрену).
+      en: |
+        Turan Foundation is the university's pre-university training center. Programs:
+        - preparation courses for the Comprehensive Test (CT) for master's applicants;
+        - KAZTEST preparation courses for PhD applicants and for a residence permit;
+        - an international program for foreigners (language learning at levels A1, A2 and above).
