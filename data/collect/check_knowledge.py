@@ -7,7 +7,7 @@ from .config import CORPUS_DIR, DATA_DIR
 
 KNOWLEDGE_DIR = DATA_DIR / "knowledge"
 LOCALES = ("ru", "kk", "en")
-EM_DASH = "—"
+EM_DASH = "\u2014"
 
 
 # проверяет базу ответов: структуру, полноту переводов и ссылки на источники в корпусе
