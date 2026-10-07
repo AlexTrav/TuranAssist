@@ -97,7 +97,7 @@ intents:
         A map is on the Contacts page, and you can see the university and the Student House in a virtual 3D tour: https://turan.edu.kz/ru/3dtour/
 
   - id: international_exams
-    title: {ru: IELTS, TOEFL и SAT в университете, kk: Университеттегі IELTS, TOEFL және SAT, en: IELTS, TOEFL and SAT at the university}
+    title: {ru: "IELTS, TOEFL и SAT в университете", kk: "Университеттегі IELTS, TOEFL және SAT", en: "IELTS, TOEFL and SAT at the university"}
     sources: [international-exams]
     answer:
       ru: |

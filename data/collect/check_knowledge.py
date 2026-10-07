@@ -35,9 +35,14 @@ def check() -> list[str]:
             if iid in seen:
                 errors.append(f"{iid}: повторяющийся id")
             seen.add(iid)
+            # ключи – ровно ru/kk/en, значения – непустые строки: запятая в YAML-словаре в одну строку
+            # без кавычек незаметно разбивает значение на лишние ключи
             for field in ("title", "answer"):
+                value = intent.get(field) or {}
+                if set(value) != set(LOCALES):
+                    errors.append(f"{iid}: в {field} ключи {sorted(value)} вместо {list(LOCALES)}")
                 for locale in LOCALES:
-                    if not str(intent.get(field, {}).get(locale, "")).strip():
+                    if not isinstance(value.get(locale), str) or not value[locale].strip():
                         errors.append(f"{iid}: нет {field}.{locale}")
             for source in intent.get("sources", []):
                 if source not in known_sources:
