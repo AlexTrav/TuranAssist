@@ -28,7 +28,7 @@ When submitting documents, applicants must provide the Turan University Medical 
 To obtain certificate 075/у you must have the following certificates with you:
 - Certificate from a drug treatment organization;
 - Certificate from a psychoneurological organization;
-These certificates can be obtained through the eGov.kz portal (certificate from narcology, certificate from psychoneurology) or the eGov mobile application.
+These certificates can be obtained through the eGov.kz (http://eGov.kz) portal (certificate from narcology, certificate from psychoneurology) or the eGov mobile application.
 - A copy of form No. 065/у (copies of records of vaccinations performed from the vaccination card, outpatient card).
 - X-ray – a picture of the chest (fluorography) taken outside the Republic of Kazakhstan must be certified in Almaty by a radiologist.
 Foreign students (not residents of the Republic of Kazakhstan) must also provide documents to the medical center:
@@ -76,7 +76,7 @@ Tuberculosis is easier to prevent than to treat later.
 Registration at the clinic for medical care
 Foreigners and members of their families temporarily staying in the territory of the Republic of Kazakhstan enjoy the rights and duties in the CSHI system on an equal basis with Kazakhstani citizens (paragraph 2 of Article 3 of the Law of the Republic of Kazakhstan “On Compulsory Social Health Insurance”). For citizens of the Republic of Kazakhstan, Candace and foreigners permanently residing in the territory of the Republic of Kazakhstan, the order of attachment remains the same.
 How to attach?
-The first way (for everyone). Attachment via the e-government web portal www.egov.kz . In the “Healthcare” section, select the service “Attachment to a medical organization providing primary health care.” You need to submit an application to a medical organization by filling in the fields. “The polyclinic receives information about the patient automatically from the state information systems. If the response is positive, the citizen is notified of the attachment in the form of an electronic document signed by the medical organization’s EDS,” the FSMS press service explained.
+The first way (for everyone). Attachment via the e-government web portal www.egov.kz (http://www.egov.kz) . In the “Healthcare” section, select the service “Attachment to a medical organization providing primary health care.” You need to submit an application to a medical organization by filling in the fields. “The polyclinic receives information about the patient automatically from the state information systems. If the response is positive, the citizen is notified of the attachment in the form of an electronic document signed by the medical organization’s EDS,” the FSMS press service explained.
 The second way. Attachment is made upon direct application to the polyclinic with an application of any form and an identity document.
 Schedule:
 Monday – Friday from 09:00 to 18:00

@@ -44,7 +44,7 @@ For specialized Master’s degree programs – at least 30 points out of 75, wit
 ### Admission of documents to the master school
 In accordance with the amendments, admission to master’s and doctoral studies will now take place twice a year: traditionally in summer and additionally in winter.
 Acceptance of documents in winter:
-Registration for participation in the second comprehensive Master’s degree testing takes place via the website of the National Testing Center – app.testcenter.kz .
+Registration for participation in the second comprehensive Master’s degree testing takes place via the website of the National Testing Center – app.testcenter.kz (http://app.testcenter.kz) .
 Comprehensive testing: from November 19 to December 11. The passing score in the scientific and pedagogical master’s degree is 75, in the profile – 30.
 In case of successful completion of the tests, applicants will be able to win grants that were not considered following the results of the summer admission. Documents for participation in the competition for the award of educational grants will be accepted until December 25.
 Admission to the Master’s program: from December 26 to January 10.
@@ -62,7 +62,7 @@ Persons who have received education documents in foreign educational organizatio
 ### 2nd stage
 In accordance with the amendments, admission to master’s and doctoral studies will now take place twice a year: traditionally in summer and additionally in winter.
 Acceptance of documents in winter:
-Registration for participation in the second comprehensive Master’s degree testing takes place via the website of the National Testing Center – app.testcenter.kz .
+Registration for participation in the second comprehensive Master’s degree testing takes place via the website of the National Testing Center – app.testcenter.kz (http://app.testcenter.kz) .
 Comprehensive testing: from November 19 to December 11. The passing score in the scientific and pedagogical master’s degree is 75, in the profile – 30.
 In case of successful completion of the tests, applicants will be able to win grants that were not considered following the results of the summer admission. Documents for participation in the competition for the award of educational grants will be accepted until December 25.
 Admission to the Master’s program: from December 26 to January 10.

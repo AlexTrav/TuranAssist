@@ -85,7 +85,7 @@ PAGES: dict[str, dict[str, str]] = {
 # таблицы на них отбрасываются целиком, текст положения о грантах остаётся
 PAGES_WITHOUT_TABLES = {"grant-application"}
 
-# PDF-документы на Google Drive: ссылку ищем на указанной странице сайта по началу её подписи
+# документы на Google Drive (PDF) и Google Docs (текстовый экспорт): ссылку ищем на указанной странице сайта по началу её подписи
 # (на каждом языке своя); если подходящих ссылок несколько, берётся первая – на сайте
 # документы текущего учебного года идут первыми
 DOCUMENTS: dict[str, dict] = {
@@ -139,6 +139,22 @@ DOCUMENTS: dict[str, dict] = {
             "ru": "Академический календарь научно-педагогической магистратуры Университета «Туран» на 2026",
             "kk": "«Тұран» университеті ғылыми-педагогикалық магистратурасының 2026",
             "en": "Academic Calendar of the Research and Pedagogical Master's Program at Turan University for the 2026",
+        },
+    },
+    "transfer-regulation": {
+        "page": "educational-process/perevody-vosstanovleniya-akademicheskiy-otpusk",
+        "match": {
+            "ru": "Положение о порядке перевода, восстановления и отчисления",
+            "kk": "«Тұран» университетінде білім алушыларды ауыстыру",
+            "en": "Regulations on the order of transfer",
+        },
+    },
+    "academic-leave-regulation": {
+        "page": "educational-process/perevody-vosstanovleniya-akademicheskiy-otpusk",
+        "match": {
+            "ru": "Положение о порядке предоставления академических отпусков",
+            "kk": "«Тұран» университеті студенттеріне академиялық демалыс",
+            "en": "Regulations on the Order of Granting Academic Leaves",
         },
     },
 }

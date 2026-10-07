@@ -13,8 +13,8 @@ The competition committee distributes places in the hostel taking into account t
 - students from large families;
 - exchange students as part of academic mobility;
 - students with good academic performance who take an active part in the scientific and social life of the university.
-### View the Student Residence with a virtual tour
-### Submit a request online
-### Rules of residence in the Students House
+- View the Student Residence with a virtual tour (https://turan.edu.kz/ru/3dtour/)
+- Submit a request online (https://asu.turan-edu.kz/)
+- Rules of residence in the Students House (https://e-lib.turan-edu.kz/book/89670/read)
 Information on the availability of places in the “Student House” of the University “Turan” for July 2026: 0
 ### Application for accommodation in a student house

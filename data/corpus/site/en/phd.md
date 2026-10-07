@@ -40,7 +40,7 @@ Additional English proficiency testing is evaluated in the form of â€œadmissionâ
 When providing the incomplete list of documents specified in this paragraph, the admissions committee does not accept documents from applicants.
 ### Acceptance of documents
 The selection committee in the information system of the NTC carries out reception of applications for participation in entrance exams.
-Registration of applicants: app.testcenter.kz
+Registration of applicants: app.testcenter.kz (https://app.testcenter.kz)
 PhD degree admission package:
 - Application addressed to the rector.
 - A copy of the identity document.

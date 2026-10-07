@@ -59,7 +59,7 @@ Academic, Practical and Creative Projects
 Turan GameDev – a practical game development course where students go from idea to a finished project using real industry tools.
 The program includes: game design and game mechanics, work in Unity and Godot, gameplay programming, fundamentals of Game Art and animation, and team-based project development.
 Result:
-Each student creates their own game that can be presented to employers or published on itch.io.
+Each student creates their own game that can be presented to employers or published on itch.io (http://itch.io).
 Ilya Bobkov Theatre Workshop – a professional theatre project operating as a branch of the Higher School Turan Film Academy within the Acting educational program. The theatre brings together program graduates, invited professional actors, and students completing their academic and professional internships.
 The project focuses on producing repertoire and laboratory performances in which students are involved in the full theatrical process – from rehearsals to public performances – under the guidance of practicing professionals. The theatre serves as a platform for implementing a practice-oriented model of actor training aligned with modern industry requirements.
 TFA Film Club – a student creative platform uniting cinema enthusiasts and those who seek to deepen their understanding of film art. The club operates at Turan Film Academy and offers participants a regular program of screenings, discussions, and creative meetings.

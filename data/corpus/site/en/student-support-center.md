@@ -17,7 +17,7 @@ Military registration
 - Providing advice on the on military legislation
 ⠀
 It is possible to submit requests online.
-### Submit a request online
+- Submit a request online (https://asu.turan-edu.kz/)
 Working hours: Monday through Friday, breaking free from 9:00 AM to 6:00 PM
 Phone: +7 (727) 260-40-19; +7 (727) 264-55-97
 Email: student_support@turan-edu.kz

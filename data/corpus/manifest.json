@@ -7,7 +7,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/how-to-enroll-in-turan",
     "title": "Тұранға қалай түсуге болады",
-    "chars": 12989,
+    "chars": 13016,
     "file": "site/kk/how-to-enroll.md",
     "fetched_at": "2026-10-07"
   },
@@ -19,7 +19,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/how-to-enroll-in-turan",
     "title": "Как поступить в Туран",
-    "chars": 15786,
+    "chars": 15860,
     "file": "site/ru/how-to-enroll.md",
     "fetched_at": "2026-10-07"
   },
@@ -31,7 +31,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/how-to-enroll-in-turan",
     "title": "How to enroll in Turan",
-    "chars": 14610,
+    "chars": 14684,
     "file": "site/en/how-to-enroll.md",
     "fetched_at": "2026-10-07"
   },
@@ -79,7 +79,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/academic-degree/masters-degree",
     "title": "Магистратура",
-    "chars": 7229,
+    "chars": 7256,
     "file": "site/kk/master.md",
     "fetched_at": "2026-10-07"
   },
@@ -91,7 +91,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/academic-degree/masters-degree",
     "title": "Магистратура",
-    "chars": 7218,
+    "chars": 7245,
     "file": "site/ru/master.md",
     "fetched_at": "2026-10-07"
   },
@@ -103,7 +103,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/academic-degree/masters-degree",
     "title": "Master's Degree",
-    "chars": 6494,
+    "chars": 6548,
     "file": "site/en/master.md",
     "fetched_at": "2026-10-07"
   },
@@ -115,7 +115,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/academic-degree/phd",
     "title": "Докторантура PhD",
-    "chars": 8688,
+    "chars": 8863,
     "file": "site/kk/phd.md",
     "fetched_at": "2026-10-07"
   },
@@ -127,7 +127,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/academic-degree/phd",
     "title": "Докторантура PhD",
-    "chars": 9194,
+    "chars": 9369,
     "file": "site/ru/phd.md",
     "fetched_at": "2026-10-07"
   },
@@ -139,7 +139,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/academic-degree/phd",
     "title": "Doctorate PhD",
-    "chars": 8554,
+    "chars": 8582,
     "file": "site/en/phd.md",
     "fetched_at": "2026-10-07"
   },
@@ -904,7 +904,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/faculty/faculty-of-digital-technologies-and-arts",
     "title": "«Цифрлық технологиялар және өнер» факультеті",
-    "chars": 6052,
+    "chars": 6069,
     "file": "site/kk/faculty-digital-arts.md",
     "fetched_at": "2026-10-07"
   },
@@ -916,7 +916,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/faculty/faculty-of-digital-technologies-and-arts",
     "title": "Факультет «Цифровые технологии и искусство»",
-    "chars": 6351,
+    "chars": 6368,
     "file": "site/ru/faculty-digital-arts.md",
     "fetched_at": "2026-10-07"
   },
@@ -928,7 +928,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/faculty/faculty-of-digital-technologies-and-arts",
     "title": "Faculty of Digital Technologies and Arts",
-    "chars": 6303,
+    "chars": 6320,
     "file": "site/en/faculty-digital-arts.md",
     "fetched_at": "2026-10-07"
   },
@@ -952,7 +952,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/faculty/faculty-of-economics",
     "title": "Экономический факультет",
-    "chars": 8625,
+    "chars": 8750,
     "file": "site/ru/faculty-economics.md",
     "fetched_at": "2026-10-07"
   },
@@ -1012,7 +1012,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/student-life",
     "title": "Студенттік өмір",
-    "chars": 15321,
+    "chars": 15479,
     "file": "site/kk/student-life.md",
     "fetched_at": "2026-10-07"
   },
@@ -1024,7 +1024,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/student-life",
     "title": "Студенческая жизнь",
-    "chars": 15658,
+    "chars": 15816,
     "file": "site/ru/student-life.md",
     "fetched_at": "2026-10-07"
   },
@@ -1036,7 +1036,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/student-life",
     "title": "Student life",
-    "chars": 15679,
+    "chars": 15837,
     "file": "site/en/student-life.md",
     "fetched_at": "2026-10-07"
   },
@@ -1048,7 +1048,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/student-support-center",
     "title": "Студенттерге қызмет көрсету орталығы",
-    "chars": 1392,
+    "chars": 1418,
     "file": "site/kk/student-support-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1060,7 +1060,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/student-support-center",
     "title": "Центр обслуживания студентов",
-    "chars": 1069,
+    "chars": 1095,
     "file": "site/ru/student-support-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1072,7 +1072,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/student-support-center",
     "title": "Turan Student Support Center",
-    "chars": 1077,
+    "chars": 1103,
     "file": "site/en/student-support-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1084,7 +1084,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/application-for-accommodation-in-a-student-house",
     "title": "Cтуденттер үйінде тұруға өтінім",
-    "chars": 1206,
+    "chars": 1307,
     "file": "site/kk/dormitory.md",
     "fetched_at": "2026-10-07"
   },
@@ -1096,7 +1096,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/application-for-accommodation-in-a-student-house",
     "title": "Заявка на проживание в доме студентов",
-    "chars": 1190,
+    "chars": 1291,
     "file": "site/ru/dormitory.md",
     "fetched_at": "2026-10-07"
   },
@@ -1108,7 +1108,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/application-for-accommodation-in-a-student-house",
     "title": "Application for accommodation in a student house",
-    "chars": 1264,
+    "chars": 1365,
     "file": "site/en/dormitory.md",
     "fetched_at": "2026-10-07"
   },
@@ -1120,7 +1120,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/medical-center",
     "title": "Медициналық-сауықтыру орталығы",
-    "chars": 7264,
+    "chars": 7302,
     "file": "site/kk/medical-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1132,7 +1132,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/medical-center",
     "title": "Медико-оздоровительный центр",
-    "chars": 7356,
+    "chars": 7394,
     "file": "site/ru/medical-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1144,7 +1144,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/medical-center",
     "title": "Medical Center",
-    "chars": 7300,
+    "chars": 7338,
     "file": "site/en/medical-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1156,7 +1156,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/career-and-leadership-center",
     "title": "Мансап және көшбасшылық орталығы",
-    "chars": 2309,
+    "chars": 2384,
     "file": "site/kk/career-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1168,7 +1168,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/career-and-leadership-center",
     "title": "Центр карьеры и лидерства",
-    "chars": 2271,
+    "chars": 2352,
     "file": "site/ru/career-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1180,7 +1180,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/career-and-leadership-center",
     "title": "Career and Leadership Center",
-    "chars": 2298,
+    "chars": 2373,
     "file": "site/en/career-center.md",
     "fetched_at": "2026-10-07"
   },
@@ -1276,7 +1276,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/library/terms-of-the-library-use",
     "title": "Правила пользования библиотекой",
-    "chars": 1052,
+    "chars": 1148,
     "file": "site/ru/library-rules.md",
     "fetched_at": "2026-10-07"
   },
@@ -1300,7 +1300,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/library/turan-library-resources",
     "title": "Ресурстар",
-    "chars": 30121,
+    "chars": 32893,
     "file": "site/kk/library-resources.md",
     "fetched_at": "2026-10-07"
   },
@@ -1312,7 +1312,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/library/turan-library-resources",
     "title": "Ресурсы",
-    "chars": 31199,
+    "chars": 34211,
     "file": "site/ru/library-resources.md",
     "fetched_at": "2026-10-07"
   },
@@ -1324,7 +1324,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/library/turan-library-resources",
     "title": "Resources",
-    "chars": 30578,
+    "chars": 33310,
     "file": "site/en/library-resources.md",
     "fetched_at": "2026-10-07"
   },
@@ -1516,7 +1516,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/international-cooperation/scholarship-programs",
     "title": "Стипендиялық бағдарламалар",
-    "chars": 1566,
+    "chars": 1664,
     "file": "site/kk/scholarships.md",
     "fetched_at": "2026-10-07"
   },
@@ -1528,7 +1528,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/international-cooperation/scholarship-programs",
     "title": "Стипендиальные программы",
-    "chars": 1438,
+    "chars": 1536,
     "file": "site/ru/scholarships.md",
     "fetched_at": "2026-10-07"
   },
@@ -1540,7 +1540,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/international-cooperation/scholarship-programs",
     "title": "Scholarship programs",
-    "chars": 1583,
+    "chars": 1681,
     "file": "site/en/scholarships.md",
     "fetched_at": "2026-10-07"
   },
@@ -1552,7 +1552,7 @@
     "locale": "kk",
     "url": "https://turan.edu.kz/international-cooperation/international-exams",
     "title": "Халықаралық емтихандар",
-    "chars": 2123,
+    "chars": 2239,
     "file": "site/kk/international-exams.md",
     "fetched_at": "2026-10-07"
   },
@@ -1564,7 +1564,7 @@
     "locale": "ru",
     "url": "https://turan.edu.kz/ru/international-cooperation/international-exams",
     "title": "Международные экзамены",
-    "chars": 2111,
+    "chars": 2227,
     "file": "site/ru/international-exams.md",
     "fetched_at": "2026-10-07"
   },
@@ -1576,7 +1576,7 @@
     "locale": "en",
     "url": "https://turan.edu.kz/en/international-cooperation/international-exams",
     "title": "International exams",
-    "chars": 2174,
+    "chars": 2290,
     "file": "site/en/international-exams.md",
     "fetched_at": "2026-10-07"
   },
@@ -1917,6 +1917,72 @@
     "pages": 1,
     "chars": 2464,
     "file": "docs/en/academic-calendar-master-research-2026-2027.md",
+    "fetched_at": "2026-10-07"
+  },
+  {
+    "type": "document",
+    "id": "transfer-regulation",
+    "locale": "kk",
+    "title": "«Тұран» университетінде білім алушыларды ауыстыру, қайта қабылдау және шығарудың тәртібі туралы ереже",
+    "url": "https://docs.google.com/document/d/14RzOhSpI1pHywu2sce8KztnBs7QyLvtY/edit?usp=drive_link&ouid=117876469112616257671&rtpof=true&sd=true",
+    "pages": null,
+    "chars": 21615,
+    "file": "docs/kk/transfer-regulation.md",
+    "fetched_at": "2026-10-07"
+  },
+  {
+    "type": "document",
+    "id": "transfer-regulation",
+    "locale": "ru",
+    "title": "Положение о порядке перевода, восстановления и отчисления обучающихся в университете «Туран»",
+    "url": "https://docs.google.com/document/d/1VS6sjOt2KYN-cnARUuHpyDsJls0thCDl/edit?usp=drive_link&ouid=117876469112616257671&rtpof=true&sd=true",
+    "pages": null,
+    "chars": 21958,
+    "file": "docs/ru/transfer-regulation.md",
+    "fetched_at": "2026-10-07"
+  },
+  {
+    "type": "document",
+    "id": "transfer-regulation",
+    "locale": "en",
+    "title": "Regulations on the order of transfer, recovery and expulsion of students at «Turan» University",
+    "url": "https://docs.google.com/document/d/1rUc2U_u3q_RALAZmMuIo2rz6ykgIj7sh/edit?usp=drive_link&ouid=117876469112616257671&rtpof=true&sd=true",
+    "pages": null,
+    "chars": 20315,
+    "file": "docs/en/transfer-regulation.md",
+    "fetched_at": "2026-10-07"
+  },
+  {
+    "type": "document",
+    "id": "academic-leave-regulation",
+    "locale": "kk",
+    "title": "«Тұран» университеті студенттеріне академиялық демалыс беру тәртібі туралы ереже",
+    "url": "https://docs.google.com/document/d/1bKZ45YL4oUy30XEoIMp45Beesx0NA7gB/edit?usp=drive_link&ouid=117876469112616257671&rtpof=true&sd=true",
+    "pages": null,
+    "chars": 7442,
+    "file": "docs/kk/academic-leave-regulation.md",
+    "fetched_at": "2026-10-07"
+  },
+  {
+    "type": "document",
+    "id": "academic-leave-regulation",
+    "locale": "ru",
+    "title": "Положение о порядке предоставления академических отпусков обучающимся Университета «Туран»",
+    "url": "https://docs.google.com/document/d/1VDKdv3qiupJUICV2uhVnsc9AuMSLXMBk/edit?usp=drive_link&ouid=117876469112616257671&rtpof=true&sd=true",
+    "pages": null,
+    "chars": 7695,
+    "file": "docs/ru/academic-leave-regulation.md",
+    "fetched_at": "2026-10-07"
+  },
+  {
+    "type": "document",
+    "id": "academic-leave-regulation",
+    "locale": "en",
+    "title": "Regulations on the Order of Granting Academic Leaves to the Students of “Turan” University",
+    "url": "https://docs.google.com/document/d/1256BTNB0NqUC_uyn58OPZFD8Ta6W4EUg/edit?usp=drive_link&ouid=117876469112616257671&rtpof=true&sd=true",
+    "pages": null,
+    "chars": 8081,
+    "file": "docs/en/academic-leave-regulation.md",
     "fetched_at": "2026-10-07"
   }
 ]

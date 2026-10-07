@@ -59,9 +59,12 @@ def _table_to_lines(match: re.Match) -> str:
 
 # переводит HTML-фрагмент в простой текст, сохраняя абзацы, пункты списков, таблицы и ссылки на документы
 def html_to_text(fragment: str, drop_tables: bool = False) -> str:
+    # адрес оставляем у документов и внешних ресурсов (регистрация на экзамен, порталы);
+    # внутренние ссылки на страницы turan.edu.kz – навигация, они не нужны
     def keep_doc_link(m: re.Match) -> str:
         href, label = m.group(1), m.group(2)
-        return f"{label} ({href})" if DOC_LINK_RE.search(href) else label
+        external = href.startswith("http") and "://turan.edu.kz" not in href
+        return f"{label} ({href})" if DOC_LINK_RE.search(href) or external else label
 
     table_repl = (lambda m: "\n") if drop_tables else _table_to_lines
     text = re.sub(r"<table[^>]*>.*?</table>", table_repl, fragment, flags=re.S | re.I)
@@ -103,6 +106,16 @@ def props_to_markdown(props: dict, drop_tables: bool = False) -> str:
             text, url = node.get("text"), node.get("url")
             if isinstance(text, str) and isinstance(url, str) and DOC_LINK_RE.search(url):
                 label = html_to_text(text)
+                if label:
+                    emit(f"- {label} ({url})")
+                return
+            # явная ссылка из блока ссылок (онлайн-заявка, правила проживания, регистрация на экзамен) –
+            # оставляем вместе с адресом; ссылки навигации по сайту (url_mode: page) не нужны
+            link_label = node.get("title") or node.get("text") or node.get("label")
+            leaf = not any(isinstance(v, (dict, list)) for v in node.values())
+            if (leaf and node.get("url_mode") == "custom" and isinstance(link_label, str)
+                    and isinstance(url, str) and url.startswith("http")):
+                label = html_to_text(link_label)
                 if label:
                     emit(f"- {label} ({url})")
                 return
