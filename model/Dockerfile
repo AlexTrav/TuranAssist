@@ -12,6 +12,7 @@ COPY backend/app/nlp backend/app/nlp
 COPY model/__init__.py model/__init__.py
 COPY model/common model/common
 COPY model/baseline model/baseline
+COPY model/ensemble model/ensemble
 
 ENV PYTHONPATH=/work/backend:/work PYTHONUNBUFFERED=1
 

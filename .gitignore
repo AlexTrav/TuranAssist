@@ -16,6 +16,9 @@ data/raw/
 # веса трансформера (ONNX) хранятся на Hugging Face Hub – файл больше лимита GitHub 100 МБ
 model/artifacts/*.onnx
 
+# кэш эмбеддингов e5, скачанных с Hugging Face
+model/.cache/
+
 # frontend
 node_modules/
 dist/
