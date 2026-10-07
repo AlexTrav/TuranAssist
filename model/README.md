@@ -22,6 +22,15 @@ model/
 make baseline   # собрать образ и обучить все конфигурации baseline (около 5 минут)
 ```
 
+Трансформер обучается в Google Colab (GPU T4, около 15–20 минут):
+[`training/turanassist_e5_intents.ipynb`](training/turanassist_e5_intents.ipynb) –
+[открыть в Colab](https://colab.research.google.com/github/AlexTrav/TuranAssist/blob/main/model/training/turanassist_e5_intents.ipynb).
+Ноутбук клонирует репозиторий и оценивает модели тем же кодом `model/common`, сравнивает
+замороженные эмбеддинги `intfloat/multilingual-e5-small` + логистическую регрессию с полным
+дообучением, экспортирует выбранный вариант в ONNX int8 (вероятности интентов на выходе)
+и загружает модель с отчётом в Hugging Face Hub. Токен `HF_TOKEN` берётся из Colab Secrets.
+Веса в git не хранятся – файл больше лимита GitHub в 100 МБ.
+
 ## Методика оценки
 
 - **Обучение:** `data/phrases/train` (1166 фраз). Коэффициент регуляризации C подбирается
