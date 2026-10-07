@@ -1,0 +1,287 @@
+text,intent,lang
+"Когда начинается учёба?",academic_calendar,ru
+"Когда сессия?",academic_calendar,ru
+"Когда зимние каникулы?",academic_calendar,ru
+"Академический календарь на 2026-2027",academic_calendar,ru
+"Когда начинается второй семестр?",academic_calendar,ru
+"Когда летние каникулы?",academic_calendar,ru
+"Даты зимней экзаменационной сессии",academic_calendar,ru
+"Когда рубежка?",academic_calendar,ru
+"Сколько длятся каникулы?",academic_calendar,ru
+"Когда весенняя сессия?",academic_calendar,ru
+"Когда адаптационная неделя?",academic_calendar,ru
+"С какого числа учёба в сентябре?",academic_calendar,ru
+"Когда заканчивается семестр?",academic_calendar,ru
+"График учебного года",academic_calendar,ru
+"Оқу қашан басталады?",academic_calendar,kk
+"Сессия қашан?",academic_calendar,kk
+"Қысқы демалыс қашан?",academic_calendar,kk
+"Академиялық күнтізбе",academic_calendar,kk
+"When do classes start?",academic_calendar,en
+"When is the exam session?",academic_calendar,en
+"When is the winter break?",academic_calendar,en
+"Academic calendar for 2026-2027",academic_calendar,en
+"Где посмотреть расписание?",schedule,ru
+"Расписание занятий",schedule,ru
+"Где найти расписание пар?",schedule,ru
+"Расписание экзаменов",schedule,ru
+"Когда у меня пары?",schedule,ru
+"Расписание на осенний семестр",schedule,ru
+"Где расписание для магистрантов?",schedule,ru
+"Есть ли расписание летнего семестра?",schedule,ru
+"Как узнать своё расписание?",schedule,ru
+"Где выложено расписание звонков?",schedule,ru
+"Расписание для первого курса",schedule,ru
+"Где смотреть расписание сессии?",schedule,ru
+"Изменилось ли расписание?",schedule,ru
+"Кесте где?",schedule,ru
+"Сабақ кестесі қайда?",schedule,kk
+"Емтихан кестесін қайдан көремін?",schedule,kk
+"Магистранттардың кестесі",schedule,kk
+"Кестені қалай білемін?",schedule,kk
+"Where can I find the class schedule?",schedule,en
+"Exam schedule",schedule,en
+"Where is the timetable for master's students?",schedule,en
+"How do I check my schedule?",schedule,en
+"Как считается GPA?",grading_gpa,ru
+"Шкала оценок в университете",grading_gpa,ru
+"Сколько баллов на пятёрку?",grading_gpa,ru
+"Что такое оценка B+?",grading_gpa,ru
+"Как выставляется итоговая оценка?",grading_gpa,ru
+"Сколько нужно набрать для допуска к экзамену?",grading_gpa,ru
+"Что такое рубежный контроль?",grading_gpa,ru
+"Какой процент составляет экзамен?",grading_gpa,ru
+"Буквенная система оценок",grading_gpa,ru
+"Сколько GPA за A минус?",grading_gpa,ru
+"Как перевести баллы в оценку?",grading_gpa,ru
+"Не допустили к экзамену, почему?",grading_gpa,ru
+"Что значит 70 баллов по системе?",grading_gpa,ru
+"Как рассчитать свой GPA?",grading_gpa,ru
+"GPA қалай есептеледі?",grading_gpa,kk
+"Бағалау шкаласы қандай?",grading_gpa,kk
+"Емтиханға жіберілу үшін қанша балл керек?",grading_gpa,kk
+"Қорытынды баға қалай қойылады?",grading_gpa,kk
+"How is GPA calculated?",grading_gpa,en
+"What is the grading scale?",grading_gpa,en
+"How many points do I need to be admitted to the exam?",grading_gpa,en
+"How is the final grade calculated?",grading_gpa,en
+"Получил FX, что делать?",retake_fx,ru
+"Как пересдать экзамен?",retake_fx,ru
+"Что такое Retake?",retake_fx,ru
+"Пересдача платная?",retake_fx,ru
+"Получил F по предмету",retake_fx,ru
+"Когда пересдача FX?",retake_fx,ru
+"Сколько стоит пересдача?",retake_fx,ru
+"Что такое летний семестр?",retake_fx,ru
+"Завалил экзамен, как исправить?",retake_fx,ru
+"Можно ли пересдать без повторного изучения?",retake_fx,ru
+"Можно ли отказаться от ретейка?",retake_fx,ru
+"Повторное прохождение дисциплины",retake_fx,ru
+"Не сдал экзамен, что дальше?",retake_fx,ru
+"Ретейк летом",retake_fx,ru
+"FX алдым, не істеуім керек?",retake_fx,kk
+"Емтиханды қалай қайта тапсырамын?",retake_fx,kk
+"Retake деген не?",retake_fx,kk
+"Жазғы семестр деген не?",retake_fx,kk
+"I got an FX, what now?",retake_fx,en
+"How do I retake an exam?",retake_fx,en
+"What is a course retake?",retake_fx,en
+"Is the retake paid?",retake_fx,en
+"Как подать апелляцию?",appeal,ru
+"Не согласен с оценкой за экзамен",appeal,ru
+"Апелляция на экзамен",appeal,ru
+"Сроки подачи апелляции",appeal,ru
+"Могут ли снизить оценку на апелляции?",appeal,ru
+"Мне занизили оценку, что делать?",appeal,ru
+"Куда жаловаться на результат экзамена?",appeal,ru
+"Некорректный вопрос на экзамене",appeal,ru
+"Как оспорить оценку?",appeal,ru
+"Когда можно подать апелляцию?",appeal,ru
+"Кто рассматривает апелляцию?",appeal,ru
+"Апелляционная комиссия",appeal,ru
+"Хочу пересмотреть результат теста",appeal,ru
+"Можно ли подать апелляцию через неделю?",appeal,ru
+"Апелляцияны қалай беремін?",appeal,kk
+"Емтихан бағасымен келіспеймін",appeal,kk
+"Апелляция мерзімі қандай?",appeal,kk
+"Бағаға шағым беру",appeal,kk
+"How do I appeal my grade?",appeal,en
+"I disagree with my exam result",appeal,en
+"Deadline for an appeal",appeal,en
+"Can the grade go down after an appeal?",appeal,en
+"Пропустил экзамен по болезни",missed_exam,ru
+"Что делать, если не пришёл на экзамен?",missed_exam,ru
+"Заболел во время сессии",missed_exam,ru
+"Можно ли сдать экзамен позже по уважительной причине?",missed_exam,ru
+"Индивидуальный график сдачи экзамена",missed_exam,ru
+"Не смог прийти на экзамен, есть справка",missed_exam,ru
+"Куда нести больничный после экзамена?",missed_exam,ru
+"Сколько дней дается, чтобы принести справку?",missed_exam,ru
+"Пропустил экзамен из-за поездки",missed_exam,ru
+"Неявка на экзамен",missed_exam,ru
+"Перенос экзамена по болезни",missed_exam,ru
+"Был в больнице во время экзамена",missed_exam,ru
+"Как пересдать пропущенный экзамен?",missed_exam,ru
+"Уважительная причина пропуска экзамена",missed_exam,ru
+"Емтиханды ауырып қалғандықтан өткізіп алдым",missed_exam,kk
+"Емтиханға келмесем не болады?",missed_exam,kk
+"Емтиханды кейінірек тапсыруға бола ма?",missed_exam,kk
+"Анықтаманы қашан әкелу керек?",missed_exam,kk
+"I missed an exam because I was sick",missed_exam,en
+"What if I miss an exam?",missed_exam,en
+"Can I take the exam later for a valid reason?",missed_exam,en
+"Where do I bring my sick note?",missed_exam,en
+"Как взять академический отпуск?",academic_leave,ru
+"Академ по болезни",academic_leave,ru
+"Можно ли взять академ из-за армии?",academic_leave,ru
+"Академический отпуск по уходу за ребёнком",academic_leave,ru
+"Сколько длится академ?",academic_leave,ru
+"Нужно ли платить за учёбу в академе?",academic_leave,ru
+"Сохранится ли грант в академе?",academic_leave,ru
+"Как выйти из академического отпуска?",academic_leave,ru
+"Документы для академического отпуска",academic_leave,ru
+"Хочу взять академ",academic_leave,ru
+"Основания для академического отпуска",academic_leave,ru
+"Можно ли прервать учёбу на год?",academic_leave,ru
+"Академ после рождения ребёнка",academic_leave,ru
+"Взять паузу в учёбе",academic_leave,ru
+"Академиялық демалысты қалай аламын?",academic_leave,kk
+"Ауруға байланысты академиялық демалыс",academic_leave,kk
+"Академиялық демалыста грант сақтала ма?",academic_leave,kk
+"Академиялық демалыстан қалай шығамын?",academic_leave,kk
+"How do I take academic leave?",academic_leave,en
+"Academic leave for medical reasons",academic_leave,en
+"Do I keep my grant during academic leave?",academic_leave,en
+"How do I return from academic leave?",academic_leave,en
+"Как перевестись из другого вуза?",transfer_restore,ru
+"Перевод в Туран из другого университета",transfer_restore,ru
+"Как сменить специальность?",transfer_restore,ru
+"Можно ли перевестись на другую форму обучения?",transfer_restore,ru
+"Как восстановиться в университете?",transfer_restore,ru
+"Меня отчислили, можно восстановиться?",transfer_restore,ru
+"Когда можно перевестись?",transfer_restore,ru
+"Перевод с сохранением гранта",transfer_restore,ru
+"Что такое академическая разница?",transfer_restore,ru
+"Документы для перевода",transfer_restore,ru
+"Как отчислиться по собственному желанию?",transfer_restore,ru
+"Перевод на другую специальность внутри вуза",transfer_restore,ru
+"Восстановление бесплатно?",transfer_restore,ru
+"Хочу перевестись к вам на второй курс",transfer_restore,ru
+"Басқа университеттен қалай ауысамын?",transfer_restore,kk
+"Мамандықты қалай ауыстырамын?",transfer_restore,kk
+"Университетке қайта қабылдану",transfer_restore,kk
+"Ауысу қашан жүргізіледі?",transfer_restore,kk
+"How do I transfer from another university?",transfer_restore,en
+"Can I change my major?",transfer_restore,en
+"How can I be reinstated?",transfer_restore,en
+"When can I transfer?",transfer_restore,en
+"Когда практика?",practice,ru
+"Какие виды практики есть?",practice,ru
+"Где проходить практику?",practice,ru
+"Помогает ли университет с местом практики?",practice,ru
+"Производственная практика",practice,ru
+"Преддипломная практика когда?",practice,ru
+"Педагогическая практика в магистратуре",practice,ru
+"График практики",practice,ru
+"Учебная практика сроки",practice,ru
+"Нужно ли самому искать практику?",practice,ru
+"Исследовательская практика магистрантов",practice,ru
+"Практика для первого курса",practice,ru
+"Где взять направление на практику?",practice,ru
+"Стажировка для студентов",practice,ru
+"Практика қашан?",practice,kk
+"Практиканың түрлері қандай?",practice,kk
+"Практиканы қайда өтемін?",practice,kk
+"Өндірістік практика",practice,kk
+"When is the internship?",practice,en
+"What types of practice are there?",practice,en
+"Where can I do my internship?",practice,en
+"Practice schedule",practice,en
+"Как зайти в Canvas?",portals,ru
+"Что такое ЦОС портал?",portals,ru
+"Не могу войти в Canvas",portals,ru
+"Ссылка на Canvas",portals,ru
+"Где сдавать задания онлайн?",portals,ru
+"Как проходит онлайн-экзамен?",portals,ru
+"Что такое прокторинг OES?",portals,ru
+"Нет камеры для онлайн-экзамена",portals,ru
+"Сайт АСУ Туран",portals,ru
+"Где личный кабинет студента?",portals,ru
+"Забыл пароль от портала",portals,ru
+"Как пользоваться Canvas?",portals,ru
+"Онлайн-тестирование с прокторингом",portals,ru
+"Платформа для обучения",portals,ru
+"Canvas-қа қалай кіремін?",portals,kk
+"СҚКО порталы деген не?",portals,kk
+"Онлайн емтихан қалай өтеді?",portals,kk
+"Студенттің жеке кабинеті қайда?",portals,kk
+"How do I log in to Canvas?",portals,en
+"What is the student portal?",portals,en
+"How do online exams work?",portals,en
+"I forgot my portal password",portals,en
+"Как получить справку с места учёбы?",certificates,ru
+"Где взять транскрипт?",certificates,ru
+"Нужна справка для военкомата",certificates,ru
+"Справка о том, что я студент",certificates,ru
+"Как заказать транскрипт?",certificates,ru
+"Где Центр обслуживания студентов?",certificates,ru
+"Справка в ЦОН с места учёбы",certificates,ru
+"Можно ли заказать справку онлайн?",certificates,ru
+"Сколько делается справка?",certificates,ru
+"График работы ЦОС",certificates,ru
+"Enrollment certificate где получить?",certificates,ru
+"Справка для соцвыплат",certificates,ru
+"Нужна выписка оценок",certificates,ru
+"Справку ЦОС как получить",certificates,ru
+"Оқу орнынан анықтама қалай аламын?",certificates,kk
+"Транскриптті қайдан аламын?",certificates,kk
+"Анықтаманы онлайн тапсыруға бола ма?",certificates,kk
+"СҚКО жұмыс уақыты",certificates,kk
+"How do I get a certificate of enrollment?",certificates,en
+"Where can I get my transcript?",certificates,en
+"Student Service Center opening hours",certificates,en
+"Can I request a certificate online?",certificates,en
+"Как поехать учиться за границу?",academic_mobility,ru
+"Академическая мобильность",academic_mobility,ru
+"Есть ли программы обмена?",academic_mobility,ru
+"Что такое ZeroGrant?",academic_mobility,ru
+"Erasmus плюс как участвовать?",academic_mobility,ru
+"Хочу семестр учиться в Европе",academic_mobility,ru
+"Требования для обмена",academic_mobility,ru
+"Какой GPA нужен для мобильности?",academic_mobility,ru
+"Можно ли без IELTS поехать по обмену?",academic_mobility,ru
+"Сколько длится обмен?",academic_mobility,ru
+"Стипендия Болашак",academic_mobility,ru
+"Как подать заявку на обмен?",academic_mobility,ru
+"Учёба за рубежом бесплатно",academic_mobility,ru
+"Вузы-партнёры за границей",academic_mobility,ru
+"Академиялық ұтқырлық",academic_mobility,kk
+"Шетелде оқуға қалай баруға болады?",academic_mobility,kk
+"Алмасу бағдарламалары бар ма?",academic_mobility,kk
+"Erasmus-қа қалай қатысамын?",academic_mobility,kk
+"Are there exchange programs?",academic_mobility,en
+"How can I study abroad for a semester?",academic_mobility,en
+"Erasmus+ requirements",academic_mobility,en
+"What is ZeroGrant?",academic_mobility,en
+"Можно ли пользоваться ChatGPT для курсовой?",academic_integrity,ru
+"Что будет за плагиат?",academic_integrity,ru
+"Правила использования ИИ в учёбе",academic_integrity,ru
+"Проверяют ли дипломы на антиплагиат?",academic_integrity,ru
+"Можно ли писать диплом с нейросетью?",academic_integrity,ru
+"Что считается списыванием?",academic_integrity,ru
+"Академическая честность",academic_integrity,ru
+"Что грозит за списывание?",academic_integrity,ru
+"Можно ли использовать искусственный интеллект?",academic_integrity,ru
+"Дал другу свой логин от портала, это нарушение?",academic_integrity,ru
+"Политика использования ИИ",academic_integrity,ru
+"Какой процент оригинальности нужен?",academic_integrity,ru
+"Можно ли заказать курсовую?",academic_integrity,ru
+"Если случайно не указал источник",academic_integrity,ru
+"Плагиат үшін не болады?",academic_integrity,kk
+"ChatGPT-ды қолдануға бола ма?",academic_integrity,kk
+"Жасанды интеллектіні пайдалану ережесі",academic_integrity,kk
+"Академиялық адалдық",academic_integrity,kk
+"Can I use ChatGPT for assignments?",academic_integrity,en
+"What happens if I plagiarize?",academic_integrity,en
+"AI use policy",academic_integrity,en
+"Is cheating punished?",academic_integrity,en

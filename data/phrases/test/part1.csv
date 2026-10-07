@@ -1,0 +1,127 @@
+text,intent,lang,style
+"прив",greeting,ru,slang
+"здраствуйте",greeting,ru,typo
+"privet",greeting,ru,translit
+"Здравствуйте! Подскажите, пожалуйста, я по поводу поступления",greeting,ru,long
+"Сәлем! Привет",greeting,kk,mixed
+"Hi!",greeting,en,plain
+"ну всё, бывай",goodbye,ru,slang
+"досвидания",goodbye,ru,typo
+"poka",goodbye,ru,translit
+"Хорошо, я всё узнал, что хотел, до свидания и хорошего вечера",goodbye,ru,long
+"Жарайды, сау бол",goodbye,kk,plain
+"See you",goodbye,en,plain
+"пасибки",thanks,ru,slang
+"спосибо большое",thanks,ru,typo
+"spasibo",thanks,ru,translit
+"Спасибо огромное, вы мне очень помогли разобраться с документами",thanks,ru,long
+"Рахмет, спасибо",thanks,kk,mixed
+"Thank you so much",thanks,en,plain
+"а ты чё вообще умеешь",capabilities,ru,slang
+"что ты умешь делать",capabilities,ru,typo
+"chto ty umeesh",capabilities,ru,translit
+"Я первый раз пишу сюда и не понимаю, на какие вопросы ты вообще можешь отвечать",capabilities,ru,long
+"Сен қандай сұрақтарға жауап бересің?",capabilities,kk,plain
+"What topics do you cover?",capabilities,en,plain
+"как к вам попасть учиться вообще",admission_steps,ru,slang
+"как поступит в универ туран",admission_steps,ru,typo
+"kak postupit v turan",admission_steps,ru,translit
+"Я заканчиваю 11 класс в этом году и хочу к вам, объясните по шагам, что и когда нужно делать",admission_steps,ru,long
+"Туранға түсу үшін қандай қадамдар бар?",admission_steps,kk,plain
+"What do I need to do to get into Turan?",admission_steps,en,plain
+"чё сдавать на ент на айтишника",ent_subjects,ru,slang
+"какие предметы сдават на ент на юриста",ent_subjects,ru,typo
+"kakie predmety ENT na psihologiyu",ent_subjects,ru,translit
+"Я хочу на программную инженерию, но не уверен, нужна ли физика или информатика на ЕНТ",ent_subjects,ru,long
+"Халықаралық қатынастарға қандай пәндер тапсырамын?",ent_subjects,kk,plain
+"Which subjects for tourism on the UNT?",ent_subjects,en,plain
+"сколько баллов надо чтоб пройти",passing_score,ru,slang
+"проходной бал на юриспруденцию",passing_score,ru,typo
+"prohodnoi ball ENT",passing_score,ru,translit
+"У меня 52 балла на ЕНТ, но по истории Казахстана всего 4, меня возьмут на платное?",passing_score,ru,long
+"Экономикаға шекті балл қанша?",passing_score,kk,plain
+"What score do I need on the UNT to enter?",passing_score,en,plain
+"чё за доки нужны для поступления",admission_documents,ru,slang
+"какие документы нужны для поступлени",admission_documents,ru,typo
+"dokumenty dlya postupleniya",admission_documents,ru,translit
+"Собираю документы в приёмку: аттестат и сертификат есть, а какие медицинские справки и сколько фото ещё нужно?",admission_documents,ru,long
+"Құжаттар тізімі қандай, анықтама керек пе?",admission_documents,kk,plain
+"Which documents should I bring to the admissions office?",admission_documents,en,plain
+"до скольки можно доки сдать",admission_deadlines,ru,slang
+"когда заканчиваеться прием документов",admission_deadlines,ru,typo
+"sroki priema dokumentov",admission_deadlines,ru,translit
+"Я буду в Алматы только в конце августа, успею ли я сдать оригиналы документов в бакалавриат?",admission_deadlines,ru,long
+"Құжат қабылдау қашан аяқталады?",admission_deadlines,kk,plain
+"Until what date are documents accepted?",admission_deadlines,en,plain
+"на актёра чё сдавать надо",creative_exam,ru,slang
+"творчиский экзамен журналистика",creative_exam,ru,typo
+"tvorcheskiy ekzamen na rezhissuru",creative_exam,ru,translit
+"Хочу поступить на операторское искусство, расскажите, что будет на творческих экзаменах и нужно ли ЕНТ",creative_exam,ru,long
+"Шығармашылық емтиханда не болады, журналистика үшін?",creative_exam,kk,mixed
+"What happens at the creative exam for cinematography?",creative_exam,en,plain
+"после колледжа куда меня возьмут и на скок лет",college_graduates,ru,slang
+"поступление после коледжа",college_graduates,ru,typo
+"posle kolledzha postuplenie",college_graduates,ru,translit
+"Я закончил колледж по специальности учёт и аудит, нужно ли мне сдавать ЕНТ, если иду на ту же специальность?",college_graduates,ru,long
+"Колледжден кейін 2 жыл оқуға бола ма?",college_graduates,kk,plain
+"Can I study for 2 years after college?",college_graduates,en,plain
+"какие спецухи у вас есть",programs_list,ru,slang
+"какие специальнасти есть",programs_list,ru,typo
+"kakie specialnosti est",programs_list,ru,translit
+"Я выбираю между IT и экономикой, какие вообще программы бакалавриата у вас есть, перечислите",programs_list,ru,long
+"Қандай мамандықтар бар, IT бар ма?",programs_list,kk,mixed
+"Which majors can I choose?",programs_list,en,plain
+"можно учиться не ходя на пары",study_forms,ru,slang
+"есть ли дистанционое обучение",study_forms,ru,typo
+"est li zaochka",study_forms,ru,translit
+"У меня уже есть высшее образование, я работаю, можно ли получить второе высшее с дистанционными технологиями?",study_forms,ru,long
+"Ағылшын тілінде оқуға бола ма?",study_forms,kk,plain
+"Do you teach in English?",study_forms,en,plain
+"я не из казахстана, как поступать",foreign_applicants,ru,slang
+"поступление для иностранцов",foreign_applicants,ru,typo
+"postuplenie dlya inostrancev",foreign_applicants,ru,translit
+"Я гражданин Таджикистана, окончил школу у себя, какие документы нужно перевести и где делать нострификацию?",foreign_applicants,ru,long
+"Шетелдік талапкерлерге қандай талаптар бар?",foreign_applicants,kk,plain
+"I am from Russia, how can I enter your university?",foreign_applicants,en,plain
+"курсы к кт есть?",foundation,ru,slang
+"подготовительые курсы",foundation,ru,typo
+"kursy podgotovki k KT",foundation,ru,translit
+"Я планирую в магистратуру зимой, есть ли у вас курсы, чтобы подготовиться к комплексному тестированию?",foundation,ru,long
+"ҚАЗТЕСТ курстары бар ма?",foundation,kk,plain
+"Do you have preparation courses for foreigners?",foundation,en,plain
+"как в магу поступить",master_admission,ru,slang
+"как поступит в магистратуру",master_admission,ru,typo
+"kak postupit v magistraturu",master_admission,ru,translit
+"У меня IELTS 6.5 и диплом бакалавра, что ещё нужно для поступления в магистратуру и когда сдавать КТ?",master_admission,ru,long
+"Магистратураға түсу үшін не керек?",master_admission,kk,plain
+"What is required for master's admission?",master_admission,en,plain
+"мага сколько лет",master_programs,ru,slang
+"програмы магистратуры",master_programs,ru,typo
+"magistratura skolko let uchitsya",master_programs,ru,translit
+"Не могу понять, чем отличается профильная магистратура на год от научно-педагогической на два года",master_programs,ru,long
+"Магистратурада IT бағдарламасы бар ма?",master_programs,kk,plain
+"Is the master's one or two years?",master_programs,en,plain
+"как на пхд поступить",phd_admission,ru,slang
+"поступление в докторонтуру",phd_admission,ru,typo
+"postuplenie v doktoranturu",phd_admission,ru,translit
+"Я магистр экономики, работаю полгода, могу ли я подать документы в докторантуру в этом году?",phd_admission,ru,long
+"PhD-ға түсу талаптары қандай?",phd_admission,kk,plain
+"What do I need to apply for PhD?",phd_admission,en,plain
+"скок стоит учёба",tuition_bachelor,ru,slang
+"стоимасть обучения",tuition_bachelor,ru,typo
+"skolko stoit obuchenie",tuition_bachelor,ru,translit
+"Сколько будет стоить первый курс на информационных системах на русском отделении и насколько дороже на английском?",tuition_bachelor,ru,long
+"Оқу ақысы қанша, бакалавриат?",tuition_bachelor,kk,mixed
+"What is the price of studying per year?",tuition_bachelor,en,plain
+"мага скок стоит",tuition_postgrad,ru,slang
+"стоимость магистратры",tuition_postgrad,ru,typo
+"skolko stoit magistratura",tuition_postgrad,ru,translit
+"Хочу поступить на MBA на английском, сколько это будет стоить в год и есть ли Executive вариант?",tuition_postgrad,ru,long
+"Магистратураның бағасы қанша?",tuition_postgrad,kk,plain
+"How much is the Executive MBA?",tuition_postgrad,en,plain
+"куда кидать деньги за учёбу",payment_details,ru,slang
+"реквезиты для оплаты",payment_details,ru,typo
+"rekvizity dlya oplaty",payment_details,ru,translit
+"Я хочу оплатить учёбу сына через ЦентрКредит, что нужно назвать в банке при оплате?",payment_details,ru,long
+"Оқу ақысын қай шотқа төлеймін?",payment_details,kk,plain
+"Where do I pay the tuition fee?",payment_details,en,plain

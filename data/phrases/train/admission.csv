@@ -1,0 +1,243 @@
+text,intent,lang
+"Как поступить в Туран?",admission_steps,ru
+"Как поступить в ваш университет?",admission_steps,ru
+"Что нужно сделать, чтобы поступить?",admission_steps,ru
+"Порядок поступления в бакалавриат",admission_steps,ru
+"Какие шаги для поступления после школы?",admission_steps,ru
+"Я выпускник школы, как к вам поступить?",admission_steps,ru
+"С чего начать поступление?",admission_steps,ru
+"Как стать студентом университета Туран?",admission_steps,ru
+"Расскажите про процесс поступления",admission_steps,ru
+"Как подать заявление на поступление?",admission_steps,ru
+"Хочу поступить на бакалавриат, что делать?",admission_steps,ru
+"Как проходит приём абитуриентов?",admission_steps,ru
+"Куда подавать заявку на ЕНТ?",admission_steps,ru
+"Поступление в университет пошагово",admission_steps,ru
+"Туранға қалай түсуге болады?",admission_steps,kk
+"Университетке түсу үшін не істеу керек?",admission_steps,kk
+"Мектептен кейін қалай түсемін?",admission_steps,kk
+"Бакалавриатқа түсу тәртібі қандай?",admission_steps,kk
+"How do I apply to Turan University?",admission_steps,en
+"What are the steps to get admitted?",admission_steps,en
+"How to enroll in a bachelor's program?",admission_steps,en
+"I finished school, how can I apply?",admission_steps,en
+"Какие предметы сдавать на ЕНТ?",ent_subjects,ru
+"Какие профильные предметы нужны на информационные системы?",ent_subjects,ru
+"Что сдавать на ЕНТ для поступления на юриспруденцию?",ent_subjects,ru
+"Профильные предметы на психологию",ent_subjects,ru
+"Какие предметы ЕНТ на экономику?",ent_subjects,ru
+"Какие обязательные предметы на ЕНТ?",ent_subjects,ru
+"Мне нужна информатика для программной инженерии?",ent_subjects,ru
+"Что за профильные предметы на международные отношения?",ent_subjects,ru
+"Комбинация предметов ЕНТ для туризма",ent_subjects,ru
+"Какие предметы сдавать на ВТиПО?",ent_subjects,ru
+"Математика и география подходят для финансов?",ent_subjects,ru
+"Профильки на переводческое дело какие?",ent_subjects,ru
+"Что сдавать на радиотехнику?",ent_subjects,ru
+"Сколько предметов на ЕНТ и какие?",ent_subjects,ru
+"ҰБТ-да қандай пәндер тапсыру керек?",ent_subjects,kk
+"Ақпараттық жүйелерге қандай бейіндік пәндер керек?",ent_subjects,kk
+"Құқықтануға қандай пәндер тапсырамын?",ent_subjects,kk
+"ҰБТ-ның міндетті пәндері қандай?",ent_subjects,kk
+"Which UNT subjects do I need?",ent_subjects,en
+"What profile subjects are required for information systems?",ent_subjects,en
+"UNT subjects for law",ent_subjects,en
+"What subjects should I take for economics?",ent_subjects,en
+"Какой проходной балл?",passing_score,ru
+"Сколько баллов нужно набрать на ЕНТ?",passing_score,ru
+"Минимальный балл для поступления",passing_score,ru
+"Какой проходной на право?",passing_score,ru
+"Сколько нужно баллов, чтобы поступить на платное?",passing_score,ru
+"Хватит ли 55 баллов для поступления?",passing_score,ru
+"Пороговый балл ЕНТ в Туран",passing_score,ru
+"Сколько баллов по истории Казахстана минимум?",passing_score,ru
+"Я набрал 60 баллов, могу поступить?",passing_score,ru
+"Проходной балл на юриспруденцию",passing_score,ru
+"Какой минимум баллов на ЕНТ после колледжа?",passing_score,ru
+"Сколько надо набрать на творческий экзамен?",passing_score,ru
+"Какой порог по грамотности чтения?",passing_score,ru
+"Скок баллов надо чтоб поступить",passing_score,ru
+"Шекті балл қандай?",passing_score,kk
+"ҰБТ-дан қанша балл жинау керек?",passing_score,kk
+"Құқыққа шекті балл қанша?",passing_score,kk
+"Түсу үшін ең аз балл қанша?",passing_score,kk
+"What is the passing score?",passing_score,en
+"How many UNT points do I need?",passing_score,en
+"Minimum score for law",passing_score,en
+"Is 55 points enough to get in?",passing_score,en
+"Какие документы нужны для поступления?",admission_documents,ru
+"Список документов для приёмной комиссии",admission_documents,ru
+"Что нужно принести в приёмку?",admission_documents,ru
+"Какие справки нужны абитуриенту?",admission_documents,ru
+"Сколько фотографий нужно для поступления?",admission_documents,ru
+"Нужна ли справка 063?",admission_documents,ru
+"Документы для зачисления в бакалавриат",admission_documents,ru
+"Что сдавать в приёмную комиссию?",admission_documents,ru
+"Нужен ли оригинал аттестата?",admission_documents,ru
+"Какой пакет документов для поступления?",admission_documents,ru
+"Нужна ли флюорография при поступлении?",admission_documents,ru
+"Нужна ли копия удостоверения личности?",admission_documents,ru
+"Какие медицинские справки для поступления?",admission_documents,ru
+"Перечень документов абитуриента",admission_documents,ru
+"Түсу үшін қандай құжаттар керек?",admission_documents,kk
+"Қабылдау комиссиясына не әкелу керек?",admission_documents,kk
+"Қанша фотосурет қажет?",admission_documents,kk
+"Талапкерге қандай анықтамалар керек?",admission_documents,kk
+"What documents do I need to apply?",admission_documents,en
+"Document list for admission",admission_documents,en
+"Which medical certificates are required?",admission_documents,en
+"How many photos should I bring?",admission_documents,en
+"Когда начинается приём документов?",admission_deadlines,ru
+"До какого числа можно подать документы?",admission_deadlines,ru
+"Сроки приёма в 2026 году",admission_deadlines,ru
+"Когда заканчивается приёмная кампания?",admission_deadlines,ru
+"Когда можно подать документы в магистратуру?",admission_deadlines,ru
+"До какого числа принимают оригиналы?",admission_deadlines,ru
+"Когда творческие экзамены?",admission_deadlines,ru
+"Я опоздал с документами, ещё можно подать?",admission_deadlines,ru
+"Когда зачисление?",admission_deadlines,ru
+"Сроки подачи документов в докторантуру",admission_deadlines,ru
+"Когда приём документов у иностранцев?",admission_deadlines,ru
+"Есть ли зимний набор?",admission_deadlines,ru
+"С какого числа принимают документы?",admission_deadlines,ru
+"Дедлайн подачи документов",admission_deadlines,ru
+"Құжаттарды қабылдау қашан басталады?",admission_deadlines,kk
+"Құжаттарды қай күнге дейін тапсыруға болады?",admission_deadlines,kk
+"Қабылдау мерзімдері қандай?",admission_deadlines,kk
+"Магистратураға құжат қашан тапсырамын?",admission_deadlines,kk
+"When does the admission start?",admission_deadlines,en
+"What is the deadline for documents?",admission_deadlines,en
+"Is there a winter intake?",admission_deadlines,en
+"When are the creative exams held?",admission_deadlines,en
+"Как проходит творческий экзамен?",creative_exam,ru
+"Что нужно на творческий экзамен на журналистику?",creative_exam,ru
+"Какие творческие экзамены на актёрское?",creative_exam,ru
+"Что сдавать на режиссуру?",creative_exam,ru
+"Творческий экзамен на операторское искусство",creative_exam,ru
+"Как поступить на журналистику?",creative_exam,ru
+"Что будет на творческом экзамене?",creative_exam,ru
+"Нужно ли сдавать ЕНТ на творческие специальности?",creative_exam,ru
+"Какие специальности творческие?",creative_exam,ru
+"Что готовить к прослушиванию на актёра?",creative_exam,ru
+"Сколько баллов за творческий экзамен?",creative_exam,ru
+"Как поступить на продюсирование кино?",creative_exam,ru
+"Будет ли консультация перед творческим экзаменом?",creative_exam,ru
+"Связь с общественностью: что сдавать?",creative_exam,ru
+"Шығармашылық емтихан қалай өтеді?",creative_exam,kk
+"Журналистикаға қандай емтихан тапсырамын?",creative_exam,kk
+"Актерлік өнерге түсу үшін не дайындау керек?",creative_exam,kk
+"Шығармашылық мамандықтарға ҰБТ керек пе?",creative_exam,kk
+"What is the creative exam like?",creative_exam,en
+"How to apply for journalism?",creative_exam,en
+"Do I need the UNT for acting?",creative_exam,en
+"What should I prepare for the directing exam?",creative_exam,en
+"Я закончил колледж, как поступить?",college_graduates,ru
+"Поступление после колледжа",college_graduates,ru
+"Сколько учиться после колледжа?",college_graduates,ru
+"Нужно ли ЕНТ после колледжа?",college_graduates,ru
+"Сокращённое обучение после колледжа",college_graduates,ru
+"Можно ли после колледжа сразу на второй курс?",college_graduates,ru
+"Я выпускник колледжа Туран, какие условия?",college_graduates,ru
+"Есть ли сокращёнка на 2 года?",college_graduates,ru
+"Поступаю на неродственную специальность после колледжа",college_graduates,ru
+"Какой экзамен для выпускников колледжа?",college_graduates,ru
+"Эссе вместо ЕНТ для колледжа",college_graduates,ru
+"Можно ли учиться дистанционно после колледжа?",college_graduates,ru
+"Грант после колледжа по родственной специальности",college_graduates,ru
+"После колледжа сколько лет учиться в бакалавриате?",college_graduates,ru
+"Колледжден кейін қалай түсемін?",college_graduates,kk
+"Колледж түлектеріне ҰБТ керек пе?",college_graduates,kk
+"Колледжден кейін неше жыл оқимын?",college_graduates,kk
+"Қысқартылған оқу бар ма?",college_graduates,kk
+"I graduated from college, how do I apply?",college_graduates,en
+"Do college graduates need the UNT?",college_graduates,en
+"Is there a shortened program after college?",college_graduates,en
+"How long do I study after college?",college_graduates,en
+"Какие специальности есть в университете?",programs_list,ru
+"Список специальностей бакалавриата",programs_list,ru
+"На кого можно учиться в Туране?",programs_list,ru
+"Есть ли у вас IT-специальности?",programs_list,ru
+"Есть ли психология?",programs_list,ru
+"Какие направления обучения?",programs_list,ru
+"Есть ли специальность программист?",programs_list,ru
+"Какие образовательные программы предлагаете?",programs_list,ru
+"Есть ли у вас юридический?",programs_list,ru
+"Обучаете ли вы туризму?",programs_list,ru
+"Есть ли логистика?",programs_list,ru
+"Какие экономические специальности есть?",programs_list,ru
+"Есть ли робототехника?",programs_list,ru
+"Перечень программ обучения",programs_list,ru
+"Университетте қандай мамандықтар бар?",programs_list,kk
+"Бакалавриат мамандықтарының тізімі",programs_list,kk
+"IT мамандықтары бар ма?",programs_list,kk
+"Қандай бағыттар бойынша оқытасыздар?",programs_list,kk
+"What programs do you offer?",programs_list,en
+"List of bachelor's programs",programs_list,en
+"Do you have IT majors?",programs_list,en
+"Is there a psychology program?",programs_list,en
+"Какие формы обучения есть?",study_forms,ru
+"Можно ли учиться заочно?",study_forms,ru
+"Есть ли дистанционное обучение?",study_forms,ru
+"На каком языке обучение?",study_forms,ru
+"Есть ли английское отделение?",study_forms,ru
+"Можно учиться на казахском?",study_forms,ru
+"Есть ли вечернее обучение?",study_forms,ru
+"Можно ли получить второе высшее?",study_forms,ru
+"Обучение онлайн возможно?",study_forms,ru
+"Сколько лет учиться в бакалавриате?",study_forms,ru
+"Есть ли обучение на английском языке?",study_forms,ru
+"Очное или дистанционное обучение?",study_forms,ru
+"Можно ли учиться 3 года после школы?",study_forms,ru
+"Языки обучения в магистратуре",study_forms,ru
+"Оқу нысандары қандай?",study_forms,kk
+"Қашықтан оқуға бола ма?",study_forms,kk
+"Оқу қай тілде жүреді?",study_forms,kk
+"Ағылшын бөлімі бар ма?",study_forms,kk
+"What study modes are available?",study_forms,en
+"Can I study online?",study_forms,en
+"What is the language of instruction?",study_forms,en
+"Is there an English-taught department?",study_forms,en
+"Как поступить иностранцу?",foreign_applicants,ru
+"Я из Узбекистана, могу ли поступить?",foreign_applicants,ru
+"Поступление для иностранных граждан",foreign_applicants,ru
+"Какие документы нужны иностранцу?",foreign_applicants,ru
+"Нужна ли нострификация диплома?",foreign_applicants,ru
+"Иностранцы сдают ЕНТ?",foreign_applicants,ru
+"Я гражданин Кыргызстана, как к вам поступить?",foreign_applicants,ru
+"Есть ли скидки для студентов из СНГ?",foreign_applicants,ru
+"Как поступить, если я не гражданин Казахстана?",foreign_applicants,ru
+"Нужен ли апостиль на диплом?",foreign_applicants,ru
+"Поступление для граждан России",foreign_applicants,ru
+"Собеседование для иностранных абитуриентов",foreign_applicants,ru
+"Где делать медсправку иностранцу?",foreign_applicants,ru
+"Что такое нострификация и где её сделать?",foreign_applicants,ru
+"Шетел азаматы қалай түседі?",foreign_applicants,kk
+"Шетелдіктерге қандай құжаттар керек?",foreign_applicants,kk
+"Нострификация керек пе?",foreign_applicants,kk
+"Шетел азаматтары ҰБТ тапсыра ма?",foreign_applicants,kk
+"How can international students apply?",foreign_applicants,en
+"I am a foreign citizen, can I study here?",foreign_applicants,en
+"Do I need nostrification of my diploma?",foreign_applicants,en
+"Documents for international applicants",foreign_applicants,en
+"Что такое Foundation?",foundation,ru
+"Есть ли подготовительные курсы?",foundation,ru
+"Курсы подготовки к КТ",foundation,ru
+"Где подготовиться к комплексному тестированию?",foundation,ru
+"Подготовка к КАЗТЕСТ",foundation,ru
+"Есть ли курсы для поступления в магистратуру?",foundation,ru
+"Подготовительное отделение для иностранцев",foundation,ru
+"Курсы казахского языка для иностранцев",foundation,ru
+"Довузовская подготовка в Туран",foundation,ru
+"Можно ли пройти курсы перед магистратурой?",foundation,ru
+"Turan Foundation что это?",foundation,ru
+"Где подготовиться к экзамену на ВНЖ?",foundation,ru
+"Есть ли языковые курсы?",foundation,ru
+"Центр довузовской подготовки",foundation,ru
+"Дайындық курстары бар ма?",foundation,kk
+"КТ-ға дайындық курсы",foundation,kk
+"ҚАЗТЕСТ-ке қайда дайындалуға болады?",foundation,kk
+"Foundation деген не?",foundation,kk
+"Are there preparation courses?",foundation,en
+"What is Turan Foundation?",foundation,en
+"Courses to prepare for the CT",foundation,en
+"KAZTEST preparation course",foundation,en

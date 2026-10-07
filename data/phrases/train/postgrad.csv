@@ -1,0 +1,67 @@
+text,intent,lang
+"Как поступить в магистратуру?",master_admission,ru
+"Что нужно для поступления в магистратуру?",master_admission,ru
+"Как сдать КТ в магистратуру?",master_admission,ru
+"Какой проходной балл КТ?",master_admission,ru
+"Комплексное тестирование в магистратуру",master_admission,ru
+"Документы в магистратуру",master_admission,ru
+"Нужен ли IELTS для магистратуры?",master_admission,ru
+"Освобождает ли IELTS от теста по английскому на КТ?",master_admission,ru
+"Когда регистрация на КТ?",master_admission,ru
+"Какие тесты на комплексном тестировании?",master_admission,ru
+"Хочу в магистратуру после бакалавриата, что делать?",master_admission,ru
+"Сколько баллов нужно на КТ для научно-педагогической?",master_admission,ru
+"Можно ли поступить в магистратуру зимой?",master_admission,ru
+"Где подать заявку на комплексное тестирование?",master_admission,ru
+"Магистратураға қалай түсуге болады?",master_admission,kk
+"КТ-ның шекті балы қанша?",master_admission,kk
+"Магистратураға қандай құжаттар керек?",master_admission,kk
+"Кешенді тестілеуге қалай тіркелемін?",master_admission,kk
+"How do I apply for a master's program?",master_admission,en
+"What is the CT passing score?",master_admission,en
+"Does IELTS replace the English test for master's admission?",master_admission,en
+"Documents for master's admission",master_admission,en
+"Какие программы магистратуры есть?",master_programs,ru
+"Сколько учиться в магистратуре?",master_programs,ru
+"Чем профильная магистратура отличается от научно-педагогической?",master_programs,ru
+"Есть ли магистратура по IT?",master_programs,ru
+"Есть ли MBA?",master_programs,ru
+"Магистратура 1 год или 2 года?",master_programs,ru
+"Какая степень после магистратуры?",master_programs,ru
+"Есть ли Executive MBA?",master_programs,ru
+"Магистратура по психологии есть?",master_programs,ru
+"Список специальностей магистратуры",master_programs,ru
+"Что такое DBA?",master_programs,ru
+"Есть ли магистратура по юриспруденции?",master_programs,ru
+"Можно ли в магистратуре учиться на казахском?",master_programs,ru
+"Что даёт научно-педагогическая магистратура?",master_programs,ru
+"Магистратурада қандай бағдарламалар бар?",master_programs,kk
+"Магистратурада неше жыл оқиды?",master_programs,kk
+"MBA бар ма?",master_programs,kk
+"Бейіндік және ғылыми-педагогикалық магистратураның айырмашылығы",master_programs,kk
+"Which master's programs do you offer?",master_programs,en
+"How long is the master's program?",master_programs,en
+"Do you have an MBA?",master_programs,en
+"Difference between professional and research master's",master_programs,en
+"Как поступить в докторантуру?",phd_admission,ru
+"Требования для поступления на PhD",phd_admission,ru
+"Есть ли докторантура в Туране?",phd_admission,ru
+"Какие программы PhD?",phd_admission,ru
+"Какой сертификат по языку нужен в докторантуру?",phd_admission,ru
+"Нужен ли стаж для докторантуры?",phd_admission,ru
+"Вступительный экзамен в докторантуру",phd_admission,ru
+"Проходной балл в докторантуру",phd_admission,ru
+"Нужен ли КАЗТЕСТ для PhD?",phd_admission,ru
+"Сроки приёма в докторантуру",phd_admission,ru
+"Сколько стоит докторантура?",phd_admission,ru
+"Хочу защитить PhD, куда обращаться?",phd_admission,ru
+"Документы для поступления в докторантуру",phd_admission,ru
+"PhD по психологии есть?",phd_admission,ru
+"Докторантураға қалай түсуге болады?",phd_admission,kk
+"PhD үшін қандай талаптар бар?",phd_admission,kk
+"Докторантураға қандай тіл сертификаты керек?",phd_admission,kk
+"Докторантураның түсу емтиханы қалай өтеді?",phd_admission,kk
+"How to apply for a PhD?",phd_admission,en
+"PhD admission requirements",phd_admission,en
+"Which PhD programs are available?",phd_admission,en
+"Do I need work experience for the PhD?",phd_admission,en

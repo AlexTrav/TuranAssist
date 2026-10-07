@@ -1,0 +1,133 @@
+# сценарии реального общения: диалоги от лица разных пользователей, у каждой реплики –
+# ожидаемый интент (или список допустимых, если реплика двусмысленна); ood – вопрос вне базы,
+# на который бот должен честно ответить «не понял»
+scenarios:
+  - id: school_graduate
+    persona: Выпускник школы выбирает программу и считает деньги
+    lang: ru
+    turns:
+      - {text: "Здравствуйте", intent: greeting}
+      - {text: "Хочу поступить к вам после 11 класса, с чего начать?", intent: admission_steps}
+      - {text: "А какие предметы сдавать на ЕНТ, если я иду на информационные системы?", intent: ent_subjects}
+      - {text: "У меня пробник 105 баллов, будет какая-то скидка?", intent: ent_discounts}
+      - {text: "Сколько стоит год на ИС на русском отделении?", intent: tuition_bachelor}
+      - {text: "Спасибо, понятно", intent: thanks}
+
+  - id: college_graduate
+    persona: Выпускник колледжа хочет сокращённое обучение и общежитие
+    lang: ru
+    turns:
+      - {text: "Добрый день, я закончил колледж по специальности финансы", intent: [greeting, college_graduates]}
+      - {text: "Мне нужно сдавать ЕНТ, если иду на ту же специальность?", intent: college_graduates}
+      - {text: "Сколько стоит сокращённая программа на 2 года?", intent: tuition_bachelor}
+      - {text: "Я из Талдыкоргана, дадут ли мне общежитие?", intent: dormitory}
+      - {text: "Где у вас столовая?", intent: ood}
+
+  - id: master_applicant
+    persona: Бакалавр поступает в магистратуру с сертификатом IELTS
+    lang: ru
+    turns:
+      - {text: "Привет, хочу в магистратуру по IT", intent: [master_programs, master_admission]}
+      - {text: "Когда регистрация на КТ и какой проходной балл?", intent: master_admission}
+      - {text: "У меня IELTS 6.5, мне нужно сдавать английский на КТ?", intent: master_admission}
+      - {text: "Сколько стоит научно-педагогическая магистратура?", intent: tuition_postgrad}
+      - {text: "Есть ли курсы подготовки к КТ?", intent: foundation}
+
+  - id: foreign_applicant
+    persona: Абитуриент из Кыргызстана, пишет по-английски
+    lang: en
+    turns:
+      - {text: "Hello", intent: greeting}
+      - {text: "I am from Kyrgyzstan, how can I apply?", intent: foreign_applicants}
+      - {text: "When do you accept documents?", intent: admission_deadlines}
+      - {text: "Can I live in the dormitory?", intent: dormitory}
+      - {text: "What medical documents do I need after arrival?", intent: medical_center}
+      - {text: "Thanks a lot", intent: thanks}
+
+  - id: parent
+    persona: Родитель абитуриента интересуется оплатой и надёжностью вуза
+    lang: ru
+    turns:
+      - {text: "Здравствуйте, я мама абитуриента", intent: greeting}
+      - {text: "Университет аккредитован? Когда основан?", intent: about_university}
+      - {text: "Какие реквизиты для оплаты обучения?", intent: payment_details}
+      - {text: "У нас многодетная семья, есть скидки?", intent: other_discounts}
+      - {text: "Дайте телефон приёмной комиссии", intent: contacts}
+      - {text: "До свидания", intent: goodbye}
+
+  - id: student_failed_exam
+    persona: Студент второго курса после неудачной сессии
+    lang: ru
+    turns:
+      - {text: "получил FX по статистике, что теперь", intent: retake_fx}
+      - {text: "а когда пересдача?", intent: retake_fx}
+      - {text: "Я считаю что вопрос был не по программе, можно оспорить?", intent: appeal}
+      - {text: "Как вообще считается итоговая оценка?", intent: grading_gpa}
+      - {text: "Сколько стоит пересдача в тенге?", intent: retake_fx}
+
+  - id: student_paid_to_grant
+    persona: Студент-платник хочет перейти на грант и получать стипендию
+    lang: ru
+    turns:
+      - {text: "Учусь платно, GPA 3.8, можно ли перейти на грант?", intent: vacant_grant}
+      - {text: "Когда подавать заявление?", intent: vacant_grant}
+      - {text: "А если получу грант, будут платить стипендию?", intent: stipend}
+      - {text: "Есть ли скидка за GPA для платников?", intent: other_discounts}
+
+  - id: first_year_student
+    persona: Первокурсница осваивается в университете
+    lang: kk
+    turns:
+      - {text: "Сәлеметсіз бе", intent: greeting}
+      - {text: "Сабақ кестесін қайдан көремін?", intent: schedule}
+      - {text: "Canvas-қа қалай кіремін?", intent: portals}
+      - {text: "Оқу орнынан анықтама қалай аламын?", intent: certificates}
+      - {text: "Студенттік клубтар бар ма?", intent: student_clubs}
+      - {text: "Рахмет", intent: thanks}
+
+  - id: student_with_family
+    persona: Студентка, у которой родился ребёнок
+    lang: ru
+    turns:
+      - {text: "У меня родился ребёнок, могу ли я взять академ?", intent: academic_leave}
+      - {text: "Нужно ли платить за учёбу во время академа?", intent: academic_leave}
+      - {text: "А потом можно перевестись на дистанционную форму?", intent: transfer_restore}
+      - {text: "Где центр обслуживания студентов и как они работают?", intent: [certificates, contacts]}
+
+  - id: student_special_needs
+    persona: Абитуриент с нарушением слуха
+    lang: ru
+    turns:
+      - {text: "Есть ли условия для студентов с инвалидностью?", intent: inclusive_education}
+      - {text: "К кому обратиться, чтобы учли мои потребности в расписании?", intent: inclusive_education}
+      - {text: "Положена ли скидка при инвалидности второй группы?", intent: other_discounts}
+      - {text: "Где находится главный корпус?", intent: location}
+
+  - id: exchange_student
+    persona: Студент третьего курса хочет на обмен и сдать IELTS
+    lang: ru
+    turns:
+      - {text: "Хочу поехать по обмену на семестр, какие требования?", intent: academic_mobility}
+      - {text: "Где сдать IELTS, у вас можно?", intent: international_exams}
+      - {text: "А что будет, если использовать ChatGPT для мотивационного письма?", intent: academic_integrity}
+      - {text: "Какой курс евро сегодня?", intent: ood}
+
+  - id: random_visitor
+    persona: Случайный посетитель проверяет бота
+    lang: ru
+    turns:
+      - {text: "хай", intent: greeting}
+      - {text: "ты кто", intent: capabilities}
+      - {text: "расскажи анекдот", intent: ood}
+      - {text: "asdfgh", intent: ood}
+      - {text: "есть ли военная кафедра", intent: military}
+      - {text: "пока", intent: goodbye}
+
+  - id: phd_applicant
+    persona: Магистр психологии планирует докторантуру
+    lang: en
+    turns:
+      - {text: "Do you have a PhD in psychology?", intent: phd_admission}
+      - {text: "How much does the PhD cost per year?", intent: tuition_postgrad}
+      - {text: "Where can I prepare for KAZTEST?", intent: foundation}
+      - {text: "Goodbye", intent: goodbye}

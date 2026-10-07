@@ -1,0 +1,155 @@
+text,intent,lang
+"Есть ли общежитие?",dormitory,ru
+"Как получить место в общежитии?",dormitory,ru
+"Общага есть?",dormitory,ru
+"Дом студентов как заселиться?",dormitory,ru
+"Кому дают общежитие?",dormitory,ru
+"Есть ли свободные места в общежитии?",dormitory,ru
+"Как подать заявку на общежитие?",dormitory,ru
+"Правила проживания в общежитии",dormitory,ru
+"Дают ли общежитие первокурсникам?",dormitory,ru
+"Можно ли иностранцу жить в общежитии?",dormitory,ru
+"Где жить студенту из другого города?",dormitory,ru
+"Предоставляете ли жильё?",dormitory,ru
+"Я из Шымкента, где буду жить?",dormitory,ru
+"Кто в приоритете на общежитие?",dormitory,ru
+"Жатақхана бар ма?",dormitory,kk
+"Жатақханадан орын қалай аламын?",dormitory,kk
+"Студенттер үйіне қалай қоныстанамын?",dormitory,kk
+"Жатақханаға өтінім беру",dormitory,kk
+"Is there a dormitory?",dormitory,en
+"How do I get a place in the dorm?",dormitory,en
+"Student housing",dormitory,en
+"Can international students live in the dormitory?",dormitory,en
+"Есть ли медпункт?",medical_center,ru
+"Где медицинский центр?",medical_center,ru
+"Какую медсправку нужно первокурснику?",medical_center,ru
+"Справка 075 у что входит?",medical_center,ru
+"Где сделать флюорографию?",medical_center,ru
+"Нужно ли каждый год сдавать флюорографию?",medical_center,ru
+"Мне плохо, куда обратиться в университете?",medical_center,ru
+"Медкабинет где находится?",medical_center,ru
+"Какие справки нужны для 075?",medical_center,ru
+"Нужна ли прививочная карта?",medical_center,ru
+"Медосмотр для иностранных студентов",medical_center,ru
+"Справка с наркологии где взять?",medical_center,ru
+"Есть ли врач в университете?",medical_center,ru
+"Форма 065 у что это?",medical_center,ru
+"Медпункт қайда?",medical_center,kk
+"Медициналық орталық бар ма?",medical_center,kk
+"075 анықтамасына не кіреді?",medical_center,kk
+"Флюорографияны қайда жасатамын?",medical_center,kk
+"Is there a medical center?",medical_center,en
+"Where is the doctor's office?",medical_center,en
+"What medical certificate do first-year students need?",medical_center,en
+"Do I need a chest X-ray every year?",medical_center,en
+"Есть ли библиотека?",library,ru
+"Как пользоваться электронной библиотекой?",library,ru
+"Где взять учебники?",library,ru
+"Как взять книгу домой?",library,ru
+"Вход в электронную библиотеку",library,ru
+"Правила библиотеки",library,ru
+"Можно ли с едой в библиотеку?",library,ru
+"Есть ли читальный зал?",library,ru
+"Как получить доступ к IPR SMART?",library,ru
+"Библиотека Туран",library,ru
+"Где найти литературу для курсовой?",library,ru
+"Нужен ли читательский билет?",library,ru
+"Электронные книги для студентов",library,ru
+"Онлайн библиотека университета",library,ru
+"Кітапхана бар ма?",library,kk
+"Электронды кітапханаға қалай кіремін?",library,kk
+"Кітапты үйге алуға бола ма?",library,kk
+"Кітапхана ережелері",library,kk
+"Is there a library?",library,en
+"How do I access the e-library?",library,en
+"Can I borrow books?",library,en
+"Library rules",library,en
+"Какие есть студенческие клубы?",student_clubs,ru
+"Есть ли студенческий совет?",student_clubs,ru
+"Как вступить в студсовет?",student_clubs,ru
+"Есть ли дебатный клуб?",student_clubs,ru
+"Киберспорт в университете",student_clubs,ru
+"Есть ли театральный кружок?",student_clubs,ru
+"Студенческие организации",student_clubs,ru
+"Чем заняться после пар?",student_clubs,ru
+"Есть ли КВН в Туран?",student_clubs,ru
+"Студенческая жизнь в университете",student_clubs,ru
+"Кружки и секции",student_clubs,ru
+"Есть ли музыкальный клуб?",student_clubs,ru
+"Как участвовать в мероприятиях?",student_clubs,ru
+"Enactus в Туране",student_clubs,ru
+"Студенттік клубтар бар ма?",student_clubs,kk
+"Студенттік кеңеске қалай кіремін?",student_clubs,kk
+"Студенттік ұйымдар",student_clubs,kk
+"Университеттегі студенттік өмір",student_clubs,kk
+"What student clubs are there?",student_clubs,en
+"Is there a student council?",student_clubs,en
+"Esports club",student_clubs,en
+"Student life at the university",student_clubs,en
+"Помогаете с трудоустройством?",career_center,ru
+"Центр карьеры",career_center,ru
+"Где найти работу студенту?",career_center,ru
+"Есть ли ярмарка вакансий?",career_center,ru
+"Как найти стажировку?",career_center,ru
+"Помощь в поиске работы после выпуска",career_center,ru
+"Что такое Case4Success?",career_center,ru
+"Мастер-классы от компаний",career_center,ru
+"Где находится центр карьеры?",career_center,ru
+"Карьерная консультация",career_center,ru
+"Подработка для студентов",career_center,ru
+"Как связаться с центром карьеры?",career_center,ru
+"Трудоустройство выпускников",career_center,ru
+"Skill up проект",career_center,ru
+"Жұмысқа орналасуға көмектесесіздер ме?",career_center,kk
+"Мансап орталығы",career_center,kk
+"Тағылымдаманы қалай табамын?",career_center,kk
+"Бос жұмыс орындары жәрмеңкесі",career_center,kk
+"Do you help with job search?",career_center,en
+"Career center",career_center,en
+"Is there a career fair?",career_center,en
+"How can I find an internship?",career_center,en
+"Инклюзивное образование",inclusive_education,ru
+"Условия для студентов с инвалидностью",inclusive_education,ru
+"Есть ли пандус?",inclusive_education,ru
+"Особые образовательные потребности",inclusive_education,ru
+"Куда обратиться студенту с ООП?",inclusive_education,ru
+"Есть ли лифт для колясочников?",inclusive_education,ru
+"Индивидуальный график для студента с инвалидностью",inclusive_education,ru
+"Доступная среда в университете",inclusive_education,ru
+"Помощь студентам с нарушением зрения",inclusive_education,ru
+"Скидка для инвалидов и условия обучения",inclusive_education,ru
+"Есть ли волонтёры для помощи?",inclusive_education,ru
+"Центр поддержки ООП",inclusive_education,ru
+"Могу ли я учиться с ограниченными возможностями?",inclusive_education,ru
+"Парковка для людей с инвалидностью",inclusive_education,ru
+"Инклюзивті білім беру",inclusive_education,kk
+"Мүгедектігі бар студенттерге жағдай бар ма?",inclusive_education,kk
+"Пандус бар ма?",inclusive_education,kk
+"Ерекше білім беру қажеттіліктері",inclusive_education,kk
+"Inclusive education",inclusive_education,en
+"Is the campus wheelchair accessible?",inclusive_education,en
+"Support for students with disabilities",inclusive_education,en
+"Special educational needs",inclusive_education,en
+"Есть ли военная кафедра?",military,ru
+"Отсрочка от армии",military,ru
+"Как встать на воинский учёт?",military,ru
+"Дают ли отсрочку студентам?",military,ru
+"Военка есть?",military,ru
+"Как попасть на военную кафедру?",military,ru
+"Меня призывают в армию, что делать?",military,ru
+"Справка для военкомата об учёбе",military,ru
+"Сколько учиться на военной кафедре?",military,ru
+"Военная подготовка в университете",military,ru
+"Приписное свидетельство куда сдавать?",military,ru
+"Офицер запаса после вуза",military,ru
+"Можно ли не идти в армию, если учусь?",military,ru
+"Военный учёт студентов",military,ru
+"Әскери кафедра бар ма?",military,kk
+"Әскерден кейінге қалдыру",military,kk
+"Әскери есепке қалай тұрамын?",military,kk
+"Әскерге шақырса не істеймін?",military,kk
+"Is there a military department?",military,en
+"Military service deferment",military,en
+"How do I register for military service?",military,en
+"I got a draft notice, what should I do?",military,en

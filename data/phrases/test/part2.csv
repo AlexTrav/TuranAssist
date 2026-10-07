@@ -1,0 +1,193 @@
+text,intent,lang,style
+"как на бюджет попасть",state_grant,ru,slang
+"государстенный грант как получить",state_grant,ru,typo
+"kak poluchit grant",state_grant,ru,translit
+"У меня 95 баллов на ЕНТ, хочу участвовать в конкурсе на госгрант, куда и как подавать заявку?",state_grant,ru,long
+"Грантқа құжатты қайда тапсырамын?",state_grant,kk,plain
+"How do I apply for a state-funded place?",state_grant,en,plain
+"за 125 баллов чё дают",ent_discounts,ru,slang
+"скидки по балам ент",ent_discounts,ru,typo
+"skidki po ballam ENT",ent_discounts,ru,translit
+"У меня Алтын белгі и 104 балла на ЕНТ, на сколько лет я могу получить грант университета?",ent_discounts,ru,long
+"ҰБТ-дан 110 балл, жеңілдік бар ма?",ent_discounts,kk,plain
+"Will I get a discount for 130 UNT points?",ent_discounts,en,plain
+"туран умити это чё",turan_umiti_grant,ru,slang
+"грант туран үмiтi",turan_umiti_grant,ru,typo
+"grant turan umiti",turan_umiti_grant,ru,translit
+"Слышал, что можно выиграть 4 года бесплатного обучения, написав сочинение. Как участвовать в этом конкурсе?",turan_umiti_grant,ru,long
+"Тұран Үміті грантына кімдер қатыса алады?",turan_umiti_grant,kk,plain
+"How do I win free tuition through Grant Project?",turan_umiti_grant,en,plain
+"скидки многодетным есть?",other_discounts,ru,slang
+"скидка для сирот и инвалидав",other_discounts,ru,typo
+"skidka dlya mnogodetnyh",other_discounts,ru,translit
+"У меня старшая сестра уже учится у вас, а я поступаю в этом году, положена ли мне какая-то скидка?",other_discounts,ru,long
+"Спорт шебері болсам жеңілдік бар ма?",other_discounts,kk,plain
+"Are there discounts for orphans?",other_discounts,en,plain
+"айлтс 7 скок скидка",language_cert_discounts,ru,slang
+"скидка по ielts сертификату",language_cert_discounts,ru,typo
+"skidka za IELTS",language_cert_discounts,ru,translit
+"Сдал TOEFL iBT на 104 полтора года назад, могу ли я получить скидку на английском отделении?",language_cert_discounts,ru,long
+"IELTS 6.5 болса жеңілдік қанша?",language_cert_discounts,kk,plain
+"What discount for IELTS 7.5?",language_cert_discounts,en,plain
+"хочу с платки на грант",vacant_grant,ru,slang
+"вакантый грант",vacant_grant,ru,typo
+"vakantnyi grant kak poluchit",vacant_grant,ru,translit
+"Я учусь на втором курсе платно с хорошим GPA, слышал что освобождаются гранты, как мне подать на них заявление?",vacant_grant,ru,long
+"Ақылыдан грантқа ауысуға бола ма?",vacant_grant,kk,plain
+"Can a paying student move to a state grant?",vacant_grant,en,plain
+"стипуху платят?",stipend,ru,slang
+"стипедия кому положена",stipend,ru,typo
+"stipendiya est",stipend,ru,translit
+"Я учусь на гранте, сессию закрыл на четвёрки и пятёрки, мне будут платить стипендию?",stipend,ru,long
+"Стипендия қалай тағайындалады?",stipend,kk,plain
+"Do grant students receive a stipend?",stipend,en,plain
+"когда каникулы зимой",academic_calendar,ru,slang
+"когда начинаеться сессия",academic_calendar,ru,typo
+"kogda sessiya",academic_calendar,ru,translit
+"Хочу заранее купить билеты домой на Новый год, подскажите даты зимней сессии и каникул",academic_calendar,ru,long
+"Екінші семестр қашан басталады?",academic_calendar,kk,plain
+"When does the spring semester start?",academic_calendar,en,plain
+"где пары смотреть",schedule,ru,slang
+"росписание занятий",schedule,ru,typo
+"raspisanie zanyatiy",schedule,ru,translit
+"Я первокурсник и не могу найти, где выложено расписание пар на осенний семестр, подскажите",schedule,ru,long
+"Кесте қайда жарияланады?",schedule,kk,plain
+"Where is the exam timetable?",schedule,en,plain
+"как гпа считают",grading_gpa,ru,slang
+"шкала оценак",grading_gpa,ru,typo
+"kak schitaetsya GPA",grading_gpa,ru,translit
+"У меня по рубежкам 40 и 55, допустят ли меня к экзамену и как потом посчитают итоговую оценку?",grading_gpa,ru,long
+"А минус қанша GPA береді?",grading_gpa,kk,plain
+"What does B+ mean in points?",grading_gpa,en,plain
+"завалил экз чё делать",retake_fx,ru,slang
+"пересдача fx когда",retake_fx,ru,typo
+"peresdacha FX",retake_fx,ru,translit
+"Получил F по математике, придётся ли заново ходить на все пары и платить, или можно просто пересдать?",retake_fx,ru,long
+"F алдым, енді не істеймін?",retake_fx,kk,plain
+"I failed the exam, can I retake it?",retake_fx,en,plain
+"оценку занизили хочу оспорить",appeal,ru,slang
+"апеляция на экзамен",appeal,ru,typo
+"apellyaciya",appeal,ru,translit
+"Вчера был экзамен, считаю что два вопроса были не из программы курса, до какого времени я могу подать апелляцию?",appeal,ru,long
+"Апелляция қашанға дейін беріледі?",appeal,kk,plain
+"Can I appeal my exam score?",appeal,en,plain
+"проспал экзамен что будет",missed_exam,ru,slang
+"пропустил экзамен по балезни",missed_exam,ru,typo
+"propustil ekzamen",missed_exam,ru,translit
+"Я лежал в больнице как раз в день экзамена, у меня есть справка, куда её нести и как пересдать?",missed_exam,ru,long
+"Емтиханды дәлелді себеппен өткізіп алдым",missed_exam,kk,plain
+"I was ill on the exam day, what should I do?",missed_exam,en,plain
+"хочу академ взять",academic_leave,ru,slang
+"академический отпуск по беремености",academic_leave,ru,typo
+"akademicheskiy otpusk",academic_leave,ru,translit
+"У меня родился ребёнок, могу ли я взять академ и нужно ли будет платить за учёбу в это время?",academic_leave,ru,long
+"Академиялық демалысқа қандай құжаттар керек?",academic_leave,kk,plain
+"Can I pause my studies for medical reasons?",academic_leave,en,plain
+"хочу к вам перевестись с другого универа",transfer_restore,ru,slang
+"перевод из другого вуза",transfer_restore,ru,typo
+"perevod iz drugogo vuza",transfer_restore,ru,translit
+"Меня отчислили два года назад за долги, могу ли я сейчас восстановиться и будет ли это платно?",transfer_restore,ru,long
+"Басқа мамандыққа ауысуға бола ма?",transfer_restore,kk,plain
+"Can I transfer to Turan from another university?",transfer_restore,en,plain
+"практика когда будет у первачей",practice,ru,slang
+"производствиная практика",practice,ru,typo
+"praktika kogda",practice,ru,translit
+"Я магистрант первого года, какие практики мне нужно пройти и где посмотреть график?",practice,ru,long
+"Диплом алдындағы практика қашан?",practice,kk,plain
+"Does the university help to find an internship placement?",practice,en,plain
+"канвас не открывается",portals,ru,slang
+"как зайти в канвас",portals,ru,typo
+"kak voiti v canvas",portals,ru,translit
+"У меня онлайн-экзамен с прокторингом, а на ноутбуке не работает камера, что делать?",portals,ru,long
+"Canvas паролін ұмыттым",portals,kk,mixed
+"Where do I submit assignments online?",portals,en,plain
+"справку надо с учёбы",certificates,ru,slang
+"справка с места учебы",certificates,ru,typo
+"spravka s mesta ucheby",certificates,ru,translit
+"Мне для военкомата нужна справка, что я учусь, и ещё транскрипт для стажировки, где это заказать?",certificates,ru,long
+"Анықтаманы қайдан аламын?",certificates,kk,plain
+"I need a transcript, where can I get it?",certificates,en,plain
+"по обмену можно поехать?",academic_mobility,ru,slang
+"академическая мобильнасть",academic_mobility,ru,typo
+"akademicheskaya mobilnost",academic_mobility,ru,translit
+"Хочу поехать на семестр в Польшу, у меня GPA 3.1 и английский B2, подхожу ли я и какие документы готовить?",academic_mobility,ru,long
+"Шетелде бір семестр оқуға бола ма?",academic_mobility,kk,plain
+"How do I apply for an exchange semester?",academic_mobility,en,plain
+"можно гпт юзать для дипломки",academic_integrity,ru,slang
+"что будет за плогиат",academic_integrity,ru,typo
+"mozhno li ispolzovat chatgpt",academic_integrity,ru,translit
+"Я переписал часть статьи из интернета в эссе и забыл указать ссылку, что мне за это будет?",academic_integrity,ru,long
+"Курстық жұмысты нейрожеліге жаздыруға бола ма?",academic_integrity,kk,plain
+"Is using AI allowed in coursework?",academic_integrity,en,plain
+"общагу дают?",dormitory,ru,slang
+"общежитее для студентов",dormitory,ru,typo
+"obshchezhitie",dormitory,ru,translit
+"Я приезжаю из Актобе и мне негде жить в Алматы, как получить место в Доме студентов и кому его дают в первую очередь?",dormitory,ru,long
+"Жатақхана бар ма, қалай аламын?",dormitory,kk,mixed
+"Do you provide accommodation for students?",dormitory,en,plain
+"медпункт где",medical_center,ru,slang
+"справка 075у для первокурсников",medical_center,ru,typo
+"medpunkt",medical_center,ru,translit
+"Я иностранный студент, какие медицинские документы мне нужно сдать в медцентр после приезда?",medical_center,ru,long
+"Университетте дәрігер бар ма?",medical_center,kk,plain
+"Where can I see a doctor on campus?",medical_center,en,plain
+"книжки где брать",library,ru,slang
+"електронная библиотека",library,ru,typo
+"biblioteka",library,ru,translit
+"Мне нужны учебники для курсовой, можно ли взять их домой и как зайти в электронную библиотеку из дома?",library,ru,long
+"Кітапхана қалай жұмыс істейді?",library,kk,plain
+"How do I get e-books from the library?",library,en,plain
+"какие тусовки есть в универе",student_clubs,ru,slang
+"студенческий совет",student_clubs,ru,typo
+"kluby v universitete",student_clubs,ru,translit
+"Я люблю театр и киберспорт, есть ли в университете клубы или организации, куда можно вступить?",student_clubs,ru,long
+"Қандай студенттік ұйымдар бар?",student_clubs,kk,plain
+"How can I join a student club?",student_clubs,en,plain
+"работу помогаете найти?",career_center,ru,slang
+"центр карьеры и лидерства",career_center,ru,typo
+"pomosh s rabotoy",career_center,ru,translit
+"Я на последнем курсе и ищу работу по специальности, есть ли в университете служба, которая помогает с вакансиями?",career_center,ru,long
+"Жұмыс табуға көмек бар ма?",career_center,kk,plain
+"Does the university help graduates find jobs?",career_center,en,plain
+"для колясочников всё есть?",inclusive_education,ru,slang
+"инклюзивное обрзование",inclusive_education,ru,typo
+"inklyuzivnoe obrazovanie",inclusive_education,ru,translit
+"У меня нарушение зрения, какие условия есть в университете и к кому обратиться, чтобы учли мои потребности?",inclusive_education,ru,long
+"Мүгедектігі бар студенттерге қандай көмек бар?",inclusive_education,kk,plain
+"Do you support students with disabilities?",inclusive_education,en,plain
+"военка есть у вас",military,ru,slang
+"отсрочька от армии",military,ru,typo
+"voennaya kafedra",military,ru,translit
+"Мне пришла повестка, а я учусь на втором курсе очно, могу ли я получить отсрочку и куда обратиться?",military,ru,long
+"Әскери кафедраға қалай түсемін?",military,kk,plain
+"Can students get a military deferment?",military,en,plain
+"чё за универ вообще",about_university,ru,slang
+"акредитация университета",about_university,ru,typo
+"o universitete",about_university,ru,translit
+"Родители спрашивают, насколько надёжный университет: когда основан и есть ли у него аккредитация?",about_university,ru,long
+"Университет аккредиттелген бе?",about_university,kk,plain
+"Is Turan a good university?",about_university,en,plain
+"факультеты какие",faculties,ru,slang
+"факультет цыфровых технологий",faculties,ru,typo
+"fakultety",faculties,ru,translit
+"Подскажите, на каком факультете учатся юристы и где находится их деканат?",faculties,ru,long
+"Факультеттер қандай?",faculties,kk,plain
+"Which faculties does the university have?",faculties,en,plain
+"дайте номер приёмки",contacts,ru,slang
+"телефон приемной комисии",contacts,ru,typo
+"telefon priemnoy komissii",contacts,ru,translit
+"Хочу позвонить и уточнить пару вопросов по поступлению, какой номер у приёмной комиссии и есть ли WhatsApp?",contacts,ru,long
+"Қабылдау комиссиясының нөмірі қандай?",contacts,kk,plain
+"What is the phone number of the admissions office?",contacts,en,plain
+"где вы ваще",location,ru,slang
+"адресс университета",location,ru,typo
+"gde nahoditsya universitet",location,ru,translit
+"Я приезжаю на собеседование, подскажите точный адрес главного корпуса и где факультет цифровых технологий",location,ru,long
+"Университет қай көшеде?",location,kk,plain
+"Where is the main campus?",location,en,plain
+"айлтс у вас можно сдать?",international_exams,ru,slang
+"где сдать тоефл",international_exams,ru,typo
+"gde sdat SAT",international_exams,ru,translit
+"Собираюсь поступать в зарубежный вуз, можно ли сдать SAT и TOEFL прямо в вашем университете и как записаться?",international_exams,ru,long
+"IELTS емтиханына қалай жазыламын?",international_exams,kk,plain
+"Is Turan an official IELTS test center?",international_exams,en,plain

@@ -1,0 +1,89 @@
+text,intent,lang
+"Привет",greeting,ru
+"Здравствуйте",greeting,ru
+"Добрый день",greeting,ru
+"Доброе утро",greeting,ru
+"Добрый вечер",greeting,ru
+"Салют",greeting,ru
+"Хай",greeting,ru
+"Привет, бот",greeting,ru
+"Здравствуйте, можно задать вопрос?",greeting,ru
+"Приветствую",greeting,ru
+"Здрасьте",greeting,ru
+"Привет всем",greeting,ru
+"Доброго дня",greeting,ru
+"Алло, есть кто?",greeting,ru
+"Сәлем",greeting,kk
+"Сәлеметсіз бе",greeting,kk
+"Қайырлы күн",greeting,kk
+"Армысыз",greeting,kk
+"Hello",greeting,en
+"Hi there",greeting,en
+"Good morning",greeting,en
+"Hey bot",greeting,en
+"Пока",goodbye,ru
+"До свидания",goodbye,ru
+"Всего доброго",goodbye,ru
+"До встречи",goodbye,ru
+"Увидимся",goodbye,ru
+"Мне пора, пока",goodbye,ru
+"Всё, до свидания",goodbye,ru
+"Хорошего дня",goodbye,ru
+"Счастливо",goodbye,ru
+"Бывай",goodbye,ru
+"Ладно, пока",goodbye,ru
+"Спокойной ночи",goodbye,ru
+"До скорого",goodbye,ru
+"На этом всё, пока",goodbye,ru
+"Сау бол",goodbye,kk
+"Сау болыңыз",goodbye,kk
+"Көріскенше",goodbye,kk
+"Қош болыңыз",goodbye,kk
+"Bye",goodbye,en
+"Goodbye",goodbye,en
+"See you later",goodbye,en
+"Have a nice day, bye",goodbye,en
+"Спасибо",thanks,ru
+"Большое спасибо",thanks,ru
+"Спасибо за помощь",thanks,ru
+"Благодарю",thanks,ru
+"Спасибо, очень помогло",thanks,ru
+"Спс",thanks,ru
+"Пасиб",thanks,ru
+"Огромное спасибо!",thanks,ru
+"Спасибо, всё понятно",thanks,ru
+"Благодарю за ответ",thanks,ru
+"Спасибо, бот",thanks,ru
+"Супер, спасибо",thanks,ru
+"Отлично, спасибо большое",thanks,ru
+"Мерси",thanks,ru
+"Рахмет",thanks,kk
+"Көп рахмет",thanks,kk
+"Үлкен рахмет көмегіңізге",thanks,kk
+"Рақмет, түсінікті",thanks,kk
+"Thank you",thanks,en
+"Thanks a lot",thanks,en
+"Thanks for the help",thanks,en
+"Much appreciated",thanks,en
+"Что ты умеешь?",capabilities,ru
+"Кто ты?",capabilities,ru
+"Чем ты можешь помочь?",capabilities,ru
+"Что ты знаешь?",capabilities,ru
+"Какие вопросы тебе можно задавать?",capabilities,ru
+"Ты кто такой?",capabilities,ru
+"Расскажи о себе",capabilities,ru
+"Ты бот или человек?",capabilities,ru
+"Помощь",capabilities,ru
+"Что ты можешь подсказать?",capabilities,ru
+"О чём тебя можно спросить?",capabilities,ru
+"Как тобой пользоваться?",capabilities,ru
+"Ты отвечаешь на вопросы про университет?",capabilities,ru
+"Какие у тебя функции?",capabilities,ru
+"Сен не істей аласың?",capabilities,kk
+"Сен кімсің?",capabilities,kk
+"Маған қалай көмектесе аласың?",capabilities,kk
+"Саған қандай сұрақ қоюға болады?",capabilities,kk
+"What can you do?",capabilities,en
+"Who are you?",capabilities,en
+"How can you help me?",capabilities,en
+"What questions can I ask you?",capabilities,en

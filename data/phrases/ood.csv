@@ -1,0 +1,156 @@
+text,lang,kind
+"Какая погода завтра в Алматы?",ru,offtopic
+"Расскажи анекдот",ru,offtopic
+"Как приготовить плов?",ru,offtopic
+"Кто выиграл чемпионат мира по футболу?",ru,offtopic
+"Сколько будет 2 плюс 2?",ru,offtopic
+"Посоветуй фильм на вечер",ru,offtopic
+"Какой курс доллара сегодня?",ru,offtopic
+"Напиши стихотворение про осень",ru,offtopic
+"Как похудеть к лету?",ru,offtopic
+"Какая столица Австралии?",ru,offtopic
+"Сколько км от Алматы до Астаны?",ru,offtopic
+"Как починить кран на кухне?",ru,offtopic
+"Где купить айфон дешевле?",ru,offtopic
+"Какой сегодня день недели?",ru,offtopic
+"Напиши код на Python для сортировки",ru,offtopic
+"Что такое квантовая физика?",ru,offtopic
+"Как завести кошку?",ru,offtopic
+"Посоветуй музыку для учёбы",ru,offtopic
+"Кто президент США?",ru,offtopic
+"Как научиться плавать?",ru,offtopic
+"Какой телефон лучше купить?",ru,offtopic
+"Сколько стоит такси до аэропорта?",ru,offtopic
+"Как сделать презентацию в PowerPoint?",ru,offtopic
+"Переведи слово hello на французский",ru,offtopic
+"Где поесть в центре Алматы?",ru,offtopic
+"Какие есть хорошие сериалы?",ru,offtopic
+"Как вылечить простуду?",ru,offtopic
+"Сколько лет Земле?",ru,offtopic
+"Ты любишь пиццу?",ru,offtopic
+"Какой у тебя любимый цвет?",ru,offtopic
+"Сыграем в города?",ru,offtopic
+"Как заработать миллион?",ru,offtopic
+"Реши уравнение x в квадрате равно 16",ru,offtopic
+"Когда будет следующий Новый год?",ru,offtopic
+"Где купить билеты на концерт?",ru,offtopic
+"Как сменить масло в машине?",ru,offtopic
+"Что подарить девушке на день рождения?",ru,offtopic
+"Сколько калорий в банане?",ru,offtopic
+"Как настроить роутер дома?",ru,offtopic
+"Какая лучшая игра 2026 года?",ru,offtopic
+"Объясни теорию относительности",ru,offtopic
+"Как открыть ИП в Казахстане?",ru,offtopic
+"Сколько стоит бензин?",ru,offtopic
+"Что такое биткоин?",ru,offtopic
+"Где отдохнуть летом в Казахстане?",ru,offtopic
+"Как сделать маникюр дома?",ru,offtopic
+"Посчитай мой знак зодиака",ru,offtopic
+"Ты умнее ChatGPT?",ru,offtopic
+"Расскажи сказку на ночь",ru,offtopic
+"Кто написал Войну и мир?",ru,offtopic
+"Ертең ауа райы қандай болады?",kk,offtopic
+"Анекдот айтып берші",kk,offtopic
+"Бешбармақты қалай пісіремін?",kk,offtopic
+"Қазақстанның астанасы қай қала?",kk,offtopic
+"Футболдан кім жеңді?",kk,offtopic
+"Маған жақсы фильм ұсын",kk,offtopic
+"Доллар бағамы қанша?",kk,offtopic
+"Өлең жазып берші",kk,offtopic
+"Қалай арықтауға болады?",kk,offtopic
+"Телефонды қайдан арзан аламын?",kk,offtopic
+"Мысықты қалай бағамын?",kk,offtopic
+"Бүгін аптаның қай күні?",kk,offtopic
+"Сен пиццаны жақсы көресің бе?",kk,offtopic
+"Ақша қалай табуға болады?",kk,offtopic
+"Жазда қайда демалуға болады?",kk,offtopic
+"What's the weather like tomorrow?",en,offtopic
+"Tell me a joke",en,offtopic
+"How do I cook pasta?",en,offtopic
+"Who won the last World Cup?",en,offtopic
+"Recommend a good movie",en,offtopic
+"What is the dollar exchange rate?",en,offtopic
+"Write a poem about the sea",en,offtopic
+"How can I lose weight fast?",en,offtopic
+"What is the capital of Canada?",en,offtopic
+"Write Python code to reverse a string",en,offtopic
+"Do you like music?",en,offtopic
+"How to fix a flat tire?",en,offtopic
+"What is the meaning of life?",en,offtopic
+"Explain black holes",en,offtopic
+"Where can I buy cheap flights?",en,offtopic
+"asdfghjkl",ru,nonsense
+"ываываыва",ru,nonsense
+"123456",ru,nonsense
+"???",ru,nonsense
+"ааааааа",ru,nonsense
+"кот банан самолёт",ru,nonsense
+"ну это самое как его",ru,nonsense
+"бла бла бла",ru,nonsense
+"йцукен",ru,nonsense
+"...",ru,nonsense
+"ок",ru,nonsense
+"хм",ru,nonsense
+"тест тест",ru,nonsense
+"проверка связи 1 2 3",ru,nonsense
+"зелёный квадрат летит быстро",ru,nonsense
+"фывапролдж",ru,nonsense
+"ммм",ru,nonsense
+"чтоо",ru,nonsense
+"лол",ru,nonsense
+"))))",ru,nonsense
+"қвертиқ",kk,nonsense
+"иә иә иә",kk,nonsense
+"жоқ",kk,nonsense
+"qwerty",en,nonsense
+"lorem ipsum dolor sit amet",en,nonsense
+"blah blah",en,nonsense
+"xyz 42",en,nonsense
+"hmm ok",en,nonsense
+"purple elephant dancing",en,nonsense
+"test",en,nonsense
+"Где в университете столовая?",ru,near_domain
+"Какой пароль от Wi-Fi в университете?",ru,near_domain
+"Есть ли парковка для студентов?",ru,near_domain
+"Сколько стоит обед в столовой?",ru,near_domain
+"Как зовут ректора?",ru,near_domain
+"Есть ли в университете спортзал?",ru,near_domain
+"Какой дресс-код у студентов?",ru,near_domain
+"Можно ли курить на территории?",ru,near_domain
+"Где распечатать документы в университете?",ru,near_domain
+"Какой средний балл выпускников по ЕНТ в прошлом году?",ru,near_domain
+"Какие преподаватели лучше на ИС?",ru,near_domain
+"Есть ли в университете бассейн?",ru,near_domain
+"Сколько студентов учится в Туране?",ru,near_domain
+"Какой рейтинг у Турана среди вузов Казахстана в QS?",ru,near_domain
+"Где проходят выпускные в университете?",ru,near_domain
+"Есть ли кофейня в корпусе?",ru,near_domain
+"Какие оценки у меня по физике?",ru,near_domain
+"Какая зарплата у преподавателей?",ru,near_domain
+"Когда день открытых дверей?",ru,near_domain
+"Есть ли университетский мерч?",ru,near_domain
+"Какой номер аудитории у декана экономического?",ru,near_domain
+"Сколько человек в группе?",ru,near_domain
+"Есть ли университетский автобус?",ru,near_domain
+"Как поступить в Назарбаев Университет?",ru,near_domain
+"Сколько стоит обучение в КБТУ?",ru,near_domain
+"Где лучше учиться на IT в Алматы?",ru,near_domain
+"Какой проходной балл в КазНУ на медицину?",ru,near_domain
+"Есть ли у вас медицинский факультет?",ru,near_domain
+"Обучаете ли вы на пилота?",ru,near_domain
+"Можно ли учиться в Туране в Шымкенте?",ru,near_domain
+"Университетте асхана қайда?",kk,near_domain
+"Wi-Fi құпиясөзі қандай?",kk,near_domain
+"Ректордың аты кім?",kk,near_domain
+"Спортзал бар ма?",kk,near_domain
+"Көлік тұрағы бар ма?",kk,near_domain
+"Қазақ ұлттық университетіне қалай түсемін?",kk,near_domain
+"Where is the cafeteria?",en,near_domain
+"What is the Wi-Fi password?",en,near_domain
+"Is there a gym on campus?",en,near_domain
+"Who is the rector?",en,near_domain
+"How many students study at Turan?",en,near_domain
+"How do I apply to Nazarbayev University?",en,near_domain
+"Is there a medical school here?",en,near_domain
+"When is the open day?",en,near_domain
+"Is there a swimming pool?",en,near_domain

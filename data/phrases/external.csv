@@ -1,0 +1,210 @@
+text,intent,lang,university,url
+What are the admission requirements for international students?,foreign_applicants,en,TorU,https://global.tou.edu.kz/faq
+Do I need to take entrance exams?,admission_steps|foreign_applicants,en,TorU,https://global.tou.edu.kz/faq
+Is there an age limit for admission?,ood,en,TorU,https://global.tou.edu.kz/faq
+What is the application deadline?,admission_deadlines,en,TorU,https://global.tou.edu.kz/faq
+Can I apply online?,admission_steps,en,TorU,https://global.tou.edu.kz/faq
+Do I need to submit original documents or copies?,admission_documents,en,TorU,https://global.tou.edu.kz/faq
+Is document legalization or apostille required?,foreign_applicants,en,TorU,https://global.tou.edu.kz/faq
+Are preparatory / foundation programs available?,foundation,en,TorU,https://global.tou.edu.kz/faq
+What language are the programs taught in?,study_forms,en,TorU,https://global.tou.edu.kz/faq
+Is proof of English / Russian required?,ood,en,TorU,https://global.tou.edu.kz/faq
+Which language certificates are accepted?,ood,en,TorU,https://global.tou.edu.kz/faq
+Can I study if I don't have a language certificate?,ood,en,TorU,https://global.tou.edu.kz/faq
+Are language courses offered at the university?,foundation,en,TorU,https://global.tou.edu.kz/faq
+How much is the tuition fee per year?,tuition_bachelor,en,TorU,https://global.tou.edu.kz/faq
+What payment methods are accepted?,payment_details,en,TorU,https://global.tou.edu.kz/faq
+Can tuition be paid in installments?,payment_details,en,TorU,https://global.tou.edu.kz/faq
+Are scholarships or tuition discounts available?,other_discounts|ent_discounts|stipend,en,TorU,https://global.tou.edu.kz/faq
+Are there Erasmus+ or exchange opportunities?,academic_mobility,en,TorU,https://global.tou.edu.kz/faq
+Do I need a student visa to study in Kazakhstan?,ood,en,TorU,https://global.tou.edu.kz/faq
+Does the university provide an official invitation letter?,ood,en,TorU,https://global.tou.edu.kz/faq
+Do you help with migration registration after arrival?,ood,en,TorU,https://global.tou.edu.kz/faq
+Is student dormitory accommodation available?,dormitory,en,TorU,https://global.tou.edu.kz/faq
+How much does accommodation cost?,dormitory,en,TorU,https://global.tou.edu.kz/faq
+What facilities are provided in dormitories?,dormitory,en,TorU,https://global.tou.edu.kz/faq
+Will someone meet me at the airport?,ood,en,TorU,https://global.tou.edu.kz/faq
+Is there an orientation program for international students?,ood,en,TorU,https://global.tou.edu.kz/faq
+Is health insurance mandatory?,medical_center,en,TorU,https://global.tou.edu.kz/faq
+Are medical services available on campus?,medical_center,en,TorU,https://global.tou.edu.kz/faq
+How is the academic year organized?,academic_calendar,en,TorU,https://global.tou.edu.kz/faq
+What is the grading system?,grading_gpa,en,TorU,https://global.tou.edu.kz/faq
+How many credits do I need to graduate?,ood,en,TorU,https://global.tou.edu.kz/faq
+Can I change my major or courses?,transfer_restore,en,TorU,https://global.tou.edu.kz/faq
+Are internships included in the program?,practice,en,TorU,https://global.tou.edu.kz/faq
+Can I participate in academic mobility programs?,academic_mobility,en,TorU,https://global.tou.edu.kz/faq
+Can international students work while studying?,ood,en,TorU,https://global.tou.edu.kz/faq
+Are there career services for international students?,career_center,en,TorU,https://global.tou.edu.kz/faq
+Are there student clubs and organizations?,student_clubs,en,TorU,https://global.tou.edu.kz/faq
+Are there libraries and study spaces?,library,en,TorU,https://global.tou.edu.kz/faq
+What is the cost of living?,ood,en,TorU,https://global.tou.edu.kz/faq
+Is the city safe for international students?,ood,en,TorU,https://global.tou.edu.kz/faq
+How can I improve my Russian / Kazakh?,foundation,en,TorU,https://global.tou.edu.kz/faq
+Who can I contact if I have problems or feel homesick?,contacts,en,TorU,https://global.tou.edu.kz/faq
+Куда я могу поступить с 45баллами Ент? например меня интересует Журналистика,passing_score|creative_exam,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте! Я заканчиваю колледж по специальности «Менеджмент». Могу ли я поступить в бакалавриат по направлению «Туризм», или это не имеет отношения к родственной специальности?",college_graduates,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Могу ли я поступить на платное обучение на специальность «Менеджмент», если по ЕНТ набрала 65 баллов?",passing_score,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+био/гео 63 балл проходнойга жетеды ма?,passing_score,kk,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"могу ли я восстановиться на очное обучение на платной программе, если я отчислился два года назад?",transfer_restore,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+как к вам поступить ?,admission_steps,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте, при отчислении с 1 первого курса, обучаясь на гранте, нужно же будет выплатить сумму равной времени обучения, который ты провел?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Я хотелось бы узнать, кто-нибудь занимается контролем арендаторов, а точнее арендаторов наших столовых?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Қайырлы күн! Сіз басқарып отырған ЖОО 6 айлық қысқартылған логопед-дефектолог курсы барма?,ood,kk,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"здравствуйте, а после колледжа возможно ли поступить к вам на технолога пищевой промышленности?",programs_list|college_graduates,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Добрый вечер! Сын находится на воинской службе , может ли после службы получить грант по программе Минобороны в Торайгыров университете?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте! Летом я подавала заявку на Президентскую стипендию, когда и где можно узнать результаты?",stipend,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Добрый день я хотел получить образование на дендролога . Какие документы необходимо предоставить и сколько будет цена?,admission_documents|tuition_bachelor,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте,хотел бы узнать есть ли переводческое дело?",programs_list,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Здравствуйте как можно подать на ректорский грант?,turan_umiti_grant,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте, я хотела спросить почему университет не принимает мое заявление на Казахстан халкына?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Действует ли скидка на обучение, как указано на вашем сайте, для поступающих со средним баллом выше 4.7 в размере 30%?",other_discounts|ent_discounts,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Доброго времени суток. Хотела узнать сколько стоит обучение библиотечному делу? Есть ли заочная форма?,tuition_bachelor|study_forms,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Добрый день, Подскажите пожалуйста, предусмотрена ли скидка студентам из неполных семей?",other_discounts,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Здравствуйте. Как получить копию приложения диплома?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Добрый день! Подскажите, по каким критериям отбираются на дуальное обучение.",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+В 1993 году закончил обучение диплом утерян . Как можно восстановить диплом?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте, планирую обучаться в вашем ВУЗе. Возможно ли пожать документы онлайн на бакалавриат?",admission_steps,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Какое количество баллов необходимо набрать для поступления на медицинское направление и для получения гранта?,passing_score|state_grant,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Какой проходной балл на платку на стоматолога?,passing_score,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Почему для второй смены, которые учатся с обеда ничего не остается в столовой?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Где можно посмотреть оценку за профессиональную практику?,practice,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Здравствуйте,я бы хотела узнать, могу ли я поступить в университет после 2-го курса колледжа на платное обучение?",college_graduates,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Какие документы мне нужны, чтобы поступить к вам? Есть ли возможность поступить на грант?",admission_documents|state_grant,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Возможно ли с 1 или со 2 курса оформить свободное посещение или не посещать все пары?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Когда поступала в 2020 году форма обучения была очно-дистанционная. А в этом году изменили на вечернее -очную. Подскажите пожалуйста возможно ли 2 год учиться через ДОТ?,study_forms|transfer_restore,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Я набрал на ент не достаточно баллов что мне делать?,passing_score,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Как записаться на приём к ректору по личным вопросам?,contacts,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+С кем можно обсудить размещение ссылки на наш агрегатор вакансий Jooble?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Должна ли я буду выплачивать государству свой грант или нет?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Можно мне получить копию диплома?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Возможно взять отсрочку по оплате?,payment_details,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Может ли студент 2го курса колледжа при пгу, сирота, получить место в общежитии?",dormitory,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Я обучаюсь в медицинском вузе, могу ли я перевестись на биотехнология?",transfer_restore,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Я закончил колледж по профессии техник программист. Если я пойду на высшее, могу ли я работать учителем информатики?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Может ли студент 4-го курса оформить академический отпуск?,academic_leave,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Я учусь на 2м курсе на электро энергетику могу ли я перевестись на нефтегазовое дело?,transfer_restore,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Мне нужна архивная справка, подтверждающая подлинность диплома?",ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Какая у Вас стоимость дистанционного обучение по специальности ""Маркетинг""?",tuition_bachelor,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Есть ли у меня возможность оформить академический отпуск в связи с рождением ребёнка?,academic_leave,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Обязательна ли отработка по прошествии двух лет?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Почему у студента долг, хотя оплата была произведена за год?",payment_details,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+По какой формуле считается GPA и все ли предметы учитываются?,grading_gpa,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Есть ли у нас возможность сдать экзамены автоматом?,ood,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Могу ли восстановиться после отчисления?,transfer_restore,ru,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Мен физ-мат пәнінен 79 бал алып едм Информатика пәніне грант иегері болуға жарамдыма?,passing_score|state_grant,kk,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+"Мен орыс тілін білмеймін, қазақ гурппаларындада лекцияларды орысша береді екен?",study_forms,kk,TorU,https://tou.edu.kz/kz/?Itemid=447&id=255&lang=rus&limit=0&limitstart=8&option=com_smfaq&view=category
+Кеңес берушімен онлайн кездесуді қалай ұйымдастыра аласыз?,ood,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+КИМЭП Университетінде оқу ақысының құны қандай?,tuition_bachelor,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Оқу ақысын төлеу мерзімі қандай?,payment_details,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Оқу ақысын қалай төлеуге болады?,payment_details,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Кітапхана қызметі үшін қалай төлем жасауға болады?,ood,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Пәндерге тіркелу кезінде қиындықтар туындаса не істеу керек?,certificates|portals,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+(Күту тізіміне) өтінішті қалай беру керек?,ood,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+«Пәндерден бас тарту және жаңа пәндерді қосымша алу мерзімі» деген не?,ood,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+«Пәннен бас тарту» деген не?,ood,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Бір бағдарламадан басқасына ауысу үшін не істеу қажет?,transfer_restore,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+«Foundation» дегеніміз не?,foundation,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Кредит дегеніміз не?,ood,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+GPA дегеніміз не?,grading_gpa,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+Студенттерге арналған алмасу бағдарламасы дегеніміз не?,academic_mobility,kk,KIMEP,https://www.kimep.kz/current-students/kz/e-orientation/
+"У меня на первом курсе была оценка ""С"", но я ее пересдал на ""В-"", остальные оценки ""А"" и ""В"", получу ли я диплом с отличием?",ood,ru,Satbayev,https://satbayev.university/ru/faq
+"Обязательно ли проходить дисциплину ""Физическая культура""?",ood,ru,Satbayev,https://satbayev.university/ru/faq
+"Я зарегистрировался на дисциплину, но передумал её проходить. Что мне делать?",ood,ru,Satbayev,https://satbayev.university/ru/faq
+Что такое условный статус?,ood,ru,Satbayev,https://satbayev.university/ru/faq
+Чтобы сохранить государственный грант какой должен быть минимальный средний балл успеваемости?,ood,ru,Satbayev,https://satbayev.university/ru/faq
+Какова процедура перевода из другого вуза в КазНИТУ?,transfer_restore,ru,Satbayev,https://satbayev.university/ru/faq
+Where can I find international research grant announcement?,ood,en,SDU,https://sdu.edu.kz/faq/
+Which national journals are index by VAK/KKSON?,ood,en,SDU,https://sdu.edu.kz/faq/
+Where can I find the Impact Factor of a journal?,ood,en,SDU,https://sdu.edu.kz/faq/
+What are the requirements to obtain a PhD degree from the Ministry of Education and Science of RK?,phd_admission,en,SDU,https://sdu.edu.kz/faq/
+I am from Kazakhstan. Does the participation to Infomatrix allow me not to participate on ENT?,ood,en,SDU,https://sdu.edu.kz/faq/
+Бонус ұпай қалай жинауға болады?,ood,kk,SDU,https://sdu.edu.kz/faq/
+"сәлеметсізбе,сұрайын дегенім?мен биыл 11 бітіргелі жатырмын политехқа түскім келіп отыр",admission_steps,kk,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+"Я учусь в Узбекистане в Мед колледже 3 курс, Я хотел поступит в КарГТУ Транспортно-дорожный Институт когда экзамены?",admission_deadlines|foreign_applicants,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+"Я учусь в колледже после 11 класса, студент второго курса в политехническом колледже. Можно ли сдать КТА и поступить в КарГТУ?",college_graduates,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Я закончил горный теникум по специальности «Горная электромеханика». Могу ли я поступить в КарГТУ на заочное отделение?,college_graduates|study_forms,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Сколько нужно набрать баллов для поступления на кафедру Архитектуры на грант?,passing_score|state_grant,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Сәлем!!! Мен ЖЕЗУ да окыймын 1-ші курстан кеиін немесе 2-ші курстан сон ауысуга болама???,transfer_restore,kk,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Какой должен быть 5ый предмет на ЕНТ для поступления?,ent_subjects,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+"здравствуйте,хотела бы узнать возможен ли перевод из новосибирского университета в ваш?",transfer_restore,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+"здравствуйте,хотела бы узнать есть ли гранты на эконом. фак.",state_grant,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Здравствуйте! Могу ли я перевестись с КГИУ в КарГТУ на специальность Материоловедение?,transfer_restore,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Спасибо большое за ответ! Также хочу спросить сколько будет стоить обучение («Архитектура»)?,tuition_bachelor,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+"Добрый день. Скажите, пожалуйста, возможно ли восстановиться на ФАО",transfer_restore,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Здравствуйте! я планирую сдать КТ и поступить на Архитектурный,master_admission,ru,KarTU,https://www.kstu.kz/postuplenie/?lang=ru
+Какая работа проводится по вопросам получения аккредитации?,about_university,ru,NU,https://nu.edu.kz/info-dlya-smi/voprosy-i-otvety-dlya-smi/
+Входит ли Nazarbayev University в глобальные рейтинги?,ood,ru,NU,https://nu.edu.kz/info-dlya-smi/voprosy-i-otvety-dlya-smi/
+Сколько выпускников закончили обучение с момента создания Nazarbayev University?,ood,ru,NU,https://nu.edu.kz/info-dlya-smi/voprosy-i-otvety-dlya-smi/
+Где сейчас находятся выпускники NU?,ood,ru,NU,https://nu.edu.kz/info-dlya-smi/voprosy-i-otvety-dlya-smi/
+Как финансируется NU?,ood,ru,NU,https://nu.edu.kz/info-dlya-smi/voprosy-i-otvety-dlya-smi/
+Как NU заменил Бакалавриат по «Болашак»?,ood,ru,NU,https://nu.edu.kz/info-dlya-smi/voprosy-i-otvety-dlya-smi/
+Какая история у колледжа?,about_university,ru,Caspian,https://ccu.edu.kz/faq/
+Когда можно подать документы в колледж?,admission_deadlines,ru,Caspian,https://ccu.edu.kz/faq/
+По какому адресу находится приемная комиссия?,location|contacts,ru,Caspian,https://ccu.edu.kz/faq/
+Какие образовательные программы есть в колледже?,programs_list,ru,Caspian,https://ccu.edu.kz/faq/
+Нужно ли сдавать экзамены для поступления в колледж?,admission_steps,ru,Caspian,https://ccu.edu.kz/faq/
+Сколько стоит обучение?,tuition_bachelor,ru,Caspian,https://ccu.edu.kz/faq/
+Какие документы нужно сдать для поступления в колледж?,admission_documents,ru,Caspian,https://ccu.edu.kz/faq/
+Можно ли перевестись к вам из другого колледжа?,transfer_restore,ru,Caspian,https://ccu.edu.kz/faq/
+Есть ли гранты?,state_grant,ru,Caspian,https://ccu.edu.kz/faq/
+Можно ли поступить после 10 класса?,ood,ru,Caspian,https://ccu.edu.kz/faq/
+"Есть ли у вас программы для студентов, поступающих после 11 класса?",programs_list|admission_steps,ru,Caspian,https://ccu.edu.kz/faq/
+"Можно ли поступить в колледж, если я живу в другом городе?",dormitory|admission_steps,ru,Caspian,https://ccu.edu.kz/faq/
+"Можно ли поступить в колледж, будучи гражданином другой страны?",foreign_applicants,ru,Caspian,https://ccu.edu.kz/faq/
+На каком языке проводится обучение?,study_forms,ru,Caspian,https://ccu.edu.kz/faq/
+Есть ли заочная/дистанционная форма обучения?,study_forms,ru,Caspian,https://ccu.edu.kz/faq/
+Сколько будет длиться обучение в университете после окончания колледжа?,college_graduates,ru,Caspian,https://ccu.edu.kz/faq/
+"Можно ли подать документы самостоятельно, будучи несовершеннолетним?",ood,ru,Caspian,https://ccu.edu.kz/faq/
+Есть ли скидки на обучение?,other_discounts|ent_discounts,ru,Caspian,https://ccu.edu.kz/faq/
+В какие сроки нужно оплачивать обучение?,payment_details,ru,Caspian,https://ccu.edu.kz/faq/
+Какие преимущества у Вашего колледжа?,about_university,ru,Caspian,https://ccu.edu.kz/faq/
+Когда в колледже каникулы?,academic_calendar,ru,Caspian,https://ccu.edu.kz/faq/
+Где студенты колледжа проходят практику?,practice,ru,Caspian,https://ccu.edu.kz/faq/
+Сколько по времени длятся занятия?,ood,ru,Caspian,https://ccu.edu.kz/faq/
+Сколько человек обычно учится в группе?,ood,ru,Caspian,https://ccu.edu.kz/faq/
+Можно ли совмещать учебу в колледже с работой?,ood,ru,Caspian,https://ccu.edu.kz/faq/
+Какие есть иностранные языки на специальности «Переводческое дело»?,ood,ru,Caspian,https://ccu.edu.kz/faq/
+Есть ли военная кафедра?,military,ru,Caspian,https://ccu.edu.kz/faq/
+"Нужно ли приобретать учебники, поступив в колледж? Есть ли библиотека?",library,ru,Caspian,https://ccu.edu.kz/faq/
+Почему абитуриенты должны выбрать именно ваш колледж?,about_university,ru,Caspian,https://ccu.edu.kz/faq/
+Как с вами связаться?,contacts,ru,Caspian,https://ccu.edu.kz/faq/
+Что такое академическая мобильность и как туда подать?,academic_mobility,ru,Caspian,https://ccu.edu.kz/faq/
+Какая поддержка доступна для инвалидов и нуждающихся студентов?,inclusive_education,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Существуют ли доступные тарифы для студентов в университетских столовых?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+На каком языке осуществляется обучение? Можем ли мы сами выбрать язык курса?,study_forms,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Когда начинается и заканчивается обучение?,academic_calendar,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Предоставляется ли студентам медицинское обслуживание?,medical_center,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Когда начинается прием заявлений в общежитие?,dormitory,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Кому предоставляются общежития?,dormitory,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+"Может ли студент получить государственную стипендию, продолжая обучение?",stipend,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Каковы критерии скидки на обучение / турецкой квоты (квоты)? Что такое средний балл?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Университет частный или государственный?,about_university,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Кто будет допущен к итоговой аттестации?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Какие условия необходимо выполнить для получения диплома?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Как выводятся итоги промежуточного контроля?,grading_gpa,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Как рассчитывается средний балл по курсу?,grading_gpa,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Как я могу претендовать на получение турецкой квоты?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Что такое турецкая квота?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Кто получает диплом с отличием?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Можно ли обучающимся получить академический отпуск во время обучения и на какой срок?,academic_leave,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Какова система оценки успеваемости?,grading_gpa,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Что такое промежуточная аттестация?,grading_gpa,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Что такое пересдача дисциплины (FX)? По каким предметам (FX) нельзя пересдать?,retake_fx,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Что такое Пререквизит?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Каковы основные требования к переходу с учебного курса на следующий учебный курс?,ood,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Что такое повторное изучение предмета (перецикл)?,retake_fx,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+По каким причинам студент может быть отчислен из МКТУ?,transfer_restore,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+"Можно ли пересчитать предмет в МКТУ, изучив его в другом вузе?",transfer_restore,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Кому присуждается стипендия?,stipend,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+В каком случае студент теряет стипендию?,stipend,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Кто может получить президентскую стипендию?,stipend,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Можно ли перейти с одной образовательной программы (специальности) на другую?,transfer_restore,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Как перейти с платного обучения на бесплатное обучение (грант)?,vacant_grant,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+"Можно ли снова присоединиться к списку обучающихся, чтобы продолжить обучение?",transfer_restore,ru,Yasawi,https://students.ayu.edu.kz/ru/sikca-sorulan-sorular
+Мен колледжден кейін ЖОО түсейін деп отырмын. Қолымда ҰБТ сертификаты жоқ. Құжаттар тізбесінде ол қажет деп жазылған. Не істеу керек?,college_graduates,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy_2.aspx
+Биыл ШҚТУ-ға қанша грант бөлінді?,ood,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy_2.aspx
+"Қос дипломды бағдарлама бойынша оқуға түссем, оқу процесі қалай құрылады? Серіктес университеттерге барып оқимыз ба?",ood,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy_2.aspx
+"ШҚТУ-ға түсемін деп шештім, бірақ 50 баллдан төмен алып қалдым. Бірінші қыркүйектен оқуды бастап, жыл көлемінде ЕНТ тапсырып, қайтта түссем бола ма?",passing_score|admission_steps,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy_2.aspx
+"Былтыр ақылы оқуға түстім. Шартта жылына 346 600 төлеу керек деп жазылған. Естуімше биыл оқу құны жоғарылады. Бұл өткен, кейінгі жылдары түскен студенттерге қалай әсер етеді?",tuition_bachelor,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy.aspx
+Мамандықтардың коддарын қайдан көруге болады?,programs_list,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy.aspx
+Серпін бағдарламасы бойынша қандай мамандықтарға грант бөлінді?,ood,kk,EKTU,https://ektu.kz/newsevents/chasto_zadavaemye_voprosy.aspx

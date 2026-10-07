@@ -1,0 +1,111 @@
+text,intent,lang
+"Расскажите об университете",about_university,ru
+"Когда основан университет Туран?",about_university,ru
+"Есть ли аккредитация?",about_university,ru
+"Университет государственный или частный?",about_university,ru
+"Чем хорош Туран?",about_university,ru
+"Почему стоит выбрать ваш университет?",about_university,ru
+"Аккредитован ли университет?",about_university,ru
+"Что за университет Туран?",about_university,ru
+"Сколько лет университету?",about_university,ru
+"Есть ли международная аккредитация?",about_university,ru
+"Рейтинг университета",about_university,ru
+"Какие уровни образования в Туране?",about_university,ru
+"Диплом государственного образца?",about_university,ru
+"Информация об университете",about_university,ru
+"Университет туралы айтып беріңіз",about_university,kk
+"Университет қашан құрылған?",about_university,kk
+"Аккредиттеу бар ма?",about_university,kk
+"Тұран қандай университет?",about_university,kk
+"Tell me about the university",about_university,en
+"When was Turan University founded?",about_university,en
+"Is the university accredited?",about_university,en
+"Why choose Turan?",about_university,en
+"Какие факультеты есть?",faculties,ru
+"Список факультетов",faculties,ru
+"На каком факультете информационные системы?",faculties,ru
+"Где находится деканат?",faculties,ru
+"Факультет цифровых технологий и искусства",faculties,ru
+"Экономический факультет",faculties,ru
+"Гуманитарно-юридический факультет",faculties,ru
+"Факультет делового администрирования что это?",faculties,ru
+"Какой факультет у юристов?",faculties,ru
+"Где деканат экономического факультета?",faculties,ru
+"Сколько факультетов в университете?",faculties,ru
+"К какому факультету относится журналистика?",faculties,ru
+"Кабинет деканата",faculties,ru
+"Факультеты Турана",faculties,ru
+"Қандай факультеттер бар?",faculties,kk
+"Деканат қайда?",faculties,kk
+"Экономикалық факультет",faculties,kk
+"Факультеттер тізімі",faculties,kk
+"What faculties are there?",faculties,en
+"Where is the dean's office?",faculties,en
+"Which faculty has information systems?",faculties,en
+"List of faculties",faculties,en
+"Контакты приёмной комиссии",contacts,ru
+"Телефон университета",contacts,ru
+"Как связаться с приёмной комиссией?",contacts,ru
+"Номер ЦОС",contacts,ru
+"Электронная почта университета",contacts,ru
+"Есть ли WhatsApp у приёмной?",contacts,ru
+"Как позвонить в бухгалтерию?",contacts,ru
+"Контакты отдела международного сотрудничества",contacts,ru
+"Куда звонить по вопросам поступления?",contacts,ru
+"Хочу поговорить с человеком",contacts,ru
+"Телефон приёмной ректора",contacts,ru
+"Почта приёмной комиссии",contacts,ru
+"Как связаться с оператором?",contacts,ru
+"Дайте номер телефона",contacts,ru
+"Қабылдау комиссиясының байланыстары",contacts,kk
+"Университеттің телефоны",contacts,kk
+"Қабылдау комиссиясымен қалай байланысамын?",contacts,kk
+"Университеттің поштасы",contacts,kk
+"Admissions office contacts",contacts,en
+"University phone number",contacts,en
+"How can I contact the admissions office?",contacts,en
+"I want to talk to a person",contacts,en
+"Где находится университет?",location,ru
+"Адрес университета",location,ru
+"Как доехать до Турана?",location,ru
+"Где главный корпус?",location,ru
+"Адрес факультета цифровых технологий",location,ru
+"На какой улице университет?",location,ru
+"Где корпус на Достык?",location,ru
+"Как найти университет на карте?",location,ru
+"Можно ли посмотреть университет онлайн?",location,ru
+"Виртуальный тур по университету",location,ru
+"В каком городе университет?",location,ru
+"Как добраться до главного корпуса?",location,ru
+"Сатпаева 16а это Туран?",location,ru
+"Где вы находитесь?",location,ru
+"Университет қайда орналасқан?",location,kk
+"Университеттің мекенжайы",location,kk
+"Бас корпус қайда?",location,kk
+"Туранға қалай жетемін?",location,kk
+"Where is the university located?",location,en
+"University address",location,en
+"How do I get to the main building?",location,en
+"Virtual tour of the campus",location,en
+"Можно ли сдать IELTS в университете?",international_exams,ru
+"Где сдать TOEFL в Алматы?",international_exams,ru
+"Есть ли центр SAT?",international_exams,ru
+"Регистрация на IELTS",international_exams,ru
+"Международные экзамены в Туране",international_exams,ru
+"Как записаться на SAT?",international_exams,ru
+"Проводите ли вы TOEFL iBT?",international_exams,ru
+"Тестовый центр IELTS British Council",international_exams,ru
+"Где сдают айлтс?",international_exams,ru
+"Можно ли у вас сдать SAT для поступления за границу?",international_exams,ru
+"Ссылка на регистрацию TOEFL",international_exams,ru
+"Кто координатор тестового центра?",international_exams,ru
+"Экзамен по английскому для зарубежных вузов",international_exams,ru
+"Где пройти международный экзамен по английскому?",international_exams,ru
+"IELTS-ті университетте тапсыруға бола ма?",international_exams,kk
+"SAT орталығы бар ма?",international_exams,kk
+"TOEFL-ға қалай тіркелемін?",international_exams,kk
+"Халықаралық емтихандар",international_exams,kk
+"Can I take IELTS at the university?",international_exams,en
+"Is there a SAT test center?",international_exams,en
+"How to register for TOEFL iBT?",international_exams,en
+"International exams at Turan",international_exams,en

@@ -1,0 +1,67 @@
+text,intent,lang
+"Сколько стоит обучение?",tuition_bachelor,ru
+"Стоимость обучения в бакалавриате",tuition_bachelor,ru
+"Сколько стоит год учёбы?",tuition_bachelor,ru
+"Цена обучения на информационных системах",tuition_bachelor,ru
+"Сколько платить за учёбу в год?",tuition_bachelor,ru
+"Сколько стоит английское отделение?",tuition_bachelor,ru
+"Стоимость после колледжа",tuition_bachelor,ru
+"Сколько стоит дистанционное обучение?",tuition_bachelor,ru
+"Какая цена за контракт?",tuition_bachelor,ru
+"Сколько стоит учёба на юриста?",tuition_bachelor,ru
+"Цены на 2026-2027 учебный год",tuition_bachelor,ru
+"Платное обучение сколько стоит?",tuition_bachelor,ru
+"Стоимость сокращённой программы",tuition_bachelor,ru
+"Скок стоит учиться у вас",tuition_bachelor,ru
+"Оқу ақысы қанша тұрады?",tuition_bachelor,kk
+"Бакалавриаттың бағасы қанша?",tuition_bachelor,kk
+"Бір жыл оқу қанша тұрады?",tuition_bachelor,kk
+"Ағылшын бөлімінің оқу ақысы қанша?",tuition_bachelor,kk
+"How much does the bachelor's program cost?",tuition_bachelor,en
+"What is the tuition fee per year?",tuition_bachelor,en
+"Tuition for the English department",tuition_bachelor,en
+"How much is distance learning?",tuition_bachelor,en
+"Сколько стоит магистратура?",tuition_postgrad,ru
+"Стоимость обучения в магистратуре",tuition_postgrad,ru
+"Цена MBA",tuition_postgrad,ru
+"Сколько стоит профильная магистратура?",tuition_postgrad,ru
+"Стоимость научно-педагогической магистратуры",tuition_postgrad,ru
+"Сколько стоит Executive MBA?",tuition_postgrad,ru
+"Цена докторантуры PhD",tuition_postgrad,ru
+"Сколько стоит DBA?",tuition_postgrad,ru
+"Сколько платить за магистратуру в год?",tuition_postgrad,ru
+"Стоимость MBA на английском",tuition_postgrad,ru
+"Сколько стоит год в докторантуре?",tuition_postgrad,ru
+"Цена магистратуры на 2026 год",tuition_postgrad,ru
+"Платная магистратура сколько?",tuition_postgrad,ru
+"Сколько стоит обучение в магистратуре на 1 год?",tuition_postgrad,ru
+"Магистратура қанша тұрады?",tuition_postgrad,kk
+"MBA бағасы қанша?",tuition_postgrad,kk
+"Докторантураның оқу ақысы қанша?",tuition_postgrad,kk
+"Бейіндік магистратураның құны",tuition_postgrad,kk
+"How much is the master's program?",tuition_postgrad,en
+"MBA tuition fee",tuition_postgrad,en
+"PhD tuition cost",tuition_postgrad,en
+"How much does the DBA cost?",tuition_postgrad,en
+"Реквизиты для оплаты обучения",payment_details,ru
+"Как оплатить учёбу?",payment_details,ru
+"Куда платить за обучение?",payment_details,ru
+"Номер счёта университета",payment_details,ru
+"Можно ли оплатить через Халык?",payment_details,ru
+"Как оплатить через Банк ЦентрКредит?",payment_details,ru
+"ИИК и БИК университета",payment_details,ru
+"Какой БИН у университета?",payment_details,ru
+"Где взять реквизиты для оплаты?",payment_details,ru
+"Как перевести деньги за учёбу?",payment_details,ru
+"Можно ли платить частями?",payment_details,ru
+"Кому звонить по вопросам оплаты?",payment_details,ru
+"Телефон бухгалтерии",payment_details,ru
+"Что указать при оплате обучения?",payment_details,ru
+"Оқу ақысын төлеу деректемелері",payment_details,kk
+"Оқу ақысын қалай төлеймін?",payment_details,kk
+"Университеттің шоты қандай?",payment_details,kk
+"Бухгалтерияның телефоны",payment_details,kk
+"How do I pay the tuition?",payment_details,en
+"University bank details for payment",payment_details,en
+"Can I pay through Halyk Bank?",payment_details,en
+"Accounting office phone number",payment_details,en

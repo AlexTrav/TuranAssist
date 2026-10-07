@@ -1,0 +1,155 @@
+text,intent,lang
+"Как получить государственный грант?",state_grant,ru
+"Сколько баллов нужно на грант?",state_grant,ru
+"Можно ли поступить на грант?",state_grant,ru
+"Есть ли у вас гранты от государства?",state_grant,ru
+"Как участвовать в конкурсе грантов?",state_grant,ru
+"Где подать заявку на госгрант?",state_grant,ru
+"Когда выходят результаты грантов?",state_grant,ru
+"Минимальный балл для участия в конкурсе на грант",state_grant,ru
+"Хватит ли 80 баллов на грант?",state_grant,ru
+"Как учиться бесплатно?",state_grant,ru
+"Госзаказ в Туран есть?",state_grant,ru
+"Подача на грант через testcenter",state_grant,ru
+"Можно ли получить грант после колледжа?",state_grant,ru
+"Бюджетные места есть?",state_grant,ru
+"Мемлекеттік грантты қалай алуға болады?",state_grant,kk
+"Грантқа қанша балл керек?",state_grant,kk
+"Грант конкурсына қалай қатысамын?",state_grant,kk
+"Тегін оқуға бола ма?",state_grant,kk
+"How can I get a state grant?",state_grant,en
+"How many points do I need for a grant?",state_grant,en
+"Can I study for free?",state_grant,en
+"When are grant results announced?",state_grant,en
+"Какие скидки по баллам ЕНТ?",ent_discounts,ru
+"Если набрал 120 баллов, какая скидка?",ent_discounts,ru
+"Есть ли скидка за высокий балл ЕНТ?",ent_discounts,ru
+"Грант университета за ЕНТ",ent_discounts,ru
+"Скидка для обладателей Алтын белгі",ent_discounts,ru
+"У меня Алтын белгі, могу учиться бесплатно?",ent_discounts,ru
+"Скидки победителям олимпиад",ent_discounts,ru
+"Я призёр республиканской олимпиады, есть льготы?",ent_discounts,ru
+"Сколько процентов скидка за 100 баллов?",ent_discounts,ru
+"Скидка 50 процентов за ЕНТ",ent_discounts,ru
+"Набрал 90 баллов, положена скидка?",ent_discounts,ru
+"Скидки на журналистику по баллам",ent_discounts,ru
+"Суммируются ли скидки?",ent_discounts,ru
+"Есть ли скидка на программную инженерию по ЕНТ?",ent_discounts,ru
+"ҰБТ балы бойынша жеңілдіктер қандай?",ent_discounts,kk
+"Алтын белгі иегерлеріне жеңілдік бар ма?",ent_discounts,kk
+"120 балл жинасам қандай жеңілдік?",ent_discounts,kk
+"Олимпиада жеңімпаздарына грант бар ма?",ent_discounts,kk
+"What discounts are there for UNT scores?",ent_discounts,en
+"I have Altyn Belgi, do I get a discount?",ent_discounts,en
+"Discounts for olympiad winners",ent_discounts,en
+"What discount for 110 points?",ent_discounts,en
+"Что такое грант Тұран Үміті?",turan_umiti_grant,ru
+"Как участвовать в конкурсе Тұран Үміті?",turan_umiti_grant,ru
+"Внутренний грант университета",turan_umiti_grant,ru
+"Turan Umiti грант условия",turan_umiti_grant,ru
+"Что такое Grant Project?",turan_umiti_grant,ru
+"Как выиграть бесплатное обучение?",turan_umiti_grant,ru
+"Конкурс на грант с сочинением",turan_umiti_grant,ru
+"Критерии гранта Туран Умити",turan_umiti_grant,ru
+"Можно ли получить грант университета на 4 года?",turan_umiti_grant,ru
+"Куда отправлять сочинение на грант?",turan_umiti_grant,ru
+"Внутренний грант для магистратуры",turan_umiti_grant,ru
+"Кто может участвовать в конкурсе на грант Туран?",turan_umiti_grant,ru
+"Ректорский грант как получить?",turan_umiti_grant,ru
+"Какие этапы у Grant Project?",turan_umiti_grant,ru
+"Тұран Үміті гранты деген не?",turan_umiti_grant,kk
+"Тұран Үміті конкурсына қалай қатысамын?",turan_umiti_grant,kk
+"Университеттің ішкі гранты",turan_umiti_grant,kk
+"Grant Project конкурсы қалай өтеді?",turan_umiti_grant,kk
+"What is the Turan Umiti grant?",turan_umiti_grant,en
+"How to take part in Grant Project?",turan_umiti_grant,en
+"Internal university grant",turan_umiti_grant,en
+"Who can apply for the Turan Umiti grant?",turan_umiti_grant,en
+"Какие льготы есть?",other_discounts,ru
+"Скидка для многодетных семей",other_discounts,ru
+"Скидка если брат учится в университете",other_discounts,ru
+"Есть ли скидки для сирот?",other_discounts,ru
+"Скидки для людей с инвалидностью",other_discounts,ru
+"Скидка для спортсменов",other_discounts,ru
+"Я мастер спорта, есть скидка?",other_discounts,ru
+"Скидка для выпускников колледжа с красным дипломом",other_discounts,ru
+"Есть ли скидки за хорошую учёбу?",other_discounts,ru
+"Скидка за GPA 4.0",other_discounts,ru
+"Мама награждена Алтын алқа, положена скидка?",other_discounts,ru
+"Какие ещё скидки предоставляет университет?",other_discounts,ru
+"Скидка для детей сотрудников",other_discounts,ru
+"Социальные скидки на обучение",other_discounts,ru
+"Қандай жеңілдіктер бар?",other_discounts,kk
+"Көп балалы отбасыларға жеңілдік",other_discounts,kk
+"Спортшыларға жеңілдік бар ма?",other_discounts,kk
+"Жетімдерге жеңілдік бар ма?",other_discounts,kk
+"What other discounts are available?",other_discounts,en
+"Discount for large families",other_discounts,en
+"Is there a discount for athletes?",other_discounts,en
+"Sibling discount",other_discounts,en
+"Скидка по IELTS",language_cert_discounts,ru
+"У меня IELTS 7, какая скидка?",language_cert_discounts,ru
+"Скидки за TOEFL",language_cert_discounts,ru
+"Есть ли грант за IELTS 8?",language_cert_discounts,ru
+"Скидка на английское отделение по сертификату",language_cert_discounts,ru
+"Сколько скидка за IELTS 6.5?",language_cert_discounts,ru
+"Языковой сертификат даёт скидку?",language_cert_discounts,ru
+"TOEFL iBT 95 какая скидка?",language_cert_discounts,ru
+"Какой срок действия сертификата для скидки?",language_cert_discounts,ru
+"Скидка по IELTS при переводе из другого вуза",language_cert_discounts,ru
+"Можно ли учиться бесплатно с IELTS?",language_cert_discounts,ru
+"Скидки за международный сертификат английского",language_cert_discounts,ru
+"IELTS 6.0 скидка 10 процентов?",language_cert_discounts,ru
+"Айлтс скидка",language_cert_discounts,ru
+"IELTS бойынша жеңілдік",language_cert_discounts,kk
+"TOEFL сертификаты жеңілдік бере ме?",language_cert_discounts,kk
+"IELTS 7.0 болса қанша жеңілдік?",language_cert_discounts,kk
+"Ағылшын тілі сертификаты бойынша грант",language_cert_discounts,kk
+"Discount for IELTS",language_cert_discounts,en
+"I have TOEFL 100, what discount do I get?",language_cert_discounts,en
+"Does an IELTS certificate give a discount?",language_cert_discounts,en
+"IELTS 8 free tuition",language_cert_discounts,en
+"Что такое вакантный грант?",vacant_grant,ru
+"Как перейти с платного на грант?",vacant_grant,ru
+"Можно ли получить грант во время учёбы?",vacant_grant,ru
+"Освободился грант, как его получить?",vacant_grant,ru
+"Учусь платно, хочу на грант",vacant_grant,ru
+"Конкурс на вакантные гранты",vacant_grant,ru
+"Когда подавать на вакантный грант?",vacant_grant,ru
+"Где списки по вакантным грантам?",vacant_grant,ru
+"Перевод на госзаказ с платного отделения",vacant_grant,ru
+"Какой GPA нужен для вакантного гранта?",vacant_grant,ru
+"Можно ли выиграть грант на втором курсе?",vacant_grant,ru
+"Куда подать заявление на вакантный грант?",vacant_grant,ru
+"Результаты конкурса вакантных грантов",vacant_grant,ru
+"Вакантка грант как получить",vacant_grant,ru
+"Бос грант деген не?",vacant_grant,kk
+"Ақылыдан грантқа қалай ауысамын?",vacant_grant,kk
+"Оқу кезінде грант алуға бола ма?",vacant_grant,kk
+"Бос гранттарға конкурс қашан?",vacant_grant,kk
+"What is a vacant grant?",vacant_grant,en
+"How can I switch from paid study to a grant?",vacant_grant,en
+"Can I get a grant while studying?",vacant_grant,en
+"Vacant grant competition",vacant_grant,en
+"Есть ли стипендия?",stipend,ru
+"Кому платят стипендию?",stipend,ru
+"Как получить стипендию?",stipend,ru
+"Стипендия для грантников",stipend,ru
+"Платят ли стипендию платникам?",stipend,ru
+"Президентская стипендия как получить?",stipend,ru
+"Сколько стипендия?",stipend,ru
+"Стипендия за отличную учёбу",stipend,ru
+"Когда назначают стипендию?",stipend,ru
+"Повышенная стипендия есть?",stipend,ru
+"Будет ли стипендия, если есть тройки?",stipend,ru
+"Государственная стипендия условия",stipend,ru
+"Получу ли я стипендию на гранте?",stipend,ru
+"Стипуха есть?",stipend,ru
+"Стипендия бар ма?",stipend,kk
+"Стипендияны кім алады?",stipend,kk
+"Президенттік стипендияны қалай алуға болады?",stipend,kk
+"Грант иегерлеріне стипендия төлене ме?",stipend,kk
+"Is there a scholarship?",stipend,en
+"Who gets the state scholarship?",stipend,en
+"How to get the presidential scholarship?",stipend,en
+"Do paying students get a stipend?",stipend,en
