@@ -1,0 +1,31 @@
+# секреты: токен Telegram-бота, ключи Hugging Face и т.п. – только в переменных окружения
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# сырые данные (страницы сайта и PDF) – воспроизводятся скриптом сбора, в репозиторий не кладём
+data/raw/
+
+# веса трансформера (ONNX) хранятся на Hugging Face Hub – файл больше лимита GitHub 100 МБ
+model/artifacts/*.onnx
+
+# frontend
+node_modules/
+dist/
+*.local
+
+# логи
+*.log
+
+# IDE и ОС
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
