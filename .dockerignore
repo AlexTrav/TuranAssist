@@ -1,0 +1,9 @@
+# контекст сборки – корень репозитория; сырые данные, git и зависимости фронтенда в образы не нужны
+.git
+data/raw
+**/__pycache__
+**/.pytest_cache
+**/.venv
+**/node_modules
+frontend/dist
+model/reports

@@ -1,0 +1,6480 @@
+{
+  "best": "tfidf_char",
+  "results": {
+    "bow_word_lemma": {
+      "config": {
+        "features": "bow",
+        "lemmatize": true,
+        "stopwords": null
+      },
+      "C": 100,
+      "cv_accuracy": 0.4605296944352738,
+      "train_seconds": 25.94684544899792,
+      "threshold": 0.44542604269603364,
+      "threshold_selection": {
+        "score": 0.589377603528547,
+        "accepted_correct": 0.3216123499142367,
+        "rejected_ood": 0.8571428571428571
+      },
+      "test": {
+        "overall": {
+          "value": 0.5314465408805031,
+          "ci95": [
+            0.47655233977981365,
+            0.5855900581247911
+          ],
+          "n": 318,
+          "successes": 169
+        },
+        "in_domain_correct": {
+          "value": 0.5314465408805031,
+          "ci95": [
+            0.47655233977981365,
+            0.5855900581247911
+          ],
+          "n": 318,
+          "successes": 169
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6289308176100629,
+          "ci95": [
+            0.5745911139363096,
+            0.6801927174725702
+          ],
+          "n": 318,
+          "successes": 200
+        },
+        "by_group": {
+          "long": {
+            "value": 0.8301886792452831,
+            "ci95": [
+              0.7077471960878099,
+              0.9080005466485566
+            ],
+            "n": 53,
+            "successes": 44
+          },
+          "mixed": {
+            "value": 0.8571428571428571,
+            "ci95": [
+              0.486872167860775,
+              0.9743203759421759
+            ],
+            "n": 7,
+            "successes": 6
+          },
+          "plain": {
+            "value": 0.5555555555555556,
+            "ci95": [
+              0.4574214273044652,
+              0.6495393268471914
+            ],
+            "n": 99,
+            "successes": 55
+          },
+          "slang": {
+            "value": 0.5660377358490566,
+            "ci95": [
+              0.4326535132610989,
+              0.6904960352861744
+            ],
+            "n": 53,
+            "successes": 30
+          },
+          "translit": {
+            "value": 0.07547169811320754,
+            "ci95": [
+              0.029739554880261795,
+              0.17858477588726707
+            ],
+            "n": 53,
+            "successes": 4
+          },
+          "typo": {
+            "value": 0.5660377358490566,
+            "ci95": [
+              0.4326535132610989,
+              0.6904960352861744
+            ],
+            "n": 53,
+            "successes": 30
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5283018867924528,
+            "ci95": [
+              0.39660081180415385,
+              0.6561775661446775
+            ],
+            "n": 53,
+            "successes": 28
+          },
+          "kk": {
+            "value": 0.6226415094339622,
+            "ci95": [
+              0.48806895836282027,
+              0.7406373460821157
+            ],
+            "n": 53,
+            "successes": 33
+          },
+          "ru": {
+            "value": 0.5094339622641509,
+            "ci95": [
+              0.4425739096474167,
+              0.5759582112005982
+            ],
+            "n": 212,
+            "successes": 108
+          }
+        },
+        "macro_f1_no_threshold": 0.6645154893221702,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.4444444444444444,
+            "recall": 0.6666666666666666,
+            "f1": 0.5333333333333333,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "f1": 0.2857142857142857,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.42857142857142855,
+            "recall": 0.5,
+            "f1": 0.4615384615384615,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 0.10909090909090909,
+            "recall": 1.0,
+            "f1": 0.19672131147540983,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "library": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "military": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285715,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "portals": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "practice": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.3333333333333333,
+            "recall": 0.16666666666666666,
+            "f1": 0.2222222222222222,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "goodbye",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "thanks",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "creative_exam",
+            "pred": "missed_exam",
+            "count": 2
+          },
+          {
+            "true": "phd_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "tuition_postgrad",
+            "pred": "tuition_bachelor",
+            "count": 2
+          },
+          {
+            "true": "other_discounts",
+            "pred": "ent_discounts",
+            "count": 2
+          },
+          {
+            "true": "vacant_grant",
+            "pred": "state_grant",
+            "count": 2
+          },
+          {
+            "true": "stipend",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "schedule",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "location",
+            "pred": "about_university",
+            "count": 2
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8461538461538461,
+          "ci95": [
+            0.7500673337983921,
+            0.9097449512968963
+          ],
+          "n": 78,
+          "successes": 66
+        },
+        "ood_rejected": {
+          "value": 0.8461538461538461,
+          "ci95": [
+            0.7500673337983921,
+            0.9097449512968963
+          ],
+          "n": 78,
+          "successes": 66
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.6956521739130435,
+            "ci95": [
+              0.4913424357121644,
+              0.8439597563110678
+            ],
+            "n": 23,
+            "successes": 16
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.875,
+            "ci95": [
+              0.7388788003201471,
+              0.9454049978360052
+            ],
+            "n": 40,
+            "successes": 35
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.6077796169796655,
+              0.9416342323981449
+            ],
+            "n": 18,
+            "successes": 15
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.7224671969739421,
+              0.9999999999999999
+            ],
+            "n": 10,
+            "successes": 10
+          },
+          "ru": {
+            "value": 0.82,
+            "ci95": [
+              0.6920394621161083,
+              0.9022980737695785
+            ],
+            "n": 50,
+            "successes": 41
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.5885167464114832,
+          "ci95": [
+            0.520788589584122,
+            0.6530497227187235
+          ],
+          "n": 209,
+          "successes": 123
+        },
+        "in_domain_correct": {
+          "value": 0.5285714285714286,
+          "ci95": [
+            0.446228179529754,
+            0.6093886089971334
+          ],
+          "n": 140,
+          "successes": 74
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6357142857142857,
+          "ci95": [
+            0.5533637528939915,
+            0.7108159926087233
+          ],
+          "n": 140,
+          "successes": 89
+        },
+        "ood_rejected": {
+          "value": 0.7101449275362319,
+          "ci95": [
+            0.5942854993066142,
+            0.8038394208334261
+          ],
+          "n": 69,
+          "successes": 49
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.7096774193548387,
+            "ci95": [
+              0.5340767052732558,
+              0.8390419992072509
+            ],
+            "n": 31,
+            "successes": 22
+          },
+          "EKTU": {
+            "value": 0.5714285714285714,
+            "ci95": [
+              0.25045836275303557,
+              0.8417801460075546
+            ],
+            "n": 7,
+            "successes": 4
+          },
+          "KIMEP": {
+            "value": 0.5714285714285714,
+            "ci95": [
+              0.3259064441752893,
+              0.7861920121957136
+            ],
+            "n": 14,
+            "successes": 8
+          },
+          "KarTU": {
+            "value": 0.38461538461538464,
+            "ci95": [
+              0.17709707685632237,
+              0.6447710866356315
+            ],
+            "n": 13,
+            "successes": 5
+          },
+          "NU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "SDU": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "Satbayev": {
+            "value": 0.6666666666666666,
+            "ci95": [
+              0.29999331299474324,
+              0.9032285897864654
+            ],
+            "n": 6,
+            "successes": 4
+          },
+          "TorU": {
+            "value": 0.5,
+            "ci95": [
+              0.4009266977351936,
+              0.5990733022648064
+            ],
+            "n": 94,
+            "successes": 47
+          },
+          "Yasawi": {
+            "value": 0.6875,
+            "ci95": [
+              0.51433321561082,
+              0.8204745844774248
+            ],
+            "n": 32,
+            "successes": 22
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.425531914893617,
+            "ci95": [
+              0.29513628252530144,
+              0.5671808076206852
+            ],
+            "n": 47,
+            "successes": 20
+          },
+          "kk": {
+            "value": 0.4642857142857143,
+            "ci95": [
+              0.2953156986850779,
+              0.6418731089177414
+            ],
+            "n": 28,
+            "successes": 13
+          },
+          "ru": {
+            "value": 0.6716417910447762,
+            "ci95": [
+              0.5883152927573583,
+              0.7454014305951819
+            ],
+            "n": 134,
+            "successes": 90
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.8307692307692308,
+          "ci95": [
+            0.7218357826609499,
+            0.9027878191448359
+          ],
+          "n": 65,
+          "successes": 54
+        },
+        "in_domain_correct": {
+          "value": 0.819672131147541,
+          "ci95": [
+            0.7052584355013631,
+            0.8962085992147519
+          ],
+          "n": 61,
+          "successes": 50
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.819672131147541,
+          "ci95": [
+            0.7052584355013631,
+            0.8962085992147519
+          ],
+          "n": 61,
+          "successes": 50
+        },
+        "ood_rejected": {
+          "value": 1.0,
+          "ci95": [
+            0.5101091596030786,
+            0.9999999999999999
+          ],
+          "n": 4,
+          "successes": 4
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "exchange_student": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 1.0,
+            "ci95": [
+              0.5655175313406071,
+              1.0
+            ],
+            "n": 5,
+            "successes": 5
+          },
+          "parent": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "phd_applicant": {
+            "value": 0.25,
+            "ci95": [
+              0.04558726029536886,
+              0.6993581599030918
+            ],
+            "n": 4,
+            "successes": 1
+          },
+          "random_visitor": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "school_graduate": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.5,
+            "ci95": [
+              0.15003898774401986,
+              0.8499610122559802
+            ],
+            "n": 4,
+            "successes": 2
+          },
+          "student_with_family": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.4,
+            "ci95": [
+              0.1681803285264069,
+              0.6873262320788047
+            ],
+            "n": 10,
+            "successes": 4
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.8979591836734694,
+            "ci95": [
+              0.7824363833807433,
+              0.9556204535360855
+            ],
+            "n": 49,
+            "successes": 44
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 0.34900600076070987,
+        "p95": 0.5700864005120818,
+        "p99": 0.8194534014910472,
+        "mean": 0.37820200843301377,
+        "n": 954
+      },
+      "model_bytes": 1416920
+    },
+    "tfidf_word_raw": {
+      "config": {
+        "features": "word",
+        "lemmatize": false,
+        "stopwords": null
+      },
+      "C": 100,
+      "cv_accuracy": 0.40736583397527604,
+      "train_seconds": 33.95976015699853,
+      "threshold": 0.5162225023746502,
+      "threshold_selection": {
+        "score": 0.5556848811565792,
+        "accepted_correct": 0.21526586620926244,
+        "rejected_ood": 0.8961038961038961
+      },
+      "test": {
+        "overall": {
+          "value": 0.48427672955974843,
+          "ci95": [
+            0.42986538269143393,
+            0.5390634183562637
+          ],
+          "n": 318,
+          "successes": 154
+        },
+        "in_domain_correct": {
+          "value": 0.48427672955974843,
+          "ci95": [
+            0.42986538269143393,
+            0.5390634183562637
+          ],
+          "n": 318,
+          "successes": 154
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6383647798742138,
+          "ci95": [
+            0.584194842989159,
+            0.6892317077911021
+          ],
+          "n": 318,
+          "successes": 203
+        },
+        "by_group": {
+          "long": {
+            "value": 0.6037735849056604,
+            "ci95": [
+              0.4694147856894524,
+              0.7241059334562627
+            ],
+            "n": 53,
+            "successes": 32
+          },
+          "mixed": {
+            "value": 0.8571428571428571,
+            "ci95": [
+              0.486872167860775,
+              0.9743203759421759
+            ],
+            "n": 7,
+            "successes": 6
+          },
+          "plain": {
+            "value": 0.48484848484848486,
+            "ci95": [
+              0.38882226721165714,
+              0.5820066180197093
+            ],
+            "n": 99,
+            "successes": 48
+          },
+          "slang": {
+            "value": 0.5471698113207547,
+            "ci95": [
+              0.414539753871568,
+              0.6734242093764842
+            ],
+            "n": 53,
+            "successes": 29
+          },
+          "translit": {
+            "value": 0.1320754716981132,
+            "ci95": [
+              0.0654785324879857,
+              0.24840255417720597
+            ],
+            "n": 53,
+            "successes": 7
+          },
+          "typo": {
+            "value": 0.6037735849056604,
+            "ci95": [
+              0.4694147856894524,
+              0.7241059334562627
+            ],
+            "n": 53,
+            "successes": 32
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.39622641509433965,
+            "ci95": [
+              0.27589406654373716,
+              0.5305852143105476
+            ],
+            "n": 53,
+            "successes": 21
+          },
+          "kk": {
+            "value": 0.6226415094339622,
+            "ci95": [
+              0.48806895836282027,
+              0.7406373460821157
+            ],
+            "n": 53,
+            "successes": 33
+          },
+          "ru": {
+            "value": 0.4716981132075472,
+            "ci95": [
+              0.40560304496720256,
+              0.5388005924887531
+            ],
+            "n": 212,
+            "successes": 100
+          }
+        },
+        "macro_f1_no_threshold": 0.6680825032656329,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.375,
+            "recall": 0.5,
+            "f1": 0.42857142857142855,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 0.5,
+            "recall": 0.16666666666666666,
+            "f1": 0.25,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.42857142857142855,
+            "recall": 0.5,
+            "f1": 0.4615384615384615,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.36363636363636365,
+            "recall": 0.6666666666666666,
+            "f1": 0.4705882352941177,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 0.125,
+            "recall": 1.0,
+            "f1": 0.2222222222222222,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "library": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 0.5,
+            "recall": 0.3333333333333333,
+            "f1": 0.4,
+            "support": 6
+          },
+          "military": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "portals": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "practice": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.5,
+            "recall": 0.16666666666666666,
+            "f1": 0.25,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285715,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "goodbye",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "thanks",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "master_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "phd_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "tuition_postgrad",
+            "pred": "tuition_bachelor",
+            "count": 2
+          },
+          {
+            "true": "other_discounts",
+            "pred": "ent_discounts",
+            "count": 2
+          },
+          {
+            "true": "missed_exam",
+            "pred": "creative_exam",
+            "count": 2
+          },
+          {
+            "true": "capabilities",
+            "pred": "greeting",
+            "count": 1
+          },
+          {
+            "true": "capabilities",
+            "pred": "programs_list",
+            "count": 1
+          },
+          {
+            "true": "admission_steps",
+            "pred": "about_university",
+            "count": 1
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8333333333333334,
+          "ci95": [
+            0.7354442468165296,
+            0.8999305462381926
+          ],
+          "n": 78,
+          "successes": 65
+        },
+        "ood_rejected": {
+          "value": 0.8333333333333334,
+          "ci95": [
+            0.7354442468165296,
+            0.8999305462381926
+          ],
+          "n": 78,
+          "successes": 65
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.6956521739130435,
+            "ci95": [
+              0.4913424357121644,
+              0.8439597563110678
+            ],
+            "n": 23,
+            "successes": 16
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.85,
+            "ci95": [
+              0.7092767550401498,
+              0.9293881232389256
+            ],
+            "n": 40,
+            "successes": 34
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.8888888888888888,
+            "ci95": [
+              0.6720023466389031,
+              0.9689804776352089
+            ],
+            "n": 18,
+            "successes": 16
+          },
+          "kk": {
+            "value": 0.9,
+            "ci95": [
+              0.5958499704752279,
+              0.982123787103926
+            ],
+            "n": 10,
+            "successes": 9
+          },
+          "ru": {
+            "value": 0.8,
+            "ci95": [
+              0.6696289395351799,
+              0.8875625003576518
+            ],
+            "n": 50,
+            "successes": 40
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.5119617224880383,
+          "ci95": [
+            0.4445924461646578,
+            0.5788992176600511
+          ],
+          "n": 209,
+          "successes": 107
+        },
+        "in_domain_correct": {
+          "value": 0.3,
+          "ci95": [
+            0.23026240818514526,
+            0.38042007212664347
+          ],
+          "n": 140,
+          "successes": 42
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.5928571428571429,
+          "ci95": [
+            0.5100502805764288,
+            0.6707042821359551
+          ],
+          "n": 140,
+          "successes": 83
+        },
+        "ood_rejected": {
+          "value": 0.9420289855072463,
+          "ci95": [
+            0.8602075655684465,
+            0.9772276112778451
+          ],
+          "n": 69,
+          "successes": 65
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.5483870967741935,
+            "ci95": [
+              0.3777216751371326,
+              0.7083826412814458
+            ],
+            "n": 31,
+            "successes": 17
+          },
+          "EKTU": {
+            "value": 0.42857142857142855,
+            "ci95": [
+              0.15821985399244537,
+              0.7495416372469643
+            ],
+            "n": 7,
+            "successes": 3
+          },
+          "KIMEP": {
+            "value": 0.6428571428571429,
+            "ci95": [
+              0.38764422924295516,
+              0.8365526834990504
+            ],
+            "n": 14,
+            "successes": 9
+          },
+          "KarTU": {
+            "value": 0.07692307692307693,
+            "ci95": [
+              0.013710421090225994,
+              0.333139511713605
+            ],
+            "n": 13,
+            "successes": 1
+          },
+          "NU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "SDU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "Satbayev": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "TorU": {
+            "value": 0.48936170212765956,
+            "ci95": [
+              0.39072762834720626,
+              0.5888311392461261
+            ],
+            "n": 94,
+            "successes": 46
+          },
+          "Yasawi": {
+            "value": 0.5,
+            "ci95": [
+              0.33630882754048685,
+              0.6636911724595131
+            ],
+            "n": 32,
+            "successes": 16
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5106382978723404,
+            "ci95": [
+              0.37242453646853413,
+              0.6472444506534676
+            ],
+            "n": 47,
+            "successes": 24
+          },
+          "kk": {
+            "value": 0.5,
+            "ci95": [
+              0.32633127336832435,
+              0.6736687266316757
+            ],
+            "n": 28,
+            "successes": 14
+          },
+          "ru": {
+            "value": 0.5149253731343284,
+            "ci95": [
+              0.4310760142005847,
+              0.5979428313083319
+            ],
+            "n": 134,
+            "successes": 69
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.7538461538461538,
+          "ci95": [
+            0.6369421670505115,
+            0.8424201320097424
+          ],
+          "n": 65,
+          "successes": 49
+        },
+        "in_domain_correct": {
+          "value": 0.7377049180327869,
+          "ci95": [
+            0.6156325811398826,
+            0.8316121369823568
+          ],
+          "n": 61,
+          "successes": 45
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8360655737704918,
+          "ci95": [
+            0.7238716136704956,
+            0.9084398843643947
+          ],
+          "n": 61,
+          "successes": 51
+        },
+        "ood_rejected": {
+          "value": 1.0,
+          "ci95": [
+            0.5101091596030786,
+            0.9999999999999999
+          ],
+          "n": 4,
+          "successes": 4
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.6,
+            "ci95": [
+              0.23072427940911855,
+              0.8823792268590028
+            ],
+            "n": 5,
+            "successes": 3
+          },
+          "exchange_student": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "parent": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "phd_applicant": {
+            "value": 0.25,
+            "ci95": [
+              0.04558726029536886,
+              0.6993581599030918
+            ],
+            "n": 4,
+            "successes": 1
+          },
+          "random_visitor": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "school_graduate": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.5,
+            "ci95": [
+              0.15003898774401986,
+              0.8499610122559802
+            ],
+            "n": 4,
+            "successes": 2
+          },
+          "student_with_family": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.4,
+            "ci95": [
+              0.1681803285264069,
+              0.6873262320788047
+            ],
+            "n": 10,
+            "successes": 4
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.7959183673469388,
+            "ci95": [
+              0.6636299896493482,
+              0.8851815044682937
+            ],
+            "n": 49,
+            "successes": 39
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 0.6116514996392652,
+        "p95": 1.0045937493487143,
+        "p99": 1.4496495795538078,
+        "mean": 0.6815049968685748,
+        "n": 954
+      },
+      "model_bytes": 1515901
+    },
+    "tfidf_word_lemma": {
+      "config": {
+        "features": "word",
+        "lemmatize": true,
+        "stopwords": null
+      },
+      "C": 100,
+      "cv_accuracy": 0.46655661934631887,
+      "train_seconds": 29.769661852002173,
+      "threshold": 0.5619868781874583,
+      "threshold_selection": {
+        "score": 0.5813526096544964,
+        "accepted_correct": 0.27958833619210977,
+        "rejected_ood": 0.8831168831168831
+      },
+      "test": {
+        "overall": {
+          "value": 0.4748427672955975,
+          "ci95": [
+            0.4205856908107684,
+            0.5297003908655478
+          ],
+          "n": 318,
+          "successes": 151
+        },
+        "in_domain_correct": {
+          "value": 0.4748427672955975,
+          "ci95": [
+            0.4205856908107684,
+            0.5297003908655478
+          ],
+          "n": 318,
+          "successes": 151
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6415094339622641,
+          "ci95": [
+            0.5874008734090689,
+            0.6922399171616526
+          ],
+          "n": 318,
+          "successes": 204
+        },
+        "by_group": {
+          "long": {
+            "value": 0.6415094339622641,
+            "ci95": [
+              0.5069114144879365,
+              0.7569804752562204
+            ],
+            "n": 53,
+            "successes": 34
+          },
+          "mixed": {
+            "value": 0.8571428571428571,
+            "ci95": [
+              0.486872167860775,
+              0.9743203759421759
+            ],
+            "n": 7,
+            "successes": 6
+          },
+          "plain": {
+            "value": 0.46464646464646464,
+            "ci95": [
+              0.36956495651063825,
+              0.5623691090292168
+            ],
+            "n": 99,
+            "successes": 46
+          },
+          "slang": {
+            "value": 0.5094339622641509,
+            "ci95": [
+              0.378835290181561,
+              0.6387575024680494
+            ],
+            "n": 53,
+            "successes": 27
+          },
+          "translit": {
+            "value": 0.1320754716981132,
+            "ci95": [
+              0.0654785324879857,
+              0.24840255417720597
+            ],
+            "n": 53,
+            "successes": 7
+          },
+          "typo": {
+            "value": 0.5849056603773585,
+            "ci95": [
+              0.450944220784094,
+              0.7073909130624002
+            ],
+            "n": 53,
+            "successes": 31
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.37735849056603776,
+            "ci95": [
+              0.2593626539178842,
+              0.5119310416371796
+            ],
+            "n": 53,
+            "successes": 20
+          },
+          "kk": {
+            "value": 0.6037735849056604,
+            "ci95": [
+              0.4694147856894524,
+              0.7241059334562627
+            ],
+            "n": 53,
+            "successes": 32
+          },
+          "ru": {
+            "value": 0.4669811320754717,
+            "ci95": [
+              0.4010079865864473,
+              0.5341295904455009
+            ],
+            "n": 212,
+            "successes": 99
+          }
+        },
+        "macro_f1_no_threshold": 0.6732633194897345,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.4444444444444444,
+            "recall": 0.6666666666666666,
+            "f1": 0.5333333333333333,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 0.5,
+            "recall": 0.16666666666666666,
+            "f1": 0.25,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.375,
+            "recall": 0.5,
+            "f1": 0.42857142857142855,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 0.12244897959183673,
+            "recall": 1.0,
+            "f1": 0.2181818181818182,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "library": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "military": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 0.42857142857142855,
+            "recall": 0.5,
+            "f1": 0.4615384615384615,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "portals": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "practice": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.3333333333333333,
+            "recall": 0.16666666666666666,
+            "f1": 0.2222222222222222,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.4444444444444444,
+            "recall": 0.6666666666666666,
+            "f1": 0.5333333333333333,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "goodbye",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "thanks",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "admission_deadlines",
+            "pred": "admission_documents",
+            "count": 2
+          },
+          {
+            "true": "creative_exam",
+            "pred": "missed_exam",
+            "count": 2
+          },
+          {
+            "true": "phd_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "tuition_postgrad",
+            "pred": "tuition_bachelor",
+            "count": 2
+          },
+          {
+            "true": "other_discounts",
+            "pred": "ent_discounts",
+            "count": 2
+          },
+          {
+            "true": "vacant_grant",
+            "pred": "state_grant",
+            "count": 2
+          },
+          {
+            "true": "stipend",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "location",
+            "pred": "about_university",
+            "count": 2
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8717948717948718,
+          "ci95": [
+            0.7798404951603327,
+            0.9288467740160883
+          ],
+          "n": 78,
+          "successes": 68
+        },
+        "ood_rejected": {
+          "value": 0.8717948717948718,
+          "ci95": [
+            0.7798404951603327,
+            0.9288467740160883
+          ],
+          "n": 78,
+          "successes": 68
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.8260869565217391,
+            "ci95": [
+              0.6286235218500337,
+              0.9302134648553532
+            ],
+            "n": 23,
+            "successes": 19
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.85,
+            "ci95": [
+              0.7092767550401498,
+              0.9293881232389256
+            ],
+            "n": 40,
+            "successes": 34
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.8888888888888888,
+            "ci95": [
+              0.6720023466389031,
+              0.9689804776352089
+            ],
+            "n": 18,
+            "successes": 16
+          },
+          "kk": {
+            "value": 0.9,
+            "ci95": [
+              0.5958499704752279,
+              0.982123787103926
+            ],
+            "n": 10,
+            "successes": 9
+          },
+          "ru": {
+            "value": 0.86,
+            "ci95": [
+              0.7381380617631021,
+              0.9304916661082956
+            ],
+            "n": 50,
+            "successes": 43
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.5598086124401914,
+          "ci95": [
+            0.49203045139245083,
+            0.6254278677310935
+          ],
+          "n": 209,
+          "successes": 117
+        },
+        "in_domain_correct": {
+          "value": 0.38571428571428573,
+          "ci95": [
+            0.3091608323579994,
+            0.46837201353445135
+          ],
+          "n": 140,
+          "successes": 54
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6785714285714286,
+          "ci95": [
+            0.5973322580111123,
+            0.7502726702819337
+          ],
+          "n": 140,
+          "successes": 95
+        },
+        "ood_rejected": {
+          "value": 0.9130434782608695,
+          "ci95": [
+            0.8229850157229862,
+            0.9595363790350239
+          ],
+          "n": 69,
+          "successes": 63
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.6129032258064516,
+            "ci95": [
+              0.43824108487672686,
+              0.7626689867666228
+            ],
+            "n": 31,
+            "successes": 19
+          },
+          "EKTU": {
+            "value": 0.42857142857142855,
+            "ci95": [
+              0.15821985399244537,
+              0.7495416372469643
+            ],
+            "n": 7,
+            "successes": 3
+          },
+          "KIMEP": {
+            "value": 0.6428571428571429,
+            "ci95": [
+              0.38764422924295516,
+              0.8365526834990504
+            ],
+            "n": 14,
+            "successes": 9
+          },
+          "KarTU": {
+            "value": 0.23076923076923078,
+            "ci95": [
+              0.08179528654269594,
+              0.5025637616051964
+            ],
+            "n": 13,
+            "successes": 3
+          },
+          "NU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "SDU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "Satbayev": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "TorU": {
+            "value": 0.5,
+            "ci95": [
+              0.4009266977351936,
+              0.5990733022648064
+            ],
+            "n": 94,
+            "successes": 47
+          },
+          "Yasawi": {
+            "value": 0.65625,
+            "ci95": [
+              0.48311087843973016,
+              0.7958956216338071
+            ],
+            "n": 32,
+            "successes": 21
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5106382978723404,
+            "ci95": [
+              0.37242453646853413,
+              0.6472444506534676
+            ],
+            "n": 47,
+            "successes": 24
+          },
+          "kk": {
+            "value": 0.5,
+            "ci95": [
+              0.32633127336832435,
+              0.6736687266316757
+            ],
+            "n": 28,
+            "successes": 14
+          },
+          "ru": {
+            "value": 0.5895522388059702,
+            "ci95": [
+              0.5048987513436451,
+              0.6692143217098541
+            ],
+            "n": 134,
+            "successes": 79
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.7692307692307693,
+          "ci95": [
+            0.6535529075284062,
+            0.8548616520809543
+          ],
+          "n": 65,
+          "successes": 50
+        },
+        "in_domain_correct": {
+          "value": 0.7704918032786885,
+          "ci95": [
+            0.6508659477391606,
+            0.858067697020629
+          ],
+          "n": 61,
+          "successes": 47
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8688524590163934,
+          "ci95": [
+            0.7619811970731857,
+            0.9320192275992546
+          ],
+          "n": 61,
+          "successes": 53
+        },
+        "ood_rejected": {
+          "value": 0.75,
+          "ci95": [
+            0.3006418400969081,
+            0.954412739704631
+          ],
+          "n": 4,
+          "successes": 3
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "exchange_student": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 0.6,
+            "ci95": [
+              0.23072427940911855,
+              0.8823792268590028
+            ],
+            "n": 5,
+            "successes": 3
+          },
+          "parent": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "phd_applicant": {
+            "value": 0.25,
+            "ci95": [
+              0.04558726029536886,
+              0.6993581599030918
+            ],
+            "n": 4,
+            "successes": 1
+          },
+          "random_visitor": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "school_graduate": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.5,
+            "ci95": [
+              0.15003898774401986,
+              0.8499610122559802
+            ],
+            "n": 4,
+            "successes": 2
+          },
+          "student_with_family": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.4,
+            "ci95": [
+              0.1681803285264069,
+              0.6873262320788047
+            ],
+            "n": 10,
+            "successes": 4
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.8163265306122449,
+            "ci95": [
+              0.68642397281645,
+              0.9002365898610293
+            ],
+            "n": 49,
+            "successes": 40
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 0.6195104997459566,
+        "p95": 1.1637653999059692,
+        "p99": 1.7577447900112022,
+        "mean": 0.7028080408780009,
+        "n": 954
+      },
+      "model_bytes": 1418115
+    },
+    "tfidf_word_lemma_stop": {
+      "config": {
+        "features": "word",
+        "lemmatize": true,
+        "stopwords": "all"
+      },
+      "C": 100,
+      "cv_accuracy": 0.50684494332563,
+      "train_seconds": 35.543952070998785,
+      "threshold": 0.5127399889423078,
+      "threshold_selection": {
+        "score": 0.6146777750551335,
+        "accepted_correct": 0.37221269296740994,
+        "rejected_ood": 0.8571428571428571
+      },
+      "test": {
+        "overall": {
+          "value": 0.5251572327044025,
+          "ci95": [
+            0.4702996091344523,
+            0.5794143091892316
+          ],
+          "n": 318,
+          "successes": 167
+        },
+        "in_domain_correct": {
+          "value": 0.5251572327044025,
+          "ci95": [
+            0.4702996091344523,
+            0.5794143091892316
+          ],
+          "n": 318,
+          "successes": 167
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6477987421383647,
+          "ci95": [
+            0.5938201964780282,
+            0.6982490736736143
+          ],
+          "n": 318,
+          "successes": 206
+        },
+        "by_group": {
+          "long": {
+            "value": 0.7547169811320755,
+            "ci95": [
+              0.6243344220216779,
+              0.8506709795178048
+            ],
+            "n": 53,
+            "successes": 40
+          },
+          "mixed": {
+            "value": 0.8571428571428571,
+            "ci95": [
+              0.486872167860775,
+              0.9743203759421759
+            ],
+            "n": 7,
+            "successes": 6
+          },
+          "plain": {
+            "value": 0.5454545454545454,
+            "ci95": [
+              0.4475069455384942,
+              0.6400063987674067
+            ],
+            "n": 99,
+            "successes": 54
+          },
+          "slang": {
+            "value": 0.5660377358490566,
+            "ci95": [
+              0.4326535132610989,
+              0.6904960352861744
+            ],
+            "n": 53,
+            "successes": 30
+          },
+          "translit": {
+            "value": 0.1320754716981132,
+            "ci95": [
+              0.0654785324879857,
+              0.24840255417720597
+            ],
+            "n": 53,
+            "successes": 7
+          },
+          "typo": {
+            "value": 0.5660377358490566,
+            "ci95": [
+              0.4326535132610989,
+              0.6904960352861744
+            ],
+            "n": 53,
+            "successes": 30
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.49056603773584906,
+            "ci95": [
+              0.36124249753195053,
+              0.621164709818439
+            ],
+            "n": 53,
+            "successes": 26
+          },
+          "kk": {
+            "value": 0.6415094339622641,
+            "ci95": [
+              0.5069114144879365,
+              0.7569804752562204
+            ],
+            "n": 53,
+            "successes": 34
+          },
+          "ru": {
+            "value": 0.5047169811320755,
+            "ci95": [
+              0.43793213204222975,
+              0.5713339283817778
+            ],
+            "n": 212,
+            "successes": 107
+          }
+        },
+        "macro_f1_no_threshold": 0.6958007401403628,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285715,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.4444444444444444,
+            "recall": 0.6666666666666666,
+            "f1": 0.5333333333333333,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 0.07575757575757576,
+            "recall": 0.8333333333333334,
+            "f1": 0.1388888888888889,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "library": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "military": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 6
+          },
+          "portals": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "practice": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.5,
+            "recall": 0.3333333333333333,
+            "f1": 0.4,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "greeting",
+            "pred": "capabilities",
+            "count": 3
+          },
+          {
+            "true": "programs_list",
+            "pred": "capabilities",
+            "count": 3
+          },
+          {
+            "true": "foreign_applicants",
+            "pred": "capabilities",
+            "count": 3
+          },
+          {
+            "true": "academic_integrity",
+            "pred": "capabilities",
+            "count": 3
+          },
+          {
+            "true": "goodbye",
+            "pred": "capabilities",
+            "count": 2
+          },
+          {
+            "true": "thanks",
+            "pred": "capabilities",
+            "count": 2
+          },
+          {
+            "true": "master_programs",
+            "pred": "tuition_postgrad",
+            "count": 2
+          },
+          {
+            "true": "phd_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "tuition_postgrad",
+            "pred": "tuition_bachelor",
+            "count": 2
+          },
+          {
+            "true": "ent_discounts",
+            "pred": "passing_score",
+            "count": 2
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8333333333333334,
+          "ci95": [
+            0.7354442468165296,
+            0.8999305462381926
+          ],
+          "n": 78,
+          "successes": 65
+        },
+        "ood_rejected": {
+          "value": 0.8333333333333334,
+          "ci95": [
+            0.7354442468165296,
+            0.8999305462381926
+          ],
+          "n": 78,
+          "successes": 65
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.6956521739130435,
+            "ci95": [
+              0.4913424357121644,
+              0.8439597563110678
+            ],
+            "n": 23,
+            "successes": 16
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.85,
+            "ci95": [
+              0.7092767550401498,
+              0.9293881232389256
+            ],
+            "n": 40,
+            "successes": 34
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.9444444444444444,
+            "ci95": [
+              0.7424269900391908,
+              0.990124809131223
+            ],
+            "n": 18,
+            "successes": 17
+          },
+          "kk": {
+            "value": 0.9,
+            "ci95": [
+              0.5958499704752279,
+              0.982123787103926
+            ],
+            "n": 10,
+            "successes": 9
+          },
+          "ru": {
+            "value": 0.78,
+            "ci95": [
+              0.6475845030451719,
+              0.8724608408548042
+            ],
+            "n": 50,
+            "successes": 39
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.5215311004784688,
+          "ci95": [
+            0.454031417931528,
+            0.5882535769529479
+          ],
+          "n": 209,
+          "successes": 109
+        },
+        "in_domain_correct": {
+          "value": 0.4357142857142857,
+          "ci95": [
+            0.3563809418520748,
+            0.5184812839624288
+          ],
+          "n": 140,
+          "successes": 61
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6357142857142857,
+          "ci95": [
+            0.5533637528939915,
+            0.7108159926087233
+          ],
+          "n": 140,
+          "successes": 89
+        },
+        "ood_rejected": {
+          "value": 0.6956521739130435,
+          "ci95": [
+            0.5791642973664105,
+            0.791503731729489
+          ],
+          "n": 69,
+          "successes": 48
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.5483870967741935,
+            "ci95": [
+              0.3777216751371326,
+              0.7083826412814458
+            ],
+            "n": 31,
+            "successes": 17
+          },
+          "EKTU": {
+            "value": 0.2857142857142857,
+            "ci95": [
+              0.08221892324928332,
+              0.6410655504689458
+            ],
+            "n": 7,
+            "successes": 2
+          },
+          "KIMEP": {
+            "value": 0.5714285714285714,
+            "ci95": [
+              0.3259064441752893,
+              0.7861920121957136
+            ],
+            "n": 14,
+            "successes": 8
+          },
+          "KarTU": {
+            "value": 0.46153846153846156,
+            "ci95": [
+              0.23206067674961361,
+              0.7085620444143711
+            ],
+            "n": 13,
+            "successes": 6
+          },
+          "NU": {
+            "value": 0.6666666666666666,
+            "ci95": [
+              0.29999331299474324,
+              0.9032285897864654
+            ],
+            "n": 6,
+            "successes": 4
+          },
+          "SDU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "Satbayev": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "TorU": {
+            "value": 0.4574468085106383,
+            "ci95": [
+              0.3603895462620016,
+              0.5578455241113273
+            ],
+            "n": 94,
+            "successes": 43
+          },
+          "Yasawi": {
+            "value": 0.59375,
+            "ci95": [
+              0.42260024747333746,
+              0.7448036525707851
+            ],
+            "n": 32,
+            "successes": 19
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.3829787234042553,
+            "ci95": [
+              0.25790681011242694,
+              0.5257343315455523
+            ],
+            "n": 47,
+            "successes": 18
+          },
+          "kk": {
+            "value": 0.42857142857142855,
+            "ci95": [
+              0.2650854701640365,
+              0.6092921450416022
+            ],
+            "n": 28,
+            "successes": 12
+          },
+          "ru": {
+            "value": 0.5895522388059702,
+            "ci95": [
+              0.5048987513436451,
+              0.6692143217098541
+            ],
+            "n": 134,
+            "successes": 79
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.7846153846153846,
+          "ci95": [
+            0.6703343965546062,
+            0.8671324236038604
+          ],
+          "n": 65,
+          "successes": 51
+        },
+        "in_domain_correct": {
+          "value": 0.8032786885245902,
+          "ci95": [
+            0.6869005932236627,
+            0.8837219781736771
+          ],
+          "n": 61,
+          "successes": 49
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8852459016393442,
+          "ci95": [
+            0.7815569142893946,
+            0.9432879737018209
+          ],
+          "n": 61,
+          "successes": 54
+        },
+        "ood_rejected": {
+          "value": 0.5,
+          "ci95": [
+            0.15003898774401986,
+            0.8499610122559802
+          ],
+          "n": 4,
+          "successes": 2
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "exchange_student": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "parent": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "phd_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.15003898774401986,
+              0.8499610122559802
+            ],
+            "n": 4,
+            "successes": 2
+          },
+          "random_visitor": {
+            "value": 0.6666666666666666,
+            "ci95": [
+              0.29999331299474324,
+              0.9032285897864654
+            ],
+            "n": 6,
+            "successes": 4
+          },
+          "school_graduate": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_with_family": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5,
+            "ci95": [
+              0.23659308901147935,
+              0.7634069109885206
+            ],
+            "n": 10,
+            "successes": 5
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.8163265306122449,
+            "ci95": [
+              0.68642397281645,
+              0.9002365898610293
+            ],
+            "n": 49,
+            "successes": 40
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 0.6268099987210007,
+        "p95": 1.0198561503784727,
+        "p99": 1.385787340004754,
+        "mean": 0.6878304067078784,
+        "n": 954
+      },
+      "model_bytes": 994937
+    },
+    "tfidf_word_lemma_stop_keepq": {
+      "config": {
+        "features": "word",
+        "lemmatize": true,
+        "stopwords": "no_questions"
+      },
+      "C": 100,
+      "cv_accuracy": 0.49311470599024254,
+      "train_seconds": 30.028215354999702,
+      "threshold": 0.5780160320521647,
+      "threshold_selection": {
+        "score": 0.5712447929429062,
+        "accepted_correct": 0.3113207547169811,
+        "rejected_ood": 0.8311688311688312
+      },
+      "test": {
+        "overall": {
+          "value": 0.48742138364779874,
+          "ci95": [
+            0.4329628914544207,
+            0.5421801493837374
+          ],
+          "n": 318,
+          "successes": 155
+        },
+        "in_domain_correct": {
+          "value": 0.48742138364779874,
+          "ci95": [
+            0.4329628914544207,
+            0.5421801493837374
+          ],
+          "n": 318,
+          "successes": 155
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.6635220125786163,
+          "ci95": [
+            0.6099115557492999,
+            0.7132289133546449
+          ],
+          "n": 318,
+          "successes": 211
+        },
+        "by_group": {
+          "long": {
+            "value": 0.7547169811320755,
+            "ci95": [
+              0.6243344220216779,
+              0.8506709795178048
+            ],
+            "n": 53,
+            "successes": 40
+          },
+          "mixed": {
+            "value": 0.8571428571428571,
+            "ci95": [
+              0.486872167860775,
+              0.9743203759421759
+            ],
+            "n": 7,
+            "successes": 6
+          },
+          "plain": {
+            "value": 0.45454545454545453,
+            "ci95": [
+              0.3599936012325934,
+              0.5524930544615059
+            ],
+            "n": 99,
+            "successes": 45
+          },
+          "slang": {
+            "value": 0.49056603773584906,
+            "ci95": [
+              0.36124249753195053,
+              0.621164709818439
+            ],
+            "n": 53,
+            "successes": 26
+          },
+          "translit": {
+            "value": 0.1320754716981132,
+            "ci95": [
+              0.0654785324879857,
+              0.24840255417720597
+            ],
+            "n": 53,
+            "successes": 7
+          },
+          "typo": {
+            "value": 0.5849056603773585,
+            "ci95": [
+              0.450944220784094,
+              0.7073909130624002
+            ],
+            "n": 53,
+            "successes": 31
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.3584905660377358,
+            "ci95": [
+              0.24301952474377947,
+              0.4930885855120634
+            ],
+            "n": 53,
+            "successes": 19
+          },
+          "kk": {
+            "value": 0.6037735849056604,
+            "ci95": [
+              0.4694147856894524,
+              0.7241059334562627
+            ],
+            "n": 53,
+            "successes": 32
+          },
+          "ru": {
+            "value": 0.49056603773584906,
+            "ci95": [
+              0.4240417887994019,
+              0.5574260903525834
+            ],
+            "n": 212,
+            "successes": 104
+          }
+        },
+        "macro_f1_no_threshold": 0.6939766670621274,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.2727272727272727,
+            "recall": 0.5,
+            "f1": 0.3529411764705882,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 0.12,
+            "recall": 1.0,
+            "f1": 0.21428571428571425,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "library": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "military": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "portals": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "practice": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.7499999999999999,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.3333333333333333,
+            "recall": 0.16666666666666666,
+            "f1": 0.2222222222222222,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "goodbye",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "thanks",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "master_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "phd_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "tuition_postgrad",
+            "pred": "tuition_bachelor",
+            "count": 2
+          },
+          {
+            "true": "vacant_grant",
+            "pred": "state_grant",
+            "count": 2
+          },
+          {
+            "true": "dormitory",
+            "pred": "inclusive_education",
+            "count": 2
+          },
+          {
+            "true": "about_university",
+            "pred": "greeting",
+            "count": 2
+          },
+          {
+            "true": "location",
+            "pred": "about_university",
+            "count": 2
+          },
+          {
+            "true": "capabilities",
+            "pred": "retake_fx",
+            "count": 1
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8461538461538461,
+          "ci95": [
+            0.7500673337983921,
+            0.9097449512968963
+          ],
+          "n": 78,
+          "successes": 66
+        },
+        "ood_rejected": {
+          "value": 0.8461538461538461,
+          "ci95": [
+            0.7500673337983921,
+            0.9097449512968963
+          ],
+          "n": 78,
+          "successes": 66
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.6956521739130435,
+            "ci95": [
+              0.4913424357121644,
+              0.8439597563110678
+            ],
+            "n": 23,
+            "successes": 16
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.875,
+            "ci95": [
+              0.7388788003201471,
+              0.9454049978360052
+            ],
+            "n": 40,
+            "successes": 35
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.9444444444444444,
+            "ci95": [
+              0.7424269900391908,
+              0.990124809131223
+            ],
+            "n": 18,
+            "successes": 17
+          },
+          "kk": {
+            "value": 0.9,
+            "ci95": [
+              0.5958499704752279,
+              0.982123787103926
+            ],
+            "n": 10,
+            "successes": 9
+          },
+          "ru": {
+            "value": 0.8,
+            "ci95": [
+              0.6696289395351799,
+              0.8875625003576518
+            ],
+            "n": 50,
+            "successes": 40
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.5598086124401914,
+          "ci95": [
+            0.49203045139245083,
+            0.6254278677310935
+          ],
+          "n": 209,
+          "successes": 117
+        },
+        "in_domain_correct": {
+          "value": 0.45,
+          "ci95": [
+            0.3700237626067706,
+            0.5326468574711767
+          ],
+          "n": 140,
+          "successes": 63
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.65,
+          "ci95": [
+            0.5679446742836806,
+            0.724043465482478
+          ],
+          "n": 140,
+          "successes": 91
+        },
+        "ood_rejected": {
+          "value": 0.782608695652174,
+          "ci95": [
+            0.6718170349558978,
+            0.863592340404846
+          ],
+          "n": 69,
+          "successes": 54
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.6129032258064516,
+            "ci95": [
+              0.43824108487672686,
+              0.7626689867666228
+            ],
+            "n": 31,
+            "successes": 19
+          },
+          "EKTU": {
+            "value": 0.42857142857142855,
+            "ci95": [
+              0.15821985399244537,
+              0.7495416372469643
+            ],
+            "n": 7,
+            "successes": 3
+          },
+          "KIMEP": {
+            "value": 0.6428571428571429,
+            "ci95": [
+              0.38764422924295516,
+              0.8365526834990504
+            ],
+            "n": 14,
+            "successes": 9
+          },
+          "KarTU": {
+            "value": 0.38461538461538464,
+            "ci95": [
+              0.17709707685632237,
+              0.6447710866356315
+            ],
+            "n": 13,
+            "successes": 5
+          },
+          "NU": {
+            "value": 0.6666666666666666,
+            "ci95": [
+              0.29999331299474324,
+              0.9032285897864654
+            ],
+            "n": 6,
+            "successes": 4
+          },
+          "SDU": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "Satbayev": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "TorU": {
+            "value": 0.5,
+            "ci95": [
+              0.4009266977351936,
+              0.5990733022648064
+            ],
+            "n": 94,
+            "successes": 47
+          },
+          "Yasawi": {
+            "value": 0.59375,
+            "ci95": [
+              0.42260024747333746,
+              0.7448036525707851
+            ],
+            "n": 32,
+            "successes": 19
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.48936170212765956,
+            "ci95": [
+              0.3527555493465324,
+              0.6275754635314658
+            ],
+            "n": 47,
+            "successes": 23
+          },
+          "kk": {
+            "value": 0.5,
+            "ci95": [
+              0.32633127336832435,
+              0.6736687266316757
+            ],
+            "n": 28,
+            "successes": 14
+          },
+          "ru": {
+            "value": 0.5970149253731343,
+            "ci95": [
+              0.5123833426043919,
+              0.6762391532035655
+            ],
+            "n": 134,
+            "successes": 80
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.8,
+          "ci95": [
+            0.6872986726325446,
+            0.8792204080750284
+          ],
+          "n": 65,
+          "successes": 52
+        },
+        "in_domain_correct": {
+          "value": 0.819672131147541,
+          "ci95": [
+            0.7052584355013631,
+            0.8962085992147519
+          ],
+          "n": 61,
+          "successes": 50
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8688524590163934,
+          "ci95": [
+            0.7619811970731857,
+            0.9320192275992546
+          ],
+          "n": 61,
+          "successes": 53
+        },
+        "ood_rejected": {
+          "value": 0.5,
+          "ci95": [
+            0.15003898774401986,
+            0.8499610122559802
+          ],
+          "n": 4,
+          "successes": 2
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "exchange_student": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "parent": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "phd_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.15003898774401986,
+              0.8499610122559802
+            ],
+            "n": 4,
+            "successes": 2
+          },
+          "random_visitor": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "school_graduate": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_with_family": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5,
+            "ci95": [
+              0.23659308901147935,
+              0.7634069109885206
+            ],
+            "n": 10,
+            "successes": 5
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.8367346938775511,
+            "ci95": [
+              0.7096366145094091,
+              0.9148730167279078
+            ],
+            "n": 49,
+            "successes": 41
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 0.6818475012551062,
+        "p95": 1.4554537012372746,
+        "p99": 2.3991220211246422,
+        "mean": 0.8505645031470047,
+        "n": 954
+      },
+      "model_bytes": 1195907
+    },
+    "tfidf_char": {
+      "config": {
+        "features": "char",
+        "lemmatize": false,
+        "stopwords": null
+      },
+      "C": 100,
+      "cv_accuracy": 0.5977587029089175,
+      "train_seconds": 67.95054727400202,
+      "threshold": 0.35602476699072666,
+      "threshold_selection": {
+        "score": 0.6876990933594707,
+        "accepted_correct": 0.4922813036020583,
+        "rejected_ood": 0.8831168831168831
+      },
+      "test": {
+        "overall": {
+          "value": 0.6981132075471698,
+          "ci95": [
+            0.6455380893456804,
+            0.7459590174533297
+          ],
+          "n": 318,
+          "successes": 222
+        },
+        "in_domain_correct": {
+          "value": 0.6981132075471698,
+          "ci95": [
+            0.6455380893456804,
+            0.7459590174533297
+          ],
+          "n": 318,
+          "successes": 222
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8050314465408805,
+          "ci95": [
+            0.7579549268984889,
+            0.8448263327761778
+          ],
+          "n": 318,
+          "successes": 256
+        },
+        "by_group": {
+          "long": {
+            "value": 0.8301886792452831,
+            "ci95": [
+              0.7077471960878099,
+              0.9080005466485566
+            ],
+            "n": 53,
+            "successes": 44
+          },
+          "mixed": {
+            "value": 1.0,
+            "ci95": [
+              0.6456695613241317,
+              1.0
+            ],
+            "n": 7,
+            "successes": 7
+          },
+          "plain": {
+            "value": 0.7272727272727273,
+            "ci95": [
+              0.6322907540090636,
+              0.8052759675204406
+            ],
+            "n": 99,
+            "successes": 72
+          },
+          "slang": {
+            "value": 0.7547169811320755,
+            "ci95": [
+              0.6243344220216779,
+              0.8506709795178048
+            ],
+            "n": 53,
+            "successes": 40
+          },
+          "translit": {
+            "value": 0.1320754716981132,
+            "ci95": [
+              0.0654785324879857,
+              0.24840255417720597
+            ],
+            "n": 53,
+            "successes": 7
+          },
+          "typo": {
+            "value": 0.9811320754716981,
+            "ci95": [
+              0.9005708784814801,
+              0.9966615466486537
+            ],
+            "n": 53,
+            "successes": 52
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.6037735849056604,
+            "ci95": [
+              0.4694147856894524,
+              0.7241059334562627
+            ],
+            "n": 53,
+            "successes": 32
+          },
+          "kk": {
+            "value": 0.8867924528301887,
+            "ci95": [
+              0.774234807801829,
+              0.9470696908322002
+            ],
+            "n": 53,
+            "successes": 47
+          },
+          "ru": {
+            "value": 0.6745283018867925,
+            "ci95": [
+              0.6088367352312782,
+              0.7340075004569961
+            ],
+            "n": 212,
+            "successes": 143
+          }
+        },
+        "macro_f1_no_threshold": 0.8105737954239616,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.7499999999999999,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 0.5555555555555556,
+            "recall": 0.8333333333333334,
+            "f1": 0.6666666666666667,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.42857142857142855,
+            "recall": 0.5,
+            "f1": 0.4615384615384615,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.5454545454545454,
+            "recall": 1.0,
+            "f1": 0.7058823529411764,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1": 0.5,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 0.5555555555555556,
+            "recall": 0.8333333333333334,
+            "f1": 0.6666666666666667,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "library": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "military": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "portals": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "practice": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "admission_deadlines",
+            "pred": "admission_documents",
+            "count": 3
+          },
+          {
+            "true": "greeting",
+            "pred": "programs_list",
+            "count": 1
+          },
+          {
+            "true": "goodbye",
+            "pred": "academic_integrity",
+            "count": 1
+          },
+          {
+            "true": "thanks",
+            "pred": "inclusive_education",
+            "count": 1
+          },
+          {
+            "true": "capabilities",
+            "pred": "admission_documents",
+            "count": 1
+          },
+          {
+            "true": "admission_steps",
+            "pred": "study_forms",
+            "count": 1
+          },
+          {
+            "true": "admission_steps",
+            "pred": "about_university",
+            "count": 1
+          },
+          {
+            "true": "admission_steps",
+            "pred": "admission_deadlines",
+            "count": 1
+          },
+          {
+            "true": "ent_subjects",
+            "pred": "programs_list",
+            "count": 1
+          },
+          {
+            "true": "passing_score",
+            "pred": "payment_details",
+            "count": 1
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8076923076923077,
+          "ci95": [
+            0.7066518719231,
+            0.8798479370504898
+          ],
+          "n": 78,
+          "successes": 63
+        },
+        "ood_rejected": {
+          "value": 0.8076923076923077,
+          "ci95": [
+            0.7066518719231,
+            0.8798479370504898
+          ],
+          "n": 78,
+          "successes": 63
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.6521739130434783,
+            "ci95": [
+              0.4489033522338618,
+              0.8118872415619854
+            ],
+            "n": 23,
+            "successes": 15
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.825,
+            "ci95": [
+              0.6805000953869541,
+              0.9125458630150444
+            ],
+            "n": 40,
+            "successes": 33
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.6077796169796655,
+              0.9416342323981449
+            ],
+            "n": 18,
+            "successes": 15
+          },
+          "kk": {
+            "value": 0.8,
+            "ci95": [
+              0.4901624691221323,
+              0.9433178490622331
+            ],
+            "n": 10,
+            "successes": 8
+          },
+          "ru": {
+            "value": 0.8,
+            "ci95": [
+              0.6696289395351799,
+              0.8875625003576518
+            ],
+            "n": 50,
+            "successes": 40
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.6363636363636364,
+          "ci95": [
+            0.5692297802032544,
+            0.6985751873984265
+          ],
+          "n": 209,
+          "successes": 133
+        },
+        "in_domain_correct": {
+          "value": 0.5571428571428572,
+          "ci95": [
+            0.4744276564994048,
+            0.6368059205543699
+          ],
+          "n": 140,
+          "successes": 78
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.7,
+          "ci95": [
+            0.6195799278733565,
+            0.7697375918148548
+          ],
+          "n": 140,
+          "successes": 98
+        },
+        "ood_rejected": {
+          "value": 0.7971014492753623,
+          "ci95": [
+            0.687759596598563,
+            0.8751066698063215
+          ],
+          "n": 69,
+          "successes": 55
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.7096774193548387,
+            "ci95": [
+              0.5340767052732558,
+              0.8390419992072509
+            ],
+            "n": 31,
+            "successes": 22
+          },
+          "EKTU": {
+            "value": 0.2857142857142857,
+            "ci95": [
+              0.08221892324928332,
+              0.6410655504689458
+            ],
+            "n": 7,
+            "successes": 2
+          },
+          "KIMEP": {
+            "value": 0.5714285714285714,
+            "ci95": [
+              0.3259064441752893,
+              0.7861920121957136
+            ],
+            "n": 14,
+            "successes": 8
+          },
+          "KarTU": {
+            "value": 0.46153846153846156,
+            "ci95": [
+              0.23206067674961361,
+              0.7085620444143711
+            ],
+            "n": 13,
+            "successes": 6
+          },
+          "NU": {
+            "value": 0.6666666666666666,
+            "ci95": [
+              0.29999331299474324,
+              0.9032285897864654
+            ],
+            "n": 6,
+            "successes": 4
+          },
+          "SDU": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "Satbayev": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "TorU": {
+            "value": 0.5851063829787234,
+            "ci95": [
+              0.4840802044979575,
+              0.6794496547553848
+            ],
+            "n": 94,
+            "successes": 55
+          },
+          "Yasawi": {
+            "value": 0.78125,
+            "ci95": [
+              0.6124500620603575,
+              0.8897616380720099
+            ],
+            "n": 32,
+            "successes": 25
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5531914893617021,
+            "ci95": [
+              0.4124545973257825,
+              0.685890338284227
+            ],
+            "n": 47,
+            "successes": 26
+          },
+          "kk": {
+            "value": 0.4642857142857143,
+            "ci95": [
+              0.2953156986850779,
+              0.6418731089177414
+            ],
+            "n": 28,
+            "successes": 13
+          },
+          "ru": {
+            "value": 0.7014925373134329,
+            "ci95": [
+              0.6192792066898716,
+              0.7724752076805017
+            ],
+            "n": 134,
+            "successes": 94
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.8307692307692308,
+          "ci95": [
+            0.7218357826609499,
+            0.9027878191448359
+          ],
+          "n": 65,
+          "successes": 54
+        },
+        "in_domain_correct": {
+          "value": 0.8360655737704918,
+          "ci95": [
+            0.7238716136704956,
+            0.9084398843643947
+          ],
+          "n": 61,
+          "successes": 51
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8688524590163934,
+          "ci95": [
+            0.7619811970731857,
+            0.9320192275992546
+          ],
+          "n": 61,
+          "successes": 53
+        },
+        "ood_rejected": {
+          "value": 0.75,
+          "ci95": [
+            0.3006418400969081,
+            0.954412739704631
+          ],
+          "n": 4,
+          "successes": 3
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "exchange_student": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "parent": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "phd_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.15003898774401986,
+              0.8499610122559802
+            ],
+            "n": 4,
+            "successes": 2
+          },
+          "random_visitor": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "school_graduate": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_with_family": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.5,
+            "ci95": [
+              0.23659308901147935,
+              0.7634069109885206
+            ],
+            "n": 10,
+            "successes": 5
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.8775510204081632,
+            "ci95": [
+              0.757556025924438,
+              0.9426517424325533
+            ],
+            "n": 49,
+            "successes": 43
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 0.8177625004464062,
+        "p95": 1.602695001201936,
+        "p99": 2.481886630412197,
+        "mean": 0.9475473679702027,
+        "n": 954
+      },
+      "model_bytes": 4152707
+    },
+    "tfidf_word_char": {
+      "config": {
+        "features": "word+char",
+        "lemmatize": true,
+        "stopwords": null
+      },
+      "C": 100,
+      "cv_accuracy": 0.571163933824878,
+      "train_seconds": 60.10326504600016,
+      "threshold": 0.4546198082476187,
+      "threshold_selection": {
+        "score": 0.6478191619701054,
+        "accepted_correct": 0.4125214408233276,
+        "rejected_ood": 0.8831168831168831
+      },
+      "test": {
+        "overall": {
+          "value": 0.6415094339622641,
+          "ci95": [
+            0.5874008734090689,
+            0.6922399171616526
+          ],
+          "n": 318,
+          "successes": 204
+        },
+        "in_domain_correct": {
+          "value": 0.6415094339622641,
+          "ci95": [
+            0.5874008734090689,
+            0.6922399171616526
+          ],
+          "n": 318,
+          "successes": 204
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.7735849056603774,
+          "ci95": [
+            0.7244800695636203,
+            0.8161587922064416
+          ],
+          "n": 318,
+          "successes": 246
+        },
+        "by_group": {
+          "long": {
+            "value": 0.8113207547169812,
+            "ci95": [
+              0.6864154080282334,
+              0.8941467494089121
+            ],
+            "n": 53,
+            "successes": 43
+          },
+          "mixed": {
+            "value": 1.0,
+            "ci95": [
+              0.6456695613241317,
+              1.0
+            ],
+            "n": 7,
+            "successes": 7
+          },
+          "plain": {
+            "value": 0.6565656565656566,
+            "ci95": [
+              0.5587561684544091,
+              0.742678684154805
+            ],
+            "n": 99,
+            "successes": 65
+          },
+          "slang": {
+            "value": 0.660377358490566,
+            "ci95": [
+              0.525947865300075,
+              0.7731296097433028
+            ],
+            "n": 53,
+            "successes": 35
+          },
+          "translit": {
+            "value": 0.1320754716981132,
+            "ci95": [
+              0.0654785324879857,
+              0.24840255417720597
+            ],
+            "n": 53,
+            "successes": 7
+          },
+          "typo": {
+            "value": 0.8867924528301887,
+            "ci95": [
+              0.774234807801829,
+              0.9470696908322002
+            ],
+            "n": 53,
+            "successes": 47
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.6037735849056604,
+            "ci95": [
+              0.4694147856894524,
+              0.7241059334562627
+            ],
+            "n": 53,
+            "successes": 32
+          },
+          "kk": {
+            "value": 0.7547169811320755,
+            "ci95": [
+              0.6243344220216779,
+              0.8506709795178048
+            ],
+            "n": 53,
+            "successes": 40
+          },
+          "ru": {
+            "value": 0.6226415094339622,
+            "ci95": [
+              0.5557558451533505,
+              0.6851617258708421
+            ],
+            "n": 212,
+            "successes": 132
+          }
+        },
+        "macro_f1_no_threshold": 0.780409786292139,
+        "per_intent": {
+          "about_university": {
+            "precision": 0.45454545454545453,
+            "recall": 0.8333333333333334,
+            "f1": 0.5882352941176471,
+            "support": 6
+          },
+          "academic_calendar": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "academic_integrity": {
+            "precision": 0.5555555555555556,
+            "recall": 0.8333333333333334,
+            "f1": 0.6666666666666667,
+            "support": 6
+          },
+          "academic_leave": {
+            "precision": 0.8571428571428571,
+            "recall": 1.0,
+            "f1": 0.923076923076923,
+            "support": 6
+          },
+          "academic_mobility": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "admission_deadlines": {
+            "precision": 0.4,
+            "recall": 0.3333333333333333,
+            "f1": 0.3636363636363636,
+            "support": 6
+          },
+          "admission_documents": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 6
+          },
+          "admission_steps": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285715,
+            "support": 6
+          },
+          "appeal": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "capabilities": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "career_center": {
+            "precision": 0.375,
+            "recall": 0.5,
+            "f1": 0.42857142857142855,
+            "support": 6
+          },
+          "certificates": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "college_graduates": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "contacts": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "creative_exam": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "dormitory": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "ent_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "ent_subjects": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "faculties": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "foreign_applicants": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "foundation": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "goodbye": {
+            "precision": 0.4166666666666667,
+            "recall": 0.8333333333333334,
+            "f1": 0.5555555555555556,
+            "support": 6
+          },
+          "grading_gpa": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "greeting": {
+            "precision": 0.45454545454545453,
+            "recall": 0.8333333333333334,
+            "f1": 0.5882352941176471,
+            "support": 6
+          },
+          "inclusive_education": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "international_exams": {
+            "precision": 0.625,
+            "recall": 0.8333333333333334,
+            "f1": 0.7142857142857143,
+            "support": 6
+          },
+          "language_cert_discounts": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "library": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "location": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "master_admission": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "master_programs": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "medical_center": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "military": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "missed_exam": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "other_discounts": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "passing_score": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "payment_details": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "phd_admission": {
+            "precision": 0.6666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.4444444444444444,
+            "support": 6
+          },
+          "portals": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "practice": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "programs_list": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846153,
+            "support": 6
+          },
+          "retake_fx": {
+            "precision": 0.8571428571428571,
+            "recall": 1.0,
+            "f1": 0.923076923076923,
+            "support": 6
+          },
+          "schedule": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "state_grant": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "stipend": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 6
+          },
+          "student_clubs": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          },
+          "study_forms": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "thanks": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "support": 6
+          },
+          "transfer_restore": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307692,
+            "support": 6
+          },
+          "tuition_bachelor": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "support": 6
+          },
+          "tuition_postgrad": {
+            "precision": 0.8,
+            "recall": 0.6666666666666666,
+            "f1": 0.7272727272727272,
+            "support": 6
+          },
+          "turan_umiti_grant": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 6
+          },
+          "vacant_grant": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 6
+          }
+        },
+        "confusions": [
+          {
+            "true": "admission_deadlines",
+            "pred": "admission_documents",
+            "count": 3
+          },
+          {
+            "true": "phd_admission",
+            "pred": "admission_steps",
+            "count": 2
+          },
+          {
+            "true": "location",
+            "pred": "about_university",
+            "count": 2
+          },
+          {
+            "true": "greeting",
+            "pred": "goodbye",
+            "count": 1
+          },
+          {
+            "true": "goodbye",
+            "pred": "academic_integrity",
+            "count": 1
+          },
+          {
+            "true": "thanks",
+            "pred": "greeting",
+            "count": 1
+          },
+          {
+            "true": "capabilities",
+            "pred": "academic_integrity",
+            "count": 1
+          },
+          {
+            "true": "admission_steps",
+            "pred": "study_forms",
+            "count": 1
+          },
+          {
+            "true": "admission_steps",
+            "pred": "about_university",
+            "count": 1
+          },
+          {
+            "true": "ent_subjects",
+            "pred": "programs_list",
+            "count": 1
+          }
+        ]
+      },
+      "ood_test": {
+        "overall": {
+          "value": 0.8205128205128205,
+          "ci95": [
+            0.7209764597742891,
+            0.8899608412398667
+          ],
+          "n": 78,
+          "successes": 64
+        },
+        "ood_rejected": {
+          "value": 0.8205128205128205,
+          "ci95": [
+            0.7209764597742891,
+            0.8899608412398667
+          ],
+          "n": 78,
+          "successes": 64
+        },
+        "by_group": {
+          "near_domain": {
+            "value": 0.6521739130434783,
+            "ci95": [
+              0.4489033522338618,
+              0.8118872415619854
+            ],
+            "n": 23,
+            "successes": 15
+          },
+          "nonsense": {
+            "value": 1.0,
+            "ci95": [
+              0.7961166964035129,
+              1.0
+            ],
+            "n": 15,
+            "successes": 15
+          },
+          "offtopic": {
+            "value": 0.85,
+            "ci95": [
+              0.7092767550401498,
+              0.9293881232389256
+            ],
+            "n": 40,
+            "successes": 34
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.6077796169796655,
+              0.9416342323981449
+            ],
+            "n": 18,
+            "successes": 15
+          },
+          "kk": {
+            "value": 0.8,
+            "ci95": [
+              0.4901624691221323,
+              0.9433178490622331
+            ],
+            "n": 10,
+            "successes": 8
+          },
+          "ru": {
+            "value": 0.82,
+            "ci95": [
+              0.6920394621161083,
+              0.9022980737695785
+            ],
+            "n": 50,
+            "successes": 41
+          }
+        }
+      },
+      "external": {
+        "overall": {
+          "value": 0.5741626794258373,
+          "ci95": [
+            0.5063814281885622,
+            0.6392668875246327
+          ],
+          "n": 209,
+          "successes": 120
+        },
+        "in_domain_correct": {
+          "value": 0.4785714285714286,
+          "ci95": [
+            0.3975066132040578,
+            0.5607807954007769
+          ],
+          "n": 140,
+          "successes": 67
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.7142857142857143,
+          "ci95": [
+            0.6345157084903984,
+            0.7826102054612566
+          ],
+          "n": 140,
+          "successes": 100
+        },
+        "ood_rejected": {
+          "value": 0.7681159420289855,
+          "ci95": [
+            0.6560315286415228,
+            0.8519209556750802
+          ],
+          "n": 69,
+          "successes": 53
+        },
+        "by_group": {
+          "Caspian": {
+            "value": 0.6774193548387096,
+            "ci95": [
+              0.5014100916911381,
+              0.8143057351769827
+            ],
+            "n": 31,
+            "successes": 21
+          },
+          "EKTU": {
+            "value": 0.42857142857142855,
+            "ci95": [
+              0.15821985399244537,
+              0.7495416372469643
+            ],
+            "n": 7,
+            "successes": 3
+          },
+          "KIMEP": {
+            "value": 0.5714285714285714,
+            "ci95": [
+              0.3259064441752893,
+              0.7861920121957136
+            ],
+            "n": 14,
+            "successes": 8
+          },
+          "KarTU": {
+            "value": 0.3076923076923077,
+            "ci95": [
+              0.12680703567070326,
+              0.5763065701492199
+            ],
+            "n": 13,
+            "successes": 4
+          },
+          "NU": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "SDU": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "Satbayev": {
+            "value": 0.8333333333333334,
+            "ci95": [
+              0.4364971749742326,
+              0.969946630588185
+            ],
+            "n": 6,
+            "successes": 5
+          },
+          "TorU": {
+            "value": 0.5106382978723404,
+            "ci95": [
+              0.41116886075387393,
+              0.6092723716527937
+            ],
+            "n": 94,
+            "successes": 48
+          },
+          "Yasawi": {
+            "value": 0.71875,
+            "ci95": [
+              0.5462549043349592,
+              0.8443541957679932
+            ],
+            "n": 32,
+            "successes": 23
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.48936170212765956,
+            "ci95": [
+              0.3527555493465324,
+              0.6275754635314658
+            ],
+            "n": 47,
+            "successes": 23
+          },
+          "kk": {
+            "value": 0.4642857142857143,
+            "ci95": [
+              0.2953156986850779,
+              0.6418731089177414
+            ],
+            "n": 28,
+            "successes": 13
+          },
+          "ru": {
+            "value": 0.6268656716417911,
+            "ci95": [
+              0.5425147132579664,
+              0.7041454735678243
+            ],
+            "n": 134,
+            "successes": 84
+          }
+        }
+      },
+      "scenarios": {
+        "overall": {
+          "value": 0.8307692307692308,
+          "ci95": [
+            0.7218357826609499,
+            0.9027878191448359
+          ],
+          "n": 65,
+          "successes": 54
+        },
+        "in_domain_correct": {
+          "value": 0.8360655737704918,
+          "ci95": [
+            0.7238716136704956,
+            0.9084398843643947
+          ],
+          "n": 61,
+          "successes": 51
+        },
+        "in_domain_top1_no_threshold": {
+          "value": 0.8688524590163934,
+          "ci95": [
+            0.7619811970731857,
+            0.9320192275992546
+          ],
+          "n": 61,
+          "successes": 53
+        },
+        "ood_rejected": {
+          "value": 0.75,
+          "ci95": [
+            0.3006418400969081,
+            0.954412739704631
+          ],
+          "n": 4,
+          "successes": 3
+        },
+        "by_group": {
+          "college_graduate": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "exchange_student": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "first_year_student": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "foreign_applicant": {
+            "value": 0.5,
+            "ci95": [
+              0.18761630498040816,
+              0.8123836950195918
+            ],
+            "n": 6,
+            "successes": 3
+          },
+          "master_applicant": {
+            "value": 1.0,
+            "ci95": [
+              0.5655175313406071,
+              1.0
+            ],
+            "n": 5,
+            "successes": 5
+          },
+          "parent": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "phd_applicant": {
+            "value": 0.25,
+            "ci95": [
+              0.04558726029536886,
+              0.6993581599030918
+            ],
+            "n": 4,
+            "successes": 1
+          },
+          "random_visitor": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "school_graduate": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "student_failed_exam": {
+            "value": 0.8,
+            "ci95": [
+              0.375534627029995,
+              0.9637758917743693
+            ],
+            "n": 5,
+            "successes": 4
+          },
+          "student_paid_to_grant": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_special_needs": {
+            "value": 0.75,
+            "ci95": [
+              0.3006418400969081,
+              0.954412739704631
+            ],
+            "n": 4,
+            "successes": 3
+          },
+          "student_with_family": {
+            "value": 1.0,
+            "ci95": [
+              0.5101091596030786,
+              0.9999999999999999
+            ],
+            "n": 4,
+            "successes": 4
+          }
+        },
+        "by_lang": {
+          "en": {
+            "value": 0.4,
+            "ci95": [
+              0.1681803285264069,
+              0.6873262320788047
+            ],
+            "n": 10,
+            "successes": 4
+          },
+          "kk": {
+            "value": 1.0,
+            "ci95": [
+              0.6096657083436265,
+              1.0
+            ],
+            "n": 6,
+            "successes": 6
+          },
+          "ru": {
+            "value": 0.8979591836734694,
+            "ci95": [
+              0.7824363833807433,
+              0.9556204535360855
+            ],
+            "n": 49,
+            "successes": 44
+          }
+        }
+      },
+      "latency_ms": {
+        "p50": 1.569768499393831,
+        "p95": 2.4422777009021948,
+        "p99": 3.1078641500425896,
+        "mean": 1.705241947632468,
+        "n": 954
+      },
+      "model_bytes": 5570867
+    }
+  }
+}
