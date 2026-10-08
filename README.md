@@ -10,40 +10,96 @@
 
 Автор: **Алексей Нерезов**.
 
-Условие задания: [ТЗ.md](ТЗ.md).
+**Живой деплой:** сайт – https://alextrav.github.io/TuranAssist/,
+Telegram-бот – [@turan_assist_bot](https://t.me/turan_assist_bot),
+API – https://turanassist-backend.onrender.com
 
-> Проект в разработке.
+Условие задания: [ТЗ.md](ТЗ.md). Краткое описание решения: [SUMMARY.md](SUMMARY.md).
+
+> Неофициальный студенческий проект: ответы основаны на сайте turan.edu.kz и документах
+> университета (собраны в октябре 2026), важные детали стоит уточнять в приёмной комиссии.
+
+## Возможности
+
+- ответы по 53 темам из базы с первоисточником – на языке вопроса, с опечатками, сленгом и на казахском;
+- ансамбль трансформера `multilingual-e5-small` (ONNX int8) и TF-IDF по символьным n-граммам
+  с порогом уверенности: не уверен – честно отвечает «не понял» и предлагает темы;
+- цена конкретной программы (извлечение сущностей: «Сколько стоит ВТиПО?») и уточнения
+  с учётом прошлого вопроса («а в магистратуре?»);
+- панель «Как бот понял вопрос»: язык, леммы, стоп-слова, подслова трансформера, вероятности тем,
+  порог и сработавшее правило;
+- калькулятор стоимости (32 программы), база знаний с поиском, оценка ответов 👍/👎;
+- метрики реального времени (p50/p95/p99, гистограмма, доля ответов быстрее 100 мс, память)
+  и нагрузочный тест по кнопке;
+- Telegram-бот в том же сервисе (webhook): темы кнопками, ответы на языке вопроса;
+- интерфейс на русском, казахском и английском, светлая и тёмная тема, палитра сайта университета;
+- rate limiting, CORS, автотесты бэкенда и фронтенда, CI/CD, всё в Docker.
+
+## Результаты
+
+| С порогом «не понял» (95% ДИ Уилсона) | TF-IDF char | Ансамбль (в работе) |
+|---|---|---|
+| Тест разными стилями (n = 318) | 0,698 | **0,755** [0,705; 0,799] |
+| FAQ других вузов | 0,636 | **0,670** |
+| Сценарии диалогов (13 диалогов, 65 реплик) | 0,831 | **0,877** |
+| Вопросы не по теме отклонены | **0,808** | 0,692 |
+
+Медиана ответа модели – около 6–8 мс, контейнер занимает около 320 МБ из 512. Подробности –
+[model/README.md](model/README.md) и [backend/README.md](backend/README.md).
 
 ## Структура проекта
 
 ```
 TuranAssist/
-  data/      – сбор данных с сайта и из нормативных документов, база ответов, наборы фраз
-  model/     – baseline (BoW, TF-IDF), Colab-ноутбук с трансформером, артефакты и метрики
-  backend/   – FastAPI: NLP-конвейер, REST API, Telegram-бот (webhook), метрики задержек
-  frontend/  – Vue 3 + TypeScript + Tailwind CSS: чат, производительность, о проекте
+  data/                – сбор корпуса с сайта и из документов, база ответов (53 темы),
+                         справочник программ и цены, наборы фраз для обучения и проверки
+  model/               – baseline (BoW, TF-IDF), Colab-ноутбуки с трансформером, выбор ансамбля, отчёты
+  backend/             – FastAPI: NLP-конвейер, REST API, Telegram-бот (webhook), метрики задержек
+  frontend/            – Vue 3 + TypeScript + Tailwind CSS: чат, калькулятор, база знаний,
+                         производительность, о проекте
+  docs/branding/       – логотип и аватар бота
+  .github/workflows/   – CI (данные, тесты, сборка) и деплой фронтенда на GitHub Pages
+  docker-compose.yml, Makefile, render.yaml – запуск всего стека и описание сервиса Render
 ```
+
+Подробности по каждой части – в README внутри папки: [data](data/README.md),
+[data/knowledge](data/knowledge/README.md), [model](model/README.md), [backend](backend/README.md),
+[frontend](frontend/README.md).
 
 ## Запуск
 
 Всё запускается в Docker, локальные Python и Node не нужны (на Windows – из Git Bash):
 
 ```bash
-make up      # бэкенд и фронтенд: http://localhost:8080 (API – http://localhost:8000)
+make up      # бэкенд и фронтенд: http://localhost:8080 (API – http://localhost:8000, документация – /docs)
 make down    # остановить
 make test    # все проверки, как в CI: данные, pytest бэкенда, Vitest и сборка фронтенда
 ```
 
 Бэкенд в compose ограничен 512 МБ и 0,5 CPU, фронтенд стартует после healthcheck бэкенда.
-Telegram-бот локально – `cd backend && make bot-dev` (токен в `backend/.env`).
+Другие команды: `make up-d` (в фоне), `make logs`, `make build`, `make restart`, `make clean`.
+Telegram-бот локально – `cd backend && make bot-dev` (токен в `backend/.env`, шаблон – `.env.example`).
 
-## Деплой
+## Деплой (бесплатно)
 
-- **Бэкенд** – Render, Docker, бесплатный тариф: описание сервиса в [render.yaml](render.yaml).
+- **Бэкенд** – Render, Docker, бесплатный тариф: сервис описан в [render.yaml](render.yaml)
+  (Blueprint), секреты бота задаются в панели Render. Сервис засыпает после 15 минут простоя –
+  первый ответ после паузы занимает до минуты, сайт показывает об этом баннер.
 - **Фронтенд** – GitHub Pages: [deploy-pages.yml](.github/workflows/deploy-pages.yml) собирает
   статику с адресом бэкенда на Render при каждом push, затрагивающем `frontend/`.
-- **CI** – [ci.yml](.github/workflows/ci.yml): проверка базы ответов и наборов фраз, pytest, Vitest,
-  проверка типов и сборка – теми же `make`-командами и в тех же образах, что локально.
+- **Модель** – энкодер e5 (ONNX int8) на [Hugging Face](https://huggingface.co/AlexCode2003/turanassist-intent-e5),
+  скачивается при сборке образа с фиксированного коммита и проверкой SHA-256.
+- **CI** – [ci.yml](.github/workflows/ci.yml): проверка базы ответов и наборов фраз, 104 теста pytest,
+  23 теста Vitest, проверка типов и сборка – теми же `make`-командами и в тех же образах, что локально.
+
+## Стек
+
+- **Данные:** Python, requests, PyMuPDF, YAML.
+- **Модель:** scikit-learn (BoW, TF-IDF, логистическая регрессия), pymorphy3, multilingual-e5-small,
+  PyTorch и Google Colab для обучения, ONNX Runtime (int8) для инференса, SentencePiece.
+- **Бэкенд:** FastAPI, slowapi, httpx (Telegram Bot API), pytest.
+- **Фронтенд:** Vue 3, TypeScript, Tailwind CSS 4, vue-i18n, Vite, Vitest.
+- **Инфраструктура:** Docker, docker-compose, Makefile, GitHub Actions, GitHub Pages, Render, Hugging Face Hub.
 
 ## Лицензия
 
