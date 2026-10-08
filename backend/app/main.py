@@ -23,6 +23,8 @@ from .service import answer_question
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("turanassist")
+# httpx на уровне INFO пишет полный URL запроса, а в URL Bot API – токен бота: такие логи отключаем
+logging.getLogger("httpx").setLevel(logging.WARNING)
 
 
 # сводка качества моделей для страницы «О проекте»: TF-IDF, e5 и выбранный ансамбль (с порогом)

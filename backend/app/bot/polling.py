@@ -11,6 +11,8 @@ from .telegram_api import TelegramClient
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("turanassist.bot")
+# httpx на уровне INFO пишет полный URL запроса, а в URL Bot API – токен бота: такие логи отключаем
+logging.getLogger("httpx").setLevel(logging.WARNING)
 
 
 # локальная разработка: бот сам опрашивает Telegram (long polling), публичный адрес не нужен.
