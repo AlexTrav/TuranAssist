@@ -32,3 +32,6 @@ dist/
 .vscode/*
 !.vscode/extensions.json
 .DS_Store
+
+# рисунки исследования собираются в папку отчёта
+research/figures/

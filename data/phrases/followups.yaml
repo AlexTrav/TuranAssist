@@ -1,0 +1,22 @@
+# пары «вопрос → уточнение» для оценки контекста диалога (backend/app/nlp/context.py).
+# 13 настоящих уточнений и 4 смены темы (вопрос не по теме или самостоятельный новый вопрос);
+# expect – ожидаемый интент второй реплики или ood («не понял»).
+# набор использовался при выборе правила контекста – это выборка для разработки, а не независимый тест
+pairs:
+  - {first: "Сколько стоит ВТиПО?", followup: "а в магистратуре?", expect: tuition_postgrad}
+  - {first: "Сколько стоит обучение в бакалавриате?", followup: "а на ВТиПО?", expect: tuition_bachelor}
+  - {first: "Сколько стоит юриспруденция?", followup: "а экономика?", expect: tuition_bachelor}
+  - {first: "Есть ли общежитие?", followup: "а сколько стоит?", expect: dormitory}
+  - {first: "Как поступить в магистратуру?", followup: "а какие документы нужны?", expect: master_admission}
+  - {first: "получил FX, что делать", followup: "а когда пересдача?", expect: retake_fx}
+  - {first: "Учусь платно, можно ли перейти на грант?", followup: "Когда подавать заявление?", expect: vacant_grant}
+  - {first: "Какие есть скидки?", followup: "а для многодетных?", expect: other_discounts}
+  - {first: "Сколько стоит магистратура?", followup: "а PhD?", expect: tuition_postgrad}
+  - {first: "Бағдарламалық инженерия қанша тұрады?", followup: "ал магистратурада?", expect: tuition_postgrad}
+  - {first: "How much is software engineering?", followup: "and for a master's?", expect: tuition_postgrad}
+  - {first: "Есть ли общежитие?", followup: "а для иностранцев?", expect: dormitory}
+  - {first: "Как взять академический отпуск?", followup: "а сколько он длится?", expect: academic_leave}
+  - {first: "Есть ли общежитие?", followup: "Где у вас столовая?", expect: ood}
+  - {first: "Сколько стоит обучение?", followup: "Какая погода завтра?", expect: ood}
+  - {first: "Есть ли общежитие?", followup: "а курс евро какой?", expect: ood}
+  - {first: "Как взять академический отпуск?", followup: "Сколько стоит обучение?", expect: tuition_bachelor}

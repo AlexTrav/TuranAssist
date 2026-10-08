@@ -30,10 +30,10 @@ restart: down up-d
 
 # все проверки, как в CI: база ответов и наборы фраз, pytest бэкенда, Vitest и сборка фронтенда
 test:
-	$(MAKE) -C data check
-	$(MAKE) -C backend test
-	$(MAKE) -C frontend test
-	$(MAKE) -C frontend build
+	"$(MAKE)" -C data check
+	"$(MAKE)" -C backend test
+	"$(MAKE)" -C frontend test
+	"$(MAKE)" -C frontend build
 
 # остановить стек и удалить образы, созданные docker compose
 clean:

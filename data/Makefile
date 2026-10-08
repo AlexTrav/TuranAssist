@@ -15,12 +15,12 @@ build:
 # собрать весь корпус: страницы сайта и нормативные документы на ru/kk/en, затем таблицу цен
 collect: build
 	$(RUN)
-	$(MAKE) tuition
+	"$(MAKE)" tuition
 
 # собрать только страницы сайта
 collect-pages: build
 	$(RUN) --only pages
-	$(MAKE) tuition
+	"$(MAKE)" tuition
 
 # собрать только нормативные документы (PDF)
 collect-docs: build
