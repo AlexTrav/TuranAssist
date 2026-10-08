@@ -88,10 +88,11 @@ class BotHandler:
 
     async def _on_command(self, chat_id: int, command: str, lang: str) -> None:
         if command == "start":
-            buttons = [[(name, f"lang:{code}") for code, name in texts.LANG_BUTTONS]]
-            await self.client.send_message(chat_id, texts.START[lang], buttons)
+            await self.client.send_message(chat_id, texts.START[lang])
         elif command == "lang":
-            buttons = [[(name, f"lang:{code}") for code, name in texts.LANG_BUTTONS]]
+            # по умолчанию бот отвечает на языке вопроса; язык можно и закрепить явно
+            buttons = [[(texts.AUTO_BUTTON[lang], "lang:auto")],
+                       [(name, f"lang:{code}") for code, name in texts.LANG_BUTTONS]]
             await self.client.send_message(chat_id, texts.CHOOSE_LANG[lang], buttons)
         elif command == "topics":
             await self.client.send_message(chat_id, texts.TOPICS[lang], self._topics_buttons(lang))
@@ -120,6 +121,10 @@ class BotHandler:
         if kind == "lang" and value in SUPPORTED_LANGS:
             self._remember(self.langs, chat_id, value)
             await self.client.send_message(chat_id, texts.LANG_SET[value])
+            return
+        if kind == "lang" and value == "auto":
+            self.langs.pop(chat_id, None)
+            await self.client.send_message(chat_id, texts.LANG_AUTO[self._ui_lang(chat_id, cq.get("from"))])
             return
         lang = self._ui_lang(chat_id, cq.get("from"))
         if kind == "topics":

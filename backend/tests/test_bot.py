@@ -40,10 +40,21 @@ def handle(bot, *updates):
     return bot.client.sent
 
 
-def test_start_uses_telegram_language_and_offers_language_buttons(bot):
+def test_start_uses_telegram_language_without_forcing_answer_language(bot):
     sent = handle(bot, message("/start", lang="kk"))
-    assert sent[-1]["text"] == texts.START["kk"]
-    assert [d for _, d in sent[-1]["buttons"][0]] == ["lang:ru", "lang:kk", "lang:en"]
+    assert sent[-1]["text"] == texts.START["kk"] and sent[-1]["buttons"] == []
+
+
+def test_lang_menu_offers_auto_and_three_languages(bot):
+    buttons = handle(bot, message("/lang"))[-1]["buttons"]
+    assert [d for row in buttons for _, d in row] == ["lang:auto", "lang:ru", "lang:kk", "lang:en"]
+
+
+def test_auto_language_returns_to_question_language(bot, knowledge):
+    handle(bot, callback("lang:ru"), callback("lang:auto"))
+    assert bot.client.sent[-1]["text"] == texts.LANG_AUTO["ru"]
+    text = handle(bot, message("Жатақхана бар ма?"))[-1]["text"]
+    assert text.startswith(knowledge.answer("dormitory", "kk"))
 
 
 def test_question_answer_has_source_link(bot, knowledge):
@@ -111,3 +122,9 @@ def test_webhook_checks_secret(client, bot, monkeypatch):
 def test_webhook_disabled_without_token(client, monkeypatch):
     monkeypatch.setattr(client.app.state, "bot", None)
     assert client.post("/telegram/webhook", json={}).status_code == 404
+
+
+def test_token_does_not_leak_into_logs(client):
+    # httpx логирует полный URL запроса, а в URL Bot API зашит токен – его логи должны быть выключены
+    import logging
+    assert logging.getLogger("httpx").getEffectiveLevel() >= logging.WARNING

@@ -1,4 +1,4 @@
-.PHONY: build run test stop bot-dev webhook clean
+.PHONY: build run test stop bot-dev bot-profile webhook clean
 
 IMAGE := turanassist-backend
 CONTAINER := turanassist-backend
@@ -22,6 +22,11 @@ test:
 # Telegram-бот локально (long polling, публичный адрес не нужен); токен – в backend/.env
 bot-dev: build
 	docker run --rm --env-file .env --memory=512m --name $(CONTAINER)-bot $(IMAGE) python -m app.bot.polling
+
+# оформить профиль бота: имя, описания, меню команд на ru/kk/en и аватар из docs/branding
+bot-profile: build
+	docker run --rm --env-file .env -v "$(CURDIR)/../docs/branding:/branding:ro" $(IMAGE) \
+		python -m app.bot.setup_profile /branding/telegram-avatar.jpg
 
 # зарегистрировать webhook и меню команд бота (после деплоя: PUBLIC_BASE_URL – адрес бэкенда на Render)
 webhook: build

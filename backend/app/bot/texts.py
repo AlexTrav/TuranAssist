@@ -2,15 +2,15 @@
 START = {
     "ru": "Здравствуйте! Я TuranAssist – помощник абитуриентов и студентов Университета «Туран».\n\n"
           "Задайте вопрос своими словами: о поступлении, стоимости, грантах, учёбе, общежитии или контактах. "
-          "Отвечаю на русском, казахском и английском.\n\n"
+          "Отвечаю на языке вопроса – русском, казахском или английском.\n\n"
           "/topics – темы, /lang – язык ответов, /help – справка.",
     "kk": "Сәлеметсіз бе! Мен TuranAssist – «Тұран» университетінің талапкерлері мен студенттеріне арналған көмекшімін.\n\n"
           "Сұрағыңызды өз сөзіңізбен қойыңыз: түсу, оқу ақысы, гранттар, оқу, жатақхана немесе байланыстар туралы. "
-          "Қазақ, орыс және ағылшын тілдерінде жауап беремін.\n\n"
+          "Сұрақ тілінде – қазақ, орыс немесе ағылшын тілінде жауап беремін.\n\n"
           "/topics – тақырыптар, /lang – жауап тілі, /help – анықтама.",
     "en": "Hello! I am TuranAssist, an assistant for applicants and students of Turan University.\n\n"
           "Ask your question in your own words: admission, tuition, grants, studies, dormitory or contacts. "
-          "I answer in Russian, Kazakh and English.\n\n"
+          "I answer in the language of your question – Kazakh, Russian or English.\n\n"
           "/topics – topics, /lang – answer language, /help – help.",
 }
 HELP = {
@@ -36,6 +36,10 @@ HELP = {
 CHOOSE_LANG = {"ru": "Выберите язык ответов:", "kk": "Жауап тілін таңдаңыз:", "en": "Choose the answer language:"}
 LANG_SET = {"ru": "Готово, отвечаю на русском.", "kk": "Дайын, қазақ тілінде жауап беремін.",
             "en": "Done, I will answer in English."}
+# режим по умолчанию: ответ на языке вопроса
+LANG_AUTO = {"ru": "Готово, отвечаю на языке вашего вопроса.", "kk": "Дайын, сұрағыңыздың тілінде жауап беремін.",
+             "en": "Done, I will answer in the language of your question."}
+AUTO_BUTTON = {"ru": "Как в вопросе", "kk": "Сұрақ тілінде", "en": "Same as question"}
 TOPICS = {"ru": "Выберите тему:", "kk": "Тақырыпты таңдаңыз:", "en": "Choose a topic:"}
 MORE = {"ru": "Подробнее", "kk": "Толығырақ", "en": "More"}
 BACK = {"ru": "« Темы", "kk": "« Тақырыптар", "en": "« Topics"}

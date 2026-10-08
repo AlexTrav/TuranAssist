@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import httpx
 
 API_URL = "https://api.telegram.org/bot{token}/{method}"
@@ -32,6 +35,16 @@ class TelegramClient:
 
     async def answer_callback(self, callback_id: str) -> None:
         await self.call("answerCallbackQuery", callback_query_id=callback_id)
+
+    # аватар бота: JPG загружается multipart-запросом, в параметре photo – ссылка на прикреплённый файл
+    async def set_profile_photo(self, path: Path) -> None:
+        resp = await self._http.post(
+            API_URL.format(token=self._token, method="setMyProfilePhoto"),
+            data={"photo": json.dumps({"type": "static", "photo": "attach://avatar"})},
+            files={"avatar": (path.name, path.read_bytes(), "image/jpeg")})
+        data = resp.json()
+        if not data.get("ok"):
+            raise TelegramError(f"setMyProfilePhoto: {data.get('error_code')} {data.get('description')}")
 
     async def close(self) -> None:
         await self._http.aclose()
