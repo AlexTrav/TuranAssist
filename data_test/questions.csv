@@ -1,0 +1,56 @@
+text,lang,kind,expect,program,check,note
+Как поступить в университет Туран?,ru,обычный,admission_steps,,yes,
+Какие документы нужны для поступления?,ru,обычный,admission_documents,,yes,
+Когда заканчивается приём документов?,ru,обычный,admission_deadlines,,yes,
+Можно ли поступить после колледжа без ЕНТ?,ru,обычный,college_graduates,,yes,
+Как поступить в магистратуру?,ru,обычный,master_admission,,yes,
+Что нужно для поступления в докторантуру PhD?,ru,обычный,phd_admission,,yes,
+Сколько стоит обучение в бакалавриате?,ru,обычный,tuition_bachelor,,yes,
+Сколько стоит магистратура?,ru,обычный,tuition_postgrad,,yes,
+Реквизиты для оплаты обучения,ru,обычный,payment_details,,yes,
+Как получить государственный грант?,ru,обычный,state_grant,,yes,
+Какие скидки по баллам ЕНТ?,ru,обычный,ent_discounts,,yes,
+Есть ли скидка для многодетных семей?,ru,обычный,other_discounts,,yes,
+Можно ли перейти с платного на грант?,ru,обычный,vacant_grant,,yes,
+Когда зимняя сессия?,ru,обычный,academic_calendar,,yes,
+Как пересдать экзамен если получил FX?,ru,обычный,retake_fx,,yes,
+Как взять академический отпуск?,ru,обычный,academic_leave,,yes,
+Как перевестись из другого вуза?,ru,обычный,transfer_restore,,yes,
+Есть ли общежитие?,ru,обычный,dormitory,,yes,
+Есть ли военная кафедра?,ru,обычный,military,,yes,
+Какие студенческие клубы есть?,ru,обычный,student_clubs,,yes,
+Где находится университет?,ru,обычный,location,,yes,
+Телефон приёмной комиссии,ru,обычный,contacts,,yes,
+Университет аккредитован?,ru,обычный,about_university,,yes,
+Какой проходной балл на грант?,ru,обычный,state_grant,,no,уверенность 0.75 – близко к порогу 0.577
+Сколько стоит учиться на юриста?,ru,цена программы,tuition_bachelor,jurisprudence,yes,
+Цена обучения на психологии в магистратуре,ru,цена программы,tuition_postgrad,psychology,yes,
+Сколько стоит ВТиПО?,ru,цена программы,tuition_bachelor,computer_engineering,yes,понят по сумме двух тем стоимости (0.51 + 0.21)
+How much is software engineering?,en,цена программы,tuition_bachelor,software_engineering,yes,
+Жатақхана бар ма?,kk,казахский,dormitory,,yes,
+Оқу ақысы қанша?,kk,казахский,tuition_bachelor,,yes,
+Магистратураға қалай түсуге болады?,kk,казахский,master_admission,,yes,
+Сессия қашан басталады?,kk,казахский,academic_calendar,,yes,
+Қабылдау комиссиясының телефоны,kk,казахский,contacts,,yes,
+Is there a dormitory?,en,английский,dormitory,,yes,
+How do I apply for a master's program?,en,английский,master_admission,,yes,
+What documents do I need to apply?,en,английский,admission_documents,,yes,
+When is the winter exam session?,en,английский,academic_calendar,,yes,
+Where is the university located?,en,английский,location,,yes,
+скока стоит учеба,ru,опечатки и сленг,tuition_bachelor,,yes,
+обшежитие есть?,ru,опечатки и сленг,dormitory,,yes,
+хочу на айти какие предметы сдавать,ru,опечатки и сленг,ent_subjects,,yes,
+Привет,ru,общение,greeting,,yes,
+Спасибо,ru,общение,thanks,,yes,
+Сколько будет 2+2?,ru,не по теме,ood,,yes,
+фывапролдж,ru,не по теме,ood,,yes,
+Где купить iPhone?,ru,не по теме,ood,,no,отклонён с уверенностью 0.51 – близко к порогу
+Расскажи анекдот,ru,не по теме,ood,,no,отклонён с уверенностью 0.53 – близко к порогу
+Какая погода завтра в Алматы?,ru,ограничение,ood,,no,сейчас уходит в «Академический календарь» (0.63) – слово «завтра» похоже на вопросы о датах
+Гранты,ru,ограничение,state_grant,,no,сейчас «не понял»: вероятность делится между тремя темами грантов (подсказки верные)
+Гранты в магистратуру,ru,ограничение,vacant_grant,,no,сейчас «не понял»: отдельной темы о грантах в магистратуру в базе нет
+Are there any grants?,en,ограничение,state_grant,,no,сейчас «не понял» (0.57 при пороге 0.577)
+ҰБТ бойынша жеңілдік бар ма?,kk,ограничение,ent_discounts,,no,сейчас «не понял» (0.41): мало казахских формулировок в обучении
+как поступит на бюджет,ru,ограничение,state_grant,,no,сейчас «не понял» (0.49): «бюджет» почти не встречается в обучающих фразах
+ВТиПО цена,ru,ограничение,tuition_bachelor,computer_engineering,no,сейчас «не понял»: вопрос из двух слов без «сколько стоит»
+skolko stoit obuchenie,ru,ограничение,tuition_bachelor,,no,сейчас «не понял»: транслит – самая слабая группа вопросов

@@ -34,6 +34,8 @@ COPY backend/requirements-dev.txt /app/backend/requirements-dev.txt
 RUN pip install --no-cache-dir -r requirements-dev.txt
 COPY backend/pytest.ini /app/backend/pytest.ini
 COPY backend/tests /app/backend/tests
+# вопросы для ручной проверки (data_test) – часть из них прогоняет автотест test_data_test.py
+COPY data_test /app/data_test
 CMD ["python", "-m", "pytest"]
 
 

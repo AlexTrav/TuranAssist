@@ -57,6 +57,7 @@ TuranAssist/
   backend/             – FastAPI: NLP-конвейер, REST API, Telegram-бот (webhook), метрики задержек
   frontend/            – Vue 3 + TypeScript + Tailwind CSS: чат, калькулятор, база знаний,
                          производительность, о проекте
+  data_test/           – тестовые вопросы и диалоги для ручной проверки бота (часть – в автотесте)
   docs/branding/       – логотип и аватар бота
   .github/workflows/   – CI (данные, тесты, сборка) и деплой фронтенда на GitHub Pages
   docker-compose.yml, Makefile, render.yaml – запуск всего стека и описание сервиса Render
@@ -89,7 +90,7 @@ Telegram-бот локально – `cd backend && make bot-dev` (токен в
   статику с адресом бэкенда на Render при каждом push, затрагивающем `frontend/`.
 - **Модель** – энкодер e5 (ONNX int8) на [Hugging Face](https://huggingface.co/AlexCode2003/turanassist-intent-e5),
   скачивается при сборке образа с фиксированного коммита и проверкой SHA-256.
-- **CI** – [ci.yml](.github/workflows/ci.yml): проверка базы ответов и наборов фраз, 104 теста pytest,
+- **CI** – [ci.yml](.github/workflows/ci.yml): проверка базы ответов и наборов фраз, 148 тестов pytest,
   23 теста Vitest, проверка типов и сборка – теми же `make`-командами и в тех же образах, что локально.
 
 ## Стек
