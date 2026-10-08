@@ -16,9 +16,9 @@ from .config import (CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, SUPPO
 from .knowledge import Knowledge
 from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier
-from .schemas import ChatRequest, ChatResponse, GroupInfo, IntentAnswer, IntentInfo, Suggestion
+from .schemas import ChatContext, ChatRequest, ChatResponse, GroupInfo, IntentAnswer, IntentInfo, Suggestion
 from .security.rate_limit import limiter
-from .security.validation import validated_text
+from .security.validation import validated_context, validated_text
 from .service import answer_question
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -101,13 +101,16 @@ def health() -> dict:
 @limiter.limit(CHAT_RATE_LIMIT)
 def chat(request: Request, body: ChatRequest) -> ChatResponse:
     text = validated_text(body)
+    context = validated_context(body)
     state = request.app.state
-    a = answer_question(state.classifier, state.knowledge, state.metrics, text, body.lang, channel="web")
+    a = answer_question(state.classifier, state.knowledge, state.metrics, text, body.lang, "web", context)
     return ChatResponse(
         recognized=a.recognized, intent=a.intent, title=a.title, confidence=round(a.confidence, 4),
         answer=a.text, source_url=a.source_url, lang=a.lang,
         suggestions=[Suggestion(intent=i, title=t, confidence=round(c, 4)) for i, t, c in a.suggestions],
-        timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()}, programs=a.programs)
+        timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()}, programs=a.programs,
+        context_used=a.context_used,
+        context=ChatContext(text=a.context.text, intent=a.context.intent) if a.context else None)
 
 
 # темы, на которые отвечает бот, по группам – для страницы «О проекте» и стартовых подсказок в чате

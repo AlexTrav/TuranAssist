@@ -1,6 +1,6 @@
 import { ref, watch } from 'vue'
 import { api, ApiError } from '../api/client'
-import type { AppLocale, Suggestion } from '../types'
+import type { AppLocale, ChatContext, Suggestion } from '../types'
 
 export interface ChatMessage {
   id: number
@@ -12,6 +12,7 @@ export interface ChatMessage {
   sourceUrl?: string | null
   suggestions?: Suggestion[]
   timingMs?: number
+  contextUsed?: boolean // ответ дан с учётом предыдущего вопроса
   error?: string // код ошибки API – текст подставляет интерфейс на текущем языке
 }
 
@@ -30,6 +31,8 @@ function load(): ChatMessage[] {
 // модульный singleton: история не теряется при переходах между страницами
 const messages = ref<ChatMessage[]>(load())
 const pending = ref(false)
+// тема последнего ответа для уточнений «а в магистратуре?» – только в памяти вкладки, не в localStorage
+let context: ChatContext | null = null
 let nextId = messages.value.reduce((max, m) => Math.max(max, m.id), 0) + 1
 
 watch(
@@ -60,7 +63,8 @@ export function useChat() {
     push({ role: 'user', text: question })
     pending.value = true
     try {
-      const res = await api.chat(question)
+      const res = await api.chat(question, context)
+      context = res.context ?? null
       push({
         role: 'bot',
         text: res.answer,
@@ -70,6 +74,7 @@ export function useChat() {
         sourceUrl: res.source_url,
         suggestions: res.suggestions,
         timingMs: res.timing_ms.total,
+        contextUsed: res.context_used,
       })
     } catch (err) {
       push({ role: 'bot', text: '', error: errorCode(err) })
@@ -85,6 +90,7 @@ export function useChat() {
     pending.value = true
     try {
       const res = await api.answer(suggestion.intent, lang)
+      context = { text: res.title, intent: res.intent } // после выбора темы можно уточнять: «а ВТиПО?»
       push({ role: 'bot', text: res.answer, recognized: true, title: res.title, sourceUrl: res.source_url })
     } catch (err) {
       push({ role: 'bot', text: '', error: errorCode(err) })
@@ -95,6 +101,7 @@ export function useChat() {
 
   function clear() {
     messages.value = []
+    context = null
   }
 
   return { messages, pending, send, choose, clear }

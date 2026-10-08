@@ -53,6 +53,7 @@ const messages: typeof ru = {
     more: 'More on turan.edu.kz',
     confidence: 'confidence {value}',
     timing: 'answered in {value} ms',
+    followUp: 'based on the previous question',
   },
   home: {
     badge: 'Final assignment · NLP chatbot',

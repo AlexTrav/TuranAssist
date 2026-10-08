@@ -7,6 +7,7 @@ from starlette.concurrency import run_in_threadpool
 from ..config import BOT_RATE_LIMIT_PER_MINUTE, MAX_TEXT_LENGTH, SUPPORTED_LANGS
 from ..knowledge import Knowledge
 from ..metrics.collector import MetricsCollector
+from ..nlp.context import Context
 from ..nlp.classifier import IntentClassifier
 from ..service import answer_question
 from . import texts
@@ -15,6 +16,7 @@ from .telegram_api import TelegramClient, TelegramError
 logger = logging.getLogger("turanassist.bot")
 
 MAX_CHATS = 10_000  # сколько чатов помнить (язык, лимит) – защита памяти от бесконечного роста
+CONTEXT_TTL_SEC = 600  # уточнение «а в магистратуре?» через 10 минут после вопроса – уже новый разговор
 
 
 # обработчик обновлений Telegram – общий для webhook (продакшн) и long polling (локальная разработка)
@@ -26,6 +28,8 @@ class BotHandler:
         self.langs: OrderedDict[int, str] = OrderedDict()
         self.recent: OrderedDict[int, deque] = OrderedDict()
         self.warned: set[int] = set()
+        # тема последнего ответа для уточнений: (контекст, время) – только в памяти, в лог не пишется
+        self.contexts: OrderedDict[int, tuple[Context, float]] = OrderedDict()
 
     @staticmethod
     def _remember(store: OrderedDict, key: int, value) -> None:
@@ -54,6 +58,16 @@ class BotHandler:
         self._remember(self.recent, chat_id, window)
         self.warned.discard(chat_id)
         return False
+
+    def _context(self, chat_id: int) -> Context | None:
+        context, at = self.contexts.get(chat_id, (None, 0.0))
+        return context if context and time.monotonic() - at <= CONTEXT_TTL_SEC else None
+
+    def _set_context(self, chat_id: int, context: Context | None) -> None:
+        if context:
+            self._remember(self.contexts, chat_id, (context, time.monotonic()))
+        else:
+            self.contexts.pop(chat_id, None)
 
     def _topics_buttons(self, lang: str) -> list[list[tuple[str, str]]]:
         return [[(g["title"][lang], f"group:{g['id']}")] for g in self.knowledge.groups if g["id"] != "service"]
@@ -107,7 +121,8 @@ class BotHandler:
             return
         # расчёт модели – в пуле потоков, чтобы не блокировать цикл событий
         a = await run_in_threadpool(answer_question, self.classifier, self.knowledge, self.metrics, text, pref,
-                                    "telegram")
+                                    "telegram", self._context(chat_id))
+        self._set_context(chat_id, a.context)
         if a.recognized:
             await self.client.send_message(chat_id, self._with_link(a.text, a.source_url, a.lang))
         else:
@@ -135,5 +150,7 @@ class BotHandler:
             group_title = next(g["title"][lang] for g in self.knowledge.groups if g["id"] == value)
             await self.client.send_message(chat_id, group_title, buttons)
         elif kind == "intent" and value in self.knowledge.intents:
+            # выбранная кнопкой тема – тоже контекст: после «Стоимость бакалавриата» можно спросить «а ВТиПО?»
+            self._set_context(chat_id, Context(self.knowledge.title(value, lang), value))
             answer = self._with_link(self.knowledge.answer(value, lang), self.knowledge.source_url(value, lang), lang)
             await self.client.send_message(chat_id, answer)

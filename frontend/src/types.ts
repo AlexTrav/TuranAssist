@@ -19,6 +19,14 @@ export interface ChatResponse {
   lang: AppLocale
   timing_ms: Record<string, number> // tfidf, e5, model, total
   programs?: string[] // образовательные программы, найденные в вопросе о стоимости
+  context_used?: boolean // вопрос понят как уточнение предыдущего («а в магистратуре?»)
+  context?: ChatContext | null // вернуть серверу со следующим вопросом
+}
+
+// тема последнего ответа: сервер ничего не хранит, клиент присылает её обратно
+export interface ChatContext {
+  text: string
+  intent: string
 }
 
 // ответ GET /api/answer/{intent}

@@ -82,6 +82,7 @@ const errorText = computed(() => {
         <template v-if="message.timingMs !== undefined">
           · {{ t('chat.timing', { value: formatNumber(message.timingMs, locale as AppLocale) }) }}
         </template>
+        <template v-if="message.contextUsed"> · {{ t('chat.followUp') }}</template>
       </p>
     </div>
   </div>

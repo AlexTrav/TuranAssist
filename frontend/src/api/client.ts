@@ -1,4 +1,4 @@
-import type { AppLocale, ChatResponse, GroupInfo, IntentAnswer, LiveMetrics, ModelInfo } from '../types'
+import type { AppLocale, ChatContext, ChatResponse, GroupInfo, IntentAnswer, LiveMetrics, ModelInfo } from '../types'
 
 // в Docker-сборке пусто (тот же домен, nginx проксирует /api), в dev и на GitHub Pages – адрес бэкенда
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
@@ -45,11 +45,11 @@ async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFA
 
 export const api = {
   // lang не передаём: бэкенд отвечает на языке вопроса, как и Telegram-бот
-  chat: (text: string) =>
+  chat: (text: string, context: ChatContext | null = null) =>
     request<ChatResponse>('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, context }),
     }),
   answer: (intent: string, lang: AppLocale) =>
     request<IntentAnswer>(`/api/answer/${encodeURIComponent(intent)}?lang=${lang}`),

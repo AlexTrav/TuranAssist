@@ -68,10 +68,12 @@ class Tuition:
             return None
         return tuition[0][0], mass
 
-    # ответ на вопрос о стоимости с конкретными программами или None, если программ в вопросе нет
-    def answer(self, intent: str, text: str, lang: str) -> tuple[str, list[str]] | None:
+    # ответ на вопрос о стоимости с конкретными программами или None, если программ в вопросе нет.
+    # context_text – вопрос вместе с предыдущим: в уточнении «а в магистратуре?» программа названа раньше,
+    # а в «а экономика?» побеждает новая программа из самой реплики
+    def answer(self, intent: str, text: str, lang: str, context_text: str = "") -> tuple[str, list[str]] | None:
         level = TUITION_INTENTS.get(intent)
-        programs = self.programs_in(text) if level else []
+        programs = (self.programs_in(text) or self.programs_in(context_text)) if level else []
         if not programs:
             return None
         blocks = [self.program_answer(p, level, lang) for p in programs]

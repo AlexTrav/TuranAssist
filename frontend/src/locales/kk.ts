@@ -53,6 +53,7 @@ const messages: typeof ru = {
     more: 'Толығырақ turan.edu.kz сайтында',
     confidence: 'сенімділік {value}',
     timing: 'жауап {value} мс',
+    followUp: 'алдыңғы сұрақты ескере отырып',
   },
   home: {
     badge: 'Аралық тапсырма · NLP чат-боты',

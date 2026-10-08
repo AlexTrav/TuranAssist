@@ -3,9 +3,16 @@ from pydantic import BaseModel
 
 # тело запроса без ограничений pydantic: длину и язык проверяем вручную внутри эндпоинта,
 # иначе невалидные запросы отклонялись бы до slowapi и не попадали в счётчик rate limit
+class ChatContext(BaseModel):
+    text: str
+    intent: str
+
+
 class ChatRequest(BaseModel):
     text: str
     lang: str | None = None  # язык ответа; не задан – определяется по тексту вопроса
+    # контекст из предыдущего ответа сервера – клиент возвращает его как есть; сервер ничего не хранит
+    context: ChatContext | None = None
 
 
 class Suggestion(BaseModel):
@@ -25,6 +32,8 @@ class ChatResponse(BaseModel):
     lang: str
     timing_ms: dict[str, float]
     programs: list[str] = []  # образовательные программы, извлечённые из вопроса о стоимости
+    context_used: bool = False  # вопрос понят как уточнение предыдущего
+    context: ChatContext | None = None  # прислать в следующем запросе; None – тема не продолжается
 
 
 class IntentInfo(BaseModel):

@@ -52,6 +52,7 @@ const messages = {
     more: 'Подробнее на turan.edu.kz',
     confidence: 'уверенность {value}',
     timing: 'ответ за {value} мс',
+    followUp: 'с учётом предыдущего вопроса',
   },
   home: {
     badge: 'Рубежное задание · Чат-бот с NLP',

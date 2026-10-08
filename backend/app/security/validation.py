@@ -1,6 +1,7 @@
 from fastapi import HTTPException
 
 from ..config import MAX_TEXT_LENGTH, SUPPORTED_LANGS
+from ..nlp.context import Context
 from ..schemas import ChatRequest
 
 
@@ -20,3 +21,13 @@ def validated_text(body: ChatRequest) -> str:
     if body.lang is not None and body.lang not in SUPPORTED_LANGS:
         raise _error("unsupported_lang", f"Язык должен быть одним из: {', '.join(SUPPORTED_LANGS)}")
     return text
+
+# контекст приходит от клиента: тот же лимит длины, что и у вопроса; пустой – как будто его нет.
+# незнакомый интент отбросит сервис – подделать можно только контекст собственного диалога
+def validated_context(body: ChatRequest) -> Context | None:
+    if body.context is None:
+        return None
+    text = " ".join(body.context.text.split())
+    if len(text) > MAX_TEXT_LENGTH:
+        raise _error("context_too_long", f"Контекст слишком длинный (максимум {MAX_TEXT_LENGTH} символов)")
+    return Context(text, body.context.intent) if text else None
