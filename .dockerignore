@@ -6,4 +6,4 @@ data/raw
 **/.venv
 **/node_modules
 frontend/dist
-model/reports
+model/.cache
