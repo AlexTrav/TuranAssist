@@ -43,3 +43,10 @@ CORS_ORIGINS = [
     "http://localhost:8080",
     "https://alextrav.github.io",
 ]
+
+# Telegram-бот: токен и секрет webhook – только из переменных окружения (локально .env, на Render – секреты);
+# без токена бот выключен, веб-API работает как обычно
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_WEBHOOK_SECRET = os.environ.get("TELEGRAM_WEBHOOK_SECRET", "")
+PUBLIC_BASE_URL = os.environ.get("PUBLIC_BASE_URL", "")  # адрес бэкенда для регистрации webhook
+BOT_RATE_LIMIT_PER_MINUTE = 20  # сообщений в минуту на один чат

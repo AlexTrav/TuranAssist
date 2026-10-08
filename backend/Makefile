@@ -1,4 +1,4 @@
-.PHONY: build run test stop clean
+.PHONY: build run test stop bot-dev webhook clean
 
 IMAGE := turanassist-backend
 CONTAINER := turanassist-backend
@@ -18,6 +18,14 @@ run: build
 test:
 	docker build -f Dockerfile --target test -t $(IMAGE)-test ..
 	docker run --rm $(IMAGE)-test
+
+# Telegram-бот локально (long polling, публичный адрес не нужен); токен – в backend/.env
+bot-dev: build
+	docker run --rm --env-file .env --memory=512m --name $(CONTAINER)-bot $(IMAGE) python -m app.bot.polling
+
+# зарегистрировать webhook и меню команд бота (после деплоя: PUBLIC_BASE_URL – адрес бэкенда на Render)
+webhook: build
+	docker run --rm --env-file .env $(IMAGE) python -m app.bot.setup_webhook
 
 # остановить запущенный контейнер
 stop:

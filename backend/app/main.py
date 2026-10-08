@@ -1,6 +1,5 @@
 import json
 import logging
-import time
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -9,14 +8,18 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 from starlette.responses import JSONResponse
 
-from .config import CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, SUGGESTIONS_COUNT
-from .knowledge import FALLBACK, Knowledge
+from .bot.handlers import BotHandler
+from .bot.telegram_api import TelegramClient
+from .bot.webhook import router as telegram_router
+from .config import (CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, TELEGRAM_BOT_TOKEN,
+                     TELEGRAM_WEBHOOK_SECRET)
+from .knowledge import Knowledge
 from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier
-from .nlp.language import detect_language
 from .schemas import ChatRequest, ChatResponse, GroupInfo, IntentInfo, Suggestion
 from .security.rate_limit import limiter
 from .security.validation import validated_text
+from .service import answer_question
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("turanassist")
@@ -52,7 +55,15 @@ async def lifespan(app: FastAPI):
     app.state.model_summary = model_summary(classifier)
     logger.info("модель %s загружена за %.1f с, прогрев %.0f мс", classifier.name,
                 classifier.load_seconds, classifier.warmup_ms)
+
+    # Telegram-бот включается, только если задан токен; без него веб-API работает как обычно
+    client = TelegramClient(TELEGRAM_BOT_TOKEN) if TELEGRAM_BOT_TOKEN else None
+    app.state.bot = BotHandler(client, classifier, knowledge, metrics) if client else None
+    app.state.telegram_secret = TELEGRAM_WEBHOOK_SECRET
+    logger.info("Telegram-бот: %s", "включён (webhook)" if client else "выключен – нет TELEGRAM_BOT_TOKEN")
     yield
+    if client:
+        await client.close()
 
 
 app = FastAPI(title="TuranAssist API", lifespan=lifespan)
@@ -64,6 +75,8 @@ app.add_middleware(CORSMiddleware, allow_origins=CORS_ORIGINS, allow_methods=["G
 # ограничение частоты запросов по IP – защита модели на 0,1 CPU от перегрузки
 app.state.limiter = limiter
 app.add_middleware(SlowAPIMiddleware)
+
+app.include_router(telegram_router)
 
 
 @app.exception_handler(RateLimitExceeded)
@@ -85,29 +98,14 @@ def health() -> dict:
 @app.post("/api/chat", response_model=ChatResponse)
 @limiter.limit(CHAT_RATE_LIMIT)
 def chat(request: Request, body: ChatRequest) -> ChatResponse:
-    start = time.perf_counter()
     text = validated_text(body)
-    lang = body.lang or detect_language(text)
     state = request.app.state
-    pred = state.classifier.predict(text)
-    kb = state.knowledge
-
-    if pred.recognized:
-        intent, answer = pred.intent, kb.answer(pred.intent, lang)
-        title, source_url, suggestions = kb.title(intent, lang), kb.source_url(intent, lang), []
-    else:
-        intent, title, source_url, answer = None, None, None, FALLBACK[lang]
-        suggestions = [Suggestion(intent=i, title=kb.title(i, lang), confidence=round(c, 4))
-                       for i, c in pred.top[:SUGGESTIONS_COUNT]]
-
-    total_ms = (time.perf_counter() - start) * 1000
-    state.metrics.record(total_ms, pred.timing_ms, pred.recognized)
-    # текст вопроса в лог не пишем: в нём могут быть персональные данные пользователя
-    logger.info("chat: lang=%s intent=%s conf=%.3f recognized=%s total=%.1fms", lang, pred.intent,
-                pred.confidence, pred.recognized, total_ms)
-    return ChatResponse(recognized=pred.recognized, intent=intent, title=title, confidence=round(pred.confidence, 4),
-                        answer=answer, source_url=source_url, suggestions=suggestions, lang=lang,
-                        timing_ms={**{k: round(v, 2) for k, v in pred.timing_ms.items()}, "total": round(total_ms, 2)})
+    a = answer_question(state.classifier, state.knowledge, state.metrics, text, body.lang, channel="web")
+    return ChatResponse(
+        recognized=a.recognized, intent=a.intent, title=a.title, confidence=round(a.confidence, 4),
+        answer=a.text, source_url=a.source_url, lang=a.lang,
+        suggestions=[Suggestion(intent=i, title=t, confidence=round(c, 4)) for i, t, c in a.suggestions],
+        timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()})
 
 
 # темы, на которые отвечает бот, по группам – для страницы «О проекте» и стартовых подсказок в чате
