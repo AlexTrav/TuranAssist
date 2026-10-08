@@ -19,6 +19,8 @@ class Prediction:
     recognized: bool  # уверенность не ниже порога – можно отвечать из базы
     top: list[tuple[str, float]]  # интенты по убыванию вероятности – для подсказок «возможно, вы имели в виду»
     timing_ms: dict = field(default_factory=dict)
+    # те же интенты с вероятностями каждой модели ансамбля: (интент, e5, TF-IDF) – для панели «Как бот понял»
+    components: list[tuple[str, float, float]] = field(default_factory=list)
 
 
 def _softmax(logits: np.ndarray) -> np.ndarray:
@@ -81,4 +83,5 @@ class IntentClassifier:
             recognized=bool(proba[best] >= self.threshold),
             top=[(self.intents[i], float(proba[i])) for i in order[:5]],
             timing_ms={"tfidf": (t1 - t0) * 1000, "e5": (t2 - t1) * 1000, "model": (t2 - t0) * 1000},
+            components=[(self.intents[i], float(p_e5[i]), float(p_tfidf[i])) for i in order[:5]],
         )

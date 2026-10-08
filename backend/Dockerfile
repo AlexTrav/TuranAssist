@@ -15,6 +15,8 @@ RUN python -m app.nlp.model_files
 
 COPY data/knowledge data/knowledge
 COPY data/corpus/manifest.json data/corpus/manifest.json
+# фразы тестового набора – для нагрузочного теста по кнопке (задержка, а не точность)
+COPY data/phrases/test data/phrases/test
 COPY model/artifacts/production model/artifacts/production
 COPY model/artifacts/baseline/model.joblib model/artifacts/baseline/model.joblib
 COPY model/reports/ensemble/metrics.json model/reports/ensemble/metrics.json

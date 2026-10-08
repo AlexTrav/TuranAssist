@@ -78,3 +78,20 @@ class Tuition:
             return None
         blocks = [self.program_answer(p, level, lang) for p in programs]
         return "\n\n".join(blocks + [TEXTS["footer"][lang]]), programs
+
+    # те же цены структурой – веб-чат рисует их таблицей, а не текстом
+    def cards(self, intent: str, programs: list[str], lang: str) -> list[dict]:
+        level = TUITION_INTENTS.get(intent)
+        if not level:
+            return []
+        return [{"program": p, "name": self.names[p][lang],
+                 "rows": [{"plan": r["plan"], "label": self.plans[r["plan"]]["label"][lang],
+                           "main": r["main"], "english": r.get("english")} for r in self.rows(p, level)]}
+                for p in programs]
+
+    # полный справочник для калькулятора стоимости: программы, формы обучения и цены на всех языках
+    def catalog(self) -> dict:
+        return {
+            "plans": list(self.plans.values()),
+            "programs": [{"id": pid, "name": self.names[pid], "prices": self.prices[pid]} for pid in self.names],
+        }

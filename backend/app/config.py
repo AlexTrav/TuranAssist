@@ -38,6 +38,16 @@ MAX_TEXT_LENGTH = 500  # вопрос длиннее – почти наверн
 SUPPORTED_LANGS = ("ru", "kk", "en")
 SUGGESTIONS_COUNT = 3
 LATENCY_WINDOW = 1000  # сколько последних запросов учитывать в p50/p95/p99
+# цель по задержке (SLA) для чата: на 0,1 CPU бесплатного Render ответ модели – десятки миллисекунд
+SLA_TARGET_MS = 100
+# границы корзин гистограммы задержек, мс (последняя корзина – всё, что дольше)
+HISTOGRAM_BUCKETS_MS = (5, 10, 15, 20, 30, 50, 75, 100, 150, 250, 500)
+
+# нагрузочный тест по кнопке: модель прогоняет фразы тестового набора подряд, вне живых метрик
+BENCHMARK_PHRASES_DIR = ROOT / "data" / "phrases" / "test"
+BENCHMARK_SIZE = 100
+BENCHMARK_RATE_LIMIT = "2/minute"
+FEEDBACK_RATE_LIMIT = "30/minute"
 
 CHAT_RATE_LIMIT = "30/minute"
 CORS_ORIGINS = [

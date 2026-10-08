@@ -34,6 +34,8 @@ class ChatResponse(BaseModel):
     programs: list[str] = []  # образовательные программы, извлечённые из вопроса о стоимости
     context_used: bool = False  # вопрос понят как уточнение предыдущего
     context: ChatContext | None = None  # прислать в следующем запросе; None – тема не продолжается
+    prices: list[dict] = []  # цены найденных программ по формам обучения – таблица в веб-чате
+    explain: dict | None = None  # разбор вопроса по ступеням конвейера – панель «Как бот понял»
 
 
 class IntentInfo(BaseModel):
@@ -54,3 +56,16 @@ class IntentAnswer(BaseModel):
     answer: str
     source_url: str | None
     lang: str
+
+
+class FeedbackRequest(BaseModel):
+    intent: str | None = None  # тема оценённого ответа (None – ответ «не понял»)
+    useful: bool
+
+
+class KnowledgeItem(BaseModel):
+    id: str
+    group: str
+    title: str
+    answer: str
+    source_url: str | None

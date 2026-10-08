@@ -28,6 +28,11 @@ class Answer:
     programs: list[str] = field(default_factory=list)  # программы, найденные в вопросе о стоимости
     context_used: bool = False  # вопрос понят как уточнение предыдущего
     context: Context | None = None  # контекст для следующего вопроса: клиент присылает его обратно
+    prices: list[dict] = field(default_factory=list)  # цены найденных программ структурой – для таблицы в веб-чате
+    # для панели «Как бот понял»: итоговое предсказание, классифицированный текст и сработавшее правило
+    prediction: Prediction | None = None
+    classified_text: str = ""
+    rule: str = "fallback"
 
 
 # общая логика веб-чата и Telegram-бота: вопрос -> интент -> ответ из базы или «не понял» с подсказками
@@ -38,11 +43,11 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
 
     # решение по одному варианту вопроса: порог модели, а для вопроса с программой – сумма двух
     # интентов стоимости (см. Tuition.resolve_intent)
-    def decide(p: Prediction, question: str) -> tuple[str, float, bool]:
+    def decide(p: Prediction, question: str) -> tuple[str, float, bool, str]:
         if p.recognized:
-            return p.intent, p.confidence, True
+            return p.intent, p.confidence, True, "model"
         resolved = knowledge.tuition.resolve_intent(question, p.top, classifier.threshold)
-        return (*resolved, True) if resolved else (p.intent, p.confidence, False)
+        return (*resolved, True, "tuition_sum") if resolved else (p.intent, p.confidence, False, "fallback")
 
     pred = classifier.predict(text)
     timing = dict(pred.timing_ms)
@@ -60,7 +65,7 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
     # а в «ал магистратурада?» нет казахских букв
     lang = lang or detect_language(f"{context.text} {text}" if follow_up else text)
 
-    intent, confidence, recognized = decision
+    intent, confidence, recognized, rule = decision
     if recognized:
         answer = Answer(True, intent, knowledge.title(intent, lang), confidence,
                         knowledge.answer(intent, lang), knowledge.source_url(intent, lang), lang)
@@ -69,12 +74,14 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
         specific = knowledge.tuition.answer(intent, text, lang, context_text=used_text)
         if specific:
             answer.text, answer.programs = specific
+            answer.prices = knowledge.tuition.cards(intent, answer.programs, lang)
         if knowledge.intents[intent].group not in NO_CONTEXT_GROUPS:
             answer.context = Context(used_text[-MAX_TEXT_LENGTH:], intent)
     else:
         suggestions = [(i, knowledge.title(i, lang), c) for i, c in pred.top[:SUGGESTIONS_COUNT]]
         answer = Answer(False, None, None, confidence, FALLBACK[lang], None, lang, suggestions)
     answer.context_used = context_used
+    answer.prediction, answer.classified_text, answer.rule = pred, used_text, rule
     total_ms = (time.perf_counter() - start) * 1000
     answer.timing_ms = {**timing, "total": total_ms}
     metrics.record(total_ms, timing, recognized)

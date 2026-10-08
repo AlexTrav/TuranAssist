@@ -14,6 +14,10 @@ class XlmrTokenizer:
         self.sp = spm.SentencePieceProcessor(model_file=str(model_path))
         self.max_length = max_length
 
+    # подслова SentencePiece – так трансформер «видит» вопрос (показываются в панели «Как бот понял»)
+    def pieces(self, text: str) -> list[str]:
+        return self.sp.encode(text, out_type=str)
+
     def encode(self, text: str) -> list[int]:
         # id 0 у SentencePiece – неизвестный символ, у fairseq ему соответствует <unk> = 3
         pieces = [p + self.OFFSET if p else self.UNK for p in self.sp.encode(text, out_type=int)]

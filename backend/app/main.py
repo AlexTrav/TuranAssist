@@ -11,12 +11,15 @@ from starlette.responses import JSONResponse
 from .bot.handlers import BotHandler
 from .bot.telegram_api import TelegramClient
 from .bot.webhook import router as telegram_router
-from .config import (CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, SUPPORTED_LANGS, TELEGRAM_BOT_TOKEN,
-                     TELEGRAM_WEBHOOK_SECRET)
+from .config import (BENCHMARK_RATE_LIMIT, CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, FEEDBACK_RATE_LIMIT,
+                     SUPPORTED_LANGS, TELEGRAM_BOT_TOKEN, TELEGRAM_WEBHOOK_SECRET)
 from .knowledge import Knowledge
+from .metrics.benchmark import Benchmark
 from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier
-from .schemas import ChatContext, ChatRequest, ChatResponse, GroupInfo, IntentAnswer, IntentInfo, Suggestion
+from .nlp.explain import explain
+from .schemas import (ChatContext, ChatRequest, ChatResponse, FeedbackRequest, GroupInfo, IntentAnswer, IntentInfo,
+                      KnowledgeItem, Suggestion)
 from .security.rate_limit import limiter
 from .security.validation import validated_context, validated_text
 from .service import answer_question
@@ -55,6 +58,7 @@ async def lifespan(app: FastAPI):
     metrics.model_load_seconds, metrics.warmup_ms = classifier.load_seconds, classifier.warmup_ms
     app.state.metrics, app.state.knowledge, app.state.classifier = metrics, knowledge, classifier
     app.state.model_summary = model_summary(classifier)
+    app.state.benchmark = Benchmark(classifier)
     logger.info("модель %s загружена за %.1f с, прогрев %.0f мс", classifier.name,
                 classifier.load_seconds, classifier.warmup_ms)
 
@@ -110,7 +114,10 @@ def chat(request: Request, body: ChatRequest) -> ChatResponse:
         suggestions=[Suggestion(intent=i, title=t, confidence=round(c, 4)) for i, t, c in a.suggestions],
         timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()}, programs=a.programs,
         context_used=a.context_used,
-        context=ChatContext(text=a.context.text, intent=a.context.intent) if a.context else None)
+        context=ChatContext(text=a.context.text, intent=a.context.intent) if a.context else None,
+        prices=a.prices,
+        explain=explain(state.classifier, a.prediction, text, a.classified_text, a.lang, a.rule, a.programs,
+                        a.context_used))
 
 
 # темы, на которые отвечает бот, по группам – для страницы «О проекте» и стартовых подсказок в чате
@@ -123,15 +130,53 @@ def intents(request: Request) -> list[GroupInfo]:
             for g in kb.groups]
 
 
+def check_lang(lang: str) -> None:
+    if lang not in SUPPORTED_LANGS:
+        raise HTTPException(status_code=400, detail={"code": "unsupported_lang",
+                                                     "message": f"Язык должен быть одним из: {', '.join(SUPPORTED_LANGS)}"})
+
+
+# вся база ответов на одном языке – для страницы «База знаний» с поиском по темам и ответам
+@app.get("/api/knowledge", response_model=list[KnowledgeItem])
+def knowledge_items(request: Request, lang: str = "ru") -> list[KnowledgeItem]:
+    check_lang(lang)
+    kb = request.app.state.knowledge
+    return [KnowledgeItem(id=i.id, group=i.group, title=kb.title(i.id, lang), answer=kb.answer(i.id, lang),
+                          source_url=kb.source_url(i.id, lang)) for i in kb.intents.values()]
+
+
+# справочник цен для калькулятора стоимости: программы, формы обучения, цены (из страницы сайта)
+@app.get("/api/tuition")
+def tuition(request: Request) -> dict:
+    return request.app.state.knowledge.tuition.catalog()
+
+
+# оценка ответа 👍/👎 из веб-чата: только счётчики, текст вопроса не передаётся и не хранится
+@app.post("/api/feedback")
+@limiter.limit(FEEDBACK_RATE_LIMIT)
+def feedback(request: Request, body: FeedbackRequest) -> dict:
+    request.app.state.metrics.record_feedback(body.useful)
+    return {"status": "ok"}
+
+
+# нагрузочный тест по кнопке: 100 фраз тестового набора подряд через модель; не чаще 2 раз в минуту с IP
+# и не больше одного теста одновременно – сервер на 0,1 CPU
+@app.post("/api/benchmark")
+@limiter.limit(BENCHMARK_RATE_LIMIT)
+def benchmark(request: Request) -> dict:
+    result = request.app.state.benchmark.run()
+    if result is None:
+        raise HTTPException(status_code=409, detail={"code": "benchmark_busy", "message": "Тест уже идёт"})
+    return result
+
+
 # ответ по конкретной теме – для кнопок-подсказок «возможно, вы имели в виду» в веб-чате
 @app.get("/api/answer/{intent}", response_model=IntentAnswer)
 def intent_answer(request: Request, intent: str, lang: str = "ru") -> IntentAnswer:
     kb = request.app.state.knowledge
     if intent not in kb.intents:
         raise HTTPException(status_code=404, detail={"code": "unknown_intent", "message": "Такой темы нет"})
-    if lang not in SUPPORTED_LANGS:
-        raise HTTPException(status_code=400, detail={"code": "unsupported_lang",
-                                                     "message": f"Язык должен быть одним из: {', '.join(SUPPORTED_LANGS)}"})
+    check_lang(lang)
     return IntentAnswer(intent=intent, title=kb.title(intent, lang), answer=kb.answer(intent, lang),
                         source_url=kb.source_url(intent, lang), lang=lang)
 
