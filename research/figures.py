@@ -305,7 +305,7 @@ def fig_context():
     ax.set_ylabel("Доля верных ответов")
     ax.grid(axis="x", visible=False)
     ax.legend(loc="upper left", fontsize=10.5)
-    save(fig, 9, "Сравнение правил учёта контекста диалога")
+    save(fig, 11, "Сравнение правил учёта контекста диалога")
 
 
 for fn in (fig_architecture, fig_data, fig_baseline, fig_models, fig_styles, fig_threshold, fig_confidence,
