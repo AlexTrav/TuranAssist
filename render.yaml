@@ -1,0 +1,20 @@
+# бэкенд на Render (Blueprint): Render -> New -> Blueprint -> репозиторий AlexTrav/TuranAssist.
+# фронтенд сюда не входит – он на GitHub Pages (.github/workflows/deploy-pages.yml)
+services:
+  - type: web
+    name: turanassist-backend
+    runtime: docker
+    plan: free  # 512 МБ, 0,1 CPU, засыпает после 15 минут без запросов
+    region: frankfurt
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # секреты задаются в панели Render при создании (sync: false) – в репозитории их нет
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_WEBHOOK_SECRET
+        sync: false
+      - key: PUBLIC_BASE_URL
+        value: https://turanassist-backend.onrender.com

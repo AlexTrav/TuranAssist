@@ -1,0 +1,35 @@
+# все проверки при каждом push и pull request – теми же командами make и в тех же Docker-образах, что локально
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # база ответов, справочник программ, актуальность tuition.yaml, наборы фраз и их пересечения
+  data-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check knowledge base and phrase sets
+        run: make -C data check
+
+  # pytest в образе бэкенда; при сборке скачиваются энкодер e5 и токенизатор с Hugging Face (SHA-256 проверяется)
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run backend tests
+        run: make -C backend test
+
+  # Vitest, затем проверка типов (vue-tsc) и production-сборка Vite в образе nginx
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run frontend tests
+        run: make -C frontend test
+      - name: Type-check and build
+        run: make -C frontend build

@@ -1,0 +1,28 @@
+# весь сервис одной командой: docker compose up --build (или make up) -> http://localhost:8080
+services:
+  # FastAPI: ансамбль e5 + TF-IDF, база ответов, метрики; ограничения – как на бесплатном Render
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: app
+    ports:
+      - "8000:8000"
+    mem_limit: 512m
+    cpus: 0.5
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Vue-фронтенд: статика через nginx, /api проксируется на backend внутри docker-сети
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy

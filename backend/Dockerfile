@@ -33,3 +33,7 @@ RUN pip install --no-cache-dir -r requirements-dev.txt
 COPY backend/pytest.ini /app/backend/pytest.ini
 COPY backend/tests /app/backend/tests
 CMD ["python", "-m", "pytest"]
+
+
+# последняя стадия – продакшн: Render и docker build без --target собирают именно её
+FROM app AS production
