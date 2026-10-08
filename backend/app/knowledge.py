@@ -5,6 +5,7 @@ from pathlib import Path
 import yaml
 
 from .config import KNOWLEDGE_DIR, MANIFEST_PATH
+from .tuition import Tuition
 
 # ответ, когда уверенность модели ниже порога: честно говорим «не понял» и предлагаем темы
 FALLBACK = {
@@ -42,6 +43,7 @@ class Knowledge:
                     sources=item.get("sources", []))
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         self._urls = {(r["id"], r["locale"]): r["url"] for r in manifest if "file" in r}
+        self.tuition = Tuition()
 
     def title(self, intent: str, lang: str) -> str:
         return self.intents[intent].title[lang]

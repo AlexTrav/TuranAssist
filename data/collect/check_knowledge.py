@@ -4,6 +4,8 @@ import sys
 import yaml
 
 from .config import CORPUS_DIR, DATA_DIR
+from .tuition import PROGRAMS_PATH, TUITION_PATH
+from .tuition import render as render_tuition
 
 KNOWLEDGE_DIR = DATA_DIR / "knowledge"
 LOCALES = ("ru", "kk", "en")
@@ -48,6 +50,28 @@ def check() -> list[str]:
                 if source not in known_sources:
                     errors.append(f"{iid}: источник {source} не найден в корпусе")
     print(f"групп: {len(groups)}, интентов: {len(seen)}")
+    return errors + check_programs()
+
+
+# справочник программ для цены по программе и сгенерированная из сайта таблица цен
+def check_programs() -> list[str]:
+    errors: list[str] = []
+    raw = PROGRAMS_PATH.read_text(encoding="utf-8")
+    if EM_DASH in raw:
+        errors.append("programs.yaml: длинное тире")
+    programs = yaml.safe_load(raw)["programs"]
+    ids = [p["id"] for p in programs]
+    errors += [f"программа {pid}: повторяющийся id" for pid in {i for i in ids if ids.count(i) > 1}]
+    for p in programs:
+        if set(p["name"]) != set(LOCALES) or not all(isinstance(v, str) and v for v in p["name"].values()):
+            errors.append(f"программа {p['id']}: название не на всех языках")
+        if not p.get("aliases"):
+            errors.append(f"программа {p['id']}: нет псевдонимов")
+    expected, problems = render_tuition()
+    errors += problems
+    if not TUITION_PATH.exists() or TUITION_PATH.read_text(encoding="utf-8") != expected:
+        errors.append("tuition.yaml устарел – запустить make tuition")
+    print(f"программ: {len(programs)}")
     return errors
 
 

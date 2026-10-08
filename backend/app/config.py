@@ -6,6 +6,9 @@ ROOT = Path(os.environ.get("APP_ROOT", Path(__file__).resolve().parents[2]))
 
 KNOWLEDGE_DIR = ROOT / "data" / "knowledge"
 MANIFEST_PATH = ROOT / "data" / "corpus" / "manifest.json"
+# справочник программ и цены по ним (генерируются из страницы сайта) – для ответа «Сколько стоит ВТиПО?»
+PROGRAMS_PATH = KNOWLEDGE_DIR / "programs.yaml"
+TUITION_PATH = KNOWLEDGE_DIR / "tuition.yaml"
 PRODUCTION_INFO_PATH = ROOT / "model" / "artifacts" / "production" / "model_info.json"
 ENSEMBLE_METRICS_PATH = ROOT / "model" / "reports" / "ensemble" / "metrics.json"
 

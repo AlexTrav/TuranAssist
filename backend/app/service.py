@@ -22,6 +22,7 @@ class Answer:
     lang: str
     suggestions: list[tuple[str, str, float]] = field(default_factory=list)  # (интент, название, уверенность)
     timing_ms: dict = field(default_factory=dict)
+    programs: list[str] = field(default_factory=list)  # программы, найденные в вопросе о стоимости
 
 
 # общая логика веб-чата и Telegram-бота: вопрос -> интент -> ответ из базы или «не понял» с подсказками
@@ -30,16 +31,25 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
     start = time.perf_counter()
     lang = lang or detect_language(text)
     pred = classifier.predict(text)
-    if pred.recognized:
-        answer = Answer(True, pred.intent, knowledge.title(pred.intent, lang), pred.confidence,
-                        knowledge.answer(pred.intent, lang), knowledge.source_url(pred.intent, lang), lang)
+    intent, confidence, recognized = pred.intent, pred.confidence, pred.recognized
+    if not recognized:
+        resolved = knowledge.tuition.resolve_intent(text, pred.top, classifier.threshold)
+        if resolved:
+            (intent, confidence), recognized = resolved, True
+    if recognized:
+        answer = Answer(True, intent, knowledge.title(intent, lang), confidence,
+                        knowledge.answer(intent, lang), knowledge.source_url(intent, lang), lang)
+        # вопрос о стоимости с названием программы («Сколько стоит ВТиПО?») – цена именно этой программы
+        specific = knowledge.tuition.answer(intent, text, lang)
+        if specific:
+            answer.text, answer.programs = specific
     else:
         suggestions = [(i, knowledge.title(i, lang), c) for i, c in pred.top[:SUGGESTIONS_COUNT]]
-        answer = Answer(False, None, None, pred.confidence, FALLBACK[lang], None, lang, suggestions)
+        answer = Answer(False, None, None, confidence, FALLBACK[lang], None, lang, suggestions)
     total_ms = (time.perf_counter() - start) * 1000
     answer.timing_ms = {**pred.timing_ms, "total": total_ms}
-    metrics.record(total_ms, pred.timing_ms, pred.recognized)
+    metrics.record(total_ms, pred.timing_ms, recognized)
     # текст вопроса в лог не пишем: в нём могут быть персональные данные пользователя
-    logger.info("%s: lang=%s intent=%s conf=%.3f recognized=%s total=%.1fms", channel, lang, pred.intent,
-                pred.confidence, pred.recognized, total_ms)
+    logger.info("%s: lang=%s intent=%s programs=%s conf=%.3f recognized=%s total=%.1fms", channel, lang,
+                intent, ",".join(answer.programs) or "-", confidence, recognized, total_ms)
     return answer

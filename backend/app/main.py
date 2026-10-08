@@ -107,7 +107,7 @@ def chat(request: Request, body: ChatRequest) -> ChatResponse:
         recognized=a.recognized, intent=a.intent, title=a.title, confidence=round(a.confidence, 4),
         answer=a.text, source_url=a.source_url, lang=a.lang,
         suggestions=[Suggestion(intent=i, title=t, confidence=round(c, 4)) for i, t, c in a.suggestions],
-        timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()})
+        timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()}, programs=a.programs)
 
 
 # темы, на которые отвечает бот, по группам – для страницы «О проекте» и стартовых подсказок в чате

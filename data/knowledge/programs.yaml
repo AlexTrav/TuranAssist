@@ -1,0 +1,145 @@
+# образовательные программы для извлечения из вопроса: «Сколько стоит ВТиПО?» -> цена именно этой программы.
+# name.ru – название строки в таблице на странице «Стоимость обучения» (по нему ищется цена),
+# table_names – другие написания той же программы в таблице (например, в магистратуре).
+# aliases – основы слов: слово из 4+ букв совпадает по началу («психолог» -> «психологии»),
+# короткое (до 3 букв: «ис», «рэт», «pr») – только целиком; несколько слов идут подряд.
+# при пересечении побеждает самое длинное совпадение: «международное право» – не «право».
+programs:
+  - id: translation
+    name: {ru: Переводческое дело, kk: Аударма ісі, en: Translation studies}
+    aliases: [переводческ, переводчик, аударма, аудармашы, translat, interpret]
+
+  - id: international_relations
+    name: {ru: Международные отношения, kk: Халықаралық қатынастар, en: International relations}
+    aliases: [международн отношен, международник, халықаралық қатынас, international relat]
+
+  - id: regional_studies
+    name: {ru: Регионоведение, kk: Аймақтану, en: Regional studies}
+    aliases: [регионовед, аймақтан, regional stud]
+
+  - id: psychology
+    name: {ru: Психология, kk: Психология, en: Psychology}
+    aliases: [психолог, psycholog]
+
+  - id: clinical_psychology
+    name: {ru: Клиническая психология, kk: Клиникалық психология, en: Clinical psychology}
+    aliases: [клиническ психолог, клиникалық психолог, clinical psycholog]
+
+  - id: journalism
+    name: {ru: Журналистика, kk: Журналистика, en: Journalism}
+    aliases: [журналист, journalis]
+
+  - id: public_relations
+    name: {ru: Связь с общественностью, kk: Қоғаммен байланыс, en: Public relations}
+    aliases: [связ с общественн, пиар, pr, қоғаммен байланыс, public relat]
+
+  - id: jurisprudence
+    name: {ru: Юриспруденция, kk: Құқықтану, en: Jurisprudence}
+    aliases: [юриспруденц, юрист, юридическ, правовед, құқықтану, заңгер, jurisprudence, law, lawyer]
+
+  - id: legal_business
+    name: {ru: Правовое сопровождение бизнеса, kk: Бизнесті құқықтық сүйемелдеу, en: Legal support of business}
+    aliases: [правов сопровожд, корпоративн юрист, бизнесті құқықтық, корпоративтік заңгер, legal support,
+              corporate lawyer]
+
+  - id: international_law
+    name: {ru: Международное право, kk: Халықаралық құқық, en: International law}
+    aliases: [международн прав, халықаралық құқық, international law]
+
+  - id: restaurant_business
+    name: {ru: Ресторанное дело и гостиничный бизнес, kk: Мейрамхана ісі және мейманхана бизнесі,
+           en: Restaurant business and hospitality}
+    aliases: [ресторан, гостинич, отельн, мейрамхана, мейманхана, restaurant, hotel]
+
+  - id: tourism_innovation
+    name: {ru: Менеджмент инноваций туризма и гостеприимства, kk: Туризм мен қонақжайлық инновациялық басқару,
+           en: Innovative management of tourism and hospitality}
+    aliases: [менеджмент инновац туризм, инновац туризм, туризм мен қонақжай, innovative management of tourism,
+              innovative management, innovation management]
+
+  - id: tourism
+    name: {ru: Туризм, kk: Туризм, en: Tourism}
+    aliases: [туризм, турист, tourism]
+
+  - id: management
+    name: {ru: Менеджмент, kk: Менеджмент, en: Management}
+    aliases: [менеджмент, менеджер, management, manager]
+
+  - id: public_administration
+    name: {ru: Государственное и местное управление, kk: Мемлекеттік және жергілікті басқару,
+           en: State and local administration}
+    aliases: [государствен и местн управлен, государствен управлен, госуправлен, мемлекеттік басқару,
+              мемлекеттік және жергілікті, public administration, state and local]
+
+  - id: world_economy
+    name: {ru: Мировая экономика, kk: Әлемдік экономика, en: World economy}
+    aliases: [миров экономик, әлемдік экономика, world econom]
+
+  - id: economics
+    name: {ru: Экономика, kk: Экономика, en: Economics}
+    aliases: [экономи, econom]
+
+  - id: accounting
+    name: {ru: Учет и аудит, kk: Есеп және аудит, en: Accounting and audit}
+    aliases: [учет, аудит, бухгалтер, есеп және аудит, accounting, accountant, audit]
+
+  - id: finance
+    name: {ru: Финансы, kk: Қаржы, en: Finance}
+    aliases: [финанс, қаржы, financ]
+
+  - id: marketing
+    name: {ru: Маркетинг, kk: Маркетинг, en: Marketing}
+    aliases: [маркетинг, маркетолог, marketing]
+
+  - id: information_systems
+    name: {ru: Информационные системы, kk: Ақпараттық жүйелер, en: Information systems}
+    aliases: [информационн систем, ис, ақпараттық жүйе, information system]
+
+  - id: robotics
+    name: {ru: Интеллектуальная робототехника, kk: Зияткерлік робототехника, en: Intelligent robotics}
+    aliases: [робот, robot]
+
+  - id: logistics
+    name: {ru: Логистика, kk: Логистика, en: Logistics}
+    aliases: [логист, logist]
+
+  - id: directing
+    name: {ru: Режиссура, kk: Режиссура, en: Directing}
+    aliases: [режисс, directing, director]
+
+  - id: theatre_directing
+    name: {ru: Режиссура драматического театра, kk: Драма театрының режиссурасы, en: Directing of dramatic theatre}
+    aliases: [режисс драматическ театр, режисс драматическ, драматическ театр, драма театр, directing of dramatic, dramatic theat]
+
+  - id: film_producing
+    name: {ru: Продюсирование кино и ТВ, kk: Кино және теледидар өндірісі, en: Film and TV producing}
+    aliases: [продюс, кино және теледидар, producing, producer]
+
+  - id: acting
+    name: {ru: Актерское искусство, kk: Актерлік өнер, en: Acting}
+    aliases: [актер, актрис, acting, actor, actress]
+
+  - id: cinematography
+    name: {ru: Операторское искусство, kk: Операторлық өнер, en: Cinematography}
+    aliases: [оператор, cinematograph, camera operator]
+
+  - id: computer_engineering
+    name: {ru: Вычислительная техника и программное обеспечение,
+           kk: Есептеу техникасы және бағдарламалық қамтамасыз ету, en: Computer engineering and software}
+    table_names: [Вычислительная техника и ПО]
+    aliases: [вычислительн техник, втипо, втпо, вт и по, вт по, есептеу техника, computer engineering,
+              computer hardware]
+
+  - id: software_engineering
+    name: {ru: Программная инженерия, kk: Бағдарламалық инженерия, en: Software engineering}
+    aliases: [программн инженер, программист, пи, бағдарламалық инженер, бағдарламашы, software engineer,
+              programmer]
+
+  - id: radio_engineering
+    name: {ru: "Радиотехника, электроника и телекоммуникации", kk: "Радиотехника, электроника және телекоммуникациялар",
+           en: "Radio engineering, electronics and telecommunications"}
+    aliases: [радиотехник, рэт, электроник, телекоммуникац, radio engineer, electronic, telecommunication]
+
+  - id: it_service_management
+    name: {ru: Управление IT-услугами, kk: IT-қызметтерді басқару, en: IT service management}
+    aliases: [управлен it услуг, it услуг, ит услуг, it қызмет, it service management, it service]

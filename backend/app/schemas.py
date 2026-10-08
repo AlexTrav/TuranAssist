@@ -24,6 +24,7 @@ class ChatResponse(BaseModel):
     suggestions: list[Suggestion]
     lang: str
     timing_ms: dict[str, float]
+    programs: list[str] = []  # образовательные программы, извлечённые из вопроса о стоимости
 
 
 class IntentInfo(BaseModel):

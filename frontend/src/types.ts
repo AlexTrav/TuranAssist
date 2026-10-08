@@ -18,6 +18,7 @@ export interface ChatResponse {
   suggestions: Suggestion[]
   lang: AppLocale
   timing_ms: Record<string, number> // tfidf, e5, model, total
+  programs?: string[] // образовательные программы, найденные в вопросе о стоимости
 }
 
 // ответ GET /api/answer/{intent}

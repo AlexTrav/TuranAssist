@@ -1,0 +1,237 @@
+# сгенерировано из corpus/site/ru/tuition-fee.md: python -m collect.tuition (make tuition)
+# руками не править – после пересбора корпуса запустить генерацию заново
+source: {page: tuition-fee, collected: '2026-10-07'}
+plans:
+- id: bachelor_4y
+  level: bachelor
+  label: {ru: 'очная, 4 года', kk: 'күндізгі, 4 жыл', en: 'full-time, 4 years'}
+- id: bachelor_school_3y
+  level: bachelor
+  label: {ru: 'очная после школы, 3 года', kk: 'мектептен кейін күндізгі, 3 жыл', en: 'full-time after school, 3 years'}
+- id: bachelor_college_3y
+  level: bachelor
+  label: {ru: 'после колледжа, 3 года', kk: 'колледжден кейін, 3 жыл', en: 'after college, 3 years'}
+- id: bachelor_college_2y
+  level: bachelor
+  label: {ru: 'после колледжа, 2 года', kk: 'колледжден кейін, 2 жыл', en: 'after college, 2 years'}
+- id: bachelor_distance_college_3y
+  level: bachelor
+  label: {ru: 'с дистанционными технологиями после колледжа, 3 года', kk: 'колледжден кейін қашықтан оқыту технологияларымен, 3 жыл', en: 'with distance technologies after college, 3 years'}
+- id: bachelor_distance_college_2y
+  level: bachelor
+  label: {ru: 'с дистанционными технологиями после колледжа, 2 года', kk: 'колледжден кейін қашықтан оқыту технологияларымен, 2 жыл', en: 'with distance technologies after college, 2 years'}
+- id: bachelor_distance_university
+  level: bachelor
+  label: {ru: с дистанционными технологиями после вуза, kk: ЖОО-дан кейін қашықтан оқыту технологияларымен, en: with distance technologies after a university degree}
+- id: master_research_2y
+  level: postgrad
+  label: {ru: 'научно-педагогическая магистратура, 2 года', kk: 'ғылыми-педагогикалық магистратура, 2 жыл', en: 'research and teaching master''s, 2 years'}
+- id: master_professional_1y
+  level: postgrad
+  label: {ru: 'профильная магистратура, 1 год', kk: 'бейіндік магистратура, 1 жыл', en: 'professional master''s, 1 year'}
+- id: phd
+  level: postgrad
+  label: {ru: докторантура PhD, kk: PhD докторантурасы, en: PhD}
+prices:
+  translation:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  international_relations:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  regional_studies:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  psychology:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  - {plan: phd, main: 2200000}
+  clinical_psychology:
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  journalism:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: master_research_2y, main: 1483500}
+  public_relations:
+  - {plan: bachelor_4y, main: 1476600}
+  jurisprudence:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  - {plan: phd, main: 2200000}
+  legal_business:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  international_law:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  restaurant_business:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  tourism_innovation:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  tourism:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  management:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  - {plan: phd, main: 2200000}
+  public_administration:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  world_economy:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  economics:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  - {plan: phd, main: 2200000}
+  accounting:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  finance:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800, english: 2419600}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  - {plan: phd, main: 2200000}
+  marketing:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  - {plan: phd, main: 2200000}
+  information_systems:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  - {plan: master_professional_1y, main: 1573200}
+  robotics:
+  - {plan: bachelor_4y, main: 1476600}
+  logistics:
+  - {plan: bachelor_4y, main: 1476600, english: 1814700}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600, english: 1814700}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  directing:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: master_research_2y, main: 1483500}
+  theatre_directing:
+  - {plan: master_research_2y, main: 1483500}
+  film_producing:
+  - {plan: bachelor_4y, main: 1265000}
+  acting:
+  - {plan: bachelor_4y, main: 1587000}
+  cinematography:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: master_research_2y, main: 1483500}
+  computer_engineering:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  - {plan: bachelor_distance_college_2y, main: 1193700}
+  - {plan: bachelor_distance_university, main: 669300}
+  - {plan: master_research_2y, main: 1483500}
+  software_engineering:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_college_3y, main: 1476600}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  radio_engineering:
+  - {plan: bachelor_4y, main: 1476600}
+  - {plan: bachelor_school_3y, main: 1968800}
+  - {plan: bachelor_college_3y, main: 1221300}
+  - {plan: bachelor_college_2y, main: 1925100}
+  - {plan: bachelor_distance_college_3y, main: 738300}
+  it_service_management:
+  - {plan: master_research_2y, main: 1483500}
