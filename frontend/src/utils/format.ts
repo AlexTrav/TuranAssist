@@ -6,6 +6,11 @@ export function formatNumber(value: number, locale: AppLocale, digits = 1): stri
   return new Intl.NumberFormat(LOCALES[locale], { maximumFractionDigits: digits }).format(value)
 }
 
+// ровно digits знаков после запятой: «0,670», а не «0,67»
+export function formatFixed(value: number, locale: AppLocale, digits: number): string {
+  return new Intl.NumberFormat(LOCALES[locale], { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(value)
+}
+
 // доля 0..1 -> «87%»
 export function formatPercent(value: number, locale: AppLocale, digits = 0): string {
   return new Intl.NumberFormat(LOCALES[locale], { style: 'percent', maximumFractionDigits: digits }).format(value)
@@ -13,8 +18,13 @@ export function formatPercent(value: number, locale: AppLocale, digits = 0): str
 
 // доля с 95% доверительным интервалом: «0,755 [0,705; 0,799]»
 export function formatProportion(p: { value: number; ci95: [number, number] }, locale: AppLocale): string {
-  const f = (v: number) => new Intl.NumberFormat(LOCALES[locale], { minimumFractionDigits: 3, maximumFractionDigits: 3 }).format(v)
+  const f = (v: number) => formatFixed(v, locale, 3)
   return `${f(p.value)} [${f(p.ci95[0])}; ${f(p.ci95[1])}]`
+}
+
+// подслово SentencePiece для показа: служебный знак начала слова ▁ (его нет в шрифтах) -> «·»
+export function formatPiece(piece: string): string {
+  return piece.replace(/^▁/, '·')
 }
 
 // длительность в секундах -> «2 ч 05 мин» / «3 мин 12 с» / «45 с» (единицы передаются уже переведёнными)

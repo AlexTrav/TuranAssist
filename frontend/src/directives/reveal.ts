@@ -10,16 +10,18 @@ const observer = new IntersectionObserver(
       }
     }
   },
-  { threshold: 0.15 },
+  { threshold: 0.12 },
 )
 
-// директива v-reveal: элемент плавно появляется, когда попадает в область видимости при скролле
-export const vReveal: Directive = {
-  mounted(el: HTMLElement) {
+// директива v-reveal: элемент плавно появляется, когда попадает в область видимости при скролле.
+// v-reveal="i" – порядковый номер в группе: элементы появляются «лесенкой» с задержкой 70 мс
+export const vReveal: Directive<HTMLElement, number | undefined> = {
+  mounted(el, binding) {
+    if (binding.value) el.style.setProperty('--reveal-i', String(binding.value))
     el.setAttribute('data-reveal', '')
     observer.observe(el)
   },
-  unmounted(el: HTMLElement) {
+  unmounted(el) {
     observer.unobserve(el)
   },
 }

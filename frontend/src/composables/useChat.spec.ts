@@ -3,10 +3,10 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { ApiError } from '../api/client'
 
 // vi.mock поднимается в начало файла – моки объявляем через vi.hoisted, иначе они ещё не созданы
-const { chat, answer } = vi.hoisted(() => ({ chat: vi.fn(), answer: vi.fn() }))
+const { chat, answer, feedback } = vi.hoisted(() => ({ chat: vi.fn(), answer: vi.fn(), feedback: vi.fn() }))
 vi.mock('../api/client', async (importOriginal) => {
   const original = await importOriginal<typeof import('../api/client')>()
-  return { ...original, api: { chat, answer } }
+  return { ...original, api: { chat, answer, feedback } }
 })
 
 describe('useChat', () => {
@@ -14,6 +14,7 @@ describe('useChat', () => {
     localStorage.clear()
     chat.mockReset()
     answer.mockReset()
+    feedback.mockReset()
     vi.resetModules() // singleton-состояние модуля – заново для каждого теста
   })
 
@@ -43,6 +44,20 @@ describe('useChat', () => {
     expect(messages.value[3]).toMatchObject({ contextUsed: true })
   })
 
+  it('rates an answer once and sends only the topic', async () => {
+    chat.mockResolvedValue({ recognized: true, intent: 'dormitory', title: 'Общежитие', confidence: 0.99, answer: 'Есть', source_url: null, suggestions: [], lang: 'ru', timing_ms: { total: 6 } })
+    feedback.mockResolvedValue({ status: 'ok' })
+    const { useChat } = await import('./useChat')
+    const { messages, send, rate } = useChat()
+    await send('Есть ли общежитие?')
+    const bot = messages.value[1]
+    await rate(bot.id, true)
+    await rate(bot.id, false) // повторная оценка игнорируется
+    expect(feedback).toHaveBeenCalledTimes(1)
+    expect(feedback).toHaveBeenCalledWith('dormitory', true)
+    expect(messages.value[1].feedback).toBe('up')
+  })
+
   it('stores an error code instead of throwing', async () => {
     chat.mockRejectedValue(new ApiError('rate_limited', 429))
     const { useChat } = await import('./useChat')
@@ -57,7 +72,7 @@ describe('useChat', () => {
     const { messages, send, choose } = useChat()
     await send('   ')
     expect(messages.value).toHaveLength(0)
-    await choose({ intent: 'contacts', title: 'Контакты', confidence: 0.3 }, 'ru')
+    await choose({ intent: 'contacts', title: 'Контакты' }, 'ru')
     expect(answer).toHaveBeenCalledWith('contacts', 'ru')
     expect(messages.value.map((m) => m.text)).toEqual(['Контакты', 'Главный корпус…'])
   })

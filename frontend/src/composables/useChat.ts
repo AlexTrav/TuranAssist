@@ -1,11 +1,12 @@
 import { ref, watch } from 'vue'
 import { api, ApiError } from '../api/client'
-import type { AppLocale, ChatContext, Suggestion } from '../types'
+import type { AppLocale, ChatContext, Explain, PriceCard, Suggestion } from '../types'
 
 export interface ChatMessage {
   id: number
   role: 'user' | 'bot'
   text: string
+  intent?: string | null
   recognized?: boolean
   title?: string | null
   confidence?: number
@@ -13,6 +14,9 @@ export interface ChatMessage {
   suggestions?: Suggestion[]
   timingMs?: number
   contextUsed?: boolean // ответ дан с учётом предыдущего вопроса
+  prices?: PriceCard[] // цены найденных программ – таблица под ответом
+  explain?: Explain | null // разбор вопроса – панель «Как бот понял»
+  feedback?: 'up' | 'down' // оценка пользователя
   error?: string // код ошибки API – текст подставляет интерфейс на текущем языке
 }
 
@@ -68,6 +72,7 @@ export function useChat() {
       push({
         role: 'bot',
         text: res.answer,
+        intent: res.intent,
         recognized: res.recognized,
         title: res.title,
         confidence: res.confidence,
@@ -75,6 +80,8 @@ export function useChat() {
         suggestions: res.suggestions,
         timingMs: res.timing_ms.total,
         contextUsed: res.context_used,
+        prices: res.prices ?? [],
+        explain: res.explain ?? null,
       })
     } catch (err) {
       push({ role: 'bot', text: '', error: errorCode(err) })
@@ -83,19 +90,31 @@ export function useChat() {
     }
   }
 
-  // нажатие на подсказку «возможно, вы имели в виду» – ответ по выбранной теме
-  async function choose(suggestion: Suggestion, lang: AppLocale) {
+  // нажатие на подсказку или тему – ответ по выбранной теме без классификации
+  async function choose(suggestion: Pick<Suggestion, 'intent' | 'title'>, lang: AppLocale) {
     if (pending.value) return
     push({ role: 'user', text: suggestion.title })
     pending.value = true
     try {
       const res = await api.answer(suggestion.intent, lang)
       context = { text: res.title, intent: res.intent } // после выбора темы можно уточнять: «а ВТиПО?»
-      push({ role: 'bot', text: res.answer, recognized: true, title: res.title, sourceUrl: res.source_url })
+      push({ role: 'bot', text: res.answer, intent: res.intent, recognized: true, title: res.title, sourceUrl: res.source_url })
     } catch (err) {
       push({ role: 'bot', text: '', error: errorCode(err) })
     } finally {
       pending.value = false
+    }
+  }
+
+  // оценка ответа 👍/👎: на сервер уходит только тема и оценка, без текста вопроса
+  async function rate(id: number, useful: boolean) {
+    const message = messages.value.find((m) => m.id === id)
+    if (!message || message.feedback) return
+    message.feedback = useful ? 'up' : 'down'
+    try {
+      await api.feedback(message.intent ?? null, useful)
+    } catch {
+      // оценка не критична – при ошибке сети просто не учтётся в метриках
     }
   }
 
@@ -104,5 +123,5 @@ export function useChat() {
     context = null
   }
 
-  return { messages, pending, send, choose, clear }
+  return { messages, pending, send, choose, rate, clear }
 }

@@ -13,8 +13,10 @@ def explain(classifier: IntentClassifier, pred: Prediction, text: str, classifie
     return {
         "language": lang,
         "normalized": normalize(text),
-        # предобработка, как у словесных baseline-моделей: токены, леммы pymorphy3, стоп-слова
-        "tokens": [{"text": t, "lemma": lemma(t), "stopword": t in STOPWORDS_NO_QUESTIONS} for t in tokens],
+        # предобработка, как у словесных baseline-моделей: токены, леммы pymorphy3, стоп-слова.
+        # лемматизатор русский: казахские слова без особых букв («болады») он бы исказил – их не трогаем
+        "tokens": [{"text": t, "lemma": lemma(t) if lang == "ru" else t, "stopword": t in STOPWORDS_NO_QUESTIONS}
+                   for t in tokens],
         # подслова SentencePiece, которые получает трансформер (без служебного префикса «query: »)
         "subwords": pieces[:MAX_PIECES],
         "subwords_total": len(pieces),

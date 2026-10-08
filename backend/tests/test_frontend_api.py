@@ -20,6 +20,11 @@ def test_explain_shows_every_pipeline_stage(client):
     assert ex["rule"] == "model" and ex["programs"] == ["jurisprudence"]
 
 
+def test_explain_does_not_lemmatize_kazakh(client):
+    tokens = {t["text"]: t["lemma"] for t in chat(client, "Сессия қашан басталады?")["explain"]["tokens"]}
+    assert tokens["басталады"] == "басталады"  # русский лемматизатор дал бы «басталада»
+
+
 def test_explain_marks_tuition_sum_rule_and_context(client):
     first = chat(client, "ВТиПО сколько стоит")
     assert first["explain"]["rule"] == "tuition_sum"

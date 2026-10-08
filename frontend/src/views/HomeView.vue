@@ -1,40 +1,48 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import {
   AcademicCapIcon,
+  ArrowRightIcon,
   BanknotesIcon,
   BookOpenIcon,
   BuildingLibraryIcon,
-  ChatBubbleLeftRightIcon,
-  CheckBadgeIcon,
-  CpuChipIcon,
+  CalculatorIcon,
+  ChartBarIcon,
   GiftIcon,
   HomeModernIcon,
   PaperAirplaneIcon,
-  PencilSquareIcon,
+  RectangleStackIcon,
   SparklesIcon,
 } from '@heroicons/vue/24/outline'
+import DemoCard from '../components/home/DemoCard.vue'
+import { useCountUp } from '../composables/useCountUp'
 import { GROUP_EXAMPLES } from '../examples'
 import { LINKS } from '../links'
 import type { AppLocale } from '../types'
+import { formatNumber } from '../utils/format'
 
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as AppLocale)
 
-const stats = computed(() => [
-  { value: '53', label: t('home.statTopics') },
-  { value: '3', label: t('home.statLanguages') },
-  { value: '~8 ms', label: t('home.statLatency') },
-])
+// цифры в первом экране «досчитываются» при загрузке
+const topics = ref(0)
+const languages = ref(0)
+const latency = ref(0)
+const topicsShown = useCountUp(topics, 1200)
+const languagesShown = useCountUp(languages, 900)
+const latencyShown = useCountUp(latency, 1400)
+onMounted(() =>
+  setTimeout(() => {
+    topics.value = 53
+    languages.value = 3
+    latency.value = 6.5 // медиана времени ответа модели в docker-compose (см. examples.ts)
+  }, 300),
+)
 
-const steps = computed(() => [
-  { icon: PencilSquareIcon, title: t('home.step1Title'), text: t('home.step1Text') },
-  { icon: CpuChipIcon, title: t('home.step2Title'), text: t('home.step2Text') },
-  { icon: CheckBadgeIcon, title: t('home.step3Title'), text: t('home.step3Text') },
-])
+const steps = computed(() => [1, 2, 3, 4].map((n) => ({ title: t(`home.how${n}Title`), text: t(`home.how${n}Text`) })))
 
-const groups = computed(() => [
+const groups = [
   { id: 'admission', icon: AcademicCapIcon },
   { id: 'postgrad', icon: SparklesIcon },
   { id: 'payment', icon: BanknotesIcon },
@@ -42,86 +50,209 @@ const groups = computed(() => [
   { id: 'study', icon: BookOpenIcon },
   { id: 'student_life', icon: HomeModernIcon },
   { id: 'about', icon: BuildingLibraryIcon },
-])
+]
+
+// мини-график для карточки «Производительность»: стилизованные столбики задержек
+const bars = [38, 52, 44, 61, 35, 48, 70, 42, 55, 39, 47, 58]
 </script>
 
 <template>
   <div>
+    <!-- первый экран: обещание слева, живой разбор вопроса справа -->
     <section class="relative overflow-hidden">
-      <div class="animate-blob absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-200/60 blur-3xl dark:bg-brand-900/40" aria-hidden="true" />
-      <div class="animate-blob-delayed absolute -right-16 top-10 h-80 w-80 rounded-full bg-accent-200/50 blur-3xl dark:bg-accent-700/20" aria-hidden="true" />
+      <div
+        class="pointer-events-none absolute inset-0 [background-image:radial-gradient(var(--line)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_70%_30%,black,transparent_65%)]"
+        aria-hidden="true"
+      />
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pt-12 pb-20 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
+        <div>
+          <span class="animate-rise inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-sm text-muted">
+            <span class="live-dot h-2 w-2 rounded-full bg-success text-success" />
+            {{ t('home.eyebrow') }}
+          </span>
+          <h1 class="display-title animate-rise mt-6 text-[2.6rem] leading-[1.05] sm:text-6xl" style="animation-delay: 80ms">
+            {{ t('home.titleStart') }}<br />
+            <span class="relative inline-block text-primary">
+              {{ t('home.titleAccent') }}
+              <!-- жёлтая «кисточка» под акцентом рисуется при загрузке -->
+              <svg class="absolute -bottom-2 left-0 h-3 w-full" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true">
+                <path
+                  d="M2 9 C 80 2, 200 2, 298 7"
+                  fill="none"
+                  stroke="var(--gold)"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  class="[stroke-dasharray:320] [stroke-dashoffset:320] [animation:draw_1s_0.6s_var(--ease-out-quint)_forwards]"
+                />
+              </svg>
+            </span>
+          </h1>
+          <p class="animate-rise mt-7 max-w-xl text-lg leading-relaxed text-muted" style="animation-delay: 160ms">
+            {{ t('home.subtitle') }}
+          </p>
+          <div class="animate-rise mt-8 flex flex-col gap-3 sm:flex-row" style="animation-delay: 240ms">
+            <RouterLink to="/chat" class="btn-primary group px-6">
+              {{ t('home.ctaChat') }}
+              <ArrowRightIcon class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </RouterLink>
+            <a :href="LINKS.telegram" target="_blank" rel="noopener" class="btn-ghost px-6">
+              <PaperAirplaneIcon class="h-4 w-4" />
+              {{ t('home.ctaTelegram') }}
+            </a>
+          </div>
+          <dl class="animate-rise mt-12 flex gap-10" style="animation-delay: 320ms">
+            <div>
+              <dt class="sr-only">{{ t('home.statTopics') }}</dt>
+              <dd class="font-display text-3xl font-bold text-ink tabular-nums">{{ Math.round(topicsShown ?? 0) }}</dd>
+              <dd class="text-sm text-muted">{{ t('home.statTopics') }}</dd>
+            </div>
+            <div>
+              <dt class="sr-only">{{ t('home.statLanguages') }}</dt>
+              <dd class="font-display text-3xl font-bold text-ink tabular-nums">{{ Math.round(languagesShown ?? 0) }}</dd>
+              <dd class="text-sm text-muted">{{ t('home.statLanguages') }}</dd>
+            </div>
+            <div>
+              <dt class="sr-only">{{ t('home.statLatency') }}</dt>
+              <dd class="font-display text-3xl font-bold text-ink tabular-nums">~{{ formatNumber(latencyShown ?? 0, lang, 1) }}</dd>
+              <dd class="text-sm text-muted">{{ t('home.statLatency') }}</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="animate-rise lg:pl-4" style="animation-delay: 200ms">
+          <DemoCard />
+        </div>
+      </div>
+    </section>
 
-      <div class="relative mx-auto max-w-6xl px-5 pb-20 pt-16 text-center sm:pt-24">
-        <span class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-300">
-          <ChatBubbleLeftRightIcon class="h-4 w-4" />
-          {{ t('home.badge') }}
-        </span>
-        <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl dark:text-slate-50">
-          {{ t('home.title') }}
-        </h1>
-        <p class="mx-auto mt-5 max-w-2xl text-lg text-slate-500 dark:text-slate-400">{{ t('home.subtitle') }}</p>
-        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+    <!-- 01 как это работает: четыре шага с соединяющей линией -->
+    <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+      <p v-reveal class="eyebrow">{{ t('home.howEyebrow') }}</p>
+      <h2 v-reveal class="display-title mt-3 max-w-3xl text-3xl sm:text-4xl">{{ t('home.howTitle') }}</h2>
+      <ol class="relative mt-12 grid gap-8 md:grid-cols-4 md:gap-6">
+        <div class="absolute top-6 right-[12%] left-[12%] hidden border-t border-dashed border-steel/60 md:block" aria-hidden="true" />
+        <li v-for="(step, i) in steps" :key="step.title" v-reveal="i + 1" class="relative">
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-surface font-display text-lg font-bold text-primary shadow-sm">
+            {{ i + 1 }}
+          </div>
+          <h3 class="mt-5 font-display text-lg font-semibold text-ink">{{ step.title }}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ step.text }}</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 02 темы: бежевая полоса, как секции на сайте университета -->
+    <section class="bg-sand/70 py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p v-reveal class="eyebrow">{{ t('home.topicsEyebrow') }}</p>
+            <h2 v-reveal class="display-title mt-3 text-3xl sm:text-4xl">{{ t('home.topicsTitle') }}</h2>
+          </div>
+          <p v-reveal class="max-w-sm text-muted">{{ t('home.topicsSubtitle') }}</p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <RouterLink
-            to="/chat"
-            class="w-full rounded-full bg-brand-600 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-brand-600/20 transition-transform hover:scale-105 hover:bg-brand-700 sm:w-auto"
+            v-for="(g, i) in groups"
+            :key="g.id"
+            v-reveal="i"
+            :to="{ path: '/chat', query: { q: GROUP_EXAMPLES[g.id]?.[lang] } }"
+            class="card group flex flex-col p-5 transition-all duration-300 ease-(--ease-out-quint) hover:-translate-y-1 hover:border-steel hover:shadow-[0_18px_40px_-24px_rgba(0,130,201,0.45)]"
           >
-            {{ t('home.ctaChat') }}
+            <div class="flex items-center justify-between">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-soft text-primary-strong transition-colors group-hover:bg-primary group-hover:text-on-primary">
+                <component :is="g.icon" class="h-5 w-5" />
+              </span>
+              <ArrowRightIcon class="h-4 w-4 -translate-x-2 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+            </div>
+            <div class="mt-4 font-display font-semibold text-ink">{{ t(`groups.${g.id}`) }}</div>
+            <div class="mt-1 text-sm text-muted">«{{ GROUP_EXAMPLES[g.id]?.[lang] }}»</div>
           </RouterLink>
+          <!-- восьмая карточка: все 53 темы в базе знаний -->
+          <RouterLink
+            v-reveal="7"
+            to="/knowledge"
+            class="group flex flex-col justify-between rounded-2xl border border-dashed border-steel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-surface"
+          >
+            <span class="font-display text-4xl font-bold text-primary">53</span>
+            <span class="mt-4 flex items-center gap-2 font-display font-semibold text-ink">
+              {{ t('home.kbTitle') }}
+              <ArrowRightIcon class="h-4 w-4 text-primary transition-transform group-hover:translate-x-1" />
+            </span>
+          </RouterLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 инструменты: калькулятор, база знаний, производительность – с мини-превью -->
+    <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+      <p v-reveal class="eyebrow">{{ t('home.toolsEyebrow') }}</p>
+      <h2 v-reveal class="display-title mt-3 text-3xl sm:text-4xl">{{ t('home.toolsTitle') }}</h2>
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        <RouterLink to="/calculator" v-reveal="1" class="card group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-steel">
+          <div class="flex h-36 flex-col justify-center bg-primary-soft/60 px-6">
+            <span class="font-mono text-xs text-muted">ВТиПО · {{ t('calc.bachelor') }}</span>
+            <span class="mt-1 font-display text-3xl font-bold text-ink tabular-nums">1 476 600 <span class="text-lg text-muted">₸</span></span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+              <CalculatorIcon class="h-5 w-5 text-primary" />{{ t('home.calcTitle') }}
+            </div>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ t('home.calcText') }}</p>
+          </div>
+        </RouterLink>
+        <RouterLink to="/knowledge" v-reveal="2" class="card group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-steel">
+          <div class="flex h-36 flex-col justify-center gap-2 bg-sand px-6">
+            <div v-for="w in [80, 62, 72]" :key="w" class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-primary" />
+              <span class="h-2 rounded-full bg-steel/40 transition-all duration-500 group-hover:bg-steel/70" :style="{ width: `${w}%` }" />
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+              <RectangleStackIcon class="h-5 w-5 text-primary" />{{ t('home.kbTitle') }}
+            </div>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ t('home.kbText') }}</p>
+          </div>
+        </RouterLink>
+        <RouterLink to="/performance" v-reveal="3" class="card group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-steel">
+          <div class="flex h-36 items-end gap-1.5 bg-[#0f172a] px-6 pb-6">
+            <span
+              v-for="(h, i) in bars"
+              :key="i"
+              class="flex-1 origin-bottom rounded-t bg-[#36baf2] transition-transform duration-500 group-hover:scale-y-110"
+              :style="{ height: `${h}%`, opacity: 0.45 + (i / bars.length) * 0.55, transitionDelay: `${i * 25}ms` }"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+              <ChartBarIcon class="h-5 w-5 text-primary" />{{ t('home.perfTitle') }}
+            </div>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ t('home.perfText') }}</p>
+          </div>
+        </RouterLink>
+      </div>
+    </section>
+
+    <!-- Telegram: полоса в голубом цвете «Турана» -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div v-reveal class="relative overflow-hidden rounded-3xl bg-[#0082c9] px-8 py-12 text-white sm:px-12">
+        <div class="absolute -top-16 -right-10 h-56 w-56 rounded-full border-[28px] border-white/10" aria-hidden="true" />
+        <div class="absolute right-24 -bottom-20 h-40 w-40 rounded-full bg-[#ffbb00]/90" aria-hidden="true" />
+        <div class="relative max-w-xl">
+          <h2 class="font-display text-3xl font-bold">{{ t('home.tgTitle') }}</h2>
+          <p class="mt-3 text-lg text-white/85">{{ t('home.tgText') }}</p>
           <a
             :href="LINKS.telegram"
             target="_blank"
             rel="noopener"
-            class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3 text-base font-semibold text-slate-700 transition-colors hover:border-brand-300 hover:text-brand-700 sm:w-auto dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-brand-700"
+            class="btn mt-7 bg-white text-[#0f172a] hover:bg-white/90"
           >
-            <PaperAirplaneIcon class="h-5 w-5" />
-            {{ t('home.ctaTelegram') }}
+            <PaperAirplaneIcon class="h-4 w-4" />
+            @turan_assist_bot
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-y border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-      <div class="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-slate-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0 dark:divide-slate-800">
-        <div v-for="stat in stats" :key="stat.label" v-reveal class="px-6 py-8 text-center">
-          <div class="text-3xl font-bold text-brand-700 dark:text-brand-400">{{ stat.value }}</div>
-          <div class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ stat.label }}</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-6xl px-5 py-20">
-      <h2 class="text-center text-3xl font-bold text-slate-900 dark:text-slate-50">{{ t('home.howTitle') }}</h2>
-      <p class="mx-auto mt-3 max-w-2xl text-center text-slate-500 dark:text-slate-400">{{ t('home.howSubtitle') }}</p>
-      <div class="mt-12 grid gap-6 sm:grid-cols-3">
-        <div v-for="(step, i) in steps" :key="step.title" v-reveal class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
-            <component :is="step.icon" class="h-6 w-6" />
-          </div>
-          <div class="mt-4 text-xs font-semibold uppercase tracking-wider text-accent-600">{{ t('home.stepLabel', { n: i + 1 }) }}</div>
-          <h3 class="mt-1 text-lg font-semibold text-slate-900 dark:text-slate-50">{{ step.title }}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ step.text }}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-white py-20 dark:bg-slate-900">
-      <div class="mx-auto max-w-6xl px-5">
-        <h2 class="text-center text-3xl font-bold text-slate-900 dark:text-slate-50">{{ t('home.topicsTitle') }}</h2>
-        <p class="mx-auto mt-3 max-w-2xl text-center text-slate-500 dark:text-slate-400">{{ t('home.topicsSubtitle') }}</p>
-        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <RouterLink
-            v-for="g in groups"
-            :key="g.id"
-            v-reveal
-            :to="{ path: '/chat', query: { q: GROUP_EXAMPLES[g.id]?.[lang] } }"
-            class="group rounded-2xl border border-slate-200 p-5 transition-all hover:-translate-y-1 hover:border-brand-300 hover:shadow-lg dark:border-slate-800 dark:hover:border-brand-700"
-          >
-            <component :is="g.icon" class="h-7 w-7 text-brand-600 dark:text-brand-400" />
-            <div class="mt-3 font-semibold text-slate-900 dark:text-slate-50">{{ t(`groups.${g.id}`) }}</div>
-            <div class="mt-1 text-sm text-slate-500 group-hover:text-brand-600 dark:text-slate-400">«{{ GROUP_EXAMPLES[g.id]?.[lang] }}»</div>
-          </RouterLink>
         </div>
       </div>
     </section>
   </div>
 </template>
+

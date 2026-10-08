@@ -19,10 +19,23 @@ export function linePath(points: ChartPoint[]): string {
   return points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')
 }
 
+// та же ломаная, замкнутая до оси x, – заливка под графиком
+export function areaPath(points: ChartPoint[], height: number): string {
+  if (points.length === 0) return ''
+  const first = points[0]
+  const last = points[points.length - 1]
+  return `${linePath(points)} L${last.x.toFixed(1)},${height} L${first.x.toFixed(1)},${height} Z`
+}
+
 // «красивый» верх оси: ближайшее сверху из 1, 2, 5 × 10^k
 export function niceMax(value: number): number {
   if (value <= 0) return 1
   const power = 10 ** Math.floor(Math.log10(value))
   for (const k of [1, 2, 5, 10]) if (value <= k * power) return k * power
   return 10 * power
+}
+
+// подпись корзины гистограммы: «≤10» или «>500» для последней
+export function bucketLabel(le: number | null, previous: number | null): string {
+  return le == null ? `>${previous ?? 0}` : `≤${le}`
 }

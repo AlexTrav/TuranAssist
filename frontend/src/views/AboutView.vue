@@ -1,107 +1,126 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { ArrowsRightLeftIcon, ChatBubbleBottomCenterTextIcon, TagIcon } from '@heroicons/vue/24/outline'
 import { api } from '../api/client'
+import ModelBars from '../components/about/ModelBars.vue'
 import { LINKS } from '../links'
-import type { AppLocale, GroupInfo, ModelInfo, ModelRow } from '../types'
-import { formatNumber, formatProportion } from '../utils/format'
+import type { AppLocale, ModelInfo } from '../types'
+import { formatNumber } from '../utils/format'
 
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as AppLocale)
 const model = ref<ModelInfo | null>(null)
-const groups = ref<GroupInfo[]>([])
 const loadError = ref(false)
 
 onMounted(async () => {
   try {
-    ;[model.value, groups.value] = await Promise.all([api.modelInfo(), api.intents()])
+    model.value = await api.modelInfo()
   } catch {
     loadError.value = true
   }
 })
 
+// цифры проекта: страницы корпуса (data/corpus/manifest.json), обучающие фразы (data/phrases/train),
+// автотесты бэкенда (pytest) и фронтенда (Vitest) на момент последнего коммита
+const TESTS_TOTAL = 104 + 23 // pytest + Vitest
+const facts = computed(() => [
+  { value: '47', label: t('about.factPages') },
+  { value: '1166', label: t('about.factPhrases') },
+  { value: '53', label: t('home.statTopics') },
+  { value: String(TESTS_TOTAL), label: t('about.factTests') },
+])
+
 const pipeline = computed(() => [1, 2, 3, 4, 5, 6].map((n) => ({ title: t(`about.step${n}Title`), text: t(`about.step${n}Text`) })))
-const rows = computed(() => {
-  const c = model.value?.comparison
-  if (!c) return []
-  return (['tfidf', 'e5', 'ensemble'] as const).map((key) => ({ key, label: t(`about.model_${key}`), row: c[key] as ModelRow }))
-})
-const stack = ['Python', 'FastAPI', 'scikit-learn', 'ONNX Runtime', 'multilingual-e5-small', 'SentencePiece', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'vue-i18n', 'Docker', 'GitHub Actions', 'Render', 'Hugging Face Hub', 'Telegram Bot API']
+const nlp = computed(() => [
+  { icon: ChatBubbleBottomCenterTextIcon, title: t('about.nlp1Title'), text: t('about.nlp1Text') },
+  { icon: TagIcon, title: t('about.nlp2Title'), text: t('about.nlp2Text') },
+  { icon: ArrowsRightLeftIcon, title: t('about.nlp3Title'), text: t('about.nlp3Text') },
+])
+const stack = [
+  'Python', 'FastAPI', 'scikit-learn', 'pymorphy3', 'ONNX Runtime', 'multilingual-e5-small', 'SentencePiece',
+  'Vue 3', 'TypeScript', 'Tailwind CSS 4', 'vue-i18n', 'Vite', 'Vitest', 'pytest', 'Docker', 'GitHub Actions',
+  'Render', 'GitHub Pages', 'Hugging Face Hub', 'Telegram Bot API',
+]
 </script>
 
 <template>
-  <div class="mx-auto max-w-6xl px-5 py-12">
-    <h1 class="text-3xl font-bold text-slate-900 dark:text-slate-50">{{ t('about.title') }}</h1>
-    <p class="mt-3 max-w-3xl leading-relaxed text-slate-600 dark:text-slate-300">{{ t('about.intro') }}</p>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <p class="eyebrow animate-rise">{{ t('about.eyebrow') }}</p>
+    <h1 class="display-title animate-rise mt-3 max-w-3xl text-4xl sm:text-5xl" style="animation-delay: 60ms">{{ t('about.title') }}</h1>
+    <p class="animate-rise mt-5 max-w-3xl text-lg leading-relaxed text-muted" style="animation-delay: 120ms">{{ t('about.intro') }}</p>
 
-    <h2 class="mt-12 text-2xl font-bold text-slate-900 dark:text-slate-50">{{ t('about.pipelineTitle') }}</h2>
-    <ol class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="(step, i) in pipeline" :key="i" v-reveal class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">{{ i + 1 }}</div>
-        <h3 class="mt-3 font-semibold text-slate-900 dark:text-slate-50">{{ step.title }}</h3>
-        <p class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ step.text }}</p>
+    <dl class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div v-for="(f, i) in facts" :key="f.label" v-reveal="i" class="card p-5">
+        <dd class="font-display text-4xl font-bold text-primary tabular-nums">{{ f.value }}</dd>
+        <dt class="mt-1 text-sm text-muted">{{ f.label }}</dt>
+      </div>
+    </dl>
+
+    <!-- конвейер проекта -->
+    <h2 v-reveal class="display-title mt-20 text-3xl">{{ t('about.pipelineTitle') }}</h2>
+    <ol class="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+      <li v-for="(step, i) in pipeline" :key="i" v-reveal="i % 3" class="relative border-t-2 border-line pt-5">
+        <span class="absolute -top-0.5 left-0 h-0.5 w-12 bg-primary" />
+        <span class="font-mono text-xs text-primary-strong">0{{ i + 1 }}</span>
+        <h3 class="mt-2 font-display text-lg font-semibold text-ink">{{ step.title }}</h3>
+        <p class="mt-1.5 text-[15px] leading-relaxed text-muted">{{ step.text }}</p>
       </li>
     </ol>
 
-    <h2 class="mt-12 text-2xl font-bold text-slate-900 dark:text-slate-50">{{ t('about.modelsTitle') }}</h2>
-    <p class="mt-2 max-w-3xl text-sm text-slate-500 dark:text-slate-400">{{ t('about.modelsSubtitle') }}</p>
-    <p v-if="loadError" class="mt-4 text-sm text-red-500">{{ t('apiErrors.network') }}</p>
-    <div v-else class="mt-6 overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
-      <table class="w-full min-w-[720px] text-left text-sm">
-        <thead class="bg-slate-100 text-slate-600 dark:bg-slate-900 dark:text-slate-300">
-          <tr>
-            <th class="px-4 py-3">{{ t('about.colModel') }}</th>
-            <th class="px-4 py-3">{{ t('about.colTest') }}</th>
-            <th class="px-4 py-3">{{ t('about.colOod') }}</th>
-            <th class="px-4 py-3">{{ t('about.colExternal') }}</th>
-            <th class="px-4 py-3">{{ t('about.colScenarios') }}</th>
-            <th class="px-4 py-3">p50</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-slate-200 bg-white dark:divide-slate-800 dark:bg-slate-950">
-          <tr v-for="r in rows" :key="r.key" :class="r.key === 'ensemble' ? 'bg-brand-50/60 font-semibold dark:bg-brand-900/20' : ''">
-            <td class="px-4 py-3 text-slate-900 dark:text-slate-50">{{ r.label }}</td>
-            <td class="px-4 py-3 tabular-nums">{{ formatProportion(r.row.test, lang) }}</td>
-            <td class="px-4 py-3 tabular-nums">{{ formatProportion(r.row.ood_rejected, lang) }}</td>
-            <td class="px-4 py-3 tabular-nums">{{ formatProportion(r.row.external, lang) }}</td>
-            <td class="px-4 py-3 tabular-nums">{{ formatProportion(r.row.scenarios, lang) }}</td>
-            <td class="px-4 py-3 tabular-nums">{{ r.row.latency_p50_ms ? `${formatNumber(r.row.latency_p50_ms, lang)} ${t('units.ms')}` : '–' }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p v-if="model" class="mt-3 text-xs text-slate-400">
-      {{ t('about.modelsNote', { threshold: formatNumber(model.threshold, lang, 3), weight: formatNumber(model.weight_e5, lang, 1) }) }}
-    </p>
+    <!-- три NLP-компонента -->
+    <section class="mt-20 rounded-3xl bg-sand/70 p-6 sm:p-10">
+      <h2 v-reveal class="display-title text-3xl">{{ t('about.nlpTitle') }}</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        <div v-for="(c, i) in nlp" :key="c.title" v-reveal="i" class="card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-on-primary">
+            <component :is="c.icon" class="h-5 w-5" />
+          </span>
+          <h3 class="mt-4 font-display text-lg font-semibold text-ink">{{ c.title }}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ c.text }}</p>
+        </div>
+      </div>
+    </section>
 
-    <h2 class="mt-12 text-2xl font-bold text-slate-900 dark:text-slate-50">{{ t('about.topicsTitle', { n: model?.intents ?? 53 }) }}</h2>
-    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <div v-for="g in groups" :key="g.id" class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-        <h3 class="font-semibold text-brand-700 dark:text-brand-400">{{ g.title[lang] }}</h3>
-        <ul class="mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-300">
-          <li v-for="i in g.intents" :key="i.id">{{ i.title[lang] }}</li>
+    <!-- сравнение моделей -->
+    <h2 v-reveal class="display-title mt-20 text-3xl">{{ t('about.modelsTitle') }}</h2>
+    <p v-reveal class="mt-3 max-w-3xl text-muted">{{ t('about.modelsSubtitle') }}</p>
+    <p v-if="loadError" class="mt-6 text-danger">{{ t('apiErrors.network') }}</p>
+    <div v-else-if="model" class="card mt-8 p-6 sm:p-8">
+      <ModelBars :model="model" />
+      <p class="mt-8 font-mono text-xs text-faint">
+        {{ t('about.modelsNote', { threshold: formatNumber(model.threshold, lang, 3), weight: formatNumber(model.weight_e5, lang, 1) }) }}
+      </p>
+    </div>
+    <div v-else class="card mt-8 h-72 animate-pulse bg-sand/50" />
+
+    <div class="mt-20 grid gap-10 lg:grid-cols-2">
+      <section v-reveal>
+        <h2 class="display-title text-2xl">{{ t('about.stackTitle') }}</h2>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span v-for="(s, i) in stack" :key="s" class="chip animate-pop cursor-default" :style="{ animationDelay: `${i * 30}ms` }">{{ s }}</span>
+        </div>
+      </section>
+      <section v-reveal="1">
+        <h2 class="display-title text-2xl">{{ t('about.limitsTitle') }}</h2>
+        <ul class="mt-5 space-y-3">
+          <li v-for="n in 4" :key="n" class="flex gap-3 text-[15px] leading-relaxed text-muted">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />{{ t(`about.limit${n}`) }}
+          </li>
         </ul>
+      </section>
+    </div>
+
+    <section v-reveal class="card mt-20 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <div>
+        <h2 class="font-display text-lg font-semibold text-ink">{{ t('about.authorTitle') }}</h2>
+        <p class="mt-1 text-muted">{{ t('about.author') }}</p>
       </div>
-    </div>
-
-    <h2 class="mt-12 text-2xl font-bold text-slate-900 dark:text-slate-50">{{ t('about.stackTitle') }}</h2>
-    <div class="mt-4 flex flex-wrap gap-2">
-      <span v-for="s in stack" :key="s" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">{{ s }}</span>
-    </div>
-
-    <h2 class="mt-12 text-2xl font-bold text-slate-900 dark:text-slate-50">{{ t('about.limitsTitle') }}</h2>
-    <ul class="mt-4 list-disc space-y-2 pl-5 text-slate-600 dark:text-slate-300">
-      <li v-for="n in 4" :key="n">{{ t(`about.limit${n}`) }}</li>
-    </ul>
-
-    <div class="mt-12 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-      <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-50">{{ t('about.authorTitle') }}</h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">{{ t('about.author') }}</p>
-      <div class="mt-3 flex flex-wrap gap-4 text-sm font-medium text-brand-600 dark:text-brand-400">
-        <a :href="LINKS.github" target="_blank" rel="noopener" class="hover:underline">GitHub</a>
-        <a :href="LINKS.telegram" target="_blank" rel="noopener" class="hover:underline">Telegram</a>
-        <a :href="LINKS.huggingface" target="_blank" rel="noopener" class="hover:underline">Hugging Face</a>
+      <div class="flex shrink-0 flex-wrap gap-2">
+        <a :href="LINKS.github" target="_blank" rel="noopener" class="btn-ghost !px-4 !py-2 text-sm">GitHub ↗</a>
+        <a :href="LINKS.telegram" target="_blank" rel="noopener" class="btn-ghost !px-4 !py-2 text-sm">Telegram ↗</a>
+        <a :href="LINKS.huggingface" target="_blank" rel="noopener" class="btn-ghost !px-4 !py-2 text-sm">Hugging Face ↗</a>
       </div>
-    </div>
+    </section>
   </div>
 </template>

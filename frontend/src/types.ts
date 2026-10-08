@@ -1,10 +1,58 @@
 export type AppLocale = 'ru' | 'kk' | 'en'
+export type Localized = Record<AppLocale, string>
 
 // подсказка «возможно, вы имели в виду», когда бот не уверен
 export interface Suggestion {
   intent: string
   title: string
   confidence: number
+}
+
+// тема последнего ответа: сервер ничего не хранит, клиент присылает её обратно
+export interface ChatContext {
+  text: string
+  intent: string
+}
+
+// цены одной программы по формам обучения – таблица в ответе чата
+export interface PriceRow {
+  plan: string
+  label: string
+  main: number // казахское или русское отделение, тенге за год
+  english: number | null // английское отделение
+}
+export interface PriceCard {
+  program: string
+  name: string
+  rows: PriceRow[]
+}
+
+// разбор вопроса по ступеням конвейера – панель «Как бот понял вопрос»
+export interface ExplainToken {
+  text: string
+  lemma: string
+  stopword: boolean
+}
+export interface ExplainCandidate {
+  intent: string
+  probability: number // ансамбль
+  e5: number
+  tfidf: number
+}
+export type DecisionRule = 'model' | 'tuition_sum' | 'fallback'
+export interface Explain {
+  language: AppLocale
+  normalized: string
+  tokens: ExplainToken[]
+  subwords: string[]
+  subwords_total: number
+  classified_text: string
+  context_used: boolean
+  top: ExplainCandidate[]
+  weights: { e5: number; tfidf: number }
+  threshold: number
+  rule: DecisionRule
+  programs: string[]
 }
 
 // ответ POST /api/chat
@@ -21,12 +69,8 @@ export interface ChatResponse {
   programs?: string[] // образовательные программы, найденные в вопросе о стоимости
   context_used?: boolean // вопрос понят как уточнение предыдущего («а в магистратуре?»)
   context?: ChatContext | null // вернуть серверу со следующим вопросом
-}
-
-// тема последнего ответа: сервер ничего не хранит, клиент присылает её обратно
-export interface ChatContext {
-  text: string
-  intent: string
+  prices?: PriceCard[]
+  explain?: Explain | null
 }
 
 // ответ GET /api/answer/{intent}
@@ -41,14 +85,45 @@ export interface IntentAnswer {
 export interface IntentInfo {
   id: string
   group: string
-  title: Record<AppLocale, string>
+  title: Localized
 }
 
 // группа тем, GET /api/intents
 export interface GroupInfo {
   id: string
-  title: Record<AppLocale, string>
+  title: Localized
   intents: IntentInfo[]
+}
+
+// тема с ответом на одном языке, GET /api/knowledge
+export interface KnowledgeItem {
+  id: string
+  group: string
+  title: string
+  answer: string
+  source_url: string | null
+}
+
+// справочник цен, GET /api/tuition
+export type Level = 'bachelor' | 'postgrad'
+export interface TuitionPlan {
+  id: string
+  level: Level
+  label: Localized
+}
+export interface TuitionPrice {
+  plan: string
+  main: number
+  english?: number
+}
+export interface TuitionProgram {
+  id: string
+  name: Localized
+  prices: TuitionPrice[]
+}
+export interface TuitionCatalog {
+  plans: TuitionPlan[]
+  programs: TuitionProgram[]
 }
 
 // доля с 95% доверительным интервалом Уилсона
@@ -86,6 +161,16 @@ export interface Percentiles {
   max: number
 }
 
+export interface HistogramBucket {
+  le: number | null // верхняя граница корзины, мс; null – всё, что дольше
+  count: number
+}
+
+export interface Sla {
+  target_ms: number
+  share: number | null // доля ответов быстрее цели
+}
+
 export interface RecentRequest {
   ts: number // unix-время в секундах
   total_ms: number
@@ -110,5 +195,19 @@ export interface LiveMetrics {
     tfidf: Percentiles | null
     e5: Percentiles | null
   }
+  histogram: HistogramBucket[]
+  sla: Sla
+  feedback: { useful: number; not_useful: number }
   recent: RecentRequest[]
+}
+
+// результат нагрузочного теста, POST /api/benchmark
+export interface BenchmarkResult {
+  n: number
+  seconds: number
+  throughput_rps: number
+  latency_ms: Percentiles
+  histogram: HistogramBucket[]
+  sla: Sla
+  series: number[]
 }

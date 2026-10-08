@@ -9,15 +9,11 @@ const { status, wake } = useServerStatus()
 
 <template>
   <!-- бесплатный Render засыпает после 15 минут простоя – предупреждаем, что первый ответ займёт до минуты -->
-  <Transition name="page-fade">
+  <Transition name="fade">
     <div
       v-if="status === 'waking' || status === 'down'"
-      class="border-b px-5 py-2 text-center text-sm"
-      :class="
-        status === 'waking'
-          ? 'border-accent-200 bg-accent-100 text-accent-700 dark:border-accent-700/40 dark:bg-accent-700/20 dark:text-accent-200'
-          : 'border-red-200 bg-red-50 text-red-700 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-300'
-      "
+      class="border-b px-4 py-2.5 text-center text-sm"
+      :class="status === 'waking' ? 'border-gold/40 bg-gold-soft text-ink' : 'border-danger/30 bg-danger-soft text-danger'"
       role="status"
     >
       <span v-if="status === 'waking'" class="inline-flex items-center gap-2">

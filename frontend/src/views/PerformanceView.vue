@@ -1,18 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import {
-  ArrowTrendingUpIcon,
-  BoltIcon,
-  CircleStackIcon,
-  ClockIcon,
-  CpuChipIcon,
-  RocketLaunchIcon,
-  SignalIcon,
-  CheckCircleIcon,
-} from '@heroicons/vue/24/outline'
+import { ArrowTrendingUpIcon, BoltIcon, CircleStackIcon, HandThumbUpIcon, RocketLaunchIcon, SignalIcon } from '@heroicons/vue/24/outline'
 import LatencyChart from '../components/LatencyChart.vue'
 import MetricCard from '../components/MetricCard.vue'
+import BenchmarkPanel from '../components/perf/BenchmarkPanel.vue'
+import HistogramChart from '../components/perf/HistogramChart.vue'
+import SlaRing from '../components/perf/SlaRing.vue'
+import { useCountUp } from '../composables/useCountUp'
 import { useLiveMetrics } from '../composables/useLiveMetrics'
 import type { AppLocale } from '../types'
 import { formatDuration, formatNumber, formatPercent } from '../utils/format'
@@ -22,81 +17,157 @@ const { metrics, error } = useLiveMetrics(3000)
 const lang = computed(() => locale.value as AppLocale)
 const RENDER_MEMORY_MB = 512 // лимит памяти бесплатного Render
 
-const ms = (v: number | null | undefined) => (v === null || v === undefined ? '–' : `${formatNumber(v, lang.value)} ${t('units.ms')}`)
 const total = computed(() => metrics.value?.latency_ms.total ?? null)
-const memoryShare = computed(() => Math.min((metrics.value?.memory_rss_mb ?? 0) / RENDER_MEMORY_MB, 1))
+// числа плавно «досчитываются» к новому значению при каждом обновлении
+const p50 = useCountUp(computed(() => total.value?.p50 ?? null))
+const p95 = useCountUp(computed(() => total.value?.p95 ?? null))
+const perMinute = useCountUp(computed(() => metrics.value?.requests_last_minute ?? null))
+const memory = useCountUp(computed(() => metrics.value?.memory_rss_mb ?? null))
+
+const fmt = (v: number | null | undefined, digits = 1) => (v == null ? '–' : formatNumber(v, lang.value, digits))
 const units = computed(() => ({ h: t('units.h'), m: t('units.m'), s: t('units.s') }))
+const memoryShare = computed(() => Math.min((metrics.value?.memory_rss_mb ?? 0) / RENDER_MEMORY_MB, 1))
+
+// разбивка медианы ответа: e5, TF-IDF и всё остальное (сеть внутри сервиса, сериализация, логика ответа)
+const breakdown = computed(() => {
+  const l = metrics.value?.latency_ms
+  if (!l?.total || !l.e5 || !l.tfidf) return null
+  const e5 = l.e5.p50
+  const tfidf = l.tfidf.p50
+  const other = Math.max(l.total.p50 - e5 - tfidf, 0)
+  const sum = e5 + tfidf + other || 1
+  return [
+    { key: 'e5', label: 'e5 (ONNX int8)', value: e5, share: e5 / sum, color: 'bg-primary' },
+    { key: 'tfidf', label: 'TF-IDF', value: tfidf, share: tfidf / sum, color: 'bg-steel' },
+    { key: 'other', label: t('performance.other'), value: other, share: other / sum, color: 'bg-gold' },
+  ]
+})
+const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.useful + metrics.value.feedback.not_useful : 0))
 </script>
 
 <template>
-  <div class="mx-auto max-w-6xl px-5 py-12">
-    <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <h1 class="text-3xl font-bold text-slate-900 dark:text-slate-50">{{ t('performance.title') }}</h1>
-        <p class="mt-2 max-w-2xl text-slate-500 dark:text-slate-400">{{ t('performance.subtitle') }}</p>
+        <p class="eyebrow animate-rise">{{ t('performance.eyebrow') }}</p>
+        <h1 class="display-title animate-rise mt-3 text-4xl sm:text-5xl" style="animation-delay: 60ms">{{ t('performance.title') }}</h1>
+        <p class="animate-rise mt-4 max-w-2xl text-lg text-muted" style="animation-delay: 120ms">{{ t('performance.subtitle') }}</p>
       </div>
-      <span class="inline-flex items-center gap-2 text-sm" :class="error ? 'text-red-500' : 'text-emerald-600 dark:text-emerald-400'">
-        <span class="h-2.5 w-2.5 rounded-full" :class="error ? 'bg-red-500' : 'animate-pulse bg-emerald-500'" />
-        {{ error ? t('performance.offline') : t('performance.live') }}
-      </span>
+      <div class="animate-rise flex flex-col items-start gap-1 sm:items-end" style="animation-delay: 180ms">
+        <span class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-sm font-medium" :class="error ? 'text-danger' : 'text-success'">
+          <span class="h-2 w-2 rounded-full" :class="error ? 'bg-danger' : 'live-dot bg-success'" />
+          {{ error ? t('performance.offline') : t('performance.live') }}
+        </span>
+        <span v-if="metrics" class="font-mono text-xs text-faint">{{ t('performance.uptime', { value: formatDuration(metrics.uptime_seconds, units) }) }}</span>
+      </div>
     </div>
 
-    <p v-if="metrics && !metrics.requests_total" class="mt-6 rounded-xl bg-brand-50 px-4 py-3 text-sm text-brand-800 dark:bg-brand-900/40 dark:text-brand-200">
+    <p v-if="metrics && !metrics.requests_total" class="animate-rise mt-8 rounded-2xl border border-primary/30 bg-primary-soft px-5 py-4 text-sm text-ink">
       {{ t('performance.noRequests') }}
-      <RouterLink to="/chat" class="font-semibold underline">{{ t('performance.goChat') }}</RouterLink>
+      <RouterLink to="/chat" class="link ml-1">{{ t('performance.goChat') }}</RouterLink>
     </p>
 
-    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <MetricCard :icon="BoltIcon" :label="t('performance.p50')" :value="ms(total?.p50)" :hint="t('performance.p50Hint')" accent />
-      <MetricCard :icon="ArrowTrendingUpIcon" :label="t('performance.p95')" :value="ms(total?.p95)" :hint="t('performance.p95Hint')" />
-      <MetricCard :icon="SignalIcon" :label="t('performance.p99')" :value="ms(total?.p99)" :hint="t('performance.p99Hint')" />
+    <!-- ключевые показатели -->
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <MetricCard v-reveal="0" :icon="BoltIcon" :label="t('performance.p50')" :value="fmt(p50)" :unit="t('units.ms')" :hint="t('performance.p50Hint')" accent />
+      <MetricCard v-reveal="1" :icon="ArrowTrendingUpIcon" :label="t('performance.p95')" :value="fmt(p95)" :unit="t('units.ms')" :hint="t('performance.p95Hint')" />
+      <div v-reveal="2" class="card flex items-center gap-4 p-5">
+        <SlaRing :share="metrics?.sla.share ?? null" :size="88" />
+        <div>
+          <div class="text-sm font-medium text-muted">{{ t('performance.sla') }}</div>
+          <div class="mt-1 text-xs text-faint">{{ t('performance.slaHint', { target: metrics?.sla.target_ms ?? 100 }) }}</div>
+        </div>
+      </div>
       <MetricCard
-        :icon="CheckCircleIcon"
-        :label="t('performance.recognized')"
-        :value="metrics?.recognized_share != null ? formatPercent(metrics.recognized_share, lang) : '–'"
-        :hint="t('performance.recognizedHint')"
+        v-reveal="3"
+        :icon="SignalIcon"
+        :label="t('performance.perMinute')"
+        :value="perMinute == null ? '–' : String(Math.round(perMinute))"
+        :hint="t('performance.perMinuteHint', { n: metrics?.requests_total ?? 0 })"
       />
     </div>
 
-    <div class="mt-4 grid gap-4 lg:grid-cols-3">
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-2 dark:border-slate-800 dark:bg-slate-900">
-        <div class="flex items-center justify-between">
-          <h2 class="font-semibold text-slate-900 dark:text-slate-50">{{ t('performance.chartTitle') }}</h2>
-          <span class="text-xs text-slate-400">{{ t('performance.chartLegend') }}</span>
+    <!-- живой график и гистограмма -->
+    <div class="mt-4 grid gap-4 lg:grid-cols-[1.6fr_1fr]">
+      <div v-reveal class="card p-5 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 class="font-display font-semibold text-ink">{{ t('performance.chartTitle') }}</h2>
+          <div class="flex flex-wrap items-center gap-3 text-xs text-muted">
+            <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary" />{{ t('performance.chartLegendOk') }}</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-gold" />{{ t('performance.chartLegendMiss') }}</span>
+            <span class="inline-flex items-center gap-1.5"><span class="w-4 border-t-2 border-dashed border-gold" />{{ t('performance.chartLegendP95') }}</span>
+          </div>
         </div>
         <div class="mt-6">
           <LatencyChart v-if="metrics?.recent.length" :points="metrics.recent" :p95="total?.p95" :unit="t('units.ms')" />
-          <p v-else class="py-16 text-center text-sm text-slate-400">{{ t('performance.chartEmpty') }}</p>
+          <p v-else class="py-20 text-center text-sm text-faint">{{ t('performance.chartEmpty') }}</p>
         </div>
       </div>
-
-      <div class="space-y-4">
-        <MetricCard :icon="CpuChipIcon" :label="t('performance.breakdown')" :value="ms(metrics?.latency_ms.model?.p50)" :hint="t('performance.breakdownHint')">
-          <div class="mt-3 space-y-1 text-sm text-slate-600 dark:text-slate-300">
-            <div class="flex justify-between"><span>e5 (ONNX int8)</span><span class="tabular-nums">{{ ms(metrics?.latency_ms.e5?.p50) }}</span></div>
-            <div class="flex justify-between"><span>TF-IDF</span><span class="tabular-nums">{{ ms(metrics?.latency_ms.tfidf?.p50) }}</span></div>
-          </div>
-        </MetricCard>
-        <MetricCard
-          :icon="CircleStackIcon"
-          :label="t('performance.memory')"
-          :value="metrics?.memory_rss_mb ? `${formatNumber(metrics.memory_rss_mb, lang, 0)} / ${RENDER_MEMORY_MB} ${t('units.mb')}` : '–'"
-          :hint="t('performance.memoryHint')"
-        >
-          <div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-            <div class="h-full rounded-full bg-brand-500 transition-all" :style="{ width: `${memoryShare * 100}%` }" />
-          </div>
-        </MetricCard>
+      <div v-reveal="1" class="card p-5 sm:p-6">
+        <h2 class="font-display font-semibold text-ink">{{ t('performance.histTitle') }}</h2>
+        <p class="mt-1 text-xs text-faint">{{ t('performance.histHint', { n: metrics?.window ?? 0 }) }}</p>
+        <div class="mt-6">
+          <HistogramChart v-if="metrics?.window" :buckets="metrics.histogram" :target="metrics.sla.target_ms" />
+          <p v-else class="py-16 text-center text-sm text-faint">{{ t('performance.chartEmpty') }}</p>
+        </div>
       </div>
     </div>
 
-    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <MetricCard :icon="RocketLaunchIcon" :label="t('performance.coldStart')" :value="metrics?.model_load_seconds != null ? `${formatNumber(metrics.model_load_seconds, lang)} ${t('units.s')}` : '–'" :hint="t('performance.coldStartHint')" />
-      <MetricCard :icon="ClockIcon" :label="t('performance.uptime')" :value="metrics ? formatDuration(metrics.uptime_seconds, units) : '–'" :hint="t('performance.uptimeHint')" />
-      <MetricCard :icon="SignalIcon" :label="t('performance.requests')" :value="metrics ? String(metrics.requests_total) : '–'" :hint="t('performance.requestsHint', { n: metrics?.requests_last_minute ?? 0 })" />
-      <MetricCard :icon="BoltIcon" :label="t('performance.rateLimited')" :value="metrics ? String(metrics.rate_limited_total) : '–'" :hint="t('performance.rateLimitedHint')" />
+    <!-- из чего складывается ответ, память, загрузка модели, оценки -->
+    <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div v-reveal class="card p-5 md:col-span-2">
+        <div class="flex items-baseline justify-between">
+          <h2 class="text-sm font-medium text-muted">{{ t('performance.breakdown') }}</h2>
+          <span class="text-xs text-faint">{{ t('performance.breakdownHint') }}</span>
+        </div>
+        <template v-if="breakdown">
+          <div class="mt-4 flex h-3 overflow-hidden rounded-full bg-sand">
+            <div v-for="part in breakdown" :key="part.key" :class="part.color" class="h-full transition-all duration-700 ease-(--ease-out-quint)" :style="{ width: `${part.share * 100}%` }" />
+          </div>
+          <ul class="mt-4 grid grid-cols-3 gap-3">
+            <li v-for="part in breakdown" :key="part.key">
+              <span class="flex items-center gap-1.5 text-xs text-muted"><span class="h-2 w-2 rounded-full" :class="part.color" />{{ part.label }}</span>
+              <span class="mt-1 block font-mono text-lg text-ink tabular-nums">{{ fmt(part.value, 2) }}</span>
+            </li>
+          </ul>
+        </template>
+        <p v-else class="mt-4 text-sm text-faint">–</p>
+      </div>
+      <MetricCard v-reveal="1" :icon="CircleStackIcon" :label="t('performance.memory')" :value="fmt(memory, 0)" :unit="`/ ${RENDER_MEMORY_MB} ${t('units.mb')}`" :hint="t('performance.memoryHint')">
+        <div class="mt-3 h-2 overflow-hidden rounded-full bg-sand">
+          <div class="h-full rounded-full transition-all duration-700" :class="memoryShare > 0.85 ? 'bg-danger' : 'bg-primary'" :style="{ width: `${memoryShare * 100}%` }" />
+        </div>
+      </MetricCard>
+      <MetricCard
+        v-reveal="2"
+        :icon="RocketLaunchIcon"
+        :label="t('performance.coldStart')"
+        :value="fmt(metrics?.model_load_seconds)"
+        :unit="t('units.s')"
+        :hint="t('performance.coldStartHint')"
+      />
+      <MetricCard
+        v-reveal="0"
+        :icon="HandThumbUpIcon"
+        :label="t('performance.feedback')"
+        :value="feedbackTotal ? formatPercent(metrics!.feedback.useful / feedbackTotal, lang) : '–'"
+        :hint="feedbackTotal ? t('performance.feedbackHint', { up: metrics!.feedback.useful, down: metrics!.feedback.not_useful }) : t('performance.noFeedback')"
+      />
+      <MetricCard
+        v-reveal="1"
+        :icon="SignalIcon"
+        :label="t('performance.recognized')"
+        :value="metrics?.recognized_share != null ? formatPercent(metrics.recognized_share, lang) : '–'"
+        :hint="t('performance.recognizedHint')"
+      >
+        <p class="mt-2 font-mono text-[11px] text-faint">{{ t('performance.rateLimited', { n: metrics?.rate_limited_total ?? 0 }) }}</p>
+      </MetricCard>
     </div>
 
-    <p class="mt-8 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ t('performance.note') }}</p>
+    <div v-reveal class="mt-10">
+      <BenchmarkPanel />
+    </div>
+
+    <p class="mt-8 max-w-4xl text-sm leading-relaxed text-faint">{{ t('performance.note') }}</p>
   </div>
 </template>

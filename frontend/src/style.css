@@ -1,77 +1,280 @@
 @import 'tailwindcss';
 
-/* dark: срабатывает от класса .dark на <html> (ручной переключатель темы, см. useTheme.ts),
-   а не от системной темы, как в Tailwind v4 по умолчанию */
+/* dark: срабатывает от класса .dark на <html> (ручной переключатель темы, см. useTheme.ts) */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* палитра из логотипа: синий «Турана» и золотая кисточка академической шапочки */
+/* шрифты сайта turan.edu.kz: Montserrat – заголовки, IBM Plex Sans – текст; IBM Plex Mono – цифры метрик */
 @theme {
-  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, 'Segoe UI', sans-serif;
+  --font-display: 'Montserrat', 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
 
-  --color-brand-50: #eff5ff;
-  --color-brand-100: #dbe8fe;
-  --color-brand-200: #bed4fd;
-  --color-brand-300: #91b6fb;
-  --color-brand-400: #5d8ff6;
-  --color-brand-500: #386cf0;
-  --color-brand-600: #1d64d8;
-  --color-brand-700: #1a4fb3;
-  --color-brand-800: #1b4290;
-  --color-brand-900: #0b2e6f;
-  --color-brand-950: #081f4d;
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --color-accent-100: #fef3c7;
-  --color-accent-200: #fde58a;
-  --color-accent-300: #fcd34d;
-  --color-accent-400: #f8c42d;
-  --color-accent-500: #f5b400;
-  --color-accent-600: #d49700;
-  --color-accent-700: #a87400;
+  --animate-pop: pop 0.45s var(--ease-spring) both;
+  --animate-rise: rise 0.6s var(--ease-out-quint) both;
+  --animate-blink: blink 1s steps(1) infinite;
+}
+
+/* цвета – семантические токены, значения меняются вместе с темой (ниже :root и .dark) */
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-sand: var(--sand);
+  --color-sand-strong: var(--sand-strong);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-steel: var(--steel);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+}
+
+/* палитра сайта turan.edu.kz (снята из его CSS): голубой #0082C9, светло-голубой #D6E8F5,
+   стальной #84ADCA, тёплые бежевые фоны #ECE7E0 / #E7E2DC / #F4F3F1, текст #0F172A, жёлтый #FFBB00 */
+:root {
+  --page: #f4f3f1;
+  --surface: #ffffff;
+  --sand: #ece7e0;
+  --sand-strong: #e7e2dc;
+  --line: #e2dcd3;
+  --ink: #0f172a;
+  --muted: #545e6c;
+  --faint: #8a919c;
+  --primary: #0082c9;
+  --primary-strong: #006aa6;
+  --primary-soft: #d6e8f5;
+  --on-primary: #ffffff;
+  --steel: #84adca;
+  --gold: #ffbb00;
+  --gold-soft: #fff3cc;
+  --success: #3b981f;
+  --danger: #c93c3c;
+  --danger-soft: #fbe9e7;
+}
+
+/* тёмная тема сайта turan.edu.kz: фон #0C111D, карточки #111827, голубой #36BAF2 */
+.dark {
+  --page: #0c111d;
+  --surface: #111827;
+  --sand: #141b2a;
+  --sand-strong: #1b2332;
+  --line: #252e3c;
+  --ink: #f5f7fa;
+  --muted: #9fabbc;
+  --faint: #6b778a;
+  --primary: #36baf2;
+  --primary-strong: #6ec1f0;
+  --primary-soft: #0e2a40;
+  --on-primary: #0f1729;
+  --steel: #84adca;
+  --gold: #ffbb00;
+  --gold-soft: #2e2608;
+  --success: #62c043;
+  --danger: #f07171;
+  --danger-soft: #3a1818;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200;
-  font-family: var(--font-sans);
+  @apply bg-page font-sans text-ink antialiased;
+  transition: background-color 0.3s ease;
 }
 
-/* переход между страницами роутера */
-.page-fade-enter-active,
-.page-fade-leave-active {
+::selection {
+  background: var(--primary-soft);
+  color: var(--ink);
+}
+
+/* в базовом слое: иначе это правило перебивало бы утилиты вроде outline-none у полей ввода */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+/* компоненты – как утилиты Tailwind v4 (@utility): их можно комбинировать с модификаторами и @apply */
+
+/* заголовки – Montserrat, как на сайте университета */
+@utility display-title {
+  @apply font-display font-bold tracking-tight text-ink;
+}
+
+/* маленькая подпись над заголовком секции: «01 · Как это работает» */
+@utility eyebrow {
+  @apply font-mono text-xs font-medium tracking-wider text-primary-strong uppercase;
+}
+
+@utility card {
+  @apply rounded-2xl border border-line bg-surface;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[15px] font-semibold transition-all duration-200 select-none active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100;
+}
+@utility btn-primary {
+  @apply btn bg-primary text-on-primary hover:bg-primary-strong;
+}
+@utility btn-ghost {
+  @apply btn border border-line bg-surface text-ink hover:border-steel hover:bg-sand/50;
+}
+
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-steel hover:text-primary-strong active:translate-y-0;
+}
+
+/* моноширинная «плашка телеметрии»: уверенность, миллисекунды, язык */
+@utility tag {
+  @apply inline-flex items-center gap-1 rounded-md bg-sand px-1.5 py-0.5 font-mono text-[11px] text-muted;
+}
+
+@utility link {
+  @apply font-medium text-primary-strong underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary;
+}
+
+/* ---------- анимации ---------- */
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* полоса растёт слева направо (вероятности тем, гистограммы) */
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* столбик растёт снизу вверх */
+@keyframes grow-up {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+/* линия «рисуется» от начала до конца (подчёркивание в заголовке главной) */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* переход между страницами */
+.page-enter-active {
+  transition:
+    opacity 0.35s var(--ease-out-quint),
+    transform 0.35s var(--ease-out-quint);
+}
+.page-leave-active {
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-leave-to {
+  opacity: 0;
+}
+
+/* лёгкое появление/исчезновение (баннеры, меню) */
+.fade-enter-active,
+.fade-leave-active {
   transition:
     opacity 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s var(--ease-out-quint);
 }
-.page-fade-enter-from {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
-  transform: translateY(8px);
-}
-.page-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
-/* появление новых сообщений в чате */
-.message-enter-active {
+/* новые сообщения в чате: пользовательские – справа, ответы бота – слева */
+.msg-enter-active {
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.45s var(--ease-out-quint),
+    transform 0.45s var(--ease-spring);
 }
-.message-enter-from {
+.msg-enter-from {
   opacity: 0;
-  transform: translateY(12px) scale(0.98);
+  transform: translateY(16px) scale(0.97);
 }
 
-/* появление секций при скролле, см. src/directives/reveal.ts */
+/* раскрытие панели на всю высоту содержимого: grid-template-rows 0fr -> 1fr */
+.expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out-quint);
+}
+.expand[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+.expand > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* появление при скролле с задержкой по порядку (см. src/directives/reveal.ts) */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(22px);
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    opacity 0.7s var(--ease-out-quint),
+    transform 0.7s var(--ease-out-quint);
+  transition-delay: calc(var(--reveal-i, 0) * 70ms);
 }
 [data-reveal='visible'] {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* полосы внутри v-reveal вырастают, когда блок попал в экран */
+.reveal-grow {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s var(--ease-out-quint);
+}
+[data-reveal='visible'] .reveal-grow {
+  transform: scaleX(1);
 }
 
 /* три точки «бот печатает» */
@@ -80,7 +283,7 @@ body {
   80%,
   100% {
     transform: translateY(0);
-    opacity: 0.4;
+    opacity: 0.35;
   }
   40% {
     transform: translateY(-4px);
@@ -91,32 +294,51 @@ body {
   animation: typing-dot 1.2s ease-in-out infinite;
 }
 
-@keyframes blob-float {
-  0%,
+/* «живой» индикатор: расходящееся кольцо */
+@keyframes ping-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
   100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(20px, -30px) scale(1.05);
-  }
-  66% {
-    transform: translate(-15px, 15px) scale(0.97);
+    transform: scale(2.4);
+    opacity: 0;
   }
 }
-.animate-blob {
-  animation: blob-float 14s ease-in-out infinite;
+.live-dot {
+  position: relative;
 }
-.animate-blob-delayed {
-  animation: blob-float 18s ease-in-out infinite;
-  animation-delay: -6s;
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: ping-soft 1.6s var(--ease-out-quint) infinite;
+}
+
+/* бегущая полоса прогресса нагрузочного теста */
+@keyframes indeterminate {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+.indeterminate {
+  animation: indeterminate 1.3s var(--ease-out-quint) infinite;
 }
 
 /* уважение к системной настройке «уменьшить движение» */
 @media (prefers-reduced-motion: reduce) {
   *,
-  [data-reveal] {
-    animation: none !important;
-    transition: none !important;
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   [data-reveal] {
     opacity: 1;
