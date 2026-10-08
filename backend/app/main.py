@@ -2,7 +2,7 @@ import json
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
@@ -11,12 +11,12 @@ from starlette.responses import JSONResponse
 from .bot.handlers import BotHandler
 from .bot.telegram_api import TelegramClient
 from .bot.webhook import router as telegram_router
-from .config import (CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, TELEGRAM_BOT_TOKEN,
+from .config import (CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, SUPPORTED_LANGS, TELEGRAM_BOT_TOKEN,
                      TELEGRAM_WEBHOOK_SECRET)
 from .knowledge import Knowledge
 from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier
-from .schemas import ChatRequest, ChatResponse, GroupInfo, IntentInfo, Suggestion
+from .schemas import ChatRequest, ChatResponse, GroupInfo, IntentAnswer, IntentInfo, Suggestion
 from .security.rate_limit import limiter
 from .security.validation import validated_text
 from .service import answer_question
@@ -118,6 +118,19 @@ def intents(request: Request) -> list[GroupInfo]:
                       intents=[IntentInfo(id=i.id, group=i.group, title=i.title)
                                for i in kb.intents.values() if i.group == g["id"]])
             for g in kb.groups]
+
+
+# ответ по конкретной теме – для кнопок-подсказок «возможно, вы имели в виду» в веб-чате
+@app.get("/api/answer/{intent}", response_model=IntentAnswer)
+def intent_answer(request: Request, intent: str, lang: str = "ru") -> IntentAnswer:
+    kb = request.app.state.knowledge
+    if intent not in kb.intents:
+        raise HTTPException(status_code=404, detail={"code": "unknown_intent", "message": "Такой темы нет"})
+    if lang not in SUPPORTED_LANGS:
+        raise HTTPException(status_code=400, detail={"code": "unsupported_lang",
+                                                     "message": f"Язык должен быть одним из: {', '.join(SUPPORTED_LANGS)}"})
+    return IntentAnswer(intent=intent, title=kb.title(intent, lang), answer=kb.answer(intent, lang),
+                        source_url=kb.source_url(intent, lang), lang=lang)
 
 
 @app.get("/api/model-info")

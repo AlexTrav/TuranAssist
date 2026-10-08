@@ -36,3 +36,11 @@ class GroupInfo(BaseModel):
     id: str
     title: dict[str, str]
     intents: list[IntentInfo]
+
+
+class IntentAnswer(BaseModel):
+    intent: str
+    title: str
+    answer: str
+    source_url: str | None
+    lang: str

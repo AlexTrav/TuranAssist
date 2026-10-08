@@ -110,3 +110,11 @@ def test_metrics_reflect_requests(client):
     assert data["model_load_seconds"] > 0
     assert data["latency_ms"]["total"]["p50"] > 0
     assert data["recent"][-1]["recognized"] is True
+
+
+def test_answer_by_intent(client, knowledge):
+    data = client.get("/api/answer/dormitory", params={"lang": "kk"}).json()
+    assert data["answer"] == knowledge.answer("dormitory", "kk")
+    assert data["source_url"].startswith("https://turan.edu.kz/")
+    assert client.get("/api/answer/no_such_intent").status_code == 404
+    assert client.get("/api/answer/dormitory", params={"lang": "de"}).status_code == 400
