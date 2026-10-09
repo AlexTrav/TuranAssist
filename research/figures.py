@@ -308,6 +308,59 @@ def fig_context():
     save(fig, 11, "Сравнение правил учёта контекста диалога")
 
 
+# ---------- 13. короткие запросы: три конфигурации ----------
+SHORT = load(RESULTS / "short_queries.json")
+CONFIGS = {"A": "A: модель\nс порогом", "B": "B: + правила «программа»\nи «уточнение»", "C": "C: + умный\nпоиск"}
+
+
+def fig_short():
+    parts = (("correct", "верный ответ", BLUE), ("clarify_hit", "уточнение, верная тема среди кнопок", STEEL),
+             ("fallback", "«не понял»", "#d9dde1"), ("wrong", "ошибка", ORANGE))
+    sets = (("short", "Короткие запросы, n = 34"), ("test", "Тест разными стилями, n = 318"))
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 3.9), sharey=True)
+    for ax, (name, title) in zip(axes, sets):
+        data, n = SHORT["sets"][name], SHORT["sets"][name]["n"]
+        for y, cfg in enumerate(CONFIGS):
+            left = 0
+            for key, label, color in parts:
+                share = data[cfg].get(key, 0) / n
+                ax.barh(y, share, left=left, color=color, height=0.62, label=label if y == 0 else None)
+                if share >= 0.06:
+                    dark = color in (BLUE, ORANGE)
+                    ax.text(left + share / 2, y, str(data[cfg].get(key, 0)), ha="center", va="center", fontsize=10,
+                            color="white" if dark else INK)
+                left += share
+        ax.set_title(title)
+        ax.set_xlim(0, 1)
+        ax.xaxis.set_major_formatter(PCT)
+        ax.grid(axis="y", visible=False)
+    axes[0].invert_yaxis()  # ось общая: переворачиваем один раз, A – сверху
+    axes[0].set_yticks(range(len(CONFIGS)), list(CONFIGS.values()), fontsize=10.5)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=10.5, bbox_to_anchor=(0.5, -0.08))
+    save(fig, 13, "Ответы на короткие запросы в трёх конфигурациях сервиса")
+
+
+# ---------- 14. порог отрыва умного поиска ----------
+def fig_search_sweep():
+    chosen = SHORT["chosen"]
+    rows = [s for s in SHORT["sweep"] if s["min_score"] == chosen["min_score"]]
+    xs = [s["min_margin"] for s in rows]
+    fig, ax = plt.subplots(figsize=(9.5, 4.2))
+    ax.plot(xs, [s["correct"] for s in rows], marker="o", color=BLUE, lw=2, label="верные ответы поиска")
+    ax.plot(xs, [s["wrong"] for s in rows], marker="s", color=ORANGE, lw=2, label="ошибочные ответы поиска")
+    ax.plot(xs, [s["false_answer"] for s in rows], marker="^", color=GOLD, lw=2,
+            label="ответы на вопросы не по теме")
+    ax.axvline(chosen["min_margin"], color=GREY, ls="--", lw=1.4)
+    ax.text(chosen["min_margin"] + 0.001, max(s["correct"] for s in rows) * 0.92, "выбранный порог 0,025",
+            fontsize=10.5, color="#555555")
+    ax.set_xlabel(f"Минимальный отрыв темы от следующей (близость к названию не ниже {num(chosen['min_score'], 2)})")
+    ax.set_ylabel("Число вопросов")
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:.3f}".rstrip("0").rstrip(".").replace(".", ",")))
+    ax.legend(loc="upper right", fontsize=10.5)
+    save(fig, 14, "Выбор порога отрыва умного поиска")
+
+
 for fn in (fig_architecture, fig_data, fig_baseline, fig_models, fig_styles, fig_threshold, fig_confidence,
-           fig_latency, fig_context):
+           fig_latency, fig_context, fig_short, fig_search_sweep):
     fn()

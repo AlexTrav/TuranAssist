@@ -1,4 +1,4 @@
-.PHONY: collect collect-latency render figures all
+.PHONY: collect collect-latency collect-short render figures all
 
 # Git Bash на Windows иначе превращает пути контейнера в пути Windows
 export MSYS_NO_PATHCONV=1
@@ -22,6 +22,11 @@ collect-latency:
 	docker run --rm --cpus=0.5 $(MOUNTS) $(BACKEND) python /research/collect.py cpu05
 	docker run --rm --cpus=0.1 $(MOUNTS) $(BACKEND) python /research/collect.py cpu01
 
+# короткие запросы: правила «программа и цена», уточнение и умный поиск (раздел 4.11)
+collect-short:
+	"$(MAKE)" -C ../backend build
+	docker run --rm $(MOUNTS) $(BACKEND) python /research/short_queries.py
+
 # задержки развёрнутого сервиса на Render (около 3 минут из-за rate limit)
 render:
 	docker run --rm -v "$(CURDIR):/research" python:3.12-slim python /research/render_latency.py
@@ -31,4 +36,4 @@ figures:
 	docker run --rm -v "$(ROOT):/repo:ro" -v "$(FIGURES):/figures" -v "C:/Windows/Fonts:/winfonts:ro" \
 		python:3.12-slim sh -c "pip install -q matplotlib==3.10.7 2>/dev/null && python /repo/research/figures.py"
 
-all: collect collect-latency render figures
+all: collect collect-latency collect-short render figures

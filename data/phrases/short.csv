@@ -1,0 +1,35 @@
+text,intent,lang,kind
+Магистратура поступление,master_admission,ru,keywords
+поступление магистратура,master_admission,ru,keywords
+докторантура поступление,phd_admission,ru,keywords
+Магистратураға түсу,master_admission,kk,keywords
+master admission,master_admission,en,keywords
+PhD admission,phd_admission,en,keywords
+Документы,admission_documents,ru,keywords
+документы магистратура,master_admission|admission_documents,ru,keywords
+сроки приема,admission_deadlines,ru,keywords
+проходной балл,passing_score,ru,keywords
+военная кафедра,military,ru,keywords
+пересдача FX,retake_fx,ru,keywords
+академ,academic_leave,ru,keywords
+медпункт,medical_center,ru,keywords
+общага,dormitory,ru,keywords
+мага,master_programs|master_admission,ru,keywords
+Foundation,foundation,en,keywords
+Admission,admission_steps,en,keywords
+Exams,schedule|missed_exam|retake_fx|academic_calendar,en,keywords
+Гранты,state_grant|vacant_grant|turan_umiti_grant,ru,ambiguous
+Гранттар,state_grant|vacant_grant|turan_umiti_grant,kk,ambiguous
+Grants,state_grant|vacant_grant|turan_umiti_grant,en,ambiguous
+Цена,tuition_bachelor|tuition_postgrad,ru,ambiguous
+Price,tuition_bachelor|tuition_postgrad,en,ambiguous
+Tuition,tuition_bachelor|tuition_postgrad,en,ambiguous
+Оқу ақысы,tuition_bachelor|tuition_postgrad,kk,ambiguous
+ЕНТ,ent_subjects|ent_discounts|passing_score,ru,ambiguous
+Скидки,other_discounts|ent_discounts|language_cert_discounts,ru,ambiguous
+Жеңілдіктер,other_discounts|ent_discounts|language_cert_discounts,kk,ambiguous
+ВТиПО,tuition_bachelor,ru,program
+ВТиПО цена,tuition_bachelor,ru,program
+цена ВТиПО,tuition_bachelor,ru,program
+Юриспруденция,tuition_bachelor,ru,program
+психология магистратура цена,tuition_postgrad,ru,program

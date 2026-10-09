@@ -74,6 +74,16 @@ def check() -> list[str]:
                 errors.append(f"external: неизвестный интент {intent} – {row['text']}")
     external_ood = sum(r["intent"] == "ood" for r in external)
 
+    # короткие запросы из ключевых слов – отдельный набор для эксперимента с правилами и умным поиском
+    short = read_csv(PHRASES_DIR / "short.csv")
+    for row in short:
+        for intent in row["intent"].split("|"):
+            if intent not in intents:
+                errors.append(f"short: неизвестный интент {intent} – {row['text']}")
+        if row["kind"] not in ("keywords", "ambiguous", "program"):
+            errors.append(f"short: неизвестный вид {row['kind']} – {row['text']}")
+    errors += [f"short пересекается с train: «{r['text']}»" for r in short if normalize(r["text"]) in train_norm]
+
     turns = 0
     for sc in scenarios:
         for turn in sc["turns"]:
@@ -89,6 +99,7 @@ def check() -> list[str]:
     print(f"external: {len(external)} вопросов из {len({r['university'] for r in external})} вузов, "
           f"вне базы {external_ood}, по языкам {dict(Counter(r['lang'] for r in external))}")
     print(f"сценарии: {len(scenarios)} диалогов, {turns} реплик")
+    print(f"short: коротких запросов – {len(short)}, по видам {dict(Counter(r['kind'] for r in short))}")
     print(f"фраз на интент в train: от {min(train_counts.values())} до {max(train_counts.values())}")
     return errors
 

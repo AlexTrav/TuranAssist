@@ -1,0 +1,757 @@
+{
+ "sets": {
+  "short": {
+   "A": {
+    "fallback": 17,
+    "correct": 16,
+    "wrong": 1
+   },
+   "B": {
+    "clarify_hit": 6,
+    "correct": 20,
+    "fallback": 7,
+    "wrong": 1
+   },
+   "C": {
+    "correct": 25,
+    "fallback": 4,
+    "clarify_hit": 4,
+    "wrong": 1
+   },
+   "n": 34
+  },
+  "test": {
+   "A": {
+    "correct": 236,
+    "fallback": 75,
+    "wrong": 7
+   },
+   "B": {
+    "correct": 236,
+    "fallback": 68,
+    "clarify_hit": 7,
+    "wrong": 7
+   },
+   "C": {
+    "correct": 239,
+    "fallback": 67,
+    "wrong": 8,
+    "clarify_hit": 4
+   },
+   "n": 318
+  },
+  "external": {
+   "A": {
+    "correct": 79,
+    "fallback": 50,
+    "refused": 57,
+    "false_answer": 12,
+    "wrong": 11
+   },
+   "B": {
+    "correct": 79,
+    "fallback": 50,
+    "refused": 56,
+    "false_answer": 12,
+    "wrong": 11,
+    "clarify": 1
+   },
+   "C": {
+    "correct": 80,
+    "fallback": 49,
+    "refused": 56,
+    "false_answer": 12,
+    "wrong": 11,
+    "clarify": 1
+   },
+   "n": 209
+  },
+  "ood": {
+   "A": {
+    "false_answer": 38,
+    "refused": 117
+   },
+   "B": {
+    "false_answer": 38,
+    "refused": 113,
+    "clarify": 4
+   },
+   "C": {
+    "false_answer": 38,
+    "refused": 113,
+    "clarify": 4
+   },
+   "n": 155
+  }
+ },
+ "short_details": [
+  {
+   "text": "Магистратура поступление",
+   "kind": "keywords",
+   "gold": [
+    "master_admission"
+   ],
+   "A": "fallback",
+   "B": "clarify_hit",
+   "C": "correct",
+   "rule": "search",
+   "intent": "master_admission"
+  },
+  {
+   "text": "поступление магистратура",
+   "kind": "keywords",
+   "gold": [
+    "master_admission"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "master_admission"
+  },
+  {
+   "text": "докторантура поступление",
+   "kind": "keywords",
+   "gold": [
+    "phd_admission"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "phd_admission"
+  },
+  {
+   "text": "Магистратураға түсу",
+   "kind": "keywords",
+   "gold": [
+    "master_admission"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "correct",
+   "rule": "search",
+   "intent": "master_admission"
+  },
+  {
+   "text": "master admission",
+   "kind": "keywords",
+   "gold": [
+    "master_admission"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "master_admission"
+  },
+  {
+   "text": "PhD admission",
+   "kind": "keywords",
+   "gold": [
+    "phd_admission"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "phd_admission"
+  },
+  {
+   "text": "Документы",
+   "kind": "keywords",
+   "gold": [
+    "admission_documents"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "correct",
+   "rule": "search",
+   "intent": "admission_documents"
+  },
+  {
+   "text": "документы магистратура",
+   "kind": "keywords",
+   "gold": [
+    "master_admission",
+    "admission_documents"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "master_admission"
+  },
+  {
+   "text": "сроки приема",
+   "kind": "keywords",
+   "gold": [
+    "admission_deadlines"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "admission_deadlines"
+  },
+  {
+   "text": "проходной балл",
+   "kind": "keywords",
+   "gold": [
+    "passing_score"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "passing_score"
+  },
+  {
+   "text": "военная кафедра",
+   "kind": "keywords",
+   "gold": [
+    "military"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "military"
+  },
+  {
+   "text": "пересдача FX",
+   "kind": "keywords",
+   "gold": [
+    "retake_fx"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "retake_fx"
+  },
+  {
+   "text": "академ",
+   "kind": "keywords",
+   "gold": [
+    "academic_leave"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "academic_leave"
+  },
+  {
+   "text": "медпункт",
+   "kind": "keywords",
+   "gold": [
+    "medical_center"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "medical_center"
+  },
+  {
+   "text": "общага",
+   "kind": "keywords",
+   "gold": [
+    "dormitory"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "dormitory"
+  },
+  {
+   "text": "мага",
+   "kind": "keywords",
+   "gold": [
+    "master_programs",
+    "master_admission"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "master_programs"
+  },
+  {
+   "text": "Foundation",
+   "kind": "keywords",
+   "gold": [
+    "foundation"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "foundation"
+  },
+  {
+   "text": "Admission",
+   "kind": "keywords",
+   "gold": [
+    "admission_steps"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "fallback",
+   "rule": "fallback",
+   "intent": null
+  },
+  {
+   "text": "Exams",
+   "kind": "keywords",
+   "gold": [
+    "schedule",
+    "missed_exam",
+    "retake_fx",
+    "academic_calendar"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "fallback",
+   "rule": "fallback",
+   "intent": null
+  },
+  {
+   "text": "Гранты",
+   "kind": "ambiguous",
+   "gold": [
+    "state_grant",
+    "vacant_grant",
+    "turan_umiti_grant"
+   ],
+   "A": "fallback",
+   "B": "clarify_hit",
+   "C": "clarify_hit",
+   "rule": "clarify",
+   "intent": null
+  },
+  {
+   "text": "Гранттар",
+   "kind": "ambiguous",
+   "gold": [
+    "state_grant",
+    "vacant_grant",
+    "turan_umiti_grant"
+   ],
+   "A": "fallback",
+   "B": "clarify_hit",
+   "C": "clarify_hit",
+   "rule": "clarify",
+   "intent": null
+  },
+  {
+   "text": "Grants",
+   "kind": "ambiguous",
+   "gold": [
+    "state_grant",
+    "vacant_grant",
+    "turan_umiti_grant"
+   ],
+   "A": "fallback",
+   "B": "clarify_hit",
+   "C": "clarify_hit",
+   "rule": "clarify",
+   "intent": null
+  },
+  {
+   "text": "Цена",
+   "kind": "ambiguous",
+   "gold": [
+    "tuition_bachelor",
+    "tuition_postgrad"
+   ],
+   "A": "fallback",
+   "B": "clarify_hit",
+   "C": "clarify_hit",
+   "rule": "clarify",
+   "intent": null
+  },
+  {
+   "text": "Price",
+   "kind": "ambiguous",
+   "gold": [
+    "tuition_bachelor",
+    "tuition_postgrad"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "fallback",
+   "rule": "fallback",
+   "intent": null
+  },
+  {
+   "text": "Tuition",
+   "kind": "ambiguous",
+   "gold": [
+    "tuition_bachelor",
+    "tuition_postgrad"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "fallback",
+   "rule": "fallback",
+   "intent": null
+  },
+  {
+   "text": "Оқу ақысы",
+   "kind": "ambiguous",
+   "gold": [
+    "tuition_bachelor",
+    "tuition_postgrad"
+   ],
+   "A": "fallback",
+   "B": "fallback",
+   "C": "correct",
+   "rule": "search",
+   "intent": "tuition_bachelor"
+  },
+  {
+   "text": "ЕНТ",
+   "kind": "ambiguous",
+   "gold": [
+    "ent_subjects",
+    "ent_discounts",
+    "passing_score"
+   ],
+   "A": "fallback",
+   "B": "clarify_hit",
+   "C": "correct",
+   "rule": "search",
+   "intent": "ent_subjects"
+  },
+  {
+   "text": "Скидки",
+   "kind": "ambiguous",
+   "gold": [
+    "other_discounts",
+    "ent_discounts",
+    "language_cert_discounts"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "other_discounts"
+  },
+  {
+   "text": "Жеңілдіктер",
+   "kind": "ambiguous",
+   "gold": [
+    "other_discounts",
+    "ent_discounts",
+    "language_cert_discounts"
+   ],
+   "A": "wrong",
+   "B": "wrong",
+   "C": "wrong",
+   "rule": "model",
+   "intent": "greeting"
+  },
+  {
+   "text": "ВТиПО",
+   "kind": "program",
+   "gold": [
+    "tuition_bachelor"
+   ],
+   "A": "fallback",
+   "B": "correct",
+   "C": "correct",
+   "rule": "program",
+   "intent": "tuition_bachelor"
+  },
+  {
+   "text": "ВТиПО цена",
+   "kind": "program",
+   "gold": [
+    "tuition_bachelor"
+   ],
+   "A": "fallback",
+   "B": "correct",
+   "C": "correct",
+   "rule": "program",
+   "intent": "tuition_bachelor"
+  },
+  {
+   "text": "цена ВТиПО",
+   "kind": "program",
+   "gold": [
+    "tuition_bachelor"
+   ],
+   "A": "fallback",
+   "B": "correct",
+   "C": "correct",
+   "rule": "program",
+   "intent": "tuition_bachelor"
+  },
+  {
+   "text": "Юриспруденция",
+   "kind": "program",
+   "gold": [
+    "tuition_bachelor"
+   ],
+   "A": "fallback",
+   "B": "correct",
+   "C": "correct",
+   "rule": "program",
+   "intent": "tuition_bachelor"
+  },
+  {
+   "text": "психология магистратура цена",
+   "kind": "program",
+   "gold": [
+    "tuition_postgrad"
+   ],
+   "A": "correct",
+   "B": "correct",
+   "C": "correct",
+   "rule": "model",
+   "intent": "tuition_postgrad"
+  }
+ ],
+ "sweep": [
+  {
+   "min_score": 0.88,
+   "min_margin": 0.0,
+   "correct": 14,
+   "wrong": 2,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.005,
+   "correct": 13,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.01,
+   "correct": 13,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.015,
+   "correct": 12,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.02,
+   "correct": 10,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.025,
+   "correct": 9,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.03,
+   "correct": 8,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.035,
+   "correct": 7,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.04,
+   "correct": 5,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.05,
+   "correct": 1,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.88,
+   "min_margin": 0.06,
+   "correct": 1,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.0,
+   "correct": 13,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.005,
+   "correct": 12,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.01,
+   "correct": 12,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.015,
+   "correct": 12,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.02,
+   "correct": 10,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.025,
+   "correct": 9,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.03,
+   "correct": 8,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.035,
+   "correct": 7,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.04,
+   "correct": 5,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.05,
+   "correct": 1,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.9,
+   "min_margin": 0.06,
+   "correct": 1,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.0,
+   "correct": 9,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.005,
+   "correct": 9,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.01,
+   "correct": 9,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.015,
+   "correct": 9,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.02,
+   "correct": 8,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.025,
+   "correct": 7,
+   "wrong": 1,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.03,
+   "correct": 6,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.035,
+   "correct": 5,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.04,
+   "correct": 4,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.05,
+   "correct": 1,
+   "wrong": 0,
+   "false_answer": 0
+  },
+  {
+   "min_score": 0.92,
+   "min_margin": 0.06,
+   "correct": 1,
+   "wrong": 0,
+   "false_answer": 0
+  }
+ ],
+ "chosen": {
+  "min_score": 0.9,
+  "min_margin": 0.025,
+  "max_words": 4
+ },
+ "search_ms_mean": 0.06717935509740251
+}
