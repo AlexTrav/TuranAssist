@@ -97,7 +97,7 @@ Telegram-бот локально – `cd backend && make bot-dev` (токен в
   статику с адресом бэкенда на Render при каждом push, затрагивающем `frontend/`.
 - **Модель** – энкодер e5 (ONNX int8) на [Hugging Face](https://huggingface.co/AlexCode2003/turanassist-intent-e5),
   скачивается при сборке образа с фиксированного коммита и проверкой SHA-256.
-- **CI** – [ci.yml](.github/workflows/ci.yml): проверка базы ответов и наборов фраз, 180 тестов pytest,
+- **CI** – [ci.yml](.github/workflows/ci.yml): проверка базы ответов и наборов фраз, 179 тестов pytest,
   32 теста Vitest, проверка типов и сборка – теми же `make`-командами и в тех же образах, что локально.
 
 ## Стек
