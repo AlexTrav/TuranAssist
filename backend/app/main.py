@@ -30,6 +30,20 @@ logger = logging.getLogger("turanassist")
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 
+# healthcheck docker-compose и Render дёргает /api/health каждые несколько секунд – успешные проверки
+# не пишем в журнал доступа, иначе они забивают логи; ошибки проверки остаются видны
+class HealthCheckFilter(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        args = record.args
+        if isinstance(args, tuple) and len(args) >= 5:
+            path, status = args[2], args[4]
+            return not (str(path).startswith("/api/health") and status == 200)
+        return True
+
+
+logging.getLogger("uvicorn.access").addFilter(HealthCheckFilter())
+
+
 # сводка качества моделей для страницы «О проекте»: TF-IDF, e5 и выбранный ансамбль (с порогом)
 def model_summary(classifier: IntentClassifier) -> dict:
     report = json.loads(ENSEMBLE_METRICS_PATH.read_text(encoding="utf-8"))
