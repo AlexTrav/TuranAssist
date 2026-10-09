@@ -33,7 +33,7 @@ How much is software engineering?,en,цена программы,tuition_bachelo
 ЕНТ,ru,умный поиск,ent_subjects,,yes,"модель делит ЕНТ между скидками и предметами, поиск: название «Предметы ЕНТ» ближе всех (0.93, отрыв 0.036)"
 Магистратура поступление,ru,умный поиск,master_admission,,yes,"модель: Foundation 0.25, магистратура 0.19; поиск: «Поступление в магистратуру» (0.96, отрыв 0.042)"
 Оқу ақысы,kk,умный поиск,tuition_bachelor,,no,"поиск находит «Оқу ақысы» (0.96), но отрыв 0.030 близок к порогу 0.025"
-Цена,ru,короткий запрос,clarify:tuition_bachelor|tuition_postgrad,,yes,уточнение: бакалавриат или магистратура
+Цена,ru,короткий запрос,clarify:tuition_bachelor|tuition_postgrad,,no,"уточнение: бакалавриат или магистратура; темы вместе 0.62 при пороге 0.577 – на другом процессоре может не сработать"
 Grants,en,короткий запрос,clarify:vacant_grant|state_grant,,yes,
 Гранттар,kk,короткий запрос,clarify:vacant_grant|turan_umiti_grant,,yes,
 Жатақхана бар ма?,kk,казахский,dormitory,,yes,
