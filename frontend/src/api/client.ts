@@ -8,6 +8,7 @@ import type {
   KnowledgeItem,
   LiveMetrics,
   ModelInfo,
+  SearchResult,
   TuitionCatalog,
 } from '../types'
 
@@ -96,6 +97,8 @@ export const api = {
   // нагрузочный тест сам по себе идёт несколько секунд – это не признак спящего сервера
   benchmark: () => post<BenchmarkResult>('/api/benchmark', {}, 90_000, false),
   lastBenchmark: () => request<BenchmarkResult | null>('/api/benchmark', {}, 15_000),
+  // умный поиск по смыслу для базы знаний: темы по убыванию близости к запросу
+  search: (q: string) => request<SearchResult[]>(`/api/search?q=${encodeURIComponent(q)}`, {}, 15_000),
   modelInfo: () => request<ModelInfo>('/api/model-info'),
   metrics: () => request<LiveMetrics>('/api/metrics', {}, 10_000),
   health: (timeoutMs = DEFAULT_TIMEOUT_MS) => request<{ status: string }>('/api/health', {}, timeoutMs),

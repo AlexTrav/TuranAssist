@@ -22,6 +22,8 @@ COPY model/artifacts/production model/artifacts/production
 COPY model/artifacts/baseline/model.joblib model/artifacts/baseline/model.joblib
 COPY model/reports/ensemble/metrics.json model/reports/ensemble/metrics.json
 COPY backend/app backend/app
+# векторы названий тем для умного поиска – считаются один раз здесь, а не при каждом запуске сервиса
+RUN cd backend && python -m app.nlp.search
 
 WORKDIR /app/backend
 EXPOSE 8000

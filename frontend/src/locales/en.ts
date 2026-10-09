@@ -88,6 +88,7 @@ const messages: typeof ru = {
     hint: 'Enter to send, Shift+Enter for a new line. History is stored only in your browser.',
     more: 'More on turan.edu.kz',
     confidence: 'confidence {value}',
+    similarity: 'similarity {value}',
     timing: '{value} ms',
     followUp: 'follow-up',
     notUnderstood: 'Not sure about the topic',
@@ -120,6 +121,11 @@ const messages: typeof ru = {
     step4Hint: 'Ensemble: {e5} × e5 + {tfidf} × TF-IDF. The line is the confidence threshold {threshold}.',
     ruleModel: 'Confidence {p} is above the threshold – the answer comes from the knowledge base.',
     ruleTuition: 'The question names a program: the combined confidence of the tuition topics {p} is above the threshold – the answer shows that program’s price.',
+    ruleSearch:
+      'A short keyword request: the model is not confident, but smart search found a topic whose title is close to the request in meaning ({p}) and clearly closer than the rest – the answer is on that topic.',
+    stepSearch: 'Smart search over topic titles',
+    searchHint: 'The question embedding is compared with the titles of all topics in three languages: similarity {score}, margin over the next topic {margin}.',
+    searchShared: 'Words shared with the title',
     ruleProgram:
       'The request is a program name plus price words. The model has little to go on (tuition topics – {p}), but the program is named explicitly – the answer shows its price.',
     ruleClarify:
@@ -197,8 +203,9 @@ const messages: typeof ru = {
   kb: {
     eyebrow: 'Knowledge base',
     title: 'Everything the bot knows',
-    subtitle: 'Verified answers on 53 topics with sources. Search by title and text.',
+    subtitle: 'Verified answers on 53 topics with sources. Search understands both exact words and meaning: “dorm”, “army”, “how much to pay”.',
     search: 'Search: dormitory, UNT, retake…',
+    bySense: 'by meaning',
     all: 'All',
     found: '{n} of {total} found',
     empty: 'Nothing found – try asking the chat in your own words.',
@@ -288,13 +295,15 @@ const messages: typeof ru = {
     step5Text: 'multilingual-e5-small in Colab, ONNX int8 quantization for a 512 MB server.',
     step6Title: 'Ensemble and service',
     step6Text: 'e5 + TF-IDF with a “not understood” threshold, FastAPI, Telegram bot, real-time metrics.',
-    nlpTitle: 'Three NLP components',
+    nlpTitle: 'Four NLP components',
     nlp1Title: 'Intent classification',
     nlp1Text: 'An ensemble of a transformer and TF-IDF picks the topic of the question among 53 and its confidence.',
     nlp2Title: 'Entity extraction',
     nlp2Text: '32 programs via a dictionary of abbreviations (“ВТиПО”, “lawyer”) – the price of a specific program.',
     nlp3Title: 'Dialog context',
     nlp3Text: 'Follow-ups like “and for a master’s?” are understood together with the previous question.',
+    nlp4Title: 'Smart search',
+    nlp4Text: 'The same e5 compares a request with topic titles by meaning: “master admission” finds the right topic, “dorm” in the knowledge base finds the dormitory.',
     modelsTitle: 'Model comparison',
     modelsSubtitle:
       'Share of correct answers including the “not understood” threshold; whiskers are 95% Wilson confidence intervals. The model was chosen without the test sets.',

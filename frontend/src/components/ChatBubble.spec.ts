@@ -91,6 +91,22 @@ describe('ChatBubble', () => {
     expect(wrapper.text()).toContain('просит выбрать тему')
   })
 
+  it('explains an answer found by smart search', async () => {
+    const searchExplain: Explain = {
+      ...explain,
+      rule: 'search',
+      decisive: 0.9585,
+      programs: [],
+      search: { intent: 'master_admission', score: 0.9585, margin: 0.0418, shared: ['магистратура', 'поступление'] },
+    }
+    const wrapper = mountBubble({ id: 7, role: 'bot', recognized: true, title: 'Поступление в магистратуру', confidence: 0.9585, text: 'Ответ', explain: searchExplain })
+    expect(wrapper.text()).toContain('сходство') // близость к названию, а не вероятность модели
+    await wrapper.get('button[aria-expanded]').trigger('click')
+    expect(wrapper.text()).toContain('Умный поиск по названиям тем')
+    expect(wrapper.text()).toContain('поступление')
+    expect(wrapper.text()).toContain('умный поиск нашёл тему')
+  })
+
   it('shows a translated error by code', () => {
     const wrapper = mountBubble({ id: 5, role: 'bot', text: '', error: 'rate_limited' })
     expect(wrapper.text()).toContain('Слишком много запросов')

@@ -12,14 +12,16 @@ from .bot.handlers import BotHandler
 from .bot.telegram_api import TelegramClient
 from .bot.webhook import router as telegram_router
 from .config import (BENCHMARK_RATE_LIMIT, CHAT_RATE_LIMIT, CORS_ORIGINS, ENSEMBLE_METRICS_PATH, FEEDBACK_RATE_LIMIT,
-                     SUPPORTED_LANGS, TELEGRAM_BOT_TOKEN, TELEGRAM_WEBHOOK_SECRET)
+                     MAX_TEXT_LENGTH, SEARCH_RATE_LIMIT, SEARCH_RESULTS, SUPPORTED_LANGS, TELEGRAM_BOT_TOKEN,
+                     TELEGRAM_WEBHOOK_SECRET)
 from .knowledge import Knowledge
 from .metrics.benchmark import Benchmark
 from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier
 from .nlp.explain import explain
+from .nlp.search import TopicSearch
 from .schemas import (ChatContext, ChatRequest, ChatResponse, FeedbackRequest, GroupInfo, IntentAnswer, IntentInfo,
-                      KnowledgeItem, Suggestion)
+                      KnowledgeItem, SearchResult, Suggestion)
 from .security.rate_limit import limiter
 from .security.validation import validated_context, validated_text
 from .service import Answer, answer_question
@@ -73,12 +75,13 @@ async def lifespan(app: FastAPI):
     app.state.metrics, app.state.knowledge, app.state.classifier = metrics, knowledge, classifier
     app.state.model_summary = model_summary(classifier)
     app.state.benchmark = Benchmark(classifier)
+    app.state.search = TopicSearch(classifier, knowledge)
     logger.info("модель %s загружена за %.1f с, прогрев %.0f мс", classifier.name,
                 classifier.load_seconds, classifier.warmup_ms)
 
     # Telegram-бот включается, только если задан токен; без него веб-API работает как обычно
     client = TelegramClient(TELEGRAM_BOT_TOKEN) if TELEGRAM_BOT_TOKEN else None
-    app.state.bot = BotHandler(client, classifier, knowledge, metrics) if client else None
+    app.state.bot = BotHandler(client, classifier, knowledge, metrics, app.state.search) if client else None
     app.state.telegram_secret = TELEGRAM_WEBHOOK_SECRET
     logger.info("Telegram-бот: %s", "включён (webhook)" if client else "выключен – нет TELEGRAM_BOT_TOKEN")
     yield
@@ -113,6 +116,14 @@ def health() -> dict:
     return {"status": "ok"}
 
 
+# что нашёл умный поиск – для панели «Как бот понял» (только когда ответ дал он)
+def search_info(a: Answer) -> dict | None:
+    if not a.search:
+        return None
+    return {"intent": a.search.intent, "score": round(a.search.score, 4), "margin": round(a.search.margin, 4),
+            "shared": a.search.shared}
+
+
 # уверенность, по которой принято решение, – для панели «Как бот понял»
 def decisive_confidence(a: Answer) -> float:
     if a.rule == "clarify":
@@ -128,7 +139,8 @@ def chat(request: Request, body: ChatRequest) -> ChatResponse:
     text = validated_text(body)
     context = validated_context(body)
     state = request.app.state
-    a = answer_question(state.classifier, state.knowledge, state.metrics, text, body.lang, "web", context)
+    a = answer_question(state.classifier, state.knowledge, state.metrics, text, body.lang, "web", context,
+                        search=state.search)
     return ChatResponse(
         recognized=a.recognized, intent=a.intent, title=a.title, confidence=round(a.confidence, 4),
         answer=a.text, source_url=a.source_url, lang=a.lang,
@@ -138,7 +150,7 @@ def chat(request: Request, body: ChatRequest) -> ChatResponse:
         context=ChatContext(text=a.context.text, intent=a.context.intent) if a.context else None,
         prices=a.prices,
         explain=explain(state.classifier, a.prediction, text, a.classified_text, a.lang, a.rule, a.programs,
-                        a.context_used, decisive_confidence(a)))
+                        a.context_used, decisive_confidence(a), search_info(a)))
 
 
 # темы, на которые отвечает бот, по группам – для страницы «О проекте» и стартовых подсказок в чате
@@ -164,6 +176,19 @@ def knowledge_items(request: Request, lang: str = "ru") -> list[KnowledgeItem]:
     kb = request.app.state.knowledge
     return [KnowledgeItem(id=i.id, group=i.group, title=kb.title(i.id, lang), answer=kb.answer(i.id, lang),
                           source_url=kb.source_url(i.id, lang)) for i in kb.intents.values()]
+
+
+# умный поиск по смыслу для страницы «База знаний»: «общага» находит «Общежитие», «сколько платить» – стоимость.
+# Темы упорядочены по близости эмбеддинга запроса к названиям тем; в живые метрики не попадает
+@app.get("/api/search", response_model=list[SearchResult])
+@limiter.limit(SEARCH_RATE_LIMIT)
+def search_topics(request: Request, q: str = "") -> list[SearchResult]:
+    query = q.strip()
+    if not query:
+        raise HTTPException(status_code=400, detail={"code": "empty_text", "message": "Пустой запрос"})
+    if len(query) > MAX_TEXT_LENGTH:
+        raise HTTPException(status_code=400, detail={"code": "text_too_long", "message": "Слишком длинный запрос"})
+    return [SearchResult(id=i, score=round(s, 4)) for i, s in request.app.state.search.search(query, SEARCH_RESULTS)]
 
 
 # справочник цен для калькулятора стоимости: программы, формы обучения, цены (из страницы сайта)

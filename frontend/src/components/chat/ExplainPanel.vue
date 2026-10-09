@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { CpuChipIcon, LanguageIcon, PuzzlePieceIcon, ScissorsIcon } from '@heroicons/vue/24/outline'
+import { CpuChipIcon, LanguageIcon, MagnifyingGlassIcon, PuzzlePieceIcon, ScissorsIcon } from '@heroicons/vue/24/outline'
 import { useKnowledge } from '../../composables/useKnowledge'
 import type { AppLocale, Explain } from '../../types'
 import { formatNumber, formatPercent, formatPiece } from '../../utils/format'
@@ -25,6 +25,7 @@ const RULE_KEYS: Record<Explain['rule'], string> = {
   model: 'explain.ruleModel',
   tuition_sum: 'explain.ruleTuition',
   program: 'explain.ruleProgram',
+  search: 'explain.ruleSearch',
   clarify: 'explain.ruleClarify',
   chosen: 'explain.ruleChosen',
   fallback: 'explain.ruleFallback',
@@ -110,6 +111,17 @@ const pct = (v: number) => formatPercent(v, lang.value, 1)
       <div v-if="programNames.length" class="mt-2 flex flex-wrap items-center gap-1.5 text-xs">
         <span class="text-muted">{{ t('explain.entities') }}:</span>
         <span v-for="name in programNames" :key="name" class="tag !bg-gold-soft !text-ink">{{ name }}</span>
+      </div>
+      <!-- умный поиск: какую тему нашёл, насколько близко её название и какие слова совпали -->
+      <div v-if="explain.search" class="mt-3 rounded-lg border border-line px-3 py-2.5">
+        <p class="flex items-center gap-1.5 text-[13px] font-semibold text-ink">
+          <MagnifyingGlassIcon class="h-4 w-4 shrink-0 text-primary-strong" />{{ t('explain.stepSearch') }}: {{ titleOf(explain.search.intent, lang) }}
+        </p>
+        <p class="mt-1 text-xs text-faint">{{ t('explain.searchHint', { score: pct(explain.search.score), margin: pct(explain.search.margin) }) }}</p>
+        <div v-if="explain.search.shared.length" class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
+          <span class="text-muted">{{ t('explain.searchShared') }}:</span>
+          <span v-for="word in explain.search.shared" :key="word" class="tag">{{ word }}</span>
+        </div>
       </div>
       <p
         class="mt-2.5 rounded-lg border px-3 py-2 text-[13px]"

@@ -71,3 +71,9 @@ class KnowledgeItem(BaseModel):
     title: str
     answer: str
     source_url: str | None
+
+
+# тема из умного поиска: id и косинусная близость запроса к её названию
+class SearchResult(BaseModel):
+    id: str
+    score: float

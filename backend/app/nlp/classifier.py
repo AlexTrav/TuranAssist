@@ -21,6 +21,10 @@ class Prediction:
     timing_ms: dict = field(default_factory=dict)
     # те же интенты с вероятностями каждой модели ансамбля: (интент, e5, TF-IDF) – для панели «Как бот понял»
     components: list[tuple[str, float, float]] = field(default_factory=list)
+    # нормированный эмбеддинг вопроса из e5 – по нему же умный поиск сравнивает вопрос с названиями тем
+    embedding: np.ndarray | None = field(default=None, repr=False)
+    # вероятности ансамбля по всем интентам (в порядке classifier.intents) – для ранжирования в умном поиске
+    proba: np.ndarray | None = field(default=None, repr=False)
 
 
 def _softmax(logits: np.ndarray) -> np.ndarray:
@@ -62,17 +66,25 @@ class IntentClassifier:
         self.predict("здравствуйте")
         self.warmup_ms = (time.perf_counter() - warm) * 1000
 
-    def _e5_proba(self, text: str) -> np.ndarray:
+    # эмбеддинг текста из e5 (с префиксом «query: », как при обучении)
+    def embed(self, text: str) -> np.ndarray:
         ids = np.array([self.tokenizer.encode(self.query_prefix + text)], dtype=np.int64)
         mask = np.ones_like(ids)  # один вопрос без паддинга – все токены значимые
-        embedding = self.session.run(None, {"input_ids": ids, "attention_mask": mask})[0][0]
+        return self.session.run(None, {"input_ids": ids, "attention_mask": mask})[0][0]
+
+    # вероятности интентов по голове логистической регрессии над эмбеддингом
+    def _e5_head(self, embedding: np.ndarray) -> np.ndarray:
         return _softmax(self.coef @ embedding + self.intercept)
+
+    def _e5_proba(self, text: str) -> np.ndarray:
+        return self._e5_head(self.embed(text))
 
     def predict(self, text: str) -> Prediction:
         t0 = time.perf_counter()
         p_tfidf = self.tfidf.predict_proba([text])[0]
         t1 = time.perf_counter()
-        p_e5 = self._e5_proba(text)
+        embedding = self.embed(text)
+        p_e5 = self._e5_head(embedding)
         t2 = time.perf_counter()
         proba = self.weight_e5 * p_e5 + (1 - self.weight_e5) * p_tfidf
         order = np.argsort(-proba)
@@ -84,4 +96,6 @@ class IntentClassifier:
             top=[(self.intents[i], float(proba[i])) for i in order[:5]],
             timing_ms={"tfidf": (t1 - t0) * 1000, "e5": (t2 - t1) * 1000, "model": (t2 - t0) * 1000},
             components=[(self.intents[i], float(p_e5[i]), float(p_tfidf[i])) for i in order[:5]],
+            embedding=embedding / np.linalg.norm(embedding),
+            proba=proba,
         )

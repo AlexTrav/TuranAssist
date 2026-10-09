@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { ArrowTopRightOnSquareIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
+import { ArrowTopRightOnSquareIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, MagnifyingGlassIcon, SparklesIcon } from '@heroicons/vue/24/outline'
 import { api } from '../api/client'
 import RichText from '../components/chat/RichText.vue'
 import { useKnowledge } from '../composables/useKnowledge'
@@ -33,15 +33,50 @@ async function load() {
 onMounted(load)
 watch(lang, load)
 
+// умный поиск по смыслу: через паузу в наборе сервер ранжирует темы по запросу («общага» -> «Общежитие»).
+// Совпадения по тексту видны сразу; темы, найденные сервером, поднимаются наверх в его порядке
+const SEARCH_DELAY_MS = 400
+const MIN_SEARCH_LENGTH = 3
+const semantic = ref<string[]>([])
+let searchTimer: ReturnType<typeof setTimeout> | undefined
+watch(query, (value) => {
+  clearTimeout(searchTimer)
+  semantic.value = []
+  const q = value.trim()
+  if (q.length < MIN_SEARCH_LENGTH) return
+  searchTimer = setTimeout(async () => {
+    try {
+      const results = await api.search(q)
+      if (query.value.trim() === q) semantic.value = results.map((r) => r.id)
+    } catch {
+      // поиск по смыслу – дополнение: без него остаётся поиск по тексту
+    }
+  }, SEARCH_DELAY_MS)
+})
+onUnmounted(() => clearTimeout(searchTimer))
+
+const textMatch = (i: KnowledgeItem, q: string) => i.title.toLowerCase().includes(q) || i.answer.toLowerCase().includes(q)
+// тема найдена только по смыслу – в тексте нет набранных слов
+const bySense = (i: KnowledgeItem) => {
+  const q = query.value.trim().toLowerCase()
+  return !!q && semantic.value.includes(i.id) && !textMatch(i, q)
+}
+
 const visibleGroups = computed(() => groups.value.filter((g) => g.id !== 'service'))
 const filtered = computed(() => {
   const q = query.value.trim().toLowerCase()
-  return items.value.filter(
-    (i) =>
-      i.group !== 'service' &&
-      (group.value === 'all' || i.group === group.value) &&
-      (!q || i.title.toLowerCase().includes(q) || i.answer.toLowerCase().includes(q)),
-  )
+  const rank = (i: KnowledgeItem) => {
+    const at = semantic.value.indexOf(i.id)
+    return at < 0 ? semantic.value.length : at
+  }
+  return items.value
+    .filter(
+      (i) =>
+        i.group !== 'service' &&
+        (group.value === 'all' || i.group === group.value) &&
+        (!q || textMatch(i, q) || semantic.value.includes(i.id)),
+    )
+    .sort((a, b) => rank(a) - rank(b)) // сортировка устойчивая: остальные темы сохраняют порядок базы
 })
 const total = computed(() => items.value.filter((i) => i.group !== 'service').length)
 const countIn = (id: string) => items.value.filter((i) => i.group === id).length
@@ -111,9 +146,14 @@ function highlight(title: string): { before: string; match: string; after: strin
         <li v-for="item in filtered" :key="item.id" class="card overflow-hidden transition-colors" :class="open === item.id ? 'border-steel' : ''">
           <button class="flex w-full items-start justify-between gap-4 p-5 text-left" :aria-expanded="open === item.id" @click="open = open === item.id ? null : item.id">
             <span class="min-w-0">
-              <span class="text-[11px] font-semibold tracking-wide text-primary-strong uppercase">{{ t(`groups.${item.group}`) }}</span>
+              <span class="flex flex-wrap items-center gap-2">
+                <span class="text-[11px] font-semibold tracking-wide text-primary-strong uppercase">{{ t(`groups.${item.group}`) }}</span>
+                <span v-if="bySense(item)" class="inline-flex items-center gap-1 rounded-full bg-gold-soft px-2 py-0.5 text-[11px] font-medium text-ink">
+                  <SparklesIcon class="h-3 w-3" />{{ t('kb.bySense') }}
+                </span>
+              </span>
               <span class="mt-0.5 block font-display text-lg font-semibold text-ink">
-                {{ highlight(item.title).before }}<mark class="rounded bg-gold-soft px-0.5 text-ink">{{ highlight(item.title).match }}</mark>{{ highlight(item.title).after }}
+                {{ highlight(item.title).before }}<mark v-if="highlight(item.title).match" class="rounded bg-gold-soft px-0.5 text-ink">{{ highlight(item.title).match }}</mark>{{ highlight(item.title).after }}
               </span>
               <span v-if="snippet(item)" class="mt-1 block text-sm text-muted">
                 {{ snippet(item)!.before }}<mark class="rounded bg-gold-soft px-0.5 text-ink">{{ snippet(item)!.match }}</mark>{{ snippet(item)!.after }}

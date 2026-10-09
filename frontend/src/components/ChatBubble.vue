@@ -127,7 +127,8 @@ async function copy() {
 
       <!-- телеметрия и действия: уверенность, время, разбор, копирование, оценка -->
       <div v-if="!message.error" class="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 pl-1">
-        <span v-if="message.confidence !== undefined" class="tag">{{ t('chat.confidence', { value: formatPercent(message.confidence, lang) }) }}</span>
+        <!-- у ответа умного поиска это близость к названию темы, а не вероятность модели -->
+        <span v-if="message.confidence !== undefined" class="tag">{{ t(message.explain?.rule === 'search' ? 'chat.similarity' : 'chat.confidence', { value: formatPercent(message.confidence, lang) }) }}</span>
         <span v-if="message.timingMs !== undefined" class="tag">{{ t('chat.timing', { value: formatNumber(message.timingMs, lang) }) }}</span>
         <span v-if="message.contextUsed" class="tag !bg-gold-soft !text-ink">↩ {{ t('chat.followUp') }}</span>
 

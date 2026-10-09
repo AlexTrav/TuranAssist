@@ -39,9 +39,9 @@ export interface ExplainCandidate {
   e5: number
   tfidf: number
 }
-// model – порог модели, tuition_sum – сумма тем стоимости, program – программа и слова о цене,
+// model – порог модели, tuition_sum – сумма тем стоимости, program – программа и слова о цене, search – умный поиск,
 // clarify – короткий запрос на несколько тем, fallback – «не понял», chosen – тему выбрали кнопкой
-export type DecisionRule = 'model' | 'tuition_sum' | 'program' | 'clarify' | 'fallback' | 'chosen'
+export type DecisionRule = 'model' | 'tuition_sum' | 'program' | 'search' | 'clarify' | 'fallback' | 'chosen'
 export interface Explain {
   language: AppLocale
   normalized: string
@@ -55,6 +55,8 @@ export interface Explain {
   threshold: number
   rule: DecisionRule
   decisive?: number | null // уверенность, по которой принято решение (сумма тем у tuition_sum, program, clarify)
+  // правило search: тема, близость вопроса к её названию, отрыв от следующей темы и общие слова
+  search?: { intent: string; score: number; margin: number; shared: string[] } | null
   programs: string[]
 }
 
@@ -221,4 +223,10 @@ export interface BenchmarkResult {
   next_run_in: number // секунд до следующего запуска – общий кулдаун сервера
   cooldown_seconds: number
   cached?: boolean // запуск во время кулдауна – сервер вернул прошлый результат
+}
+
+// тема из умного поиска, GET /api/search: ранг – вероятность модели плюс близость к названию темы
+export interface SearchResult {
+  id: string
+  score: number
 }

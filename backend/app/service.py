@@ -10,6 +10,7 @@ from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier, Prediction
 from .nlp.context import Context, is_follow_up, use_context
 from .nlp.language import detect_language
+from .nlp.search import SearchHit, TopicSearch
 from .tuition import TUITION_INTENTS
 
 logger = logging.getLogger("turanassist")
@@ -36,6 +37,7 @@ class Answer:
     prediction: Prediction | None = None
     classified_text: str = ""
     rule: str = "fallback"
+    search: SearchHit | None = None  # тема, найденная умным поиском (правило search)
 
 
 # темы для уточнения короткого запроса («Гранты» -> государственный грант, вакантный грант, «Үміт Тұрана»)
@@ -58,12 +60,14 @@ def clarify_topics(pred: Prediction, knowledge: Knowledge, text: str, threshold:
 # общая логика веб-чата и Telegram-бота: вопрос -> интент -> ответ из базы или «не понял» с подсказками
 def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics: MetricsCollector,
                     text: str, lang: str | None = None, channel: str = "web",
-                    context: Context | None = None) -> Answer:
+                    context: Context | None = None, search: TopicSearch | None = None) -> Answer:
     start = time.perf_counter()
+    hits: dict[str, SearchHit] = {}
 
     # решение по одному варианту вопроса: порог модели, а для вопроса с программой – сумма двух
     # интентов стоимости (см. Tuition.resolve_intent); запрос из одной программы и слов о цене
-    # («ВТиПО», «ВТиПО цена») – стоимость этой программы (см. Tuition.program_query)
+    # («ВТиПО», «ВТиПО цена») – стоимость этой программы (см. Tuition.program_query); короткий запрос из ключевых
+    # слов («Магистратура поступление») – тема, найденная умным поиском по названиям (см. TopicSearch.match)
     def decide(p: Prediction, question: str) -> tuple[str, float, bool, str]:
         if p.recognized:
             return p.intent, p.confidence, True, "model"
@@ -74,6 +78,10 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
         if program_intent:
             mass = sum(c for i, c in p.top if i in TUITION_INTENTS)
             return program_intent, mass, True, "program"
+        hit = search.match(question, p) if search else None
+        if hit:
+            hits[question] = hit
+            return hit.intent, hit.score, True, "search"
         return p.intent, p.confidence, False, "fallback"
 
     pred = classifier.predict(text)
@@ -113,6 +121,7 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
         answer = Answer(False, None, None, confidence, FALLBACK[lang], None, lang, suggestions)
     answer.context_used = context_used
     answer.prediction, answer.classified_text, answer.rule = pred, used_text, rule
+    answer.search = hits.get(used_text) if rule == "search" else None
     total_ms = (time.perf_counter() - start) * 1000
     answer.timing_ms = {**timing, "total": total_ms}
     metrics.record(total_ms, timing, recognized)

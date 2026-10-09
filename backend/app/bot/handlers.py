@@ -9,6 +9,7 @@ from ..knowledge import Knowledge
 from ..metrics.collector import MetricsCollector
 from ..nlp.context import Context
 from ..nlp.classifier import IntentClassifier
+from ..nlp.search import TopicSearch
 from ..service import answer_question
 from . import texts
 from .telegram_api import TelegramClient, TelegramError
@@ -22,8 +23,9 @@ CONTEXT_TTL_SEC = 600  # уточнение «а в магистратуре?» 
 # обработчик обновлений Telegram – общий для webhook (продакшн) и long polling (локальная разработка)
 class BotHandler:
     def __init__(self, client: TelegramClient, classifier: IntentClassifier, knowledge: Knowledge,
-                 metrics: MetricsCollector):
+                 metrics: MetricsCollector, search: TopicSearch | None = None):
         self.client, self.classifier, self.knowledge, self.metrics = client, classifier, knowledge, metrics
+        self.search = search  # умный поиск по названиям тем – тот же, что в веб-чате
         # выбранный через /lang язык и время последних сообщений чата; хранятся в памяти до перезапуска
         self.langs: OrderedDict[int, str] = OrderedDict()
         self.recent: OrderedDict[int, deque] = OrderedDict()
@@ -121,7 +123,7 @@ class BotHandler:
             return
         # расчёт модели – в пуле потоков, чтобы не блокировать цикл событий
         a = await run_in_threadpool(answer_question, self.classifier, self.knowledge, self.metrics, text, pref,
-                                    "telegram", self._context(chat_id))
+                                    "telegram", self._context(chat_id), search=self.search)
         self._set_context(chat_id, a.context)
         if a.recognized:
             await self.client.send_message(chat_id, self._with_link(a.text, a.source_url, a.lang))

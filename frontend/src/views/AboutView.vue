@@ -9,6 +9,7 @@ import {
   CircleStackIcon,
   CloudArrowDownIcon,
   CpuChipIcon,
+  MagnifyingGlassIcon,
   ServerStackIcon,
   TagIcon,
 } from '@heroicons/vue/24/outline'
@@ -33,7 +34,7 @@ onMounted(async () => {
 
 // цифры проекта: страницы корпуса (data/corpus/manifest.json), обучающие фразы (data/phrases/train),
 // автотесты бэкенда (pytest) и фронтенда (Vitest) на момент последнего коммита
-const TESTS_TOTAL = 173 + 30 // pytest + Vitest
+const TESTS_TOTAL = 180 + 32 // pytest + Vitest
 const facts = computed(() => [
   { value: '47', label: t('about.factPages') },
   { value: '1166', label: t('about.factPhrases') },
@@ -50,6 +51,7 @@ const nlp = computed(() => [
   { icon: ChatBubbleBottomCenterTextIcon, title: t('about.nlp1Title'), text: t('about.nlp1Text') },
   { icon: TagIcon, title: t('about.nlp2Title'), text: t('about.nlp2Text') },
   { icon: ArrowsRightLeftIcon, title: t('about.nlp3Title'), text: t('about.nlp3Text') },
+  { icon: MagnifyingGlassIcon, title: t('about.nlp4Title'), text: t('about.nlp4Text') },
 ])
 const stack = [
   'Python', 'FastAPI', 'scikit-learn', 'pymorphy3', 'ONNX Runtime', 'multilingual-e5-small', 'SentencePiece',
@@ -82,10 +84,10 @@ const stack = [
       </li>
     </ol>
 
-    <!-- три NLP-компонента -->
+    <!-- четыре NLP-компонента -->
     <section class="mt-20 rounded-3xl bg-sand/70 p-6 sm:p-10">
       <h2 v-reveal class="display-title text-3xl">{{ t('about.nlpTitle') }}</h2>
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
         <div v-for="(c, i) in nlp" :key="c.title" v-reveal="i" class="card p-6">
           <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-on-primary">
             <component :is="c.icon" class="h-5 w-5" />
