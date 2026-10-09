@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { CpuChipIcon, LanguageIcon, PuzzlePieceIcon, ScissorsIcon } from '@heroicons/vue/24/outline'
 import { useKnowledge } from '../../composables/useKnowledge'
 import type { AppLocale, Explain } from '../../types'
 import { formatNumber, formatPercent, formatPiece } from '../../utils/format'
@@ -22,6 +23,7 @@ const ruleText = computed(() => {
   const p = formatPercent(decisive.value, lang.value, 1)
   if (props.explain.rule === 'model') return t('explain.ruleModel', { p })
   if (props.explain.rule === 'tuition_sum') return t('explain.ruleTuition', { p })
+  if (props.explain.rule === 'chosen') return t('explain.ruleChosen', { p })
   return t('explain.ruleFallback', { p })
 })
 const pct = (v: number) => formatPercent(v, lang.value, 1)
@@ -33,7 +35,7 @@ const pct = (v: number) => formatPercent(v, lang.value, 1)
     <span class="absolute top-2 bottom-2 left-[11px] w-px bg-line" aria-hidden="true" />
 
     <li class="animate-rise relative">
-      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-[11px] font-medium text-on-primary">1</span>
+      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><LanguageIcon class="h-3.5 w-3.5" /></span>
       <h4 class="text-sm font-semibold text-ink">{{ t('explain.step1') }}</h4>
       <div class="mt-1.5 flex flex-wrap items-center gap-2">
         <span class="tag !bg-primary-soft !text-primary-strong">{{ explain.language }} · {{ t(`langs.${explain.language}`) }}</span>
@@ -43,7 +45,7 @@ const pct = (v: number) => formatPercent(v, lang.value, 1)
     </li>
 
     <li class="animate-rise relative" style="animation-delay: 80ms">
-      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-[11px] font-medium text-on-primary">2</span>
+      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><ScissorsIcon class="h-3.5 w-3.5" /></span>
       <h4 class="text-sm font-semibold text-ink">{{ t('explain.step2') }}</h4>
       <div class="mt-1.5 flex flex-wrap gap-1.5">
         <span
@@ -60,7 +62,7 @@ const pct = (v: number) => formatPercent(v, lang.value, 1)
     </li>
 
     <li class="animate-rise relative" style="animation-delay: 160ms">
-      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-[11px] font-medium text-on-primary">3</span>
+      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><PuzzlePieceIcon class="h-3.5 w-3.5" /></span>
       <h4 class="text-sm font-semibold text-ink">{{ t('explain.step3') }}</h4>
       <div class="mt-1.5 flex flex-wrap gap-1">
         <span
@@ -75,7 +77,7 @@ const pct = (v: number) => formatPercent(v, lang.value, 1)
     </li>
 
     <li class="animate-rise relative" style="animation-delay: 240ms">
-      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-[11px] font-medium text-on-primary">4</span>
+      <span class="absolute top-0 -left-8 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><CpuChipIcon class="h-3.5 w-3.5" /></span>
       <h4 class="text-sm font-semibold text-ink">{{ t('explain.step4') }}</h4>
       <p v-if="explain.context_used" class="mt-1.5 rounded-lg bg-gold-soft px-2.5 py-1.5 text-xs text-ink">
         {{ t('explain.context') }} <span class="font-mono">«{{ explain.classified_text }}»</span>

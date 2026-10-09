@@ -2,7 +2,17 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { AcademicCapIcon, ChatBubbleLeftRightIcon, CheckCircleIcon, InformationCircleIcon, MagnifyingGlassIcon, SparklesIcon } from '@heroicons/vue/24/outline'
+import {
+  AcademicCapIcon,
+  BookOpenIcon,
+  CalendarDaysIcon,
+  ChatBubbleLeftRightIcon,
+  CheckCircleIcon,
+  InformationCircleIcon,
+  LanguageIcon,
+  MagnifyingGlassIcon,
+  SparklesIcon,
+} from '@heroicons/vue/24/outline'
 import { useCountUp } from '../composables/useCountUp'
 import { useKnowledge } from '../composables/useKnowledge'
 import type { AppLocale, Level, TuitionProgram } from '../types'
@@ -99,7 +109,7 @@ const fmt = (v: number | null) => (v == null ? '–' : formatNumber(Math.round(v
         <!-- 1. уровень: две крупные карточки, у каждой – сколько программ доступно -->
         <section class="card animate-rise p-5" style="animation-delay: 160ms">
           <h2 class="flex items-center gap-2 font-display font-semibold text-ink">
-            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-xs text-on-primary">1</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><AcademicCapIcon class="h-3.5 w-3.5" /></span>
             {{ t('calc.levelTitle') }}
           </h2>
           <div class="mt-4 grid gap-3 sm:grid-cols-2">
@@ -134,7 +144,7 @@ const fmt = (v: number | null) => (v == null ? '–' : formatNumber(Math.round(v
         <!-- 2. программа: только те, у которых выбранный уровень есть в таблице цен -->
         <section class="card animate-rise p-5" style="animation-delay: 220ms">
           <h2 class="flex items-center gap-2 font-display font-semibold text-ink">
-            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-xs text-on-primary">2</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><BookOpenIcon class="h-3.5 w-3.5" /></span>
             {{ t('calc.program') }}
           </h2>
           <Transition name="fade">
@@ -174,7 +184,7 @@ const fmt = (v: number | null) => (v == null ? '–' : formatNumber(Math.round(v
         <!-- 3. форма обучения -->
         <section class="card animate-rise p-5" style="animation-delay: 280ms">
           <h2 class="flex items-center gap-2 font-display font-semibold text-ink">
-            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-xs text-on-primary">3</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><CalendarDaysIcon class="h-3.5 w-3.5" /></span>
             {{ t('calc.plan') }}
           </h2>
           <div class="mt-4 grid gap-2 sm:grid-cols-2">
@@ -198,7 +208,7 @@ const fmt = (v: number | null) => (v == null ? '–' : formatNumber(Math.round(v
         <!-- 4. отделение -->
         <section class="card animate-rise p-5" style="animation-delay: 340ms">
           <h2 class="flex items-center gap-2 font-display font-semibold text-ink">
-            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary font-mono text-xs text-on-primary">4</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-on-primary"><LanguageIcon class="h-3.5 w-3.5" /></span>
             {{ t('calc.department') }}
           </h2>
           <div class="mt-4 grid w-full grid-cols-2 rounded-xl bg-sand p-1 text-sm font-semibold sm:inline-grid sm:w-auto">

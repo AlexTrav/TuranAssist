@@ -106,6 +106,7 @@ const messages: typeof ru = {
     ruleModel: 'Confidence {p} is above the threshold – the answer comes from the knowledge base.',
     ruleTuition: 'The question names a program: the combined confidence of the tuition topics {p} is above the threshold – the answer shows that program’s price.',
     ruleFallback: 'Confidence {p} is below the threshold – the bot honestly says it did not understand and suggests topics.',
+    ruleChosen: 'The topic was picked with a button – the answer comes from the knowledge base without classification. Above is how the model parses the topic title: confidence {p}.',
     context: 'The follow-up was classified together with the previous question:',
     entities: 'Programs found',
   },

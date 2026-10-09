@@ -39,7 +39,7 @@ export interface ExplainCandidate {
   e5: number
   tfidf: number
 }
-export type DecisionRule = 'model' | 'tuition_sum' | 'fallback'
+export type DecisionRule = 'model' | 'tuition_sum' | 'fallback' | 'chosen' // chosen – тему выбрали кнопкой
 export interface Explain {
   language: AppLocale
   normalized: string
@@ -80,6 +80,7 @@ export interface IntentAnswer {
   answer: string
   source_url: string | null
   lang: AppLocale
+  explain?: Explain | null // разбор названия выбранной темы (rule = chosen)
 }
 
 export interface IntentInfo {

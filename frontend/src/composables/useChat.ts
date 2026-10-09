@@ -98,7 +98,15 @@ export function useChat() {
     try {
       const res = await api.answer(suggestion.intent, lang)
       context = { text: res.title, intent: res.intent } // после выбора темы можно уточнять: «а ВТиПО?»
-      push({ role: 'bot', text: res.answer, intent: res.intent, recognized: true, title: res.title, sourceUrl: res.source_url })
+      push({
+        role: 'bot',
+        text: res.answer,
+        intent: res.intent,
+        recognized: true,
+        title: res.title,
+        sourceUrl: res.source_url,
+        explain: res.explain ?? null, // панель «Как бот понял» есть и у ответов на выбранную тему
+      })
     } catch (err) {
       push({ role: 'bot', text: '', error: errorCode(err) })
     } finally {

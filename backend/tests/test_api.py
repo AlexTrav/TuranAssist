@@ -118,3 +118,14 @@ def test_answer_by_intent(client, knowledge):
     assert data["source_url"].startswith("https://turan.edu.kz/")
     assert client.get("/api/answer/no_such_intent").status_code == 404
     assert client.get("/api/answer/dormitory", params={"lang": "de"}).status_code == 400
+
+
+# тема, выбранная кнопкой, тоже получает разбор для панели «Как бот понял», но в живые метрики не попадает
+def test_answer_by_intent_has_explain_and_skips_metrics(client, knowledge):
+    before = client.get("/api/metrics").json()["requests_total"]
+    data = client.get("/api/answer/dormitory", params={"lang": "ru"}).json()
+    ex = data["explain"]
+    assert ex["rule"] == "chosen"
+    assert ex["classified_text"] == knowledge.title("dormitory", "ru")
+    assert ex["tokens"] and ex["subwords"] and len(ex["top"]) == 5
+    assert client.get("/api/metrics").json()["requests_total"] == before

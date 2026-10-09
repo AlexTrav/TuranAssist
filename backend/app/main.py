@@ -198,8 +198,14 @@ def intent_answer(request: Request, intent: str, lang: str = "ru") -> IntentAnsw
     if intent not in kb.intents:
         raise HTTPException(status_code=404, detail={"code": "unknown_intent", "message": "Такой темы нет"})
     check_lang(lang)
-    return IntentAnswer(intent=intent, title=kb.title(intent, lang), answer=kb.answer(intent, lang),
-                        source_url=kb.source_url(intent, lang), lang=lang)
+    title = kb.title(intent, lang)
+    # тему выбрали кнопкой, ответ – без классификации; для панели «Как бот понял» модель разбирает название темы
+    # (в живые метрики это не попадает – вопроса пользователя не было)
+    classifier = request.app.state.classifier
+    pred = classifier.predict(title)
+    return IntentAnswer(intent=intent, title=title, answer=kb.answer(intent, lang),
+                        source_url=kb.source_url(intent, lang), lang=lang,
+                        explain=explain(classifier, pred, title, title, lang, "chosen", [], False))
 
 
 @app.get("/api/model-info")

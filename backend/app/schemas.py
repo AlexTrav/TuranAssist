@@ -56,6 +56,7 @@ class IntentAnswer(BaseModel):
     answer: str
     source_url: str | None
     lang: str
+    explain: dict | None = None  # разбор названия темы для панели «Как бот понял» (rule = chosen)
 
 
 class FeedbackRequest(BaseModel):

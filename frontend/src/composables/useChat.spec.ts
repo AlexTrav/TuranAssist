@@ -67,7 +67,8 @@ describe('useChat', () => {
   })
 
   it('ignores empty questions and answers a chosen suggestion', async () => {
-    answer.mockResolvedValue({ intent: 'contacts', title: 'Контакты', answer: 'Главный корпус…', source_url: null, lang: 'ru' })
+    const explain = { rule: 'chosen', top: [] }
+    answer.mockResolvedValue({ intent: 'contacts', title: 'Контакты', answer: 'Главный корпус…', source_url: null, lang: 'ru', explain })
     const { useChat } = await import('./useChat')
     const { messages, send, choose } = useChat()
     await send('   ')
@@ -75,6 +76,7 @@ describe('useChat', () => {
     await choose({ intent: 'contacts', title: 'Контакты' }, 'ru')
     expect(answer).toHaveBeenCalledWith('contacts', 'ru')
     expect(messages.value.map((m) => m.text)).toEqual(['Контакты', 'Главный корпус…'])
+    expect(messages.value[1].explain).toEqual(explain) // кнопка «Как бот понял» есть и у выбранной темы
   })
 
   it('persists history to localStorage and restores it', async () => {

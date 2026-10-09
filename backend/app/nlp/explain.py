@@ -26,6 +26,7 @@ def explain(classifier: IntentClassifier, pred: Prediction, text: str, classifie
                 for (intent, p), (_, e5, tfidf) in zip(pred.top, pred.components)],
         "weights": {"e5": classifier.weight_e5, "tfidf": round(1 - classifier.weight_e5, 4)},
         "threshold": classifier.threshold,
-        "rule": rule,  # model – порог модели, tuition_sum – сумма интентов стоимости, fallback – «не понял»
+        "rule": rule,  # model – порог модели, tuition_sum – сумма интентов стоимости, fallback – «не понял»,
+        # chosen – тему выбрали кнопкой, разобрано её название
         "programs": programs,
     }
