@@ -27,6 +27,13 @@ text,lang,kind,expect,program,check,note
 Цена обучения на психологии в магистратуре,ru,цена программы,tuition_postgrad,psychology,yes,
 Сколько стоит ВТиПО?,ru,цена программы,tuition_bachelor,computer_engineering,yes,понят по сумме двух тем стоимости (0.51 + 0.21)
 How much is software engineering?,en,цена программы,tuition_bachelor,software_engineering,yes,
+ВТиПО цена,ru,цена программы,tuition_bachelor,computer_engineering,yes,правило «программа и слова о цене»: модель не уверена (0.33)
+ВТиПО,ru,цена программы,tuition_bachelor,computer_engineering,yes,только название программы – показывается её стоимость
+Гранты,ru,короткий запрос,clarify:state_grant|vacant_grant,,yes,бот просит уточнить: темы грантов вместе 0.86
+ЕНТ,ru,короткий запрос,clarify:ent_discounts|ent_subjects,,yes,уточнение: скидки по баллам ЕНТ или предметы ЕНТ
+Цена,ru,короткий запрос,clarify:tuition_bachelor|tuition_postgrad,,yes,уточнение: бакалавриат или магистратура
+Grants,en,короткий запрос,clarify:vacant_grant|state_grant,,yes,
+Гранттар,kk,короткий запрос,clarify:vacant_grant|turan_umiti_grant,,yes,
 Жатақхана бар ма?,kk,казахский,dormitory,,yes,
 Оқу ақысы қанша?,kk,казахский,tuition_bachelor,,yes,
 Магистратураға қалай түсуге болады?,kk,казахский,master_admission,,yes,
@@ -47,10 +54,10 @@ Where is the university located?,en,английский,location,,yes,
 Где купить iPhone?,ru,не по теме,ood,,no,отклонён с уверенностью 0.51 – близко к порогу
 Расскажи анекдот,ru,не по теме,ood,,no,отклонён с уверенностью 0.53 – близко к порогу
 Какая погода завтра в Алматы?,ru,ограничение,ood,,no,сейчас уходит в «Академический календарь» (0.63) – слово «завтра» похоже на вопросы о датах
-Гранты,ru,ограничение,state_grant,,no,сейчас «не понял»: вероятность делится между тремя темами грантов (подсказки верные)
+Документы,ru,ограничение,admission_documents,,no,сейчас «не понял»: темы набирают 0.51 при пороге 0.577 (подсказки верные)
+Price,en,ограничение,tuition_bachelor,,no,сейчас «не понял»: стоимость 0.29, остальное – «пока» и «спасибо»
 Гранты в магистратуру,ru,ограничение,vacant_grant,,no,сейчас «не понял»: отдельной темы о грантах в магистратуру в базе нет
 Are there any grants?,en,ограничение,state_grant,,no,сейчас «не понял» (0.57 при пороге 0.577)
 ҰБТ бойынша жеңілдік бар ма?,kk,ограничение,ent_discounts,,no,сейчас «не понял» (0.41): мало казахских формулировок в обучении
 как поступит на бюджет,ru,ограничение,state_grant,,no,сейчас «не понял» (0.49): «бюджет» почти не встречается в обучающих фразах
-ВТиПО цена,ru,ограничение,tuition_bachelor,computer_engineering,no,сейчас «не понял»: вопрос из двух слов без «сколько стоит»
 skolko stoit obuchenie,ru,ограничение,tuition_bachelor,,no,сейчас «не понял»: транслит – самая слабая группа вопросов

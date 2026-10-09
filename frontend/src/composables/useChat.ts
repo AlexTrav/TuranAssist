@@ -14,6 +14,7 @@ export interface ChatMessage {
   suggestions?: Suggestion[]
   timingMs?: number
   contextUsed?: boolean // ответ дан с учётом предыдущего вопроса
+  clarify?: boolean // короткий запрос на несколько тем – бот просит выбрать тему
   prices?: PriceCard[] // цены найденных программ – таблица под ответом
   explain?: Explain | null // разбор вопроса – панель «Как бот понял»
   feedback?: 'up' | 'down' // оценка пользователя
@@ -80,6 +81,7 @@ export function useChat() {
         suggestions: res.suggestions,
         timingMs: res.timing_ms.total,
         contextUsed: res.context_used,
+        clarify: res.clarify ?? false,
         prices: res.prices ?? [],
         explain: res.explain ?? null,
       })

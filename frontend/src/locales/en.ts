@@ -91,7 +91,9 @@ const messages: typeof ru = {
     timing: '{value} ms',
     followUp: 'follow-up',
     notUnderstood: 'Not sure about the topic',
+    clarifyTitle: 'Pick a topic',
     maybeMeant: 'Perhaps you meant:',
+    clarifyPick: 'Matching topics:',
     related: 'People also ask',
     explainShow: 'How the bot understood it',
     explainHide: 'Hide breakdown',
@@ -118,6 +120,10 @@ const messages: typeof ru = {
     step4Hint: 'Ensemble: {e5} × e5 + {tfidf} × TF-IDF. The line is the confidence threshold {threshold}.',
     ruleModel: 'Confidence {p} is above the threshold – the answer comes from the knowledge base.',
     ruleTuition: 'The question names a program: the combined confidence of the tuition topics {p} is above the threshold – the answer shows that program’s price.',
+    ruleProgram:
+      'The request is a program name plus price words. The model has little to go on (tuition topics – {p}), but the program is named explicitly – the answer shows its price.',
+    ruleClarify:
+      'The short request fits several topics: together they reach {p}, at or above the threshold, but none passes it alone. The bot does not guess – it asks you to pick a topic.',
     ruleFallback: 'Confidence {p} is below the threshold – the bot honestly says it did not understand and suggests topics.',
     ruleChosen: 'The topic was picked with a button – the answer comes from the knowledge base without classification. Above is how the model parses the topic title: confidence {p}.',
     context: 'The follow-up was classified together with the previous question:',

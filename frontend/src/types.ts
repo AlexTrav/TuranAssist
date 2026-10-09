@@ -39,7 +39,9 @@ export interface ExplainCandidate {
   e5: number
   tfidf: number
 }
-export type DecisionRule = 'model' | 'tuition_sum' | 'fallback' | 'chosen' // chosen – тему выбрали кнопкой
+// model – порог модели, tuition_sum – сумма тем стоимости, program – программа и слова о цене,
+// clarify – короткий запрос на несколько тем, fallback – «не понял», chosen – тему выбрали кнопкой
+export type DecisionRule = 'model' | 'tuition_sum' | 'program' | 'clarify' | 'fallback' | 'chosen'
 export interface Explain {
   language: AppLocale
   normalized: string
@@ -52,6 +54,7 @@ export interface Explain {
   weights: { e5: number; tfidf: number }
   threshold: number
   rule: DecisionRule
+  decisive?: number | null // уверенность, по которой принято решение (сумма тем у tuition_sum, program, clarify)
   programs: string[]
 }
 
@@ -68,6 +71,7 @@ export interface ChatResponse {
   timing_ms: Record<string, number> // tfidf, e5, model, total
   programs?: string[] // образовательные программы, найденные в вопросе о стоимости
   context_used?: boolean // вопрос понят как уточнение предыдущего («а в магистратуре?»)
+  clarify?: boolean // короткий запрос на несколько тем – бот просит выбрать тему из suggestions
   context?: ChatContext | null // вернуть серверу со следующим вопросом
   prices?: PriceCard[]
   explain?: Explain | null

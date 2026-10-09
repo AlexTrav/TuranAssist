@@ -83,7 +83,7 @@ async function copy() {
         </p>
         <template v-else>
           <p v-if="message.recognized === false" class="mb-1.5 flex items-center gap-1.5 text-xs font-semibold tracking-wide text-ink/70 uppercase">
-            <QuestionMarkCircleIcon class="h-4 w-4" />{{ t('chat.notUnderstood') }}
+            <QuestionMarkCircleIcon class="h-4 w-4" />{{ message.clarify ? t('chat.clarifyTitle') : t('chat.notUnderstood') }}
           </p>
           <p v-else-if="message.title" class="mb-1.5 text-xs font-semibold tracking-wide text-primary-strong uppercase">
             {{ message.title }}
@@ -97,7 +97,7 @@ async function copy() {
 
           <!-- подсказки, когда бот не уверен -->
           <div v-if="message.suggestions?.length" class="mt-3">
-            <p class="text-sm text-muted">{{ t('chat.maybeMeant') }}</p>
+            <p class="text-sm text-muted">{{ message.clarify ? t('chat.clarifyPick') : t('chat.maybeMeant') }}</p>
             <div class="mt-2 flex flex-wrap gap-2">
               <button
                 v-for="(s, i) in message.suggestions"

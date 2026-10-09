@@ -15,6 +15,11 @@ def test_data_test_question(client, row):
     data = client.post("/api/chat", json={"text": row["text"]}).json()
     if row["expect"] == "ood":
         assert data["recognized"] is False, f"ожидался «не понял», получено {data['intent']}"
+    elif row["expect"].startswith("clarify:"):
+        # короткий запрос на несколько тем: бот просит уточнить и предлагает эти темы кнопками
+        expected = set(row["expect"].removeprefix("clarify:").split("|"))
+        assert data["clarify"] is True, data["intent"]
+        assert expected <= {s["intent"] for s in data["suggestions"]}, data["suggestions"]
     else:
         assert data["recognized"] is True and data["intent"] == row["expect"], data["suggestions"]
     if row["program"]:

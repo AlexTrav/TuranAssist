@@ -13,19 +13,23 @@ const lang = computed(() => locale.value as AppLocale)
 const { titleOf } = useKnowledge()
 
 const TUITION = ['tuition_bachelor', 'tuition_postgrad']
-// уверенность, по которой принято решение: для правила «программа» – сумма двух тем стоимости
+// уверенность, по которой принято решение: её присылает сервер (для «программы» – сумма двух тем стоимости,
+// для уточнения – сумма предложенных тем); у старых сообщений из истории её нет – считаем сами
 const decisive = computed(() => {
+  if (props.explain.decisive != null) return props.explain.decisive
   const top = props.explain.top
   if (props.explain.rule === 'tuition_sum') return top.filter((c) => TUITION.includes(c.intent)).reduce((s, c) => s + c.probability, 0)
   return top[0]?.probability ?? 0
 })
-const ruleText = computed(() => {
-  const p = formatPercent(decisive.value, lang.value, 1)
-  if (props.explain.rule === 'model') return t('explain.ruleModel', { p })
-  if (props.explain.rule === 'tuition_sum') return t('explain.ruleTuition', { p })
-  if (props.explain.rule === 'chosen') return t('explain.ruleChosen', { p })
-  return t('explain.ruleFallback', { p })
-})
+const RULE_KEYS: Record<Explain['rule'], string> = {
+  model: 'explain.ruleModel',
+  tuition_sum: 'explain.ruleTuition',
+  program: 'explain.ruleProgram',
+  clarify: 'explain.ruleClarify',
+  chosen: 'explain.ruleChosen',
+  fallback: 'explain.ruleFallback',
+}
+const ruleText = computed(() => t(RULE_KEYS[props.explain.rule] ?? 'explain.ruleFallback', { p: formatPercent(decisive.value, lang.value, 1) }))
 const pct = (v: number) => formatPercent(v, lang.value, 1)
 </script>
 
@@ -109,7 +113,7 @@ const pct = (v: number) => formatPercent(v, lang.value, 1)
       </div>
       <p
         class="mt-2.5 rounded-lg border px-3 py-2 text-[13px]"
-        :class="explain.rule === 'fallback' ? 'border-gold/50 bg-gold-soft text-ink' : 'border-primary/30 bg-primary-soft text-ink'"
+        :class="explain.rule === 'fallback' || explain.rule === 'clarify' ? 'border-gold/50 bg-gold-soft text-ink' : 'border-primary/30 bg-primary-soft text-ink'"
       >
         {{ ruleText }}
       </p>

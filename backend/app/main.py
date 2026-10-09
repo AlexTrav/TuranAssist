@@ -22,7 +22,7 @@ from .schemas import (ChatContext, ChatRequest, ChatResponse, FeedbackRequest, G
                       KnowledgeItem, Suggestion)
 from .security.rate_limit import limiter
 from .security.validation import validated_context, validated_text
-from .service import answer_question
+from .service import Answer, answer_question
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("turanassist")
@@ -113,6 +113,13 @@ def health() -> dict:
     return {"status": "ok"}
 
 
+# уверенность, по которой принято решение, – для панели «Как бот понял»
+def decisive_confidence(a: Answer) -> float:
+    if a.rule == "clarify":
+        return round(sum(c for _, _, c in a.suggestions), 4)
+    return round(a.confidence, 4)
+
+
 # основной эндпоинт: вопрос -> интент -> ответ из базы или «не понял» с подсказками.
 # обычная def: FastAPI выполняет её в пуле потоков, и расчёт модели не блокирует цикл событий
 @app.post("/api/chat", response_model=ChatResponse)
@@ -127,11 +134,11 @@ def chat(request: Request, body: ChatRequest) -> ChatResponse:
         answer=a.text, source_url=a.source_url, lang=a.lang,
         suggestions=[Suggestion(intent=i, title=t, confidence=round(c, 4)) for i, t, c in a.suggestions],
         timing_ms={k: round(v, 2) for k, v in a.timing_ms.items()}, programs=a.programs,
-        context_used=a.context_used,
+        context_used=a.context_used, clarify=a.rule == "clarify",
         context=ChatContext(text=a.context.text, intent=a.context.intent) if a.context else None,
         prices=a.prices,
         explain=explain(state.classifier, a.prediction, text, a.classified_text, a.lang, a.rule, a.programs,
-                        a.context_used))
+                        a.context_used, decisive_confidence(a)))
 
 
 # темы, на которые отвечает бот, по группам – для страницы «О проекте» и стартовых подсказок в чате

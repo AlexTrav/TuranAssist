@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 import yaml
@@ -9,6 +10,17 @@ MAX_PROGRAMS = 3  # больше трёх программ в одном отв�
 
 # интент -> уровень, цены которого показываем; если по уровню цен нет – показываем другой
 TUITION_INTENTS = {"tuition_bachelor": "bachelor", "tuition_postgrad": "postgrad"}
+
+# короткий запрос «программа + слова о цене» («ВТиПО», «ВТиПО цена», «психология сколько стоит»):
+# модели почти не за что зацепиться, но программа названа явно – отвечаем её стоимостью.
+# Слова сверяются по началу (нормализованный текст: нижний регистр, ё -> е)
+PRICE_WORD = re.compile(
+    r"(цен|стоим|стои|скольк|оплат|плат|контракт|обучен|учеб|бакалавр|год"
+    r"|баға|бағас|ақы|құн|қанша|тұра|оқу|жыл"
+    r"|price|cost|fee|tuition|much|year|bachelor)\w*$"
+    r"|(за|на|в|по|а|и|у|вас|how|is|the|of|for|what|per|does)$"
+)
+POSTGRAD_WORD = re.compile(r"(магистр|докторант|доктор|phd|master|doctor)\w*$")
 
 TEXTS = {
     "header": {
@@ -67,6 +79,16 @@ class Tuition:
         if not tuition or mass < threshold or not self.programs_in(text):
             return None
         return tuition[0][0], mass
+
+    # интент стоимости для запроса из одной программы и слов о цене или None: «ВТиПО цена» -> бакалавриат,
+    # «магистратура психология цена» -> магистратура
+    def program_query(self, text: str) -> str | None:
+        if not self.programs_in(text):
+            return None
+        rest = self.extractor.rest(text)
+        if not all(PRICE_WORD.match(w) or POSTGRAD_WORD.match(w) for w in rest):
+            return None
+        return "tuition_postgrad" if any(POSTGRAD_WORD.match(w) for w in rest) else "tuition_bachelor"
 
     # ответ на вопрос о стоимости с конкретными программами или None, если программ в вопросе нет.
     # context_text – вопрос вместе с предыдущим: в уточнении «а в магистратуре?» программа названа раньше,

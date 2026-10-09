@@ -18,6 +18,16 @@ FALLBACK = {
           "or try rephrasing. You can also contact the admissions office: +7 (727) 260 40 00.",
 }
 
+# короткий запрос на несколько тем сразу («Гранты», «ЕНТ», «Цена»): не гадаем, а просим выбрать тему
+CLARIFY = {
+    "ru": "Уточните, пожалуйста, что именно вас интересует: под такой короткий запрос подходит несколько тем. "
+          "Выберите нужную ниже или задайте вопрос подробнее.",
+    "kk": "Нақты не қызықтыратынын нақтылаңызшы: мұндай қысқа сұрауға бірнеше тақырып сәйкес келеді. "
+          "Төменнен керегін таңдаңыз немесе сұрақты толығырақ қойыңыз.",
+    "en": "Could you clarify what exactly you need? Several topics match such a short request. "
+          "Pick one below or ask in more detail.",
+}
+
 
 @dataclass
 class Intent:

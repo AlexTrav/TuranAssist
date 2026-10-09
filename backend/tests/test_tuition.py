@@ -104,3 +104,31 @@ def test_chat_program_question_with_uncertain_model(client):
     assert data["recognized"] is True
     assert data["intent"] == "tuition_bachelor"
     assert data["programs"] == ["computer_engineering"]
+
+
+@pytest.mark.parametrize("text, intent", [
+    ("ВТиПО", "tuition_bachelor"),
+    ("ВТиПО цена", "tuition_bachelor"),
+    ("цена за год ВТиПО", "tuition_bachelor"),
+    ("психология магистратура цена", "tuition_postgrad"),
+    ("Есептеу техникасы бағасы", "tuition_bachelor"),
+    ("software engineering price", "tuition_bachelor"),
+    ("ВТиПО общежитие", None),  # другое слово – решает модель, а не правило цены
+    ("Цена", None),  # без программы правило не работает
+])
+def test_program_query(tuition, text, intent):
+    assert tuition.program_query(text) == intent
+
+
+def test_extractor_rest_drops_entities():
+    extractor = EntityExtractor({"ce": ["втипо", "вт и по"]})
+    assert extractor.rest("ВТ и ПО, цена?") == ["цена"]
+    assert extractor.rest("ВТиПО") == []
+
+
+def test_chat_program_only_shows_its_price(client):
+    # «ВТиПО цена»: модель не уверена ни в одной теме, но программа названа явно – показываем её стоимость
+    data = client.post("/api/chat", json={"text": "ВТиПО цена"}).json()
+    assert data["recognized"] is True and data["intent"] == "tuition_bachelor"
+    assert data["programs"] == ["computer_engineering"]
+    assert data["prices"] and data["explain"]["rule"] == "program"

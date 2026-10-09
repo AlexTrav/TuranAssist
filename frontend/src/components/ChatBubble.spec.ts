@@ -75,6 +75,22 @@ describe('ChatBubble', () => {
     expect(wrapper.emitted('rate')?.[0]).toEqual([true])
   })
 
+  it('asks to pick a topic for a short ambiguous request', async () => {
+    const suggestions = [
+      { intent: 'state_grant', title: 'Государственный грант', confidence: 0.46 },
+      { intent: 'vacant_grant', title: 'Вакантный грант', confidence: 0.35 },
+    ]
+    const clarifyExplain: Explain = { ...explain, rule: 'clarify', decisive: 0.86, programs: [] }
+    const wrapper = mountBubble({ id: 6, role: 'bot', text: 'Уточните…', recognized: false, clarify: true, confidence: 0.46, suggestions, explain: clarifyExplain })
+    expect(wrapper.text()).toContain('Уточните тему')
+    expect(wrapper.text()).toContain('Подходящие темы:')
+    expect(wrapper.text()).not.toContain('Не уверен в теме')
+    expect(wrapper.findAll('button.chip')).toHaveLength(2)
+    await wrapper.get('button[aria-expanded]').trigger('click')
+    expect(wrapper.text()).toContain('86') // сумма предложенных тем из ответа сервера
+    expect(wrapper.text()).toContain('просит выбрать тему')
+  })
+
   it('shows a translated error by code', () => {
     const wrapper = mountBubble({ id: 5, role: 'bot', text: '', error: 'rate_limited' })
     expect(wrapper.text()).toContain('Слишком много запросов')

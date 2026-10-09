@@ -1,13 +1,16 @@
 import logging
+import re
 import time
 from dataclasses import dataclass, field
 
-from .config import MAX_TEXT_LENGTH, SUGGESTIONS_COUNT
-from .knowledge import FALLBACK, Knowledge
+from .config import (CLARIFY_MAX_GROUPS, CLARIFY_MAX_TOPICS, CLARIFY_MIN_PROBABILITY, MAX_TEXT_LENGTH,
+                     SHORT_QUERY_WORDS, SUGGESTIONS_COUNT)
+from .knowledge import CLARIFY, FALLBACK, Knowledge
 from .metrics.collector import MetricsCollector
 from .nlp.classifier import IntentClassifier, Prediction
 from .nlp.context import Context, is_follow_up, use_context
 from .nlp.language import detect_language
+from .tuition import TUITION_INTENTS
 
 logger = logging.getLogger("turanassist")
 
@@ -35,6 +38,23 @@ class Answer:
     rule: str = "fallback"
 
 
+# темы для уточнения короткого запроса («Гранты» -> государственный грант, вакантный грант, «Үміт Тұрана»)
+# или пустой список: запрос не длиннее SHORT_QUERY_WORDS слов, хотя бы две содержательные темы
+# с вероятностью от CLARIFY_MIN_PROBABILITY не больше чем из CLARIFY_MAX_GROUPS групп,
+# и вместе они набирают порог модели
+def clarify_topics(pred: Prediction, knowledge: Knowledge, text: str, threshold: float) -> list[tuple[str, float]]:
+    if len(re.findall(r"\w+", text)) > SHORT_QUERY_WORDS:
+        return []
+    topics = [(i, c) for i, c in pred.top
+              if c >= CLARIFY_MIN_PROBABILITY and knowledge.intents[i].group not in NO_CONTEXT_GROUPS]
+    topics = topics[:CLARIFY_MAX_TOPICS]
+    if len(topics) < 2 or sum(c for _, c in topics) < threshold:
+        return []
+    if len({knowledge.intents[i].group for i, _ in topics}) > CLARIFY_MAX_GROUPS:
+        return []
+    return topics
+
+
 # общая логика веб-чата и Telegram-бота: вопрос -> интент -> ответ из базы или «не понял» с подсказками
 def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics: MetricsCollector,
                     text: str, lang: str | None = None, channel: str = "web",
@@ -42,12 +62,19 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
     start = time.perf_counter()
 
     # решение по одному варианту вопроса: порог модели, а для вопроса с программой – сумма двух
-    # интентов стоимости (см. Tuition.resolve_intent)
+    # интентов стоимости (см. Tuition.resolve_intent); запрос из одной программы и слов о цене
+    # («ВТиПО», «ВТиПО цена») – стоимость этой программы (см. Tuition.program_query)
     def decide(p: Prediction, question: str) -> tuple[str, float, bool, str]:
         if p.recognized:
             return p.intent, p.confidence, True, "model"
         resolved = knowledge.tuition.resolve_intent(question, p.top, classifier.threshold)
-        return (*resolved, True, "tuition_sum") if resolved else (p.intent, p.confidence, False, "fallback")
+        if resolved:
+            return *resolved, True, "tuition_sum"
+        program_intent = knowledge.tuition.program_query(question)
+        if program_intent:
+            mass = sum(c for i, c in p.top if i in TUITION_INTENTS)
+            return program_intent, mass, True, "program"
+        return p.intent, p.confidence, False, "fallback"
 
     pred = classifier.predict(text)
     timing = dict(pred.timing_ms)
@@ -77,6 +104,10 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
             answer.prices = knowledge.tuition.cards(intent, answer.programs, lang)
         if knowledge.intents[intent].group not in NO_CONTEXT_GROUPS:
             answer.context = Context(used_text[-MAX_TEXT_LENGTH:], intent)
+    elif topics := clarify_topics(pred, knowledge, text, classifier.threshold):
+        suggestions = [(i, knowledge.title(i, lang), c) for i, c in topics]
+        answer = Answer(False, None, None, confidence, CLARIFY[lang], None, lang, suggestions)
+        rule = "clarify"
     else:
         suggestions = [(i, knowledge.title(i, lang), c) for i, c in pred.top[:SUGGESTIONS_COUNT]]
         answer = Answer(False, None, None, confidence, FALLBACK[lang], None, lang, suggestions)
