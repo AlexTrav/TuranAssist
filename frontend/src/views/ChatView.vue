@@ -2,12 +2,13 @@
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
-import { ArrowUpIcon, ListBulletIcon, PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { ArrowUpIcon, ListBulletIcon, MicrophoneIcon, PlusIcon, StopIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import ChatBubble from '../components/ChatBubble.vue'
 import TopicsPanel from '../components/chat/TopicsPanel.vue'
 import LogoMark from '../components/icons/LogoMark.vue'
 import { useChat } from '../composables/useChat'
 import { useKnowledge } from '../composables/useKnowledge'
+import { useSpeech } from '../composables/useSpeech'
 import { EXAMPLE_QUESTIONS } from '../examples'
 import type { AppLocale } from '../types'
 
@@ -32,6 +33,23 @@ async function submit(text = input.value) {
   await nextTick()
   resize()
   await send(text)
+}
+
+// голосовой ввод: распознанный текст дописывается в поле, вопрос можно поправить перед отправкой
+const speech = useSpeech()
+const speechError = computed(() => {
+  if (!speech.error.value) return ''
+  const key = `chat.voiceErrors.${speech.error.value}`
+  return t(key) === key ? t('chat.voiceErrors.generic') : t(key)
+})
+function toggleVoice() {
+  if (speech.listening.value) return speech.stop()
+  const before = input.value.trim()
+  speech.start(lang.value, (text, final) => {
+    input.value = [before, text].filter(Boolean).join(' ').slice(0, MAX_LENGTH)
+    nextTick(resize)
+    if (final) textarea.value?.focus({ preventScroll: true })
+  })
 }
 
 function pickTopic(topic: { intent: string; title: string }) {
@@ -188,6 +206,20 @@ onMounted(() => {
             />
             <span v-if="input.length > MAX_LENGTH * 0.8" class="self-center font-mono text-[11px] text-faint">{{ input.length }}/{{ MAX_LENGTH }}</span>
             <button
+              v-if="speech.supported"
+              type="button"
+              class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-200 active:scale-90"
+              :class="speech.listening.value ? 'bg-danger text-white' : 'text-muted hover:bg-sand hover:text-ink'"
+              :aria-label="speech.listening.value ? t('chat.voiceStop') : t('chat.voiceStart')"
+              :aria-pressed="speech.listening.value"
+              :title="t('chat.voiceTitle')"
+              @click="toggleVoice"
+            >
+              <span v-if="speech.listening.value" class="absolute inset-0 animate-ping rounded-xl bg-danger/40" aria-hidden="true" />
+              <StopIcon v-if="speech.listening.value" class="relative h-5 w-5" />
+              <MicrophoneIcon v-else class="h-5 w-5" />
+            </button>
+            <button
               type="submit"
               :disabled="!input.trim() || pending"
               class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-on-primary transition-all duration-200 hover:bg-primary-strong active:scale-90 disabled:cursor-not-allowed disabled:bg-sand disabled:text-faint"
@@ -196,7 +228,9 @@ onMounted(() => {
               <ArrowUpIcon class="h-5 w-5" />
             </button>
           </div>
-          <p class="mt-2 text-center text-[11px] text-faint">{{ t('chat.hint') }}</p>
+          <p v-if="speech.listening.value" class="mt-2 text-center text-[11px] text-danger" role="status">{{ t('chat.voiceListening') }}</p>
+          <p v-else-if="speechError" class="mt-2 text-center text-[11px] text-danger" role="alert">{{ speechError }}</p>
+          <p v-else class="mt-2 text-center text-[11px] text-faint">{{ t('chat.hint') }}</p>
         </div>
       </form>
     </section>
