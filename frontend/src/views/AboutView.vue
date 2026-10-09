@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { ArrowsRightLeftIcon, ChatBubbleBottomCenterTextIcon, TagIcon } from '@heroicons/vue/24/outline'
+import {
+  ArrowsRightLeftIcon,
+  ChartBarIcon,
+  ChatBubbleBottomCenterTextIcon,
+  ChatBubbleLeftRightIcon,
+  CircleStackIcon,
+  CloudArrowDownIcon,
+  CpuChipIcon,
+  ServerStackIcon,
+  TagIcon,
+} from '@heroicons/vue/24/outline'
 import { api } from '../api/client'
 import ModelBars from '../components/about/ModelBars.vue'
 import { LINKS } from '../links'
@@ -31,7 +41,11 @@ const facts = computed(() => [
   { value: String(TESTS_TOTAL), label: t('about.factTests') },
 ])
 
-const pipeline = computed(() => [1, 2, 3, 4, 5, 6].map((n) => ({ title: t(`about.step${n}Title`), text: t(`about.step${n}Text`) })))
+// этапы проекта: сбор данных, база ответов, наборы фраз, baseline, трансформер, ансамбль и сервис
+const PIPELINE_ICONS = [CloudArrowDownIcon, CircleStackIcon, ChatBubbleLeftRightIcon, ChartBarIcon, CpuChipIcon, ServerStackIcon]
+const pipeline = computed(() =>
+  PIPELINE_ICONS.map((icon, i) => ({ icon, title: t(`about.step${i + 1}Title`), text: t(`about.step${i + 1}Text`) })),
+)
 const nlp = computed(() => [
   { icon: ChatBubbleBottomCenterTextIcon, title: t('about.nlp1Title'), text: t('about.nlp1Text') },
   { icon: TagIcon, title: t('about.nlp2Title'), text: t('about.nlp2Text') },
@@ -62,8 +76,8 @@ const stack = [
     <ol class="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="(step, i) in pipeline" :key="i" v-reveal="i % 3" class="relative border-t-2 border-line pt-5">
         <span class="absolute -top-0.5 left-0 h-0.5 w-12 bg-primary" />
-        <span class="font-mono text-xs text-primary-strong">0{{ i + 1 }}</span>
-        <h3 class="mt-2 font-display text-lg font-semibold text-ink">{{ step.title }}</h3>
+        <component :is="step.icon" class="h-6 w-6 text-primary-strong" />
+        <h3 class="mt-3 font-display text-lg font-semibold text-ink">{{ step.title }}</h3>
         <p class="mt-1.5 text-[15px] leading-relaxed text-muted">{{ step.text }}</p>
       </li>
     </ol>

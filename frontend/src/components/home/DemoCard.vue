@@ -86,7 +86,7 @@ watch(lang, () => pick(0))
 
       <!-- 1. токены и леммы -->
       <div v-if="phase >= 1" class="animate-rise">
-        <div class="mb-1.5 font-mono text-[11px] text-faint">1 · tokens → lemmas</div>
+        <div class="mb-1.5 font-mono text-[11px] text-faint">tokens → lemmas</div>
         <div class="flex flex-wrap gap-1.5">
           <span
             v-for="(tok, i) in example.tokens"
@@ -102,7 +102,7 @@ watch(lang, () => pick(0))
 
       <!-- 2. подслова SentencePiece для трансформера -->
       <div v-if="phase >= 2" class="animate-rise">
-        <div class="mb-1.5 font-mono text-[11px] text-faint">2 · SentencePiece → multilingual-e5</div>
+        <div class="mb-1.5 font-mono text-[11px] text-faint">SentencePiece → multilingual-e5</div>
         <div class="flex flex-wrap gap-1">
           <span
             v-for="(sw, i) in example.subwords"
@@ -115,7 +115,7 @@ watch(lang, () => pick(0))
 
       <!-- 3. вероятности тем: полосы заполняются, лучшая – цветом «Турана» -->
       <div v-if="phase >= 3" class="animate-rise space-y-1.5">
-        <div class="font-mono text-[11px] text-faint">3 · e5 × 0.8 + TF-IDF × 0.2</div>
+        <div class="font-mono text-[11px] text-faint">e5 × 0.8 + TF-IDF × 0.2</div>
         <div v-for="(c, i) in example.top" :key="c.title" class="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1">
           <div class="truncate text-[13px]" :class="i === 0 ? 'font-semibold text-ink' : 'text-muted'">{{ c.title }}</div>
           <div class="font-mono text-xs tabular-nums" :class="i === 0 ? 'text-primary-strong' : 'text-faint'">

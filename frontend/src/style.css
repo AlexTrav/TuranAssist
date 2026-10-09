@@ -113,9 +113,9 @@ body {
   @apply font-display font-bold tracking-tight text-ink;
 }
 
-/* маленькая подпись над заголовком секции: «01 · Как это работает» */
+/* маленькая подпись над заголовком секции: короткая золотая черта и название раздела */
 @utility eyebrow {
-  @apply font-mono text-xs font-medium tracking-wider text-primary-strong uppercase;
+  @apply inline-flex items-center gap-2.5 font-display text-xs font-semibold tracking-wider text-primary-strong uppercase before:h-0.5 before:w-6 before:rounded-full before:bg-gold before:content-[''];
 }
 
 @utility card {

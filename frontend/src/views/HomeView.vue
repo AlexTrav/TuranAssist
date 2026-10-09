@@ -9,6 +9,10 @@ import {
   BuildingLibraryIcon,
   CalculatorIcon,
   ChartBarIcon,
+  ChatBubbleLeftEllipsisIcon,
+  CheckBadgeIcon,
+  CpuChipIcon,
+  FunnelIcon,
   GiftIcon,
   HomeModernIcon,
   PaperAirplaneIcon,
@@ -40,7 +44,11 @@ onMounted(() =>
   }, 300),
 )
 
-const steps = computed(() => [1, 2, 3, 4].map((n) => ({ title: t(`home.how${n}Title`), text: t(`home.how${n}Text`) })))
+// шаги обработки вопроса: вопрос, предобработка, классификация, ответ
+const STEP_ICONS = [ChatBubbleLeftEllipsisIcon, FunnelIcon, CpuChipIcon, CheckBadgeIcon]
+const steps = computed(() =>
+  STEP_ICONS.map((icon, i) => ({ icon, title: t(`home.how${i + 1}Title`), text: t(`home.how${i + 1}Text`) })),
+)
 
 const groups = [
   { id: 'admission', icon: AcademicCapIcon },
@@ -124,15 +132,15 @@ const bars = [38, 52, 44, 61, 35, 48, 70, 42, 55, 39, 47, 58]
       </div>
     </section>
 
-    <!-- 01 как это работает: четыре шага с соединяющей линией -->
+    <!-- как это работает: четыре шага с соединяющей линией -->
     <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
       <p v-reveal class="eyebrow">{{ t('home.howEyebrow') }}</p>
       <h2 v-reveal class="display-title mt-3 max-w-3xl text-3xl sm:text-4xl">{{ t('home.howTitle') }}</h2>
       <ol class="relative mt-12 grid gap-8 md:grid-cols-4 md:gap-6">
         <div class="absolute top-6 right-[12%] left-[12%] hidden border-t border-dashed border-steel/60 md:block" aria-hidden="true" />
         <li v-for="(step, i) in steps" :key="step.title" v-reveal="i + 1" class="relative">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-surface font-display text-lg font-bold text-primary shadow-sm">
-            {{ i + 1 }}
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-surface text-primary shadow-sm">
+            <component :is="step.icon" class="h-6 w-6" />
           </div>
           <h3 class="mt-5 font-display text-lg font-semibold text-ink">{{ step.title }}</h3>
           <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ step.text }}</p>
@@ -140,7 +148,7 @@ const bars = [38, 52, 44, 61, 35, 48, 70, 42, 55, 39, 47, 58]
       </ol>
     </section>
 
-    <!-- 02 темы: бежевая полоса, как секции на сайте университета -->
+    <!-- темы: бежевая полоса, как секции на сайте университета -->
     <section class="bg-sand/70 py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
@@ -183,7 +191,7 @@ const bars = [38, 52, 44, 61, 35, 48, 70, 42, 55, 39, 47, 58]
       </div>
     </section>
 
-    <!-- 03 инструменты: калькулятор, база знаний, производительность – с мини-превью -->
+    <!-- инструменты: калькулятор, база знаний, производительность – с мини-превью -->
     <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
       <p v-reveal class="eyebrow">{{ t('home.toolsEyebrow') }}</p>
       <h2 v-reveal class="display-title mt-3 text-3xl sm:text-4xl">{{ t('home.toolsTitle') }}</h2>
