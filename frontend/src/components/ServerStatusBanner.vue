@@ -8,12 +8,13 @@ const { status, wake } = useServerStatus()
 </script>
 
 <template>
-  <!-- бесплатный Render засыпает после 15 минут простоя – предупреждаем, что первый ответ займёт до минуты -->
+  <!-- бесплатный Render засыпает после 15 минут простоя – предупреждаем, что первый ответ займёт до минуты.
+       Плашка плавает под шапкой: видна на любой странице и при прокрутке, не сдвигает вёрстку чата -->
   <Transition name="fade">
     <div
       v-if="status === 'waking' || status === 'down'"
-      class="border-b px-4 py-2.5 text-center text-sm"
-      :class="status === 'waking' ? 'border-gold/40 bg-gold-soft text-ink' : 'border-danger/30 bg-danger-soft text-danger'"
+      class="fixed inset-x-4 top-[4.5rem] z-40 mx-auto w-fit max-w-[calc(100%-2rem)] rounded-2xl border px-4 py-2.5 text-center text-sm shadow-lg backdrop-blur-md"
+      :class="status === 'waking' ? 'border-gold/50 bg-gold-soft/95 text-ink' : 'border-danger/40 bg-danger-soft/95 text-danger'"
       role="status"
     >
       <span v-if="status === 'waking'" class="inline-flex items-center gap-2">

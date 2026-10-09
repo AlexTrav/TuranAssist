@@ -49,7 +49,8 @@ const messages: typeof ru = {
   },
   apiErrors: {
     generic: 'Could not get an answer. Please try again.',
-    network: 'No connection to the server. Check your internet and try again.',
+    network: 'No connection to the server – it may be waking up after idling. Check your internet and try again in a minute.',
+    waking: 'The server is waking up after idling – the first answer may take up to a minute. Please try again shortly.',
     timeout: 'The server is taking too long – it may still be waking up. Try again in a minute.',
     rate_limited: 'Too many requests in a row. Please wait a minute.',
     empty_text: 'The question is empty.',

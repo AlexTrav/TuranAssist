@@ -30,17 +30,37 @@ export class ApiError extends Error {
   }
 }
 
-async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFAULT_TIMEOUT_MS): Promise<T> {
+// если сервер не ответил за это время – скорее всего, бесплатный Render просыпается (до минуты)
+const SLOW_AFTER_MS = 2500
+// пока Render будит сервис, его прокси может отвечать 502/503/504
+const WAKING_STATUSES = new Set([502, 503, 504])
+
+// каждый запрос сообщает, в каком состоянии сервер: плашка «Сервер просыпается…» видна на любой странице
+export type ServerSignal = 'slow' | 'ok' | 'fail'
+let onServerSignal: (signal: ServerSignal) => void = () => {}
+export function listenServer(listener: (signal: ServerSignal) => void) {
+  onServerSignal = listener
+}
+
+async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFAULT_TIMEOUT_MS, watchSlow = true): Promise<T> {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), timeoutMs)
+  const slow = watchSlow ? setTimeout(() => onServerSignal('slow'), SLOW_AFTER_MS) : undefined
   let res: Response
   try {
     res = await fetch(`${API_BASE}${path}`, { ...init, signal: controller.signal })
   } catch (err) {
+    onServerSignal('fail')
     throw new ApiError((err as Error).name === 'AbortError' ? 'timeout' : 'network')
   } finally {
     clearTimeout(timer)
+    clearTimeout(slow)
   }
+  if (WAKING_STATUSES.has(res.status)) {
+    onServerSignal('fail')
+    throw new ApiError('waking', res.status)
+  }
+  onServerSignal('ok') // сервер ответил – даже ошибкой 4xx, значит, он не спит
   if (!res.ok) {
     let code = `http_${res.status}`
     try {
@@ -54,11 +74,12 @@ async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFA
   return res.json() as Promise<T>
 }
 
-function post<T>(path: string, body: unknown, timeoutMs?: number): Promise<T> {
+function post<T>(path: string, body: unknown, timeoutMs?: number, watchSlow = true): Promise<T> {
   return request<T>(
     path,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
     timeoutMs,
+    watchSlow,
   )
 }
 
@@ -72,7 +93,8 @@ export const api = {
   tuition: () => request<TuitionCatalog>('/api/tuition'),
   feedback: (intent: string | null, useful: boolean) =>
     post<{ status: string }>('/api/feedback', { intent, useful }, 10_000),
-  benchmark: () => post<BenchmarkResult>('/api/benchmark', {}, 90_000),
+  // нагрузочный тест сам по себе идёт несколько секунд – это не признак спящего сервера
+  benchmark: () => post<BenchmarkResult>('/api/benchmark', {}, 90_000, false),
   lastBenchmark: () => request<BenchmarkResult | null>('/api/benchmark', {}, 15_000),
   modelInfo: () => request<ModelInfo>('/api/model-info'),
   metrics: () => request<LiveMetrics>('/api/metrics', {}, 10_000),

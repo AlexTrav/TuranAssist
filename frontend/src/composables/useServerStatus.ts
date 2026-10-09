@@ -1,32 +1,26 @@
 import { ref } from 'vue'
-import { api } from '../api/client'
+import { api, listenServer } from '../api/client'
 
 export type ServerStatus = 'unknown' | 'waking' | 'ready' | 'down'
 
-// если сервер не ответил за это время – скорее всего, бесплатный Render просыпается (до минуты)
-const WAKING_AFTER_MS = 2500
-
-// модульный singleton: баннер и чат видят одно состояние
+// модульный singleton: плашка и все страницы видят одно состояние
 const status = ref<ServerStatus>('unknown')
 let pending: Promise<void> | null = null
+
+// состояние обновляет любой запрос к API – чат, калькулятор, база знаний, метрики:
+// долгий ответ – сервер просыпается, ответ пришёл – готов, нет связи или 502/503/504 – недоступен
+listenServer((signal) => {
+  status.value = signal === 'slow' ? 'waking' : signal === 'ok' ? 'ready' : 'down'
+})
 
 export function useServerStatus() {
   // будит бэкенд при открытии сайта – к первому вопросу он уже готов
   function wake(): Promise<void> {
-    if (pending) return pending
-    const slow = setTimeout(() => {
-      if (status.value !== 'ready') status.value = 'waking'
-    }, WAKING_AFTER_MS)
-    pending = api
+    pending ??= api
       .health()
-      .then(() => {
-        status.value = 'ready'
-      })
-      .catch(() => {
-        status.value = 'down'
-      })
+      .then(() => {})
+      .catch(() => {})
       .finally(() => {
-        clearTimeout(slow)
         pending = null
       })
     return pending
