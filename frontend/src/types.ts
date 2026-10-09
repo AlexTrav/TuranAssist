@@ -210,4 +210,10 @@ export interface BenchmarkResult {
   histogram: HistogramBucket[]
   sla: Sla
   series: number[]
+  source: 'live' | 'reference' // живой тест или сохранённый замер на Render (после пробуждения сервера)
+  measured_at: string | null // дата сохранённого замера
+  age_seconds: number | null // сколько секунд назад прошёл живой тест
+  next_run_in: number // секунд до следующего запуска – общий кулдаун сервера
+  cooldown_seconds: number
+  cached?: boolean // запуск во время кулдауна – сервер вернул прошлый результат
 }

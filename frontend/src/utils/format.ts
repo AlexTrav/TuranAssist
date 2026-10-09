@@ -27,6 +27,11 @@ export function formatPiece(piece: string): string {
   return piece.replace(/^▁/, '·')
 }
 
+// дата «2026-10-09» -> «9 октября 2026 г.» на языке интерфейса
+export function formatDate(iso: string, locale: AppLocale): string {
+  return new Intl.DateTimeFormat(LOCALES[locale], { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${iso}T12:00:00`))
+}
+
 // длительность в секундах -> «2 ч 05 мин» / «3 мин 12 с» / «45 с» (единицы передаются уже переведёнными)
 export function formatDuration(seconds: number, units: { h: string; m: string; s: string }): string {
   const s = Math.floor(seconds)

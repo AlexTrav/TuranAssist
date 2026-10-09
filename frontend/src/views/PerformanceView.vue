@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { ArrowTrendingUpIcon, BoltIcon, CircleStackIcon, HandThumbUpIcon, RocketLaunchIcon, SignalIcon } from '@heroicons/vue/24/outline'
 import LatencyChart from '../components/LatencyChart.vue'
@@ -7,17 +7,27 @@ import MetricCard from '../components/MetricCard.vue'
 import BenchmarkPanel from '../components/perf/BenchmarkPanel.vue'
 import HistogramChart from '../components/perf/HistogramChart.vue'
 import SlaRing from '../components/perf/SlaRing.vue'
+import { useBenchmark } from '../composables/useBenchmark'
 import { useCountUp } from '../composables/useCountUp'
 import { useLiveMetrics } from '../composables/useLiveMetrics'
-import type { AppLocale } from '../types'
+import type { AppLocale, RecentRequest } from '../types'
 import { formatDuration, formatNumber, formatPercent } from '../utils/format'
 
 const { t, locale } = useI18n()
 const { metrics, error } = useLiveMetrics(3000)
+const { result: bench, when: benchWhen, load: loadBench } = useBenchmark()
 const lang = computed(() => locale.value as AppLocale)
 const RENDER_MEMORY_MB = 512 // лимит памяти бесплатного Render
+onMounted(loadBench)
 
-const total = computed(() => metrics.value?.latency_ms.total ?? null)
+// после пробуждения сервера живых запросов ещё нет – вместо пустых графиков показываем последний нагрузочный тест
+const snapshot = computed(() => (metrics.value && !metrics.value.requests_total && bench.value ? bench.value : null))
+const snapshotPoints = computed<RecentRequest[]>(() =>
+  (snapshot.value?.series ?? []).map((v, i) => ({ ts: i, total_ms: v, model_ms: v, recognized: true })),
+)
+
+const total = computed(() => snapshot.value?.latency_ms ?? metrics.value?.latency_ms.total ?? null)
+const sla = computed(() => snapshot.value?.sla ?? metrics.value?.sla ?? null)
 // числа плавно «досчитываются» к новому значению при каждом обновлении
 const p50 = useCountUp(computed(() => total.value?.p50 ?? null))
 const p95 = useCountUp(computed(() => total.value?.p95 ?? null))
@@ -62,20 +72,37 @@ const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.use
       </div>
     </div>
 
-    <p v-if="metrics && !metrics.requests_total" class="animate-rise mt-8 rounded-2xl border border-primary/30 bg-primary-soft px-5 py-4 text-sm text-ink">
-      {{ t('performance.noRequests') }}
+    <div v-if="metrics && !metrics.requests_total" class="animate-rise mt-8 rounded-2xl border border-primary/30 bg-primary-soft px-5 py-4 text-sm text-ink">
+      {{ snapshot ? t('performance.snapshot') : t('performance.noRequests') }}
       <RouterLink to="/chat" class="link ml-1">{{ t('performance.goChat') }}</RouterLink>
-    </p>
+      <p v-if="snapshot" class="mt-1.5 font-mono text-xs text-muted">{{ benchWhen }}</p>
+    </div>
 
     <!-- ключевые показатели -->
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <MetricCard v-reveal="0" :icon="BoltIcon" :label="t('performance.p50')" :value="fmt(p50)" :unit="t('units.ms')" :hint="t('performance.p50Hint')" accent />
-      <MetricCard v-reveal="1" :icon="ArrowTrendingUpIcon" :label="t('performance.p95')" :value="fmt(p95)" :unit="t('units.ms')" :hint="t('performance.p95Hint')" />
+      <MetricCard
+        v-reveal="0"
+        :icon="BoltIcon"
+        :label="t('performance.p50')"
+        :value="fmt(p50)"
+        :unit="t('units.ms')"
+        :hint="snapshot ? t('performance.snapshotTag') : t('performance.p50Hint')"
+        accent
+      />
+      <MetricCard
+        v-reveal="1"
+        :icon="ArrowTrendingUpIcon"
+        :label="t('performance.p95')"
+        :value="fmt(p95)"
+        :unit="t('units.ms')"
+        :hint="snapshot ? t('performance.snapshotTag') : t('performance.p95Hint')"
+      />
       <div v-reveal="2" class="card flex items-center gap-4 p-5">
-        <SlaRing :share="metrics?.sla.share ?? null" :size="88" />
+        <SlaRing :share="sla?.share ?? null" :size="88" />
         <div>
           <div class="text-sm font-medium text-muted">{{ t('performance.sla') }}</div>
-          <div class="mt-1 text-xs text-faint">{{ t('performance.slaHint', { target: metrics?.sla.target_ms ?? 100 }) }}</div>
+          <div class="mt-1 text-xs text-faint">{{ t('performance.slaHint', { target: sla?.target_ms ?? 100 }) }}</div>
+          <div v-if="snapshot" class="mt-1 text-xs text-faint">{{ t('performance.snapshotTag') }}</div>
         </div>
       </div>
       <MetricCard
@@ -93,21 +120,28 @@ const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.use
         <div class="flex flex-wrap items-center justify-between gap-3">
           <h2 class="font-display font-semibold text-ink">{{ t('performance.chartTitle') }}</h2>
           <div class="flex flex-wrap items-center gap-3 text-xs text-muted">
-            <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary" />{{ t('performance.chartLegendOk') }}</span>
-            <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-gold" />{{ t('performance.chartLegendMiss') }}</span>
+            <span v-if="snapshot" class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary" />{{ t('performance.snapshotLegend') }}</span>
+            <template v-else>
+              <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary" />{{ t('performance.chartLegendOk') }}</span>
+              <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-gold" />{{ t('performance.chartLegendMiss') }}</span>
+            </template>
             <span class="inline-flex items-center gap-1.5"><span class="w-4 border-t-2 border-dashed border-gold" />{{ t('performance.chartLegendP95') }}</span>
           </div>
         </div>
         <div class="mt-6">
-          <LatencyChart v-if="metrics?.recent.length" :points="metrics.recent" :p95="total?.p95" :unit="t('units.ms')" />
+          <LatencyChart v-if="snapshot" :points="snapshotPoints" :p95="total?.p95" :unit="t('units.ms')" />
+          <LatencyChart v-else-if="metrics?.recent.length" :points="metrics.recent" :p95="total?.p95" :unit="t('units.ms')" />
           <p v-else class="py-20 text-center text-sm text-faint">{{ t('performance.chartEmpty') }}</p>
         </div>
       </div>
       <div v-reveal="1" class="card p-5 sm:p-6">
         <h2 class="font-display font-semibold text-ink">{{ t('performance.histTitle') }}</h2>
-        <p class="mt-1 text-xs text-faint">{{ t('performance.histHint', { n: metrics?.window ?? 0 }) }}</p>
+        <p class="mt-1 text-xs text-faint">
+          {{ snapshot ? t('performance.snapshotHist', { n: snapshot.n }) : t('performance.histHint', { n: metrics?.window ?? 0 }) }}
+        </p>
         <div class="mt-6">
-          <HistogramChart v-if="metrics?.window" :buckets="metrics.histogram" :target="metrics.sla.target_ms" />
+          <HistogramChart v-if="snapshot" :buckets="snapshot.histogram" :target="snapshot.sla.target_ms" />
+          <HistogramChart v-else-if="metrics?.window" :buckets="metrics.histogram" :target="metrics.sla.target_ms" />
           <p v-else class="py-16 text-center text-sm text-faint">{{ t('performance.chartEmpty') }}</p>
         </div>
       </div>

@@ -73,6 +73,7 @@ export const api = {
   feedback: (intent: string | null, useful: boolean) =>
     post<{ status: string }>('/api/feedback', { intent, useful }, 10_000),
   benchmark: () => post<BenchmarkResult>('/api/benchmark', {}, 90_000),
+  lastBenchmark: () => request<BenchmarkResult | null>('/api/benchmark', {}, 15_000),
   modelInfo: () => request<ModelInfo>('/api/model-info'),
   metrics: () => request<LiveMetrics>('/api/metrics', {}, 10_000),
   health: (timeoutMs = DEFAULT_TIMEOUT_MS) => request<{ status: string }>('/api/health', {}, timeoutMs),

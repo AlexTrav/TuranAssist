@@ -1,41 +1,38 @@
 <script setup lang="ts">
-import { computed, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { BoltIcon, PlayIcon } from '@heroicons/vue/24/solid'
-import { api, ApiError } from '../../api/client'
-import type { AppLocale, BenchmarkResult } from '../../types'
+import { BoltIcon, ClockIcon, PlayIcon } from '@heroicons/vue/24/solid'
+import { useBenchmark } from '../../composables/useBenchmark'
+import type { AppLocale } from '../../types'
 import { niceMax } from '../../utils/chart'
 import { formatNumber, formatPercent } from '../../utils/format'
 import HistogramChart from './HistogramChart.vue'
 
 // нагрузочный тест по кнопке: сервер прогоняет 100 фраз через модель, здесь результат «проигрывается» –
-// точки-запросы появляются по одной, как шли на сервере
+// точки-запросы появляются по одной, как шли на сервере. Запуск – не чаще раза в 5 минут на весь сервер;
+// до этого показывается последний результат (или сохранённый замер на Render после пробуждения сервера)
 const BENCH_SIZE = 100 // как BENCHMARK_SIZE на бэкенде
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as AppLocale)
+const { result, running, error, cached, nextRunIn, isReference, when, load, run } = useBenchmark()
 
-const state = ref<'idle' | 'running' | 'done' | 'error'>('idle')
-const result = ref<BenchmarkResult | null>(null)
-const errorCode = ref('')
 const elapsed = ref(0)
 let timer: ReturnType<typeof setInterval> | undefined
 
-async function run() {
-  state.value = 'running'
+async function start() {
   elapsed.value = 0
   const started = performance.now()
   timer = setInterval(() => (elapsed.value = (performance.now() - started) / 1000), 100)
   try {
-    result.value = await api.benchmark()
-    state.value = 'done'
-  } catch (err) {
-    errorCode.value = err instanceof ApiError ? err.code : 'network'
-    state.value = 'error'
+    await run()
   } finally {
     clearInterval(timer)
   }
 }
+onMounted(load)
 onUnmounted(() => clearInterval(timer))
+
+const countdown = computed(() => `${Math.floor(nextRunIn.value / 60)}:${String(nextRunIn.value % 60).padStart(2, '0')}`)
 
 const top = computed(() => (result.value ? niceMax(result.value.latency_ms.p99 * 1.15) : 1))
 const dots = computed(() =>
@@ -47,7 +44,7 @@ const dots = computed(() =>
 )
 const slaY = computed(() => (result.value ? 100 - (Math.min(result.value.sla.target_ms, top.value) / top.value) * 100 : 0))
 const errorText = computed(() => {
-  const key = `apiErrors.${errorCode.value}`
+  const key = `apiErrors.${error.value}`
   return t(key) === key ? t('apiErrors.generic') : t(key)
 })
 const ms = (v: number) => `${formatNumber(v, lang.value)} ${t('units.ms')}`
@@ -61,19 +58,23 @@ const ms = (v: number) => `${formatNumber(v, lang.value)} ${t('units.ms')}`
         <p class="font-mono text-xs tracking-wider text-[#36baf2] uppercase">{{ t('performance.benchEyebrow') }}</p>
         <h2 class="mt-3 font-display text-2xl font-bold sm:text-3xl">{{ t('performance.benchTitle') }}</h2>
         <p class="mt-3 leading-relaxed text-white/70">{{ t('performance.benchText', { n: BENCH_SIZE }) }}</p>
-        <button
-          class="btn mt-6 bg-[#36baf2] text-[#0f172a] hover:bg-[#6ec1f0]"
-          :disabled="state === 'running'"
-          @click="run"
-        >
-          <PlayIcon v-if="state !== 'running'" class="h-4 w-4" />
-          <BoltIcon v-else class="h-4 w-4 animate-pulse" />
-          {{ state === 'running' ? t('performance.benchRunning') : state === 'done' ? t('performance.benchAgain') : t('performance.benchRun') }}
+        <button class="btn mt-6 bg-[#36baf2] text-[#0f172a] hover:bg-[#6ec1f0]" :disabled="running || nextRunIn > 0" @click="start">
+          <BoltIcon v-if="running" class="h-4 w-4 animate-pulse" />
+          <ClockIcon v-else-if="nextRunIn > 0" class="h-4 w-4" />
+          <PlayIcon v-else class="h-4 w-4" />
+          <template v-if="running">{{ t('performance.benchRunning') }}</template>
+          <template v-else-if="nextRunIn > 0">{{ t('performance.benchCooldown', { time: countdown }) }}</template>
+          <template v-else>{{ result && !isReference ? t('performance.benchAgain') : t('performance.benchRun') }}</template>
         </button>
-        <p v-if="state === 'error'" class="animate-rise mt-3 text-sm text-[#f07171]">{{ errorText }}</p>
+        <p class="mt-3 text-xs leading-relaxed text-white/45">{{ t('performance.benchCooldownHint') }}</p>
+        <p v-if="error" class="animate-rise mt-3 text-sm text-[#f07171]">{{ errorText }}</p>
+        <p v-else-if="cached" class="animate-rise mt-3 text-sm text-[#ffbb00]">{{ t('performance.benchCached') }}</p>
 
-        <!-- итоговые цифры теста -->
-        <dl v-if="state === 'done' && result" class="mt-8 grid grid-cols-2 gap-x-6 gap-y-5">
+        <!-- итоговые цифры последнего теста -->
+        <dl v-if="result && !running" class="mt-8 grid grid-cols-2 gap-x-6 gap-y-5">
+          <div class="animate-rise col-span-2 flex items-center gap-2 text-xs text-white/55">
+            <span class="h-1.5 w-1.5 rounded-full" :class="isReference ? 'bg-[#ffbb00]' : 'bg-[#62c043]'" />{{ when }}
+          </div>
           <div class="animate-rise">
             <dt class="text-xs text-white/50">{{ t('performance.throughput') }}</dt>
             <dd class="mt-1 font-mono text-2xl text-[#36baf2] tabular-nums">{{ formatNumber(result.throughput_rps, lang, 0) }} <span class="text-sm text-white/50">{{ t('units.rps') }}</span></dd>
@@ -100,14 +101,14 @@ const ms = (v: number) => `${formatNumber(v, lang.value)} ${t('units.ms')}`
 
       <div class="min-h-64 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
         <!-- идёт тест: бегущая полоса и секундомер -->
-        <div v-if="state === 'running'" class="flex h-full min-h-56 flex-col items-center justify-center gap-4">
+        <div v-if="running" class="flex h-full min-h-56 flex-col items-center justify-center gap-4">
           <div class="h-1.5 w-2/3 overflow-hidden rounded-full bg-white/10">
             <div class="indeterminate h-full w-1/3 rounded-full bg-[#36baf2]" />
           </div>
           <span class="font-mono text-3xl tabular-nums">{{ formatNumber(elapsed, lang, 1) }} {{ t('units.s') }}</span>
         </div>
         <!-- результат: каждая фраза – точка; жёлтые медленнее цели; затем гистограмма -->
-        <div v-else-if="state === 'done' && result" class="space-y-5">
+        <div v-else-if="result" :key="result.source + (result.age_seconds ?? 'ref')" class="space-y-5">
           <div class="relative h-36">
             <span class="absolute inset-x-0 border-t border-dashed border-[#ffbb00]/70" :style="{ top: `${slaY}%` }">
               <span class="absolute -top-4 right-0 font-mono text-[10px] text-[#ffbb00]">{{ result.sla.target_ms }} {{ t('units.ms') }}</span>

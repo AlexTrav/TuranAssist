@@ -47,6 +47,10 @@ HISTOGRAM_BUCKETS_MS = (5, 10, 15, 20, 30, 50, 75, 100, 150, 250, 500)
 BENCHMARK_PHRASES_DIR = ROOT / "data" / "phrases" / "test"
 BENCHMARK_SIZE = 100
 BENCHMARK_RATE_LIMIT = "2/minute"
+# общий кулдаун на весь сервер: тест (~6 с на 0,1 CPU) не чаще раза в 5 минут – около 2% процессорного времени
+BENCHMARK_COOLDOWN_SECONDS = 300
+# сохранённый замер на Render – показывается, пока после пробуждения сервера живого теста ещё не было
+BENCHMARK_REFERENCE_PATH = ROOT / "research" / "results" / "render_latency.json"
 FEEDBACK_RATE_LIMIT = "30/minute"
 
 CHAT_RATE_LIMIT = "30/minute"

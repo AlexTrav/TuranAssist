@@ -23,7 +23,7 @@ onMounted(async () => {
 
 // цифры проекта: страницы корпуса (data/corpus/manifest.json), обучающие фразы (data/phrases/train),
 // автотесты бэкенда (pytest) и фронтенда (Vitest) на момент последнего коммита
-const TESTS_TOTAL = 148 + 23 // pytest + Vitest
+const TESTS_TOTAL = 150 + 23 // pytest + Vitest
 const facts = computed(() => [
   { value: '47', label: t('about.factPages') },
   { value: '1166', label: t('about.factPhrases') },

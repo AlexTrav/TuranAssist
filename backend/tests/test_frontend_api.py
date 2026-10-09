@@ -1,4 +1,7 @@
-from app.config import BENCHMARK_SIZE, HISTOGRAM_BUCKETS_MS, SLA_TARGET_MS
+import pytest
+
+from app.config import BENCHMARK_COOLDOWN_SECONDS, BENCHMARK_SIZE, HISTOGRAM_BUCKETS_MS, SLA_TARGET_MS
+from app.metrics.benchmark import Benchmark
 from app.metrics.collector import histogram, rss_mb
 
 
@@ -83,23 +86,49 @@ def test_histogram_buckets():
     assert counts == [2, 1, 1, 1]
 
 
-def test_benchmark_runs_and_does_not_touch_live_metrics(client):
+@pytest.fixture
+def fresh_benchmark(client, classifier):
+    # у каждого теста свой нагрузочный тест: кулдаун и последний результат не зависят от порядка тестов
+    saved = client.app.state.benchmark
+    client.app.state.benchmark = Benchmark(classifier)
+    yield client.app.state.benchmark
+    client.app.state.benchmark = saved
+
+
+def test_benchmark_shows_reference_until_first_run(client, fresh_benchmark):
+    data = client.get("/api/benchmark").json()
+    assert data["source"] == "reference" and data["measured_at"] == "2026-10-09"  # сохранённый замер на Render
+    assert data["next_run_in"] == 0 and data["age_seconds"] is None and len(data["series"]) == BENCHMARK_SIZE
+
+
+def test_benchmark_runs_once_per_cooldown_and_does_not_touch_live_metrics(client, fresh_benchmark):
     before = client.get("/api/metrics").json()["requests_total"]
     data = client.post("/api/benchmark").json()
+    assert data["cached"] is False and data["source"] == "live"
     assert data["n"] == BENCHMARK_SIZE == len(data["series"])
     assert data["throughput_rps"] > 0 and data["latency_ms"]["p50"] > 0
     assert sum(b["count"] for b in data["histogram"]) == BENCHMARK_SIZE
     assert client.get("/api/metrics").json()["requests_total"] == before
+    # повторный запуск во время кулдауна не нагружает модель – возвращается тот же результат
+    again = client.post("/api/benchmark", headers={"X-Forwarded-For": "10.9.9.9"}).json()
+    assert again["cached"] is True and again["series"] == data["series"]
+    assert 0 < again["next_run_in"] <= BENCHMARK_COOLDOWN_SECONDS
+    assert client.get("/api/benchmark").json()["source"] == "live"
 
 
-def test_benchmark_rate_limit_and_busy(client):
-    bench = client.app.state.benchmark
-    bench._lock.acquire()  # имитируем тест, запущенный из другой вкладки
+def test_benchmark_runs_again_after_cooldown(classifier):
+    bench = Benchmark(classifier, size=5, cooldown=0)
+    assert bench.run()["cached"] is False
+    assert bench.run()["cached"] is False
+
+
+def test_benchmark_rate_limit_and_busy(client, fresh_benchmark):
+    fresh_benchmark._lock.acquire()  # имитируем тест, запущенный из другой вкладки
     try:
         resp = client.post("/api/benchmark")
         assert resp.status_code == 409 and resp.json()["detail"]["code"] == "benchmark_busy"
     finally:
-        bench._lock.release()
+        fresh_benchmark._lock.release()
     client.post("/api/benchmark")
     assert client.post("/api/benchmark").status_code == 429
 

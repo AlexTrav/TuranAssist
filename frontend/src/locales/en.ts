@@ -232,6 +232,17 @@ const messages: typeof ru = {
     throughputHint: 'on a single thread',
     p99: 'p99',
     benchSla: '{share} faster than {target} ms',
+    benchAgo: 'Test ran {value} ago',
+    benchJustNow: 'Test ran just now',
+    benchReference: 'Saved Render measurement from {date} – no test has run since the server woke up',
+    benchCooldown: 'Next run in {time}',
+    benchCooldownHint: 'The test runs at most once every 5 minutes for the whole server, so it does not slow down real users.',
+    benchCached: 'The test ran recently – showing the latest result.',
+    snapshot:
+      'No questions since the server woke up – below are the results of the latest load test. Ask a couple of questions in the chat and the metrics will switch to live requests.',
+    snapshotTag: 'load test',
+    snapshotLegend: 'test phrases',
+    snapshotHist: 'load test: {n} phrases in a row',
     note:
       'Metrics live in the server’s memory: after sleeping (15 minutes without requests on free Render) they reset and the first request waits for a cold start. The server has 0.1 CPU and 512 MB of memory; locally in docker-compose – 0.5 CPU.',
   },

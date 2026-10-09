@@ -159,8 +159,15 @@ def feedback(request: Request, body: FeedbackRequest) -> dict:
     return {"status": "ok"}
 
 
-# нагрузочный тест по кнопке: 100 фраз тестового набора подряд через модель; не чаще 2 раз в минуту с IP
-# и не больше одного теста одновременно – сервер на 0,1 CPU
+# последний нагрузочный тест: живой с его возрастом или сохранённый замер на Render (после пробуждения)
+@app.get("/api/benchmark")
+def last_benchmark(request: Request) -> dict | None:
+    return request.app.state.benchmark.last()
+
+
+# нагрузочный тест по кнопке: 100 фраз тестового набора подряд через модель. Защита сервера на 0,1 CPU:
+# не чаще 2 запросов в минуту с IP, один тест одновременно и общий кулдаун 5 минут на весь сервер –
+# во время кулдауна возвращается последний результат (cached), модель не нагружается
 @app.post("/api/benchmark")
 @limiter.limit(BENCHMARK_RATE_LIMIT)
 def benchmark(request: Request) -> dict:
