@@ -191,8 +191,10 @@ onMounted(() => {
       <!-- поле ввода -->
       <form class="border-t border-line bg-page px-4 pt-3 pb-4 sm:px-6" @submit.prevent="submit()">
         <div class="mx-auto max-w-3xl">
+          <!-- во время записи голоса поле подсвечено зелёным: микрофон работает, красный – только ошибки -->
           <div
             class="flex items-end gap-2 rounded-2xl border border-line bg-surface p-2 shadow-sm transition-all duration-300 focus-within:border-primary focus-within:shadow-[0_0_0_4px_var(--primary-soft)]"
+            :class="{ '!border-success !shadow-[0_0_0_4px_color-mix(in_srgb,var(--success)_18%,transparent)]': speech.listening.value }"
           >
             <textarea
               ref="textarea"
@@ -209,13 +211,13 @@ onMounted(() => {
               v-if="speech.supported"
               type="button"
               class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-200 active:scale-90"
-              :class="speech.listening.value ? 'bg-danger text-white' : 'text-muted hover:bg-sand hover:text-ink'"
+              :class="speech.listening.value ? 'bg-success text-white' : 'text-muted hover:bg-sand hover:text-ink'"
               :aria-label="speech.listening.value ? t('chat.voiceStop') : t('chat.voiceStart')"
               :aria-pressed="speech.listening.value"
               :title="t('chat.voiceTitle')"
               @click="toggleVoice"
             >
-              <span v-if="speech.listening.value" class="absolute inset-0 animate-ping rounded-xl bg-danger/40" aria-hidden="true" />
+              <span v-if="speech.listening.value" class="absolute inset-0 animate-ping rounded-xl bg-success/40" aria-hidden="true" />
               <StopIcon v-if="speech.listening.value" class="relative h-5 w-5" />
               <MicrophoneIcon v-else class="h-5 w-5" />
             </button>
@@ -228,7 +230,9 @@ onMounted(() => {
               <ArrowUpIcon class="h-5 w-5" />
             </button>
           </div>
-          <p v-if="speech.listening.value" class="mt-2 text-center text-[11px] text-danger" role="status">{{ t('chat.voiceListening') }}</p>
+          <p v-if="speech.listening.value" class="mt-2 flex items-center justify-center gap-1.5 text-center text-[11px] text-success" role="status">
+            <span class="live-dot h-1.5 w-1.5 shrink-0 rounded-full bg-success" aria-hidden="true" />{{ t('chat.voiceListening') }}
+          </p>
           <p v-else-if="speechError" class="mt-2 text-center text-[11px] text-danger" role="alert">{{ speechError }}</p>
           <p v-else class="mt-2 text-center text-[11px] text-faint">{{ t('chat.hint') }}</p>
         </div>

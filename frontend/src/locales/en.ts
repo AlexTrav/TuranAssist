@@ -150,7 +150,7 @@ const messages: typeof ru = {
     howEyebrow: 'How it works',
     howTitle: 'It does not generate – it understands and answers from the source',
     how1Title: 'Question',
-    how1Text: 'In your own words, with typos, in any of three languages – in the web chat or Telegram.',
+    how1Text: 'In your own words, by text or voice, with typos, in any of three languages – in the web chat or Telegram.',
     how2Title: 'Preprocessing',
     how2Text: 'Tokenization, lemmas, stop words and SentencePiece subwords for the transformer.',
     how3Title: 'Classification',
@@ -245,7 +245,7 @@ const messages: typeof ru = {
     coldStart: 'Model loading',
     coldStartHint: 'at service start, before the first request',
     recognized: 'Recognized',
-    recognizedHint: 'share of questions answered from the knowledge base',
+    recognizedHint: 'an answer from the knowledge base or a topic clarification, not “not understood”',
     rulesTitle: 'How the bot answered',
     rulesHint: 'since server start, questions: {n}',
     rulesEmpty:

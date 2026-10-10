@@ -53,6 +53,12 @@ const breakdown = computed(() => {
     { key: 'other', label: t('performance.other'), value: other, share: other / sum, color: 'bg-gold' },
   ]
 })
+// «Распознано» – бот понял вопрос: ответил из базы или уточнил тему кнопками; не распознан только «не понял»
+const understood = computed(() => {
+  const rules = metrics.value?.rules
+  const n = rules ? Object.values(rules).reduce((a, b) => a + b, 0) : 0
+  return n ? 1 - (rules!.fallback ?? 0) / n : null
+})
 const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.useful + metrics.value.feedback.not_useful : 0))
 </script>
 
@@ -193,7 +199,7 @@ const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.use
         v-reveal="1"
         :icon="SignalIcon"
         :label="t('performance.recognized')"
-        :value="metrics?.recognized_share != null ? formatPercent(metrics.recognized_share, lang) : '–'"
+        :value="understood != null ? formatPercent(understood, lang) : '–'"
         :hint="t('performance.recognizedHint')"
       >
         <p class="mt-2 font-mono text-[11px] text-faint">{{ t('performance.rateLimited', { n: metrics?.rate_limited_total ?? 0 }) }}</p>
