@@ -81,6 +81,23 @@ def test_metrics_histogram_and_sla(client):
     assert data["sla"]["target_ms"] == SLA_TARGET_MS and 0 <= data["sla"]["share"] <= 1
 
 
+# каждое правило ответа считается отдельно: на странице «Производительность» видно, как бот отвечал
+def test_metrics_count_answers_by_rule(client):
+    questions = {"Есть ли общежитие?": "model", "ВТиПО цена": "program", "Гранты": "clarify",
+                 "Магистратура поступление": "search", "фывапролдж": "fallback"}
+    before = client.get("/api/metrics").json()
+    assert set(before["rules"]) == {"model", "tuition_sum", "program", "search", "clarify", "fallback"}
+    for text in questions:
+        chat(client, text)
+    data = client.get("/api/metrics").json()
+    for rule in set(questions.values()):
+        assert data["rules"][rule] == before["rules"][rule] + 1, rule
+    assert [r["rule"] for r in data["recent"][-5:]] == list(questions.values())
+    first = chat(client, "Сколько стоит ВТиПО?")
+    chat(client, "а в магистратуре?", first["context"])
+    assert client.get("/api/metrics").json()["context_total"] == data["context_total"] + 1
+
+
 def test_histogram_buckets():
     counts = [b["count"] for b in histogram([1, 5, 6, 499, 10_000], buckets=(5, 10, 500))]
     assert counts == [2, 1, 1, 1]

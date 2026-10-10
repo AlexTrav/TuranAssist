@@ -124,7 +124,7 @@ def answer_question(classifier: IntentClassifier, knowledge: Knowledge, metrics:
     answer.search = hits.get(used_text) if rule == "search" else None
     total_ms = (time.perf_counter() - start) * 1000
     answer.timing_ms = {**timing, "total": total_ms}
-    metrics.record(total_ms, timing, recognized)
+    metrics.record(total_ms, timing, recognized, rule, context_used)
     # текст вопроса в лог не пишем: в нём могут быть персональные данные пользователя
     logger.info("%s: lang=%s intent=%s programs=%s context=%s conf=%.3f recognized=%s total=%.1fms", channel,
                 lang, intent, ",".join(answer.programs) or "-", context_used, confidence, recognized, total_ms)

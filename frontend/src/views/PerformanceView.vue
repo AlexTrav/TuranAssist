@@ -6,6 +6,7 @@ import LatencyChart from '../components/LatencyChart.vue'
 import MetricCard from '../components/MetricCard.vue'
 import BenchmarkPanel from '../components/perf/BenchmarkPanel.vue'
 import HistogramChart from '../components/perf/HistogramChart.vue'
+import RulesPanel from '../components/perf/RulesPanel.vue'
 import SlaRing from '../components/perf/SlaRing.vue'
 import { useBenchmark } from '../composables/useBenchmark'
 import { useCountUp } from '../composables/useCountUp'
@@ -124,6 +125,7 @@ const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.use
             <template v-else>
               <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary" />{{ t('performance.chartLegendOk') }}</span>
               <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-gold" />{{ t('performance.chartLegendMiss') }}</span>
+              <span class="inline-flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-steel" />{{ t('performance.chartLegendClarify') }}</span>
             </template>
             <span class="inline-flex items-center gap-1.5"><span class="w-4 border-t-2 border-dashed border-gold" />{{ t('performance.chartLegendP95') }}</span>
           </div>
@@ -197,6 +199,9 @@ const feedbackTotal = computed(() => (metrics.value ? metrics.value.feedback.use
         <p class="mt-2 font-mono text-[11px] text-faint">{{ t('performance.rateLimited', { n: metrics?.rate_limited_total ?? 0 }) }}</p>
       </MetricCard>
     </div>
+
+    <!-- как бот ответил: модель, цена программы, умный поиск, уточнение, «не понял» -->
+    <RulesPanel v-reveal class="mt-4" :rules="metrics?.rules ?? null" :context="metrics?.context_total ?? 0" />
 
     <div v-reveal class="mt-10">
       <BenchmarkPanel />

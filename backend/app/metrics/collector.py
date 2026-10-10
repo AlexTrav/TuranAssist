@@ -8,6 +8,10 @@ import numpy as np
 
 from ..config import HISTOGRAM_BUCKETS_MS, LATENCY_WINDOW, SLA_TARGET_MS
 
+# правила, по которым сервис отвечает на вопрос (см. service.answer_question): модель выше порога,
+# сумма интентов стоимости, программа + слова о цене, умный поиск, уточнение темы, «не понял»
+RULES = ("model", "tuition_sum", "program", "search", "clarify", "fallback")
+
 
 @dataclass
 class Sample:
@@ -17,6 +21,7 @@ class Sample:
     tfidf_ms: float
     e5_ms: float
     recognized: bool
+    rule: str = "model"
 
 
 CGROUP_DIR = Path("/sys/fs/cgroup")
@@ -65,16 +70,22 @@ class MetricsCollector:
         self.requests_total = 0
         self.recognized_total = 0
         self.rate_limited_total = 0
+        self.rules = dict.fromkeys(RULES, 0)  # сколько ответов дало каждое правило с запуска
+        self.context_total = 0  # уточнения, понятые вместе с предыдущим вопросом
         self.feedback = {"useful": 0, "not_useful": 0}  # оценки ответов 👍/👎 из веб-чата, без текста вопросов
         self.model_load_seconds: float | None = None
         self.warmup_ms: float | None = None
         self._lock = Lock()
 
-    def record(self, total_ms: float, timing: dict, recognized: bool) -> None:
+    def record(self, total_ms: float, timing: dict, recognized: bool, rule: str = "model",
+               context_used: bool = False) -> None:
         with self._lock:
-            self.samples.append(Sample(time.time(), total_ms, timing["model"], timing["tfidf"], timing["e5"], recognized))
+            self.samples.append(Sample(time.time(), total_ms, timing["model"], timing["tfidf"], timing["e5"],
+                                       recognized, rule))
             self.requests_total += 1
             self.recognized_total += int(recognized)
+            self.rules[rule] = self.rules.get(rule, 0) + 1
+            self.context_total += int(context_used)
 
     def record_feedback(self, useful: bool) -> None:
         with self._lock:
@@ -90,6 +101,7 @@ class MetricsCollector:
             samples = list(self.samples)
             requests, recognized, limited = self.requests_total, self.recognized_total, self.rate_limited_total
             feedback = dict(self.feedback)
+            rules, context = dict(self.rules), self.context_total
         now = time.time()
         return {
             "uptime_seconds": now - self.started_at,
@@ -99,6 +111,8 @@ class MetricsCollector:
             "requests_total": requests,
             "recognized_share": recognized / requests if requests else None,
             "rate_limited_total": limited,
+            "rules": rules,
+            "context_total": context,
             "requests_last_minute": sum(1 for s in samples if now - s.ts <= 60),
             "window": len(samples),
             "latency_ms": {
@@ -114,5 +128,5 @@ class MetricsCollector:
             "feedback": feedback,
             # последние запросы для живого графика на странице «Производительность»
             "recent": [{"ts": s.ts, "total_ms": round(s.total_ms, 2), "model_ms": round(s.model_ms, 2),
-                        "recognized": s.recognized} for s in samples[-recent:]],
+                        "recognized": s.recognized, "rule": s.rule} for s in samples[-recent:]],
         }

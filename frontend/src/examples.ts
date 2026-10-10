@@ -2,9 +2,9 @@ import type { AppLocale } from './types'
 
 // примеры вопросов: стартовые подсказки в пустом чате
 export const EXAMPLE_QUESTIONS: Record<AppLocale, string[]> = {
-  ru: ['Сколько стоит ВТиПО?', 'Какие предметы сдавать на ЕНТ на IT?', 'Есть ли общежитие?', 'Как взять академический отпуск?'],
-  kk: ['Оқу ақысы қанша?', 'Жатақхана бар ма?', 'Магистратураға қалай түсуге болады?', 'Сессия қашан?'],
-  en: ['How much is software engineering?', 'Is there a dormitory?', 'How do I apply for a master’s program?', 'When is the exam session?'],
+  ru: ['Сколько стоит ВТиПО?', 'Какие предметы сдавать на ЕНТ на IT?', 'Есть ли общежитие?', 'Как взять академический отпуск?', 'Гранты', 'ВТиПО цена'],
+  kk: ['Оқу ақысы қанша?', 'Жатақхана бар ма?', 'Магистратураға қалай түсуге болады?', 'Сессия қашан?', 'Гранттар', 'ВТиПО бағасы'],
+  en: ['How much is software engineering?', 'Is there a dormitory?', 'How do I apply for a master’s program?', 'When is the exam session?', 'Grants', 'Software engineering price'],
 }
 
 // карточки групп тем на главной: пример вопроса для перехода сразу в чат

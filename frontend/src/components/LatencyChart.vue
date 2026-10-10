@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { RecentRequest } from '../types'
 import { areaPath, linePath, niceMax, scalePoints } from '../utils/chart'
 
-// задержка последних запросов: линия с заливкой, точки-запросы (жёлтые – «не понял»), пунктир – p95.
+// задержка последних запросов: линия с заливкой, точки-запросы (жёлтые – «не понял», серо-голубые – уточнение темы), пунктир – p95.
 // точки привязаны к времени запроса: новые появляются справа, старые плавно уезжают влево
 const props = defineProps<{ points: RecentRequest[]; p95?: number | null; unit: string }>()
 
@@ -49,7 +49,7 @@ const grid = computed(() => [0.25, 0.5, 0.75, 1].map((k) => ({ y: H - H * k, lab
         v-for="(pt, i) in scaled"
         :key="points[i].ts"
         class="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-surface transition-all duration-700 ease-(--ease-out-quint)"
-        :class="points[i].recognized ? 'bg-primary' : 'bg-gold'"
+        :class="points[i].recognized ? 'bg-primary' : points[i].rule === 'clarify' ? 'bg-steel' : 'bg-gold'"
         :style="{ left: `${(pt.x / W) * 100}%`, top: `${(pt.y / H) * 100}%` }"
       />
     </div>

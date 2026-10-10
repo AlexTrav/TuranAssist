@@ -183,6 +183,7 @@ export interface RecentRequest {
   total_ms: number
   model_ms: number
   recognized: boolean
+  rule?: DecisionRule // правило ответа; у точек нагрузочного теста его нет
 }
 
 // живые метрики сервиса, GET /api/metrics
@@ -194,6 +195,8 @@ export interface LiveMetrics {
   requests_total: number
   recognized_share: number | null
   rate_limited_total: number
+  rules: Record<string, number> // сколько ответов дало каждое правило с запуска сервера
+  context_total: number // уточнения, понятые вместе с предыдущим вопросом
   requests_last_minute: number
   window: number
   latency_ms: {

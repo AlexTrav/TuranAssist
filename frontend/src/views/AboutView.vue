@@ -15,6 +15,7 @@ import {
 } from '@heroicons/vue/24/outline'
 import { api } from '../api/client'
 import ModelBars from '../components/about/ModelBars.vue'
+import ShortQueries from '../components/about/ShortQueries.vue'
 import { LINKS } from '../links'
 import type { AppLocale, ModelInfo } from '../types'
 import { formatNumber } from '../utils/format'
@@ -34,7 +35,7 @@ onMounted(async () => {
 
 // цифры проекта: страницы корпуса (data/corpus/manifest.json), обучающие фразы (data/phrases/train),
 // автотесты бэкенда (pytest) и фронтенда (Vitest) на момент последнего коммита
-const TESTS_TOTAL = 179 + 32 // pytest + Vitest
+const TESTS_TOTAL = 180 + 34 // pytest + Vitest
 const facts = computed(() => [
   { value: '47', label: t('about.factPages') },
   { value: '1166', label: t('about.factPhrases') },
@@ -110,6 +111,14 @@ const stack = [
     </div>
     <div v-else class="card mt-8 h-72 animate-pulse bg-sand/50" />
 
+    <!-- короткие запросы: эффект правил и умного поиска без переобучения модели -->
+    <h2 v-reveal class="display-title mt-20 text-3xl">{{ t('about.shortTitle') }}</h2>
+    <p v-reveal class="mt-3 max-w-3xl text-muted">{{ t('about.shortSubtitle') }}</p>
+    <div class="card mt-8 p-6 sm:p-8">
+      <ShortQueries />
+      <p class="mt-8 max-w-3xl text-sm leading-relaxed text-muted">{{ t('about.shortNote') }}</p>
+    </div>
+
     <div class="mt-20 grid gap-10 lg:grid-cols-2">
       <section v-reveal>
         <h2 class="display-title text-2xl">{{ t('about.stackTitle') }}</h2>
@@ -120,7 +129,7 @@ const stack = [
       <section v-reveal="1">
         <h2 class="display-title text-2xl">{{ t('about.limitsTitle') }}</h2>
         <ul class="mt-5 space-y-3">
-          <li v-for="n in 4" :key="n" class="flex gap-3 text-[15px] leading-relaxed text-muted">
+          <li v-for="n in 5" :key="n" class="flex gap-3 text-[15px] leading-relaxed text-muted">
             <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />{{ t(`about.limit${n}`) }}
           </li>
         </ul>
